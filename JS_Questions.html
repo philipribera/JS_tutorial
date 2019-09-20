@@ -27,14 +27,22 @@
 			color: rgb(242, 147, 38);
 			margin: 12px 0 32px 0;
 	   }
-	   p, i {			
-			display: block;
+	   h1 {
+			font-size: 2.1rem;
+	   }
+	   h3 {
+			font-size: 1.55rem;
+	   }
+	   i {			
+			display: block;						
+	   }   
+		p,i {
+			line-height: 1.5rem;
 			color: rgb(35,35,35);
-			line-height: 1.5em;
-	   }       
+		}	   
 	   code {
-			font-size: 1.15em;
-			line-height: 1.42em;
+			font-size: 1.15rem;
+			line-height: 1.42rem;
 			color: rgb(20, 64, 86);
 	   }
 	   .tutorial-part {
@@ -42,14 +50,15 @@
            padding: 30px;
            border: 2px solid rgb(202, 202, 202);
        }	   
-	   span {
-			margin: 14px 0 22px 14px;
+	  
+	   .example {
+			margin: 22px 0 22px 14px;
 	   }
 	   .code-container {
 			width: 84%;
 			background-color: rgb(12,12,12);
 			color: white;
-			padding: 16px;
+			padding: 20px 16px;
 			margin: 14px 0;
 	   }
 	   .code-container code, .code-container i {
@@ -58,8 +67,10 @@
 	   .code-container i b {
 			color: rgb(247,247,247);
 	   }
-	   
-	   
+	   .code-container div {
+			margin-left: 14px;
+	   }
+	  	   
 	   @media only screen and (max-width: 1280px) {
 			.wrapper {
 				width: 85%;
@@ -80,8 +91,16 @@
 			}
 			.code-container {
 				width: 100%;
-			}						
-	   }
+			}	
+			h1 {
+				font-size: 2rem;
+			}
+			h3 {
+				font-size: 1.45rem;
+			}	
+			code {
+				font-size: 1.1rem;			
+			}
 	   
 	   @media only screen and (max-width: 498px) {
 	       .wrapper {		   
@@ -98,7 +117,7 @@
    <div class="wrapper">
        <div class="tutorial-part">
            
-           <h1>Common Javascript Questions</h1>           		   
+           <h1>Javascript Questions & Features</h1>           		   
 		   <br>
 			<h3>Type Conversion</h3>
 			<div class="example">
@@ -109,13 +128,13 @@
 			8-"2"*3 <br>
 			(4 + true + "2")/5 <br>			
 			4*(3-2)/false <br>	
-			Boolean("Hi") <br>
+			Boolean("") <br>
 			true == "1" <br>
 			44%10 > 2<br>			
 			"0" == false <br>			
 			10 - "KYH" <br>
 			(1 === 1 && "Hello") </code>
-			<b>// "Hello" is here a 'truthy' value. What does it mean?</b>
+			<b>// "Hello" is converted to a 'truthy' value. What does it mean?</b>
 			</div>						
 			</div><br>
 			
@@ -138,8 +157,8 @@
 					1)<br>
 				   var testScope = function() <br>
 					{							<br>
-					console.log(y);				<br>
-					var y = 1;					<br>
+					<div>console.log(y);</div>
+					<div>var y = 1;	</div>	
 				   }							<br>
 				   testScope();					<br>
 				</code>			
@@ -150,8 +169,8 @@
 					var y = 2;						<br>
 													<br>
 					var testScope = function() { 	<br>
-						console.log(y);				<br>
-						var y = 1;					<br>
+					<div>console.log(y);	</div>	
+					<div>var y = 1;		</div>	
 					}								<br>
 					testScope();					<br>
 					<br>
@@ -164,14 +183,14 @@
 					var y = 2;						<br>
 													<br>
 					var testScope = function() { 	<br>
-						console.log(y);				<br>					
+					<div>	console.log(y);</div>						
 					}								<br>
 					testScope();					<br>
 					</code>	
 					</div>
 			</div><br>
 			<br>
-           
+		   
            <h3>Declaring variables and the concept of 'undefined'</h3>
 		   <div class="example">
            <i>What is the difference between 'var' and 'let'?</i>	   
@@ -267,7 +286,7 @@
 			</div>			
 			
 			<i><b>How come we can use properties and methods on strings as with objects?</b></i>           
-			<i>Note: We can use console.dir() to get more info about the constructor</i><br>			
+			<i>Note: We can use console.dir() to get more info about the constructor</i>			
 			</div><br>
 			
 		   <h3>FizzBuzz</h3>
@@ -314,7 +333,7 @@
            <h2>ES6 features</h2>
            <i>Show with examples when necessary</i><br>
            <h4>Arrow functions</h4>
-			<i>+ explain the importance of arrow function and key word 'this' in <b>React</b></i>
+			<i>+ explain the importance of key word 'this' when used inside an arrow function</i>
 			<br><br>
 		
 			<h3>Higher order functions</h3>
@@ -336,12 +355,7 @@
            <h4>for/of</h4>
 		   </div>
            <br>
-		   
-		   <h3>Spread and Rest Operator</h3>
-		   <div class="example">
-           <p>Explain; when to use, with examples</p>
-		   </div><br>
-		   
+		  		   
 		   <h3>Template Literals</h3>
 		   <div class="example">
 		   <i>Console log a sentence that has two embedded variables and one expression</i>
@@ -349,23 +363,57 @@
 		   </div>
 		   <br>
 		   
+		   <h3>Classes</h3>
+		   <div class="example">
+			
+			<i>Rewrite the constructor function with ES6 alt ES7 class syntax</i>
+			<i>+ Add a method that returns all the class properties</i>
+			<div class="code-container">
+			<code>
+			<span>let Person = function(name,gender,age) {	</span><br>
+			<div>this.name = name;				</div>
+			<div>this.gender = gender;			</div>
+			<div>this.age = age;				</div>
+			<span>};							</span></br>
+			<br>
+						
+			class Person {								<br>
+				constructor(name,gender,age) {			<br>
+					this.name = name;					<br>
+					this.gender = gender;				<br>
+					this.age = age;						<br>
+				}										<br>
+			}											<br>
+			</code>			
+			</div>			
+		   </div><br>
+		   
+		    
+		   <h3>Spread and Rest Operator</h3>
+		   <div class="example">
+           <p>Explain; when to use, with examples</p><br>
+		   <i>Use the spread operator to copy the properties of an object into a new object.<i>
+			<i>Explain the importance/difference of using the spread operator vs just copying the reference of an existing object to a new variable?<i>
+			<i>Tip: What happens with the new object when the original object is changed?</i>			
+		   </div><br>		   
+		   
 		   <h3>Destructuring + Default values</h3>
 		   		   
 		   <div class="example">
 		   <i><b>Pass the car object values to the showCar function</b></i>
-		   
+		   <i>Note: the function must cope with an unknown numbers of arguments</i>
 		   <div class="code-container">
 		   <code>	   
 		   car = { model: "Volvo", color: "blue", year: "2018" } <br><br>
+			???	<br>
 			
-			showCar = (???)=> {							<br>
-			<span>const carFeatures = [];		</span><br>
-			<span>	???				</span><br>
-			<span>	return carFeatures;	</span><br>
-			}	<br>			
-			showCar(car); // Display car features/values
-			</code>
-			</div>						
+			showCar = (???)=> {			<br>			
+			<div>return ???;			</div>
+			}							<br>			
+			showCar(???); // Display car features/values
+			</code>			
+			</div>				
+			<i>Tip: the passed arguments list is an Array-like object</i> 			
 		   <br>
 				
 		   <i><b>What do we get?</b></i>
@@ -418,7 +466,9 @@
 		    <i>Extra 1; Good, now show an alternative solution</i>			
 			<i>Extra 2; extend your original answer and get the length(quantity) of the properties</i>
 			<i>Extra 3; For what can you use the constructor method 'hasOwnProperty' and what will it return?</i><br> 
-						
+				
+			<i>Note: The Object.keys/values will return an array</i>			
+			<i>Note: The Object.entries returns an array of arrays</i>			
 			<i>Note: 1) Can be done with for/in as well but then it will also show props that are inherited by the prototype</i>
 			<i>Note: 2) The length property on the Object constructor will return undefined</i>
 			<i>Note: 3) It will return(true) all declared properties even those with no value</i>
@@ -427,6 +477,23 @@
 	   </div>
 	   </div>
        <script>		
+			
+			car = { model: "Volvo", color: "blue", year: "2018" }
+			
+			//let foo = Object.values(car);			
+			const { model, color, year } = car; 
+			
+			showCar = (...args)=> {
+				//console.log(Array.isArray(args));
+				//const carFeatures = [...args];				
+				return args.map(feature => console.log(feature));		
+			}
+			showCar( model, color, year );	   
+					
+					const letters = ["A","B","C"];
+					[,,t3] = letters;
+					console.log(t3);
+					
 	   </script>
 	   </body>
 	   </html>
