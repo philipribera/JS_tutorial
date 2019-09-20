@@ -1,5 +1,5 @@
-# JS_tutorial
-Easy to use tutorials.
+# Description
+Easy to use Javascript tutorial.
 Free to use.
 
 # Getting Started
@@ -12,5 +12,5 @@ Only thing needed is a simple editor and a browser.
 # Version 
 Ver1.0
 
-#Author/Contributor
+# Author/Contributor
 Philip Ribera
