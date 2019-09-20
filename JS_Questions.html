@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Javascript Questions</title>
+   <style>
+		*  {
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+		}
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			background-color: #d4d4d4;
+		}
+		
+       .wrapper {
+           width: 72%;
+           background-color: rgb(240, 240, 240);
+           color: rgb(35, 35, 35);
+           padding: 24px;
+           margin: 0 auto;
+       }
+	   h1, h2, h3 {
+			color: rgb(242, 147, 38);
+			margin: 12px 0 32px 0;
+	   }
+	   p, i {			
+			display: block;
+			color: rgb(35,35,35);
+			line-height: 1.5em;
+	   }       
+	   code {
+			font-size: 1.15em;
+			line-height: 1.42em;
+			color: rgb(20, 64, 86);
+	   }
+	   .tutorial-part {
+           background-color: rgb(250, 252, 252);
+           padding: 30px;
+           border: 2px solid rgb(202, 202, 202);
+       }	   
+	   span {
+			margin: 14px 0 22px 14px;
+	   }
+	   .code-container {
+			width: 84%;
+			background-color: rgb(12,12,12);
+			color: white;
+			padding: 16px;
+			margin: 14px 0;
+	   }
+	   .code-container code, .code-container i {
+			color: rgb(74, 249, 105);
+	   }
+	   .code-container i b {
+			color: rgb(247,247,247);
+	   }
+	   
+	   
+	   @media only screen and (max-width: 1280px) {
+			.wrapper {
+				width: 85%;
+				padding: 18px 14px;
+			}	
+			.code-container {
+				width: 92%;
+			}				
+	   }
+	   
+	   @media only screen and (max-width: 990px) {
+			.wrapper {
+				width: 94%;
+				padding: 18px 14px;
+			}			
+			.tutorial-part {
+	           padding: 20px;
+			}
+			.code-container {
+				width: 100%;
+			}						
+	   }
+	   
+	   @media only screen and (max-width: 498px) {
+	       .wrapper {		   
+				width: 100%;				
+				padding: 12px;
+			}	
+			.tutorial-part {
+	           padding: 14px;
+			}			
+	   }
+   </style>
+</head>
+<body>
+   <div class="wrapper">
+       <div class="tutorial-part">
+           
+           <h1>Common Javascript Questions</h1>           		   
+		   <br>
+			<h3>Type Conversion</h3>
+			<div class="example">
+		   	<i><b>What do we get?</b></i>		
+			<div class="code-container">
+			<code>
+			4 + "2"	<br>					
+			8-"2"*3 <br>
+			(4 + true + "2")/5 <br>			
+			4*(3-2)/false <br>	
+			Boolean("Hi") <br>
+			true == "1" <br>
+			44%10 > 2<br>			
+			"0" == false <br>			
+			10 - "KYH" <br>
+			(1 === 1 && "Hello") </code>
+			<b>// "Hello" is here a 'truthy' value. What does it mean?</b>
+			</div>						
+			</div><br>
+			
+		   <h3>Global vs function scope</h3>
+		   <div class="example">
+		   <i>Explain concepts</i>
+		   <i>Explain 'lexical scope' in Javascript</i><br>	   		
+		   </div>
+           <br>
+		   
+		   <h3>Hoisting</h3>
+			<div class="example">	
+				<i>Explain the concept</i>
+				<i>Including the behaviour of function -expressions vs -declarations when it comes to hoisting</i>
+				<br>
+				
+				<i><b>Check: </b></i>
+				<div class="code-container">
+				<code>
+					1)<br>
+				   var testScope = function() <br>
+					{							<br>
+					console.log(y);				<br>
+					var y = 1;					<br>
+				   }							<br>
+				   testScope();					<br>
+				</code>			
+				<br>
+				<code>
+					---------------<br>
+					2)<br>
+					var y = 2;						<br>
+													<br>
+					var testScope = function() { 	<br>
+						console.log(y);				<br>
+						var y = 1;					<br>
+					}								<br>
+					testScope();					<br>
+					<br>
+					</code>
+					<i><b>// Variable declarations are hoisted inside functions as well</b></i>			
+
+					---------------<br>
+					<code>
+					3)<br>
+					var y = 2;						<br>
+													<br>
+					var testScope = function() { 	<br>
+						console.log(y);				<br>					
+					}								<br>
+					testScope();					<br>
+					</code>	
+					</div>
+			</div><br>
+			<br>
+           
+           <h3>Declaring variables and the concept of 'undefined'</h3>
+		   <div class="example">
+           <i>What is the difference between 'var' and 'let'?</i>	   
+           <i>When do we use 'const'?</i>
+		   <i>Explain the concept of 'undefined' when it comes to variables</i>
+		   <i>Explain the difference between 'undefined' and 'null'.</i>		   
+		   <br>
+		   		   
+		   <i><b>Understanding 'undefined'</b></i>		   
+		   
+		   <div class="code-container">
+		   <code>
+		   let a; // This will give 'a' the value undefined.
+		   </code>
+		   <i><b>// But we can also do this</b></i>		   
+		   <code>
+		   let a = undefined;	// we declare 'a' and assign it the value 'undefined'<br>		   
+		   typeof(a) --> 'undefined'	<br>
+		   a = "New value";	// we assign a new value to 'a'		<br>
+		   </code><br>		   
+		   
+		   <i><b>// If we try to use a variable before being declared</b></i>
+		   <code>
+			console.log(a);		// Gives a reference error	<br>
+			</code><br>
+			</div>			
+			
+			<i>Notes: 'undefined' is of datatype 'undefined' and a so called 'falsy' value.<br> 
+			Important: 'falsy' is not the same as 'false'. The latter being of datatype Boolean.<br>
+			Undefined is <b>not an error</b> in it self, tough it's often the cause of errors/bugs.</i>
+		   <i>Javascript will automatically assign 'undefined' to a variable that are not initialized. </i><br><br>
+			
+			<i><b>Typeof 'null'</b></i> 
+			<div class="code-container">
+			<code>
+			let b = null;							<br>
+			typeof b --> object 	// null basically means empty object<br>			
+		   </code><br>		   
+		   </div>
+		   <i>Note: An easy way to check if an object is empty is to check the length of the 'keys' property in the Object constructor</i>
+		   		   
+		   <i>Note: If the purpose is to give a variable no/empty value it can be given the value 'null'.</i>	
+			<i>See more,  https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in 		   
+           <br>   
+		   </div><br>
+		   			
+			<h3>Primitive Types</h3>
+		   <div class="example">
+			<i><b>What are primitive types?</b></i>           
+		    <i>Understanding the above lets proceed</i>
+		   		   
+		   <i><b>Primitive types are immutable! But what does it really mean...?</b></i>		  
+		   <div class="code-container">
+		   <code>
+			<i>let foo = "Hello World"</i>			
+			<i>foo.toUpperCase() --> 'HELLO WORLD' // we use a method on foo</i>	
+			<i>console.log(foo) --> 'Hello World'  // but the original value is unchanged </i><br>
+			</code>
+						
+			<i><b>// We can do this</b></i>
+			<code> console.log(foo[0]) --> H // we get the 1st character
+			</code>			
+			<i><b>// But not this...</b></i><code> foo[0] = "T" -->	"Hello World" // value doesn't change
+			</code>
+			</div>
+			<i>Assigning a value to a variable gives it a new value, does not mutate the original value as with objects</i>
+			<i>Noteworthy; in <b>React</b> 'props'(the object) can not be mutated, by design...</i><br>
+			<i>See more; https://developer.mozilla.org/en-US/docs/Glossary/Primitive</i>
+			<i>More about objects passed by reference not by copy; </i> 
+			<i>https://stackoverflow.com/questions/16880418/javascript-pas</i>
+		   
+			</div><br>
+			
+			<h3>Usage of common String and Array methods</h3>
+			<div class="example">
+           
+			<b>Explain and show how to use these methods.</b>
+			<p>push, split, slice, join, sort, indexOf, charAt</p><br>
+		   
+		   <i><b>What does this gives us?</b></i>
+			
+			<div class="code-container">
+			<code>		   
+		    let greet = new String("Hello")<br>		  
+			typeof greet <br>		   		   
+			let str = "KYH Frontend" <br>
+			typeof str <br>
+			str.charAt(1) <br>
+			str.constructor <br>
+			let bar = str.split(" ") <br>			
+			bar[1] 
+			</code><br>
+			</div>			
+			
+			<i><b>How come we can use properties and methods on strings as with objects?</b></i>           
+			<i>Note: We can use console.dir() to get more info about the constructor</i><br>			
+			</div><br>
+			
+		   <h3>FizzBuzz</h3>
+		   <div class="example">
+		   <i>Pretty common question(worth to google it...) present if possible 2 solutions</i>
+           <p>Iterate over a 100 numbers.<br>
+		   When modulus 3 (remainder 0) return Buzz and when modulus 5 return Fizz.<br>
+		   If both modulus 3 and 5 return FizzBuzz.</p>
+			</div>
+			<br>
+
+			<h3>Promises</h3>	
+			<div class="example">
+			<i>Explain promises in Javascript</i> 
+			</div><br>	
+			
+			<h3>Closures</h3>	
+			<div class="example">
+			<i>Explain closures in Javascript</i> 
+			</div><br>	
+							
+			<h3>Duplicate an array</h3>
+			<div class="example">
+			<i>Show how to do it with ES6 as well as the old way</i>	
+			</div><br>
+			
+			<h3>Sort an array with numerical values</h3>             			
+		   <div class="example">
+			<p>let numbers = [114,22,4,5,11,41]</p>
+			</div>
+		   <br>
+						   
+           <h3>Remove Duplicates from an array</h3>
+   		   <div class="example">
+           <i>Show if possible two ways to remove duplicates from an array</i>
+		   <i>Extra: If not done already, use the 'Object constructor' to remove the duplicates</i>
+		   <i>Note: The results most consist of an array</i><br>
+   		   <i>Tip: ES6 datatype 'Set' can only hold unique values</i>            
+		   </div><br>
+		</div><br>           	   
+		   
+		<div class="tutorial-part">
+
+           <h2>ES6 features</h2>
+           <i>Show with examples when necessary</i><br>
+           <h4>Arrow functions</h4>
+			<i>+ explain the importance of arrow function and key word 'this' in <b>React</b></i>
+			<br><br>
+		
+			<h3>Higher order functions</h3>
+			<div class="example">
+            <h4>map</h4>
+			<i>+ what is the main difference between forEach and map?</i>           
+		    <h4>filter</h4>		   		   
+            <h4>reduce</h4><br>		 
+		    <i>Note: These methods do not mutate/change the orignal array (in general a good thing!)</i>
+
+			</div>		   
+            <br>
+		   		   
+		   <h3>Loops and Iteration</h3>
+		   <div class="example">
+           <i>New ways to iterate/loop; explain how and when to use with examples</i><br>
+           <h4>forEach</h4>
+           <h4>for/in</h4>
+           <h4>for/of</h4>
+		   </div>
+           <br>
+		   
+		   <h3>Spread and Rest Operator</h3>
+		   <div class="example">
+           <p>Explain; when to use, with examples</p>
+		   </div><br>
+		   
+		   <h3>Template Literals</h3>
+		   <div class="example">
+		   <i>Console log a sentence that has two embedded variables and one expression</i>
+		   <i>Goes without saying: Do not use concatenation</i>
+		   </div>
+		   <br>
+		   
+		   <h3>Destructuring + Default values</h3>
+		   		   
+		   <div class="example">
+		   <i><b>Pass the car object values to the showCar function</b></i>
+		   
+		   <div class="code-container">
+		   <code>	   
+		   car = { model: "Volvo", color: "blue", year: "2018" } <br><br>
+			
+			showCar = (???)=> {							<br>
+			<span>const carFeatures = [];		</span><br>
+			<span>	???				</span><br>
+			<span>	return carFeatures;	</span><br>
+			}	<br>			
+			showCar(car); // Display car features/values
+			</code>
+			</div>						
+		   <br>
+				
+		   <i><b>What do we get?</b></i>
+		   <div class="code-container">
+		   	<code>	   		   
+		   <span>const add = (a, b=5, c) => a + b</span><br>	   		   
+		   <span>add(4)</span>
+		   <br>
+		   </code>
+		   </div>		   
+		   <i><b>Destructure (only) the last item from the array</b></i>  
+		   <div class="code-container">
+		   <code>
+		   	<span>const letters = ["A","B","C"]	</span>
+		   </code>
+		   <br>
+		   </div>
+		   
+		   <i><b>What is the value of variables; a,b,c,d ?</b></i>
+		   <div class="code-container">
+		   <code>
+		   <span>numberArr = [12,4,7]	</span><br>	   
+			<span>const [a=5,, c, d=12] = [...numberArr] </span>	   	
+			</code>
+			</div>
+			
+			<i><b>How can this be fixed without declaration?</b></i>
+			<div class="code-container">
+			<code>
+			<span>{a, b} = { a: "Hello", b: "World" }
+			// 'unexpected token...'</span></code>
+			</div><br>						
+		   </div>
+		           
+		   <h3>Array constructor method</h3>
+		   <div class="example">		   
+           <i><b>Array.from(), Explain what it does</b></i><br>		   
+			<i>Extra 1: Use the Array.from() callback/mapfunction to manipulate each item</i>					   
+		   <i>Extra 2: How can you check if a passed value is an array?</i>
+		   <i>Extra 3: What does it mean when you do a 'shallow copy' of an existing array or object?</i><br>
+		   <i>Note: it must be an iterable instance</i>
+		   <i>Note: it also works for nodelists and HTML collections.</i>	
+	   	</div><br>
+			
+	   <h3>The 'Object constructor'</h3>
+		<div class="example">
+			<i><b>Get the keys and values in the object below</b></i><br>
+		    <i>myObj2 = { str1: "Hello", str2: "World" }</i><br>
+			
+		    <i>Extra 1; Good, now show an alternative solution</i>			
+			<i>Extra 2; extend your original answer and get the length(quantity) of the properties</i>
+			<i>Extra 3; For what can you use the constructor method 'hasOwnProperty' and what will it return?</i><br> 
+						
+			<i>Note: 1) Can be done with for/in as well but then it will also show props that are inherited by the prototype</i>
+			<i>Note: 2) The length property on the Object constructor will return undefined</i>
+			<i>Note: 3) It will return(true) all declared properties even those with no value</i>
+        </div>
+	   <br>	  
+	   </div>
+	   </div>
+       <script>
+
+	   
+    car = { model: "Volvo", color: "blue", year: "2018" };
+    carBmw = { model: "BMW", color: "Silver", year: "2019", Convertible: true };
+	
+	//const {model: md, color: cl, year: yr } = car;
+	myCar = Object.values(car);	
+		
+	showCar = ( ...arguments ) => {	
+		//console.log(model,color,year);
+		//console.log(Object.values(...car));
+		const carFeatures = [...arguments];
+		//carFeatures.push(Object.values(...car));
+		//let myArr = Array.from(carFeatures);
+		//let foo = [ ...myArr ];	
+		return carFeatures.forEach( feature => console.log(feature));		
+	}
+	showCar(myCar);
+	
+	car = ["BMW", "Silver","2019"]	
+	
+	const [,,year] = car;
+	console.log(year);
+		
+	   </script>
+	   </body>
+	   </html>
