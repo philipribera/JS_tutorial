@@ -426,31 +426,7 @@
 	   <br>	  
 	   </div>
 	   </div>
-       <script>
-
-	   
-    car = { model: "Volvo", color: "blue", year: "2018" };
-    carBmw = { model: "BMW", color: "Silver", year: "2019", Convertible: true };
-	
-	//const {model: md, color: cl, year: yr } = car;
-	myCar = Object.values(car);	
-		
-	showCar = ( ...arguments ) => {	
-		//console.log(model,color,year);
-		//console.log(Object.values(...car));
-		const carFeatures = [...arguments];
-		//carFeatures.push(Object.values(...car));
-		//let myArr = Array.from(carFeatures);
-		//let foo = [ ...myArr ];	
-		return carFeatures.forEach( feature => console.log(feature));		
-	}
-	showCar(myCar);
-	
-	car = ["BMW", "Silver","2019"]	
-	
-	const [,,year] = car;
-	console.log(year);
-		
+       <script>		
 	   </script>
 	   </body>
 	   </html>
