@@ -7,7 +7,7 @@ Copy the file or code and save it with extension html.
 Nothing more is needed
 
 # Prerequisites
-Only thing needed is a simple editor and a browser.
+Only thing needed is an editor and a browser.
 
 # Version 
 Ver1.0
