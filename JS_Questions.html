@@ -552,37 +552,7 @@
 	   
 	   </div>
        <script>		
-			
-			car = { model: "Volvo", color: "blue", year: "2018" }
-			
-			//let foo = Object.values(car);			
-			const { model, color, year } = car; 
-			
-			showCar = (...args)=> {
-				//console.log(Array.isArray(args));
-				//const carFeatures = [...args];				
-				return args.map(feature => console.log(feature));		
-			}
-			showCar( model, color, year );	   
-					
-					const letters = ["A","B","C"];
-					[,,t3] = letters;
-					console.log(t3);
-
-			
-			let numbers = [114,22,4,5,11,41]
-			let maxNum = 0;
-							
-			for( let num of numbers ) {
-					if( num > maxNum ) {
-						maxNum = num;
-					}				
-				}
-			
-			console.log( (maxNum) );
-			console.log( numbers.sort( (a,b)=> a-b ) )
-			
-								
+										
 			/*
 			The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
 			
