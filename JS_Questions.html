@@ -14,9 +14,8 @@
 		body {
 			font-family: Arial, Helvetica, sans-serif;
 			background-color: #d4d4d4;
-		}
-		
-       .wrapper {
+		}		
+       .wrapper {			
            width: 72%;
            background-color: rgb(240, 240, 240);
            color: rgb(35, 35, 35);
@@ -45,6 +44,17 @@
 			line-height: 1.42rem;
 			color: rgb(20, 64, 86);
 	   }
+	   button {
+			background: rgb(222,222,222);
+			padding: 4px 6px;;					
+	   }
+	   a {
+			font-size: 1rem;
+			font-weight: 600;
+			cursor: pointer;
+			text-decoration: none;
+			color: rgb(42, 96, 117);			
+	   }
 	   .tutorial-part {
            background-color: rgb(250, 252, 252);
            padding: 30px;
@@ -68,8 +78,8 @@
 	   }
 	   .code-container div {
 			margin-left: 14px;
-	   }
-	  	  
+	   }	  	 
+		  
 		/*** MEDIA QUERIES ***/	
 	   @media only screen and (max-width: 1280px) {
 			.wrapper {
@@ -123,9 +133,8 @@
 </head>
 <body>
    <div class="wrapper">
-       <div class="tutorial-part">
-           
-           <h1>Javascript Fundamentals with Questions</h1>           		   
+       <div class="tutorial-part">           
+           <h1 id="top">Javascript Fundamentals with Questions</h1>   				
 		   <br>
 			<h3>Type Coercion & Comparisons</h3>
 			<div class="example">
@@ -237,7 +246,7 @@
 			
 			<i>Notes: 'undefined' is of datatype 'undefined' and a so called 'falsy' value.<br> 
 			Important: 'falsy' is not the same as 'false'. The latter being of datatype Boolean.<br>
-			Undefined is <b>not an error</b> in it self, tough it's often the cause of errors/bugs.</i>
+			'undefined' is <b>not an error</b> in it self, tough it's often the cause of errors/bugs.</i>
 		   <i>Javascript will automatically assign 'undefined' to a variable that are not initialized. </i><br><br>
 			
 			<i><b>Typeof 'null'</b></i> 
@@ -249,8 +258,8 @@
 		   </div>
 		   <i>Note: An easy way to check if an object is empty is to check the length of the 'keys' property in the Object constructor</i>
 		   		   
-		   <i>Note: If the purpose is to give a variable no/empty value it can be given the value 'null'.</i>	
-			<i>See more,  https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in 		   
+		   <i>Note: If the purpose is to give a variable an empty value it can be given the value 'null'.</i>	
+			<i>See more;  https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in 		   
            <br>   
 		   </div><br>
 		   			
@@ -321,16 +330,19 @@
 			
 			<div class="code-container">
 			<code>		   
-		    let greet = new String("Hello")<br>		  
-			typeof greet <br>		   		   
-			let str = "KYH Frontend" <br>
-			typeof str <br>
-			str.charAt(1) <br>
-			str.constructor <br>
-			let bar = str.split(" ") <br>			
-			bar[1]					<br> 
-			let foo = bar.join(",")			<br>
-			typeof foo			
+		    let greet = new String("Hello")	<br>		
+			greet.charAt(greet.length-1)	<br>	
+			typeof greet 					<br>		   		   
+			let str = "KYH Frontend" 		<br>
+			typeof str 						<br>
+			str.indexOf("F")				<br>			
+			let bar = str.split(" ")		<br>
+			typeof bar 						<br>
+			bar.push("Nacka")				<br>			
+			bar[2]							<br> 
+			let foo = bar.join(" ")			<br>			
+			typeof foo						<br>
+			foo.constructor 				<br>
 			</code><br>
 			</div>			
 			
@@ -526,6 +538,10 @@
         </div>
 	   <br>	  
 	   </div>
+	   
+	   <div class="go-top"><button><a href="#top">To the Top</a></button><br>
+	   </div>
+	   
 	   </div>
        <script>		
 			
@@ -544,6 +560,21 @@
 					const letters = ["A","B","C"];
 					[,,t3] = letters;
 					console.log(t3);
+			
+			let str = "KYH Frontend"
+			console.log("IndexOf: ", str.indexOf("F"))
+			typeof str
+			console.log(str.charAt(1))
+			let bar = str.split(" ")
+			bar.push("Nacka")
+			console.log(bar);
+			console.log(typeof bar)
+			console.log(bar[2])
+			let foo = bar.join(" ")
+			console.dir(foo.constructor)
+			console.log(typeof foo)
+			console.log(foo);
+								
 			/*
 			The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
 			
