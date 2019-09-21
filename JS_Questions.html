@@ -265,12 +265,13 @@
 		   			
 			<h3>Primitive Types</h3>
 		   <div class="example">
-			<i><b>What are primitive types?</b></i>           
-		    <i>Understanding the above lets proceed</i>		   	
-			<i>Primitive values are passed by copying the value</i>
-			<i>We will look more at this in the next section!</i>			
+			<i><b>What are primitive types?</b></i><br>           
+			<i>Note: Primitive values are passed by copying the value</i>			
+			<i>Note: Assigning a value to a variable gives it a new value, does not mutate the original value as with objects</i>
+			
+		    <i>Understanding the above lets proceed...</i>		   	
 			<br>
-		   <i><b>Primitive types are immutable! But what does it really mean...?</b></i>		  
+		   <i><b>Primitive types are immutable! But what does it really mean?</b></i>		  
 		   <div class="code-container">
 		   <code>
 			<i>let foo = "Hello World"</i>			
@@ -284,9 +285,8 @@
 			<i><b>// But not this...</b></i><code> foo[0] = "T" -->	"Hello World" // value doesn't change
 			</code>
 			</div>
-			<i>Assigning a value to a variable gives it a new value, does not mutate the original value as with objects</i>
-			<i>Noteworthy; in <b>React</b> 'props'(the object) can not be mutated, by design...</i><br>		
-			
+			<i><b>How come we can use properties and methods on primitives as with objects?</b></i>  		
+			<br>
 			<i>See more about primitive types; https://developer.mozilla.org/en-US/docs/Glossary/Primitive</i>			
 			</div><br>
 						
@@ -302,7 +302,7 @@
 				<div>let a = "KYH"		</div>
 				<div>let b = a 			</div>
 				<div>a = "Hello"  // We assign a new value to a</div>
-				<div>console.log(b)  // We retain the copied value</div>
+				<div>console.log(b) --> "KYH"  // We retain the copied value</div>
 			</code>
 			</div><br>
 
@@ -312,11 +312,13 @@
 				<div>let objA = { name: "Kal", lastname: "Doe" }</div>
 				<div>let objB = objA		</div>
 				<div>objA.name = "Ada"	// we change the value of prop name</div>
-				<div>console.log(objB)	// prop name has changed </div>								
+				<div>console.log(objB.name) --> "Ada"  // prop name has changed </div>								
 			</code>			
 			</div>	
 			<i><b>objB</b> here points to the location of the original object. It's <b>not</b> a copy of objA.</i><br> 	
 			<i>Note: You can define how/if a prop can be accessed/changed by using the corresponding Object constructor method.<br>	
+			<i>Noteworthy; in <b>React</b> 'props'(the object) can not be mutated, by design...</i><br>		
+
 			<i>See more about define access to props;  https://stackoverflow.com/questions/7757337/defining-read-only-properties-in-javascript
 			</i>
 			<i>See more about objects passed by reference; 
@@ -354,7 +356,6 @@
 			</code><br>
 			</div>			
 			
-			<i><b>How come we can use properties and methods on strings as with objects?</b></i>           
 			<i>Note: We can use console.dir() to get more info about the constructor</i>			
 			</div><br>
 			
