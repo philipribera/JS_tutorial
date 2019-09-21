@@ -41,7 +41,7 @@
 			color: rgb(35,35,35);
 		}	   
 	   code {
-			font-size: 1.15rem;
+			font-size: 1.2rem;
 			line-height: 1.42rem;
 			color: rgb(20, 64, 86);
 	   }
@@ -49,8 +49,7 @@
            background-color: rgb(250, 252, 252);
            padding: 30px;
            border: 2px solid rgb(202, 202, 202);
-       }	   
-	  
+       }	  
 	   .example {
 			margin: 22px 0 22px 14px;
 	   }
@@ -58,8 +57,8 @@
 			width: 84%;
 			background-color: rgb(12,12,12);
 			color: white;
-			padding: 20px 16px;
-			margin: 14px 0;
+			padding: 24px 16px;
+			margin: 12px 0 18px 0;
 	   }
 	   .code-container code, .code-container i {
 			color: rgb(74, 249, 105);
@@ -70,7 +69,8 @@
 	   .code-container div {
 			margin-left: 14px;
 	   }
-	  	   
+	  	  
+		/*** MEDIA QUERIES ***/	
 	   @media only screen and (max-width: 1280px) {
 			.wrapper {
 				width: 85%;
@@ -79,69 +79,86 @@
 			.code-container {
 				width: 92%;
 			}				
-	   }
-	   
+	   }	   
 	   @media only screen and (max-width: 990px) {
 			.wrapper {
-				width: 94%;
+				width: 92%;
 				padding: 18px 14px;
 			}			
 			.tutorial-part {
 	           padding: 20px;
 			}
 			.code-container {
-				width: 100%;
+				width: 99%;
 			}	
 			h1 {
 				font-size: 2rem;
 			}
 			h3 {
 				font-size: 1.45rem;
-			}	
-			code {
-				font-size: 1.1rem;			
-			}
-	   
-	   @media only screen and (max-width: 498px) {
-	       .wrapper {		   
-				width: 100%;				
-				padding: 12px;
-			}	
-			.tutorial-part {
-	           padding: 14px;
-			}			
+			}				
 	   }
+	   @media only screen and (max-width: 767px) {
+			.wrapper {
+				width: 100%;
+				padding: 16px 12px;
+			}
+			.tutorial-part {
+	           padding: 12px;
+			}
+			.example {
+				margin: 0;
+			}
+			code {
+				font-size: 1.12rem;			
+			}
+			h1 {
+				font-size: 1.95rem;
+			}
+			h3 {
+				font-size: 1.4rem;
+			}						
+	   }	  
    </style>
 </head>
 <body>
    <div class="wrapper">
        <div class="tutorial-part">
            
-           <h1>Javascript Questions & Features</h1>           		   
+           <h1>Javascript Fundamentals with Questions</h1>           		   
 		   <br>
-			<h3>Type Conversion</h3>
+			<h3>Type Coercion & Comparisons</h3>
 			<div class="example">
 		   	<i><b>What do we get?</b></i>		
 			<div class="code-container">
 			<code>
-			4 + "2"	<br>					
-			8-"2"*3 <br>
-			(4 + true + "2")/5 <br>			
-			4*(3-2)/false <br>	
-			Boolean("") <br>
-			true == "1" <br>
-			44%10 > 2<br>			
-			"0" == false <br>			
-			10 - "KYH" <br>
-			(1 === 1 && "Hello") </code>
-			<b>// "Hello" is converted to a 'truthy' value. What does it mean?</b>
+			<div>4 + "2"			</div>					
+			<div>8-"2"*3 			</div>
+			<div>(4 + true + "2")/5 </div>			
+			<div>4*(3-2)/false 		</div>	
+			<div>Boolean("") 		</div>
+			<div>true == "1" 		</div>
+			<div>44%10 > 2			</div>								
+			<div>10 - "KYH" 		</div>
+			<div>"0" == false 		</div>
+			</code>			
+			<div><b>// "0" is converted to a 'falsy' value. What does it mean?</b></div>
+			<br>
+			<code>
+			<div>(true < 3 < 5)			</div>
+			<div>(8 > 5 > 3)			</div>
+			<div>(false || Boolean)		</div>		
+			<div>(33 || false && true) 	</div>
+			<div>(1 === 1 && "Hello")	</div>			
+			</code>
+			<div><b>// "Hello" is converted to a 'truthy' value. What does it mean?</b></div>
 			</div>						
 			</div><br>
 			
-		   <h3>Global vs function scope</h3>
+		   <h3>Global vs Function Scope</h3>
 		   <div class="example">
-		   <i>Explain concepts</i>
-		   <i>Explain 'lexical scope' in Javascript</i><br>	   		
+		   <i>Explain the concepts</i>
+		   <i>Explain <b>lexical scope</b> in Javascript</i><br>	   		
 		   </div>
            <br>
 		   
@@ -207,7 +224,7 @@
 		   </code>
 		   <i><b>// But we can also do this</b></i>		   
 		   <code>
-		   let a = undefined;	// we declare 'a' and assign it the value 'undefined'<br>		   
+		   let a = undefined;	// we assign the value 'undefined'<br>		   
 		   typeof(a) --> 'undefined'	<br>
 		   a = "New value";	// we assign a new value to 'a'		<br>
 		   </code><br>		   
@@ -227,7 +244,7 @@
 			<div class="code-container">
 			<code>
 			let b = null;							<br>
-			typeof b --> object 	// null basically means empty object<br>			
+			typeof b --> object 	// null basically means empty object		
 		   </code><br>		   
 		   </div>
 		   <i>Note: An easy way to check if an object is empty is to check the length of the 'keys' property in the Object constructor</i>
@@ -240,8 +257,10 @@
 			<h3>Primitive Types</h3>
 		   <div class="example">
 			<i><b>What are primitive types?</b></i>           
-		    <i>Understanding the above lets proceed</i>
-		   		   
+		    <i>Understanding the above lets proceed</i>		   	
+			<i>Primitive values are passed by copying the value</i>
+			<i>We will look more at this in the next section!</i>			
+			<br>
 		   <i><b>Primitive types are immutable! But what does it really mean...?</b></i>		  
 		   <div class="code-container">
 		   <code>
@@ -260,9 +279,37 @@
 			<i>Noteworthy; in <b>React</b> 'props'(the object) can not be mutated, by design...</i><br>
 			<i>See more; https://developer.mozilla.org/en-US/docs/Glossary/Primitive</i>
 			<i>More about objects passed by reference not by copy; </i> 
-			<i>https://stackoverflow.com/questions/16880418/javascript-pas</i>
-		   
+			<i>https://stackoverflow.com/questions/16880418/javascript-pas</i>   
 			</div><br>
+			
+			
+			<h3>Pass by Value vs Reference</h3>
+			<div class="example">
+			<i>What does it mean when we pass value by reference?</i>
+			<i>Note: Function arguments are always passed by value and are copied into the function.</i>
+			<br>
+
+			<i>Primitive types</i>
+			<div class="code-container">			
+			<code>
+				<div>let a = "KYH"		</div>
+				<div>let b = a 			</div>
+				<div>a = "Hello"  // We assign a new value to a</div>
+				<div>console.log(b)  // We retain the copied value</div>
+			</code>
+			</div><br>
+
+			<i>Objects</i>
+			<div class="code-container">
+			<code>					
+				<div>let objA = { name: "Kal", lastname: "Doe" }</div>
+				<div>let objB = objA		</div>
+				<div>objA.name = "Ada"	// we change the value of prop name</div>
+				<div>console.log(objB)	// prop name has changed </div>								
+			</code>			
+			</div>	
+			<i>'objB' here points to the location of the original object. It's <b>not</b> a copy of objA.</i> 						
+			</div><br>		   
 			
 			<h3>Usage of common String and Array methods</h3>
 			<div class="example">
@@ -281,7 +328,9 @@
 			str.charAt(1) <br>
 			str.constructor <br>
 			let bar = str.split(" ") <br>			
-			bar[1] 
+			bar[1]					<br> 
+			let foo = bar.join(",")			<br>
+			typeof foo			
 			</code><br>
 			</div>			
 			
@@ -308,48 +357,56 @@
 			<i>Explain closures in Javascript</i> 
 			</div><br>	
 							
-			<h3>Duplicate an array</h3>
+			<h3>Duplicate an Array</h3>
 			<div class="example">
 			<i>Show how to do it with ES6 as well as the old way</i>	
 			</div><br>
 			
-			<h3>Sort an array with numerical values</h3>             			
+			<h3>Sort an Array with numerical values</h3>             			
 		   <div class="example">
 			<p>let numbers = [114,22,4,5,11,41]</p>
 			</div>
 		   <br>
 						   
-           <h3>Remove Duplicates from an array</h3>
+           <h3>Remove Duplicates from an Array</h3>
    		   <div class="example">
            <i>Show if possible two ways to remove duplicates from an array</i>
-		   <i>Extra: If not done already, use the 'Object constructor' to remove the duplicates</i>
-		   <i>Note: The results most consist of an array</i><br>
+		   <i>Extra: If not done already, use an object constructor method to remove the duplicates</i>
+		   <i>Note: All results most consist of an array</i><br>
    		   <i>Tip: ES6 datatype 'Set' can only hold unique values</i>            
 		   </div><br>
 		</div><br>           	   
 		   
 		<div class="tutorial-part">
-
-           <h2>ES6 features</h2>
-           <i>Show with examples when necessary</i><br>
-           <h4>Arrow functions</h4>
-			<i>+ explain the importance of key word 'this' when used inside an arrow function</i>
-			<br><br>
+           <h1>ES6 Features</h1>
+		   <br><br>
+		   
+           <h3>Arrow functions and key word 'this'</h3>
+		   <div class="example">
+			<i>Show how to use arrow functions.</i>						
+			<i>What gets returned when we use 'this' by it self in the console?</i>
+			<i>Explain the importance of key word 'this' when used inside an arrow function</i>
+			</div><br>
 		
 			<h3>Higher order functions</h3>
 			<div class="example">
+			<i>Explain how to use with examples</i><br>
+
             <h4>map</h4>
-			<i>+ what is the main difference between forEach and map?</i>           
 		    <h4>filter</h4>		   		   
             <h4>reduce</h4><br>		 
+			
+			<h4>find</h4>
+			<h4>includes</h4><br>
+						
 		    <i>Note: These methods do not mutate/change the orignal array (in general a good thing!)</i>
-
+			<i>See more: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#</i>
 			</div>		   
             <br>
 		   		   
-		   <h3>Loops and Iteration</h3>
+		   <h3>Loops & Iteration</h3>
 		   <div class="example">
-           <i>New ways to iterate/loop; explain how and when to use with examples</i><br>
+           <i>Explain how and when to use with examples</i><br>
            <h4>forEach</h4>
            <h4>for/in</h4>
            <h4>for/of</h4>
@@ -374,22 +431,13 @@
 			<div>this.name = name;				</div>
 			<div>this.gender = gender;			</div>
 			<div>this.age = age;				</div>
-			<span>};							</span></br>
-			<br>
-						
-			class Person {								<br>
-				constructor(name,gender,age) {			<br>
-					this.name = name;					<br>
-					this.gender = gender;				<br>
-					this.age = age;						<br>
-				}										<br>
-			}											<br>
+			<span>};							</span></br>							
 			</code>			
 			</div>			
 		   </div><br>
 		   
 		    
-		   <h3>Spread and Rest Operator</h3>
+		   <h3>Spread & Rest Operator</h3>
 		   <div class="example">
            <p>Explain; when to use, with examples</p><br>
 		   <i>Use the spread operator to copy the properties of an object into a new object.<i>
@@ -397,7 +445,7 @@
 			<i>Tip: What happens with the new object when the original object is changed?</i>			
 		   </div><br>		   
 		   
-		   <h3>Destructuring + Default values</h3>
+		   <h3>Destructuring & Default values</h3>
 		   		   
 		   <div class="example">
 		   <i><b>Pass the car object values to the showCar function</b></i>
@@ -418,13 +466,16 @@
 				
 		   <i><b>What do we get?</b></i>
 		   <div class="code-container">
-		   	<code>	   		   
+		   
+		   <code>	   		   
 		   <span>const add = (a, b=5, c) => a + b</span><br>	   		   
 		   <span>add(4)</span>
 		   <br>
-		   </code>
+   		   </code>
 		   </div>		   
-		   <i><b>Destructure (only) the last item from the array</b></i>  
+
+		   <i>Note: Default values can also be used for function arguments.</i><br>
+		   <i><b>Destructure (solely) the last item from the array</b></i>  
 		   <div class="code-container">
 		   <code>
 		   	<span>const letters = ["A","B","C"]	</span>
@@ -432,7 +483,7 @@
 		   <br>
 		   </div>
 		   
-		   <i><b>What is the value of variables; a,b,c,d ?</b></i>
+		   <i><b>What is the value of variables; a,c,d ?</b></i>
 		   <div class="code-container">
 		   <code>
 		   <span>numberArr = [12,4,7]	</span><br>	   
@@ -443,25 +494,25 @@
 			<i><b>How can this be fixed without declaration?</b></i>
 			<div class="code-container">
 			<code>
-			<span>{a, b} = { a: "Hello", b: "World" }
-			// 'unexpected token...'</span></code>
+			<div>{a, b} = { a: "Hello", b: "World" }	</div>
+			<div>console.log(a,b)	// 'unexpected token...'</div>
+			</code>
 			</div><br>						
 		   </div>
 		           
-		   <h3>Array constructor method</h3>
+		   <h3>Array constructor methods</h3>
 		   <div class="example">		   
            <i><b>Array.from(), Explain what it does</b></i><br>		   
 			<i>Extra 1: Use the Array.from() callback/mapfunction to manipulate each item</i>					   
 		   <i>Extra 2: How can you check if a passed value is an array?</i>
 		   <i>Extra 3: What does it mean when you do a 'shallow copy' of an existing array or object?</i><br>
-		   <i>Note: it must be an iterable instance</i>
-		   <i>Note: it also works for nodelists and HTML collections.</i>	
+		   <i>Note 1: it must be an iterable instance</i>
 	   	</div><br>
 			
-	   <h3>The 'Object constructor'</h3>
+	   <h3>Object constructor methods</h3>
 		<div class="example">
-			<i><b>Get the keys and values in the object below</b></i><br>
-		    <i>myObj2 = { str1: "Hello", str2: "World" }</i><br>
+			<i><b>Get the keys and values from the object</b></i><br>
+		    <i>myObj = { str1: "Hello", str2: "World" }</i><br>
 			
 		    <i>Extra 1; Good, now show an alternative solution</i>			
 			<i>Extra 2; extend your original answer and get the length(quantity) of the properties</i>
@@ -493,7 +544,11 @@
 					const letters = ["A","B","C"];
 					[,,t3] = letters;
 					console.log(t3);
-					
+			/*
+			The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
+			
+			The includes() method determines whether an array includes a certainvalue among its entries, returning true or false as appropriate.
+			*/
 	   </script>
 	   </body>
 	   </html>

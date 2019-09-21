@@ -10,7 +10,7 @@ Nothing more is needed
 Only thing needed is an editor and a browser.
 
 # Version 
-Ver1.0
+Ver1.2
 
 # Author/Contributor
 Philip Ribera
