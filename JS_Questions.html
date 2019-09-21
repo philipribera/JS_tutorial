@@ -285,13 +285,11 @@
 			</code>
 			</div>
 			<i>Assigning a value to a variable gives it a new value, does not mutate the original value as with objects</i>
-			<i>Noteworthy; in <b>React</b> 'props'(the object) can not be mutated, by design...</i><br>
-			<i>See more; https://developer.mozilla.org/en-US/docs/Glossary/Primitive</i>
-			<i>More about objects passed by reference not by copy; </i> 
-			<i>https://stackoverflow.com/questions/16880418/javascript-pas</i>   
+			<i>Noteworthy; in <b>React</b> 'props'(the object) can not be mutated, by design...</i><br>		
+			
+			<i>See more about primitive types; https://developer.mozilla.org/en-US/docs/Glossary/Primitive</i>			
 			</div><br>
-			
-			
+						
 			<h3>Pass by Value vs Reference</h3>
 			<div class="example">
 			<i>What does it mean when we pass value by reference?</i>
@@ -317,7 +315,12 @@
 				<div>console.log(objB)	// prop name has changed </div>								
 			</code>			
 			</div>	
-			<i>'objB' here points to the location of the original object. It's <b>not</b> a copy of objA.</i> 						
+			<i><b>objB</b> here points to the location of the original object. It's <b>not</b> a copy of objA.</i><br> 	
+			<i>Note: You can define how/if a prop can be accessed/changed by using the corresponding Object constructor method.<br>	
+			<i>See more about define access to props;  https://stackoverflow.com/questions/7757337/defining-read-only-properties-in-javascript
+			</i>
+			<i>See more about objects passed by reference; 
+			https://stackoverflow.com/questions/16880418/javascript-pas</i>   			
 			</div><br>		   
 			
 			<h3>Usage of common String and Array methods</h3>
