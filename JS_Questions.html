@@ -22,7 +22,7 @@
            padding: 24px;
            margin: 0 auto;
        }
-	   h1, h2, h3 {
+	   h1, h3 {
 			color: rgb(242, 147, 38);
 			margin: 12px 0 32px 0;
 	   }
@@ -67,7 +67,7 @@
 			width: 84%;
 			background-color: rgb(12,12,12);
 			color: white;
-			padding: 24px 16px;
+			padding: 24px;
 			margin: 12px 0 18px 0;
 	   }
 	   .code-container code, .code-container i {
@@ -84,7 +84,7 @@
 	   @media only screen and (max-width: 1280px) {
 			.wrapper {
 				width: 85%;
-				padding: 18px 14px;
+				padding: 20px;
 			}	
 			.code-container {
 				width: 92%;
@@ -93,14 +93,14 @@
 	   @media only screen and (max-width: 990px) {
 			.wrapper {
 				width: 92%;
-				padding: 18px 14px;
+				padding: 18px;
 			}			
 			.tutorial-part {
 	           padding: 20px;
 			}
 			.code-container {
 				width: 99%;
-			}	
+			}			
 			h1 {
 				font-size: 2rem;
 			}
@@ -111,11 +111,11 @@
 	   @media only screen and (max-width: 767px) {
 			.wrapper {
 				width: 100%;
-				padding: 16px 12px;
+				padding: 6px;
 			}
 			.tutorial-part {
 	           padding: 12px;
-			}
+			}						  	 
 			.example {
 				margin: 0;
 			}
@@ -141,26 +141,26 @@
 		   	<i><b>What do we get?</b></i>		
 			<div class="code-container">
 			<code>
-			<div>4 + "2"			</div>					
-			<div>8-"2"*3 			</div>
-			<div>(4 + true + "2")/5 </div>			
-			<div>4*(3-2)/false 		</div>	
-			<div>Boolean("") 		</div>
-			<div>true == "1" 		</div>
-			<div>44%10 > 2			</div>								
-			<div>10 - "KYH" 		</div>
-			<div>"0" == false 		</div>
+			4 + "2"					<br>					
+			8-"2"*3 				<br>
+			(4 + true + "2")/5 		<br>			
+			4*(3-2)/false 			<br>
+			Boolean("") 			<br>
+			true == "1" 			<br>
+			44%10 > 2				<br>								
+			10 - "KYH" 				<br>
+			"0" == false 			<br>
 			</code>			
-			<div><b>// "0" is converted to a 'falsy' value. What does it mean?</b></div>
-			<br>
+			<b>// "0" is converted to a 'falsy' value. What does it mean?</b>
+			<br><br>
 			<code>
-			<div>(true < 3 < 5)			</div>
-			<div>(8 > 5 > 3)			</div>
-			<div>(false || Boolean)		</div>		
-			<div>(33 || false && true) 	</div>
-			<div>(1 === 1 && "Hello")	</div>			
+			(true < 3 < 5)			<br>
+			(8 > 5 > 3)				<br>
+			(false || Boolean)		<br>		
+			(33 || false && true) 	<br>
+			(1 === 1 && "Hello")	<br>			
 			</code>
-			<div><b>// "Hello" is converted to a 'truthy' value. What does it mean?</b></div>
+			<b>// "Hello" is converted to a 'truthy' value. What does it mean?</b>
 			</div>						
 			</div><br>
 			
@@ -330,19 +330,24 @@
 			
 			<div class="code-container">
 			<code>		   
-		    let greet = new String("Hello")	<br>		
-			greet.charAt(greet.length-1)	<br>	
-			typeof greet 					<br>		   		   
-			let str = "KYH Frontend" 		<br>
-			typeof str 						<br>
-			str.indexOf("F")				<br>			
+		    let greet = new String("Hello")	<br>					
+			typeof greet 					<br>
+			greet.charAt(greet.length-1)	<br><br>
+			
+			let str = "KYH Frontend Nacka"	<br>
+			typeof str 						<br>			
+			str.indexOf("F")				<br><br>
+			
 			let bar = str.split(" ")		<br>
 			typeof bar 						<br>
-			bar.push("Nacka")				<br>			
-			bar[2]							<br> 
-			let foo = bar.join(" ")			<br>			
-			typeof foo						<br>
-			foo.constructor 				<br>
+			bar.sort()						<br><br>
+						
+			let first = bar.slice(1,2)		<br>			
+			bar.push(first)					<br><br>						
+			
+			let toStr = bar.join(" ")		<br>			
+			typeof toStr					<br>						
+			toStr.constructor 				
 			</code><br>
 			</div>			
 			
@@ -374,9 +379,12 @@
 			<i>Show how to do it with ES6 as well as the old way</i>	
 			</div><br>
 			
-			<h3>Sort an Array with numerical values</h3>             			
-		   <div class="example">
+			<h3>Sort an Array with numerical values</h3>           			
+			<div class="example">
 			<p>let numbers = [114,22,4,5,11,41]</p>
+			<br>
+			<i>Extra: Get the highest number.</i>
+			<i>Note: If a Math function can't convert an argument to a number it returns NaN.</i>
 			</div>
 		   <br>
 						   
@@ -560,20 +568,20 @@
 					const letters = ["A","B","C"];
 					[,,t3] = letters;
 					console.log(t3);
+
 			
-			let str = "KYH Frontend"
-			console.log("IndexOf: ", str.indexOf("F"))
-			typeof str
-			console.log(str.charAt(1))
-			let bar = str.split(" ")
-			bar.push("Nacka")
-			console.log(bar);
-			console.log(typeof bar)
-			console.log(bar[2])
-			let foo = bar.join(" ")
-			console.dir(foo.constructor)
-			console.log(typeof foo)
-			console.log(foo);
+			let numbers = [114,22,4,5,11,41]
+			let maxNum = 0;
+							
+			for( let num of numbers ) {
+					if( num > maxNum ) {
+						maxNum = num;
+					}				
+				}
+			
+			console.log( (maxNum) );
+			console.log( numbers.sort( (a,b)=> a-b ) )
+			
 								
 			/*
 			The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
