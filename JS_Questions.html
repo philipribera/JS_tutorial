@@ -38,7 +38,7 @@
 		p,i,span {
 			line-height: 1.5rem;
 			color: rgb(35,35,35);
-			margin-top: 5px;
+			margin: 6px 0 2px 0;
 		}	   
 	   code {
 			font-size: 1.22rem;
@@ -195,10 +195,12 @@
 				<span class="example">var y = 1;	 </span><br>
 				   }							<br>						
 				   testScope();					<br>
-				</code>			
+				   
+				   </code>
+				   <i><b>// 1) Variable declarations are hoisted inside functions as well</b></i>					
 				<br>
-				<code>
-					---------------<br>
+				
+				<code>				
 					2)<br>
 					var y = 2;						<br>
 													<br>
@@ -207,11 +209,10 @@
 					<span class="example">var y = 1;		</span><br>
 					}								<br>
 					testScope();					<br>
-					<br>
+					
 					</code>
-					<i><b>// Variable declarations are hoisted inside functions as well</b></i>			
-
-					---------------<br>
+					<i><b>// 2) Anonymous function expressions are not hoisted</b></i><br>	
+					
 					<code>
 					3)<br>
 					var y = 2;						<br>
@@ -235,22 +236,22 @@
 		   		   
 		   <i><b>Understanding 'undefined'</b></i>		   
 		   
-		   <div class="code-container">
+		   <div class="code-container">		   
+		   <i><b>// If we try to use a variable before being declared</b></i>
 		   <code>
+		   console.log(a);		// Gives a reference error	<br>
+		   </code>	 
+			<i><b>// If we don't initialize a variable</b></i>
+			<code>
 		   let a; // This will give 'a' the value undefined.
 		   </code>
 		   <i><b>// But we can also do this</b></i>		   
 		   <code>
-		   let a = undefined;	// we assign the value 'undefined'<br>		   
-		   typeof(a) --> 'undefined'	<br>
-		   a = "New value";	// we assign a new value to 'a'		<br>
-		   </code><br>		   
-		   
-		   <i><b>// If we try to use a variable before being declared</b></i>
-		   <code>
-			console.log(a);		// Gives a reference error	<br>
-			</code><br>
-			</div>			
+		   let a = undefined;	// we assign the value 'undefined'<br>   
+		   typeof a --> 'undefined'	<br>
+		   if ( typeof a === 'undefined') --> true // We check for 'undefined'
+		   </code><br>		   		
+			</div>	
 			
 			<i>Notes: 'undefined' is of datatype 'undefined' and a so called 'falsy' value.<br> 
 			Important: 'falsy' is not the same as 'false'. The latter being of datatype Boolean.<br>
@@ -301,8 +302,7 @@
 						
 			<h3>Pass by Value vs Reference</h3>
 			<div class="example">
-			<i>What does it mean when we pass value by reference?</i>
-			<i>Note: Function arguments are always passed by value and are copied into the function.</i>
+			<i>What does it mean when we pass value by reference?</i>	
 			<br>
 
 			<i>Primitive types</i>
@@ -325,13 +325,14 @@
 			</code>			
 			</div>	
 			<i><b>objB</b> here points to the location of the original object. It's <b>not</b> a copy of objA.</i><br> 	
-			<i>Note: You can define how/if a prop can be accessed/changed by using the corresponding Object constructor method.<br>	
-			Noteworthy; in <b>React</b> 'props'(the object) can not be mutated, by design...</i><br>		
+			<span>Note: Function arguments are always passed by value and are copied into the function.</span><br>
+			<span>Note: You can define how/if a prop can be accessed/changed by using the corresponding Object constructor method.</span><br>	
+			<span>Noteworthy: in <b>React</b> 'props'(the object) can not be mutated, by design.</span><br><br>		
 
-			<i>See more about define access to props;  https://stackoverflow.com/questions/7757337/defining-read-only-properties-in-javascript
-			</i>
-			<i>See more about objects passed by reference; 
-			https://stackoverflow.com/questions/16880418/javascript-pas</i>   			
+			<span>More about define access to props:  https://stackoverflow.com/questions/7757337/defining-read-only-properties-in-javascript
+			</span><br>
+			<span>More about objects passed by reference: 
+			https://stackoverflow.com/questions/16880418/javascript-pas</span><br>   			
 			</div><br>		   
 			
 			<h3>Usage of common String and Array methods</h3>
