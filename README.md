@@ -1,16 +1,15 @@
 # Description
-Easy to use Javascript tutorial.
-Free to use.
+Free to use Javascript tutorial with questions and exercises.
 
 # Getting Started
 Copy the file or code and save it with extension html. 
-Nothing more is needed
+Nothing more is needed.
 
 # Prerequisites
 Only thing needed is an editor and a browser.
 
 # Version 
-Ver1.2
+Ver1.3
 
 # Author/Contributor
 Philip Ribera
