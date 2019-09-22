@@ -38,44 +38,53 @@
 		p,i {
 			line-height: 1.5rem;
 			color: rgb(35,35,35);
+			margin-top: 4px;
 		}	   
 	   code {
 			font-size: 1.2rem;
 			line-height: 1.42rem;
-			color: rgb(20, 64, 86);
+			color: rgb(20, 64, 86);			
 	   }
-	   button {
-			background: rgb(222,222,222);
-			padding: 4px 6px;;					
-	   }
-	   a {
+	   	.go-top {
+			
+			padding: 4px 0;			
+		}		
+		   
+	   .go-top a {			
 			font-size: 1rem;
 			font-weight: 600;
-			cursor: pointer;
 			text-decoration: none;
-			color: rgb(42, 96, 117);			
+			cursor: pointer;
+			background: rgb(222,222,222);
+			color: rgb(42, 96, 117);
+			padding: 4px 6px;
+			border: 1px solid rgb(190,190,190);
 	   }
+	   .go-top a:hover {
+			opacity: 0.9;
+		}	   
+	   
 	   .tutorial-part {
            background-color: rgb(250, 252, 252);
            padding: 30px;
            border: 2px solid rgb(202, 202, 202);
        }	  
-	   .example {
+	   .example {			
 			margin: 22px 0 22px 14px;
 	   }
 	   .code-container {
 			width: 84%;
 			background-color: rgb(12,12,12);
-			color: white;
+			color: rgb(247,247,247);
 			padding: 24px;
 			margin: 12px 0 18px 0;
 	   }
-	   .code-container code, .code-container i {
+	   .code-container code {
 			color: rgb(74, 249, 105);
 	   }
-	   .code-container i b {
+	   	.code-container i {
 			color: rgb(247,247,247);
-	   }
+		}
 	   .code-container div {
 			margin-left: 14px;
 	   }	  	 
@@ -154,13 +163,13 @@
 			<b>// "0" is converted to a 'falsy' value. What does it mean?</b>
 			<br><br>
 			<code>
-			(true < 3 < 5)			<br>
-			(8 > 5 > 3)				<br>
+			(true &lt; 3 &lt; 5)			<br>
+			(8 &gt; 5 &gt; 3)		<br>
 			(false || Boolean)		<br>		
 			(33 || false && true) 	<br>
 			(1 === 1 && "Hello")	<br>			
 			</code>
-			<b>// "Hello" is converted to a 'truthy' value. What does it mean?</b>
+			<b>// 33 and "Hello" are converted to 'truthy' values. What does it mean?</b>
 			</div>						
 			</div><br>
 			
@@ -180,12 +189,11 @@
 				<i><b>Check: </b></i>
 				<div class="code-container">
 				<code>
-					1)<br>
-				   var testScope = function() <br>
-					{							<br>
-					<div>console.log(y);</div>
-					<div>var y = 1;	</div>	
-				   }							<br>
+					1)							<br>
+				   var testScope = function()	{ <br>							
+				<span class="example">console.log(y);</span><br>
+				<span class="example">var y = 1;	 </span><br>
+				   }							<br>						
 				   testScope();					<br>
 				</code>			
 				<br>
@@ -195,8 +203,8 @@
 					var y = 2;						<br>
 													<br>
 					var testScope = function() { 	<br>
-					<div>console.log(y);	</div>	
-					<div>var y = 1;		</div>	
+					<span class="example">console.log(y);	</span><br>
+					<span class="example">var y = 1;		</span><br>
 					}								<br>
 					testScope();					<br>
 					<br>
@@ -209,7 +217,7 @@
 					var y = 2;						<br>
 													<br>
 					var testScope = function() { 	<br>
-					<div>	console.log(y);</div>						
+					<span class="example">	console.log(y);</span><br>	
 					}								<br>
 					testScope();					<br>
 					</code>	
@@ -259,7 +267,7 @@
 		   <i>Note: An easy way to check if an object is empty is to check the length of the 'keys' property in the Object constructor</i>
 		   		   
 		   <i>Note: If the purpose is to give a variable an empty value it can be given the value 'null'.</i>	
-			<i>See more;  https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in 		   
+			<i>See more;  https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in </i>		   
            <br>   
 		   </div><br>
 		   			
@@ -271,13 +279,14 @@
 			
 		    <i>Understanding the above lets proceed...</i>		   	
 			<br>
-		   <i><b>Primitive types are immutable! But what does it really mean?</b></i>		  
+		   <i><b>Primitive types are immutable! But what does it really mean?</b></i>	
+		   
 		   <div class="code-container">
 		   <code>
-			<i>let foo = "Hello World"</i>			
-			<i>foo.toUpperCase() --> 'HELLO WORLD' // we use a method on foo</i>	
-			<i>console.log(foo) --> 'Hello World'  // but the original value is unchanged </i><br>
-			</code>
+			let foo = "Hello World"	<br>		
+			foo.toUpperCase() --> 'HELLO WORLD' // we use a method on foo<br>	
+			console.log(foo) --> 'Hello World'  // but the original value is unchanged<br>			
+			</code><br>
 						
 			<i><b>// We can do this</b></i>
 			<code> console.log(foo[0]) --> H // we get the 1st character
@@ -299,25 +308,25 @@
 			<i>Primitive types</i>
 			<div class="code-container">			
 			<code>
-				<div>let a = "KYH"		</div>
-				<div>let b = a 			</div>
-				<div>a = "Hello"  // We assign a new value to a</div>
-				<div>console.log(b) --> "KYH"  // We retain the copied value</div>
+				let a = "KYH"		<br>
+				let b = a 			<br>
+				a = "Hello"  // We assign a new value to a	<br>
+				console.log(b) --> "KYH"  // We retain the copied value	<br>
 			</code>
 			</div><br>
 
 			<i>Objects</i>
 			<div class="code-container">
 			<code>					
-				<div>let objA = { name: "Kal", lastname: "Doe" }</div>
-				<div>let objB = objA		</div>
-				<div>objA.name = "Ada"	// we change the value of prop name</div>
-				<div>console.log(objB.name) --> "Ada"  // prop name has changed </div>								
+				let objA = { name: "Kal", lastname: "Doe" }	<br>
+				let objB = objA								<br>
+				objA.name = "Ada"	// we change the value of prop name<br>
+				console.log(objB.name) --> "Ada"  // prop name has changed <br>			
 			</code>			
 			</div>	
 			<i><b>objB</b> here points to the location of the original object. It's <b>not</b> a copy of objA.</i><br> 	
 			<i>Note: You can define how/if a prop can be accessed/changed by using the corresponding Object constructor method.<br>	
-			<i>Noteworthy; in <b>React</b> 'props'(the object) can not be mutated, by design...</i><br>		
+			Noteworthy; in <b>React</b> 'props'(the object) can not be mutated, by design...</i><br>		
 
 			<i>See more about define access to props;  https://stackoverflow.com/questions/7757337/defining-read-only-properties-in-javascript
 			</i>
@@ -397,9 +406,9 @@
            <i>Show if possible two ways to remove duplicates from an array</i>
 		   <i>Extra: If not done already, use an object constructor method to remove the duplicates</i>
 		   <i>Note: All results most consist of an array</i><br>
-   		   <i>Tip: ES6 datatype 'Set' can only hold unique values</i>            
-		   </div><br>
-		</div><br>           	   
+   		   <i>Tip: ES6 datatype 'Set' can only hold unique values</i>       
+		   </div><br>	   
+		</div><br><!-- END TUTORIAL PART 1 -->           	   
 		   
 		<div class="tutorial-part">
            <h1>ES6 Features</h1>
@@ -412,7 +421,7 @@
 			<div class="code-container">
 			<code>		   
 				function doSomething(para) {	<br>
-					<div>return para</div>
+					<span class="example">return para</span><br>
 				}	<br>
 			</code>
 			</div>
@@ -465,11 +474,11 @@
 			<i>+ Add a method that returns all the class properties</i>
 			<div class="code-container">
 			<code>
-			<span>let Person = function(name,gender,age) {	</span><br>
-			<div>this.name = name;				</div>
-			<div>this.gender = gender;			</div>
-			<div>this.age = age;				</div>
-			<span>};							</span></br>							
+			let Person = function(name,gender,age) {	<br>
+			<span class="example">this.name = name;		</span><br>
+			<span class="example">this.gender = gender;	</span><br>
+			<span class="example">this.age = age;		</span><br>
+			};								<br>							
 			</code>			
 			</div>			
 		   </div><br>
@@ -478,23 +487,22 @@
 		   <h3>Spread & Rest Operator</h3>
 		   <div class="example">
            <p>Explain; when to use, with examples</p><br>
-		   <i>Use the spread operator to copy the properties of an object into a new object.<i>
-			<i>Explain the importance/difference of using the spread operator vs just copying the reference of an existing object to a new variable?<i>
-			<i>Tip: What happens with the new object when the original object is changed?</i>			
+		   <i>Use the spread operator to copy the properties of an object into a new object.</i>
+			<i>Explain the importance/difference of using the spread operator to copy the props of an object vs just assigning the object to a new variable?</i>			
 		   </div><br>		   
 		   
 		   <h3>Destructuring & Default values</h3>
 		   		   
 		   <div class="example">
 		   <i><b>Pass the car object values to the showCar function</b></i>
-		   <i>Note: the function must cope with an unknown numbers of arguments</i>
+		   <i>Note: the function needs to cope with an unknown numbers of arguments</i>
 		   <div class="code-container">
 		   <code>	   
 		   car = { model: "Volvo", color: "blue", year: "2018" } <br><br>
 			???	<br>
 			
 			showCar = (???)=> {			<br>			
-			<div>return ???;			</div>
+			<span class="example">return ???;	</span><br>
 			}							<br>			
 			showCar(???); // Display car features/values
 			</code>			
@@ -532,8 +540,8 @@
 			<i><b>How can this be fixed without declaration?</b></i>
 			<div class="code-container">
 			<code>
-			<div>{a, b} = { a: "Hello", b: "World" }	</div>
-			<div>console.log(a,b)	// 'unexpected token...'</div>
+			{a, b} = { a: "Hello", b: "World" }			<br>
+			console.log(a,b)	// unexpected token...	<br>
 			</code>
 			</div><br>						
 		   </div>
@@ -565,12 +573,12 @@
 	   <br>	  
 	   </div>
 	   
-	   <div class="go-top"><button><a href="#top">To the Top</a></button><br>
+	   <div class="go-top"><a href="#top">To the Top</a><br>
 	   </div>
 	   
 	   </div>
-       <script>		
-										
+       <script>				
+			
 			/*
 			The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
 			
