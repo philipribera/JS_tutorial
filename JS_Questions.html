@@ -35,7 +35,7 @@
 	   i {			
 			display: block;						
 	   }   
-		p,i {
+		p,i,span {
 			line-height: 1.5rem;
 			color: rgb(35,35,35);
 			margin-top: 4px;
@@ -79,7 +79,7 @@
 			padding: 24px;
 			margin: 12px 0 18px 0;
 	   }
-	   .code-container code {
+	   .code-container code, .code-container code span {
 			color: rgb(74, 249, 105);
 	   }
 	   	.code-container i {
@@ -432,7 +432,8 @@
 			<i>What gets returned when we call 'this'?</i>			
 			<i>Explain how 'this' work when used in a stand-alone function (not; obj.method).</i>
 			<i>How does 'this' work when used in an arrow function?</i><br>
-			<i>Note: if 'use strict' mode is enabled 'this' in a stand-alone function will return 'undefined'.</i> 
+			<span>Note: if 'use strict' mode is enabled 'this' in a stand-alone function will return 'undefined'.</span><br> 
+			<span>More about 'this': https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work</span><br>
 			</div><br>
 		
 			<h3>Higher order functions</h3>
@@ -446,8 +447,8 @@
 			<h4>find</h4>
 			<h4>includes</h4><br>
 						
-		    <i>Note: These methods do not mutate/change the orignal array (in general a good thing!)</i>
-			<i>See more: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#</i>
+		    <span>Note: These methods do not mutate/change the orignal array (in general a good thing!)</span>
+			<span>See more: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#</span><br>
 			</div>		   
             <br>
 		   		   
