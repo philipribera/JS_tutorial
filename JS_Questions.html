@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
    <meta charset="UTF-8">
+   <meta name="description" content="Free Javascript Fundamentals Guide and Questions">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="Philip R">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <
    <title>Javascript Questions</title>
    <style>
 		*  {
@@ -61,7 +64,7 @@
 			border: 1px solid rgb(190,190,190);
 	   }
 	   .go-top a:hover {
-			opacity: 0.9;
+			opacity: 0.95;
 		}	   
 	   
 	   .tutorial-part {
@@ -172,15 +175,127 @@
 			<b>// 33 and "Hello" are converted to 'truthy' values. What does it mean?</b>
 			</div>						
 			</div><br>
+					  
+           <h3>Declaring variables and the concept of 'undefined'</h3>
+		   <div class="example">
+           <i>What is the difference between 'var' and 'let'?</i>	   
+           <i>When do we use 'const'?</i>
+		   <i>Explain the concept of 'undefined'.</i>
+		   <i>Explain the difference between 'undefined' and 'null'.</i>		   
+		   <br>
+		   		   
+		   <i><b>Understanding 'undefined'</b></i>		   
+		   
+		   <div class="code-container">		   
+		   <i><b>// If we try to use a variable before being declared</b></i>
+		   <code>
+		   console.log(a);		// Gives a reference error	<br>
+		   </code>	 
+			<i><b>// If we don't initialize a variable</b></i>
+			<code>
+		   let a; // This will give 'a' the value undefined.
+		   </code>
+		   <i><b>// But we can also do this</b></i>		   
+		   <code>
+		   let a = undefined;	// we assign the value 'undefined'<br>   
+		   typeof a --> 'undefined'	<br>
+		   if ( typeof a === 'undefined') --> true // We check for 'undefined'
+		   </code><br>		   		
+			</div>	
 			
-		   <h3>Global vs Function Scope</h3>
+			<span>Notes: 'undefined' is of datatype 'undefined' and a so called 'falsy' value.<br> 
+			Important: 'falsy' is not the same as 'false'. The latter being of datatype Boolean.<br>
+			'undefined' is <b>not an error</b> in it self, tough it's often the cause of errors/bugs.<br>
+			A function that doesn't return anything will always return 'undefined'.<br>
+		   Javascript will automatically assign 'undefined' to a variable that are not initialized. </span><br>
+		   <span>
+		   <br><br>
+			
+			<i><b>Understanding 'null'</b></i> 
+			<div class="code-container">
+			<code>
+			let b = null;							<br>
+			typeof b --> object 	// null basically means empty object		
+		   </code><br>		   
+		   </div>
+		   <span>Note: The type of null is object while undefined has its own type.<br>If the purpose is to give a variable an empty value is can be done by assign it the value null, representing no value.</span><br>		   		   
+		   <br>			
+		   </div><br>
+		   			
+			<h3>Primitive Types</h3>
+		   <div class="example">
+			<i><b>What are primitive types?</b></i><br>           
+			<i>Note: Primitive values are passed by copying the value</i>			
+			<i>Note: Assigning a value to a variable gives it a new value, does not mutate the original value as with objects</i>
+			
+		    <i>Understanding the above lets proceed...</i>		   	
+			<br>
+		   <i><b>Primitive types are immutable! But what does it really mean?</b></i>	
+		   
+		   <div class="code-container">
+		   <code>
+			let foo = "Hello World"	<br>		
+			foo.toUpperCase() --> 'HELLO WORLD' // we use a method on foo<br>	
+			console.log(foo) --> 'Hello World'  // but the original value is unchanged<br>			
+			</code><br>
+						
+			<i><b>// We can do this</b></i>
+			<code> console.log(foo[0]) --> H // we get the 1st character
+			</code>			
+			<i><b>// But not this...</b></i><code> foo[0] = "T" -->	"Hello World" // value doesn't change
+			</code>
+			</div>
+			<i><b>How come we can use properties and methods on primitives as with objects?</b></i>  		
+			<br>
+			<span>Note: Primitives being immutable is the reason we can't use mutator methods on strings. For example push, reverse and sort.
+			</span><br>
+			<i>See more about primitive types; https://developer.mozilla.org/en-US/docs/Glossary/Primitive</i>			
+			</div><br>
+						
+			<h3>Pass by Value vs Reference</h3>
+			<div class="example">
+			<i>What does it mean when we pass value by reference?</i>	
+			<br>
+
+			<i>Primitive types</i>
+			<div class="code-container">			
+			<code>
+				let a = "KYH"		<br>
+				let b = a 			<br>
+				a = "Hello"  // We assign a new value to a	<br>
+				console.log(b) --> "KYH"  // We retain the copied value	<br>
+			</code>
+			</div><br>
+
+			<i>Objects</i>
+			<div class="code-container">
+			<code>					
+				let objA = { name: "Kal", lastname: "Doe" }	<br>
+				let objB = objA								<br>
+				objA.name = "Ada"	// we change the value of prop name<br>
+				console.log(objB.name) --> "Ada"  // prop name has changed <br>			
+			</code>			
+			</div>	
+			<i><b>objB</b> here points to the location of the original object. It's <b>not</b> a copy of objA.</i><br> 	
+			<span>Note: Function arguments are always passed by value and are copied into the function.</span><br>
+			<span>Note: You can define how/if a prop can be accessed/changed by using the corresponding Object constructor method.</span><br>	
+			<span>Noteworthy: in <b>React</b> 'props'(the object) can not be mutated, by design.</span><br><br>		
+
+			<span>More about define access to props:  https://stackoverflow.com/questions/7757337/defining-read-only-properties-in-javascript
+			</span><br>
+			<span>More about objects passed by reference: 
+			https://stackoverflow.com/questions/16880418/javascript-pas</span><br>   			
+			</div><br>		   
+			
+			<h3>Global vs Function Scope</h3>
 		   <div class="example">
 		   <i>Explain the concepts</i>
 		   <i>Explain <b>lexical scope</b> in Javascript</i><br>	   		
 		   </div>
            <br>
+		   	   
 		   
-		   <h3>Hoisting</h3>
+			<h3>Hoisting</h3>
 			<div class="example">	
 				<i>Explain the concept</i>
 				<i>Including the behaviour of function -expressions vs -declarations when it comes to hoisting</i>
@@ -225,119 +340,9 @@
 					</div>
 			</div><br>
 			<br>
-		   
-           <h3>Declaring variables and the concept of 'undefined'</h3>
-		   <div class="example">
-           <i>What is the difference between 'var' and 'let'?</i>	   
-           <i>When do we use 'const'?</i>
-		   <i>Explain the concept of 'undefined' when it comes to variables</i>
-		   <i>Explain the difference between 'undefined' and 'null'.</i>		   
-		   <br>
-		   		   
-		   <i><b>Understanding 'undefined'</b></i>		   
-		   
-		   <div class="code-container">		   
-		   <i><b>// If we try to use a variable before being declared</b></i>
-		   <code>
-		   console.log(a);		// Gives a reference error	<br>
-		   </code>	 
-			<i><b>// If we don't initialize a variable</b></i>
-			<code>
-		   let a; // This will give 'a' the value undefined.
-		   </code>
-		   <i><b>// But we can also do this</b></i>		   
-		   <code>
-		   let a = undefined;	// we assign the value 'undefined'<br>   
-		   typeof a --> 'undefined'	<br>
-		   if ( typeof a === 'undefined') --> true // We check for 'undefined'
-		   </code><br>		   		
-			</div>	
-			
-			<i>Notes: 'undefined' is of datatype 'undefined' and a so called 'falsy' value.<br> 
-			Important: 'falsy' is not the same as 'false'. The latter being of datatype Boolean.<br>
-			'undefined' is <b>not an error</b> in it self, tough it's often the cause of errors/bugs.</i>
-		   <i>Javascript will automatically assign 'undefined' to a variable that are not initialized. </i><br><br>
-			
-			<i><b>Typeof 'null'</b></i> 
-			<div class="code-container">
-			<code>
-			let b = null;							<br>
-			typeof b --> object 	// null basically means empty object		
-		   </code><br>		   
-		   </div>
-		   <i>Note: An easy way to check if an object is empty is to check the length of the 'keys' property in the Object constructor</i>
-		   		   
-		   <i>Note: If the purpose is to give a variable an empty value it can be given the value 'null'.</i>	
-			<i>See more;  https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in </i>		   
-           <br>   
-		   </div><br>
-		   			
-			<h3>Primitive Types</h3>
-		   <div class="example">
-			<i><b>What are primitive types?</b></i><br>           
-			<i>Note: Primitive values are passed by copying the value</i>			
-			<i>Note: Assigning a value to a variable gives it a new value, does not mutate the original value as with objects</i>
-			
-		    <i>Understanding the above lets proceed...</i>		   	
-			<br>
-		   <i><b>Primitive types are immutable! But what does it really mean?</b></i>	
-		   
-		   <div class="code-container">
-		   <code>
-			let foo = "Hello World"	<br>		
-			foo.toUpperCase() --> 'HELLO WORLD' // we use a method on foo<br>	
-			console.log(foo) --> 'Hello World'  // but the original value is unchanged<br>			
-			</code><br>
-						
-			<i><b>// We can do this</b></i>
-			<code> console.log(foo[0]) --> H // we get the 1st character
-			</code>			
-			<i><b>// But not this...</b></i><code> foo[0] = "T" -->	"Hello World" // value doesn't change
-			</code>
-			</div>
-			<i><b>How come we can use properties and methods on primitives as with objects?</b></i>  		
-			<br>
-			<i>See more about primitive types; https://developer.mozilla.org/en-US/docs/Glossary/Primitive</i>			
-			</div><br>
-						
-			<h3>Pass by Value vs Reference</h3>
-			<div class="example">
-			<i>What does it mean when we pass value by reference?</i>	
-			<br>
-
-			<i>Primitive types</i>
-			<div class="code-container">			
-			<code>
-				let a = "KYH"		<br>
-				let b = a 			<br>
-				a = "Hello"  // We assign a new value to a	<br>
-				console.log(b) --> "KYH"  // We retain the copied value	<br>
-			</code>
-			</div><br>
-
-			<i>Objects</i>
-			<div class="code-container">
-			<code>					
-				let objA = { name: "Kal", lastname: "Doe" }	<br>
-				let objB = objA								<br>
-				objA.name = "Ada"	// we change the value of prop name<br>
-				console.log(objB.name) --> "Ada"  // prop name has changed <br>			
-			</code>			
-			</div>	
-			<i><b>objB</b> here points to the location of the original object. It's <b>not</b> a copy of objA.</i><br> 	
-			<span>Note: Function arguments are always passed by value and are copied into the function.</span><br>
-			<span>Note: You can define how/if a prop can be accessed/changed by using the corresponding Object constructor method.</span><br>	
-			<span>Noteworthy: in <b>React</b> 'props'(the object) can not be mutated, by design.</span><br><br>		
-
-			<span>More about define access to props:  https://stackoverflow.com/questions/7757337/defining-read-only-properties-in-javascript
-			</span><br>
-			<span>More about objects passed by reference: 
-			https://stackoverflow.com/questions/16880418/javascript-pas</span><br>   			
-			</div><br>		   
 			
 			<h3>Usage of common String and Array methods</h3>
-			<div class="example">
-           
+			<div class="example">		   
 			<b>Explain and show how to use these methods.</b>
 			<p>push, split, slice, join, sort, indexOf, charAt</p><br>
 		   
@@ -349,26 +354,61 @@
 			typeof greet 					<br>
 			greet.charAt(greet.length-1)	<br><br>
 			
-			let str = "KYH Frontend Nacka"	<br>
-			typeof str 						<br>			
+			let str = "KYH Frontend"		<br>
+			typeof str 						<br>						
 			str.indexOf("F")				<br><br>
 			
-			let bar = str.split(" ")		<br>
-			typeof bar 						<br>
-			bar.sort()						<br><br>
+			let foo = str.split(" ")		<br>
+			typeof foo 						<br>
+			foo.sort()						<br><br>
 						
-			let first = bar.slice(1,2)		<br>			
-			bar.push(first)					<br><br>						
+			let first = foo.slice(0,1)		<br>			
+			foo.push(first.join())			<br><br>				
 			
-			let toStr = bar.join(" ")		<br>			
-			typeof toStr					<br>						
-			toStr.constructor 				
+			foo.constructor 				
 			</code><br>
-			</div>			
-			
+			</div>				
 			<i>Note: We can use console.dir() to get more info about the constructor</i>			
+			<br>	
+			<span>More about strings: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2</span>
+			
+			</span><br>
+			<span>More about arrays: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype#Methods</span><br>
+			
 			</div><br>
 			
+			<h3>Reverse a String </h3>
+			<div class="example">
+			 <i>Return the following string in reverse "KYH Frontend Developer".</i>
+			 <br>
+			 <i>Extra: Show another way to achieve the same result. If not done already don't use the method reverse.</i>			 
+			 <i>Extra: Reverse a collection of type number.</i>
+			 <br>
+			 <span>Tip: reverse method only works with arrays.</span><br>
+			</div><br>
+			
+			<h3>Duplicate an Array</h3>
+			<div class="example">
+			<i>Show how to do it both in pre ES6 as well as ES6.</i>	
+			</div><br>
+			
+			<h3>Sort an Array with numerical values</h3>           			
+			<div class="example">
+			<p>let numbers = [114,22,4,5,11,41]</p>
+			<br>
+			<i>Extra: Get the highest number.</i><br>
+			<span>Note: If a Math function can't convert an argument to a number it returns NaN.</span><br>
+			</div>
+		   <br>
+						   
+           <h3>Remove Duplicates from an Array</h3>
+   		   <div class="example">
+           <i>Show if possible two ways to remove duplicates from an array.</i>
+		   <i>Extra: If not done already, use an object constructor method to remove the duplicates.</i><br>
+		   <span>Note: All results most consist of an array.</span><br><br>
+   		   <span>Tip: ES6 datatype 'Set' can only hold unique values.</span><br>       
+		   </div><br>	   
+						
 		   <h3>FizzBuzz</h3>
 		   <div class="example">
 		   <i>Pretty common question(worth to google it...) present if possible 2 solutions</i>
@@ -381,34 +421,17 @@
 			<h3>Promises</h3>	
 			<div class="example">
 			<i>Explain promises in Javascript</i> 
+			<br>
+			<span>More about promises: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises</span>
 			</div><br>	
 			
 			<h3>Closures</h3>	
 			<div class="example">
-			<i>Explain closures in Javascript</i> 
-			</div><br>	
-							
-			<h3>Duplicate an Array</h3>
-			<div class="example">
-			<i>Show how to do it with ES6 as well as the old way</i>	
-			</div><br>
+			<i>Explain closures in Javascript</i><br>
 			
-			<h3>Sort an Array with numerical values</h3>           			
-			<div class="example">
-			<p>let numbers = [114,22,4,5,11,41]</p>
-			<br>
-			<i>Extra: Get the highest number.</i>
-			<i>Note: If a Math function can't convert an argument to a number it returns NaN.</i>
-			</div>
-		   <br>
-						   
-           <h3>Remove Duplicates from an Array</h3>
-   		   <div class="example">
-           <i>Show if possible two ways to remove duplicates from an array</i>
-		   <i>Extra: If not done already, use an object constructor method to remove the duplicates</i>
-		   <i>Note: All results most consist of an array</i><br>
-   		   <i>Tip: ES6 datatype 'Set' can only hold unique values</i>       
-		   </div><br>	   
+			<span>More about closures: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures</span>
+			</div><br>								
+			
 		</div><br><!-- END TUTORIAL PART 1 -->           	   
 		   
 		<div class="tutorial-part">
@@ -448,7 +471,7 @@
 			<h4>find</h4>
 			<h4>includes</h4><br>
 						
-		    <span>Note: These methods do not mutate/change the orignal array (in general a good thing!)</span>
+		    <span>Note: These methods do not mutate/change the orignal array (in general a good thing!)</span><br>
 			<span>See more: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#</span><br>
 			</div>		   
             <br>
@@ -555,6 +578,7 @@
 		   <i>Extra 2: How can you check if a passed value is an array?</i>
 		   <i>Extra 3: What does it mean when you do a 'shallow copy' of an existing array or object?</i><br>
 		   <span>Note 1: it must be an iterable instance</span><br>
+		   <span>More about <b>shallow</b> vs <b>deep</b> copy: https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/</span><br>
 	   	</div><br>
 			
 	   <h3>Object constructor methods</h3>
@@ -566,8 +590,13 @@
 			<i>Extra 2; extend your original answer and get the length(quantity) of the properties.</i>
 			<i>Extra 3; For what can you use the constructor method 'hasOwnProperty' and what will it return?</i><br> 
 				
-			<span>Note: The Object.keys/values will return an array.</span><br>		
-			<span>Note: The Object.entries returns an array of arrays.</span><br>			
+			<span>Notes: The Object.keys/values will return an array.<br>		
+			The Object.entries returns an array of arrays.<br>		
+			An easy way to check if an object is empty is to check the length of the 'keys' property in the Object constructor</span><br>	   
+			
+			<i>See more; https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in<i>
+
+			
 			<span>Note: 1) Can be done with for/in as well but then it will also show props that are inherited by the prototype.</span><br>
 			<span>Note: 2) The length property on the Object constructor will return undefined.</span><br>
 			<span>Note: 3) It will return(true) all declared properties even those with no value.</span>
@@ -579,13 +608,30 @@
 	   </div>
 	   
 	   </div>
-       <script>				
-			
+       <script>		
+
 			/*
-			The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
+			let str = "Hello"
+			let revStr = [];
+			let len = str.length;
+						
+			for( let i = 0; i < len; i++) {				
+				revStr.unshift(str[i]); 			
+			}		
+						
+			console.log(revStr.join);
 			
-			The includes() method determines whether an array includes a certainvalue among its entries, returning true or false as appropriate.
-			*/
+			
+			const n = 123456;
+			Array.from(n.toString()).map(Number);
+			*/		
+		
+			/*
+			let test = bar.join(" ") 
+			console.log( test.charAt(2))
+			console.log(foo)			
+			console.dir(foo.constructor)		
+						*/
 	   </script>
 	   </body>
 	   </html>
