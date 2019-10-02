@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
    <meta charset="UTF-8">
-   <meta name="description" content="Free Javascript Fundamentals Guide and Questions">
+   <meta name="description" content="Free Javascript Guide with Questions">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta name="author" content="Philip R">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">   
    <title>Javascript Questions</title>
    <style>
 		*  {
@@ -143,6 +142,7 @@
 	   }	  
    </style>
 </head>
+
 <body>
    <div class="wrapper">
        <div class="tutorial-part">           
@@ -363,12 +363,17 @@
 			foo.sort()						<br><br>
 						
 			let first = foo.slice(0,1)		<br>			
-			foo.push(first.join())			<br><br>				
+			foo.push(first.join())			<br>
+			console.log(foo)				<br><br>				
 			
 			foo.constructor 				
 			</code><br>
 			</div>				
-			<i>Note: We can use console.dir() to get more info about the constructor</i>			
+			<span>Note: push and sort are so called mutator methods since they mutate/change the original array. Push for example adds item/s to the end of the array while returning the new length of the array. Mutator methods can't be used with strings because... ( you know why! )
+			<i>...since primitive types are immutable.</i>
+			<span>
+			<span>Note: We can use console.dir() to get more info about the constructor
+			</span><br>			
 			<br>	
 			<span>More about strings: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2</span>
 			
@@ -610,28 +615,19 @@
 	   </div>
        <script>		
 
-			/*
-			let str = "Hello"
-			let revStr = [];
-			let len = str.length;
-						
-			for( let i = 0; i < len; i++) {				
-				revStr.unshift(str[i]); 			
-			}		
-						
-			console.log(revStr.join);
-			
-			
-			const n = 123456;
-			Array.from(n.toString()).map(Number);
-			*/		
-		
-			/*
-			let test = bar.join(" ") 
-			console.log( test.charAt(2))
+			let str = "KYH Frontend"
+			typeof str
+			str.indexOf("F")
+
+			let foo = str.split(" ")
+			typeof foo
+			console.log(foo.sort())
+
+			let first = foo.slice(0,1)
+			foo.push(first.join())
 			console.log(foo)			
-			console.dir(foo.constructor)		
-						*/
+			
+			
 	   </script>
 	   </body>
 	   </html>
