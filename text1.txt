@@ -1,0 +1,9 @@
+﻿
+Hej!
+Under långa och tråkiga dagar har jag sammanfattat en mindre tutorial som täcker upp mycket av fundamentals när det kommer till Javascript. Den inkluderar även vanliga JS intervjufrågor och kan användas som en guide för att täcka upp luckor när det kommer till fundamental knowledge. 
+
+Lägger in koden här som en html snippet. 'Easy to use' allt finns på samma ställe inkl styling, bara o spara som en html fil. Facit ingår inte tanken är att lösa det på egen hand. 
+
+
+
+Tänkt på att göra en liknande guide för CSS samt en för React fast tveksamt om det finns tid för det. Skulle vara om någon är intresserad av att joina ett sådant arbete. 
