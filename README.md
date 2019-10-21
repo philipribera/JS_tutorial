@@ -1,12 +1,15 @@
 # Description
-Free to use Javascript tutorial with questions and exercises.
+Free to use Javascript tutorial with exercises and questions.
 
 # Getting Started
-Copy the file or code and save it with extension html. 
+Copy the main file or the code directly and save it with extension html. 
 Nothing more is needed.
 
 # Prerequisites
-Only thing needed is an editor and a browser.
+Only thing needed is a browser.
+
+# Project Status 
+The tutorial is still under development but can be used in it's present state.
 
 # Version 
 Ver1.4
