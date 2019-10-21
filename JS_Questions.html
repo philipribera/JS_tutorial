@@ -10,12 +10,13 @@
    <style>
 		*  {
 			box-sizing: border-box;
+			outline: none;
 			padding: 0;
-			margin: 0;
+			margin: 0;			
 		}
 		body {
 			font-family: Arial, Helvetica, sans-serif;
-			background-color: #d4d4d4;
+			background-color: rgb(101, 101, 101);
 		}		
        .wrapper {			
            width: 72%;
@@ -80,6 +81,7 @@
 			padding: 4px 8px;
 	   }
 	   .code-container {
+			position: relative;
 			width: 84%;
 			background-color: rgb(12,12,12);
 			color: rgb(247,247,247);
@@ -89,12 +91,28 @@
 	   .code-container code, .code-container code span {
 			color: rgb(74, 249, 105);
 	   }
+	   .code-container-mod code, .code-container-mod code span {
+			color: rgb(255, 187, 82);
+	   }
+	   
 	   	.code-container i {
-			color: rgb(247,247,247);
+			color: rgb(245,245,245);
 		}
 	   .code-container div {
 			margin-left: 14px;
-	   }	  	 
+	   }	
+
+		.btn-change-color  {
+			position: absolute;
+			right: 0;
+			top: 0;
+			cursor: pointer;
+			background: rgb(45,45,45);
+			color: rgb(222,222,222);
+			padding: 6px;	
+			border: 1px solid rgb(102,102,102);
+		}
+		
 		  
 		/*** MEDIA QUERIES ***/	
 	   @media only screen and (max-width: 1280px) {
@@ -108,8 +126,8 @@
 	   }	   
 	   @media only screen and (max-width: 990px) {
 			.wrapper {
-				width: 92%;
-				padding: 18px;
+				width: 100%;
+				padding: 20px;
 			}			
 			.tutorial-part {
 	           padding: 20px;
@@ -125,9 +143,8 @@
 			}				
 	   }
 	   @media only screen and (max-width: 767px) {
-			.wrapper {
-				width: 100%;
-				padding: 6px;
+			.wrapper {				
+				padding: 7px;
 			}
 			.tutorial-part {
 	           padding: 12px;
@@ -149,8 +166,9 @@
 </head>
 
 <body>
-   <div class="wrapper">
+   <div class="wrapper">	   
        <div class="tutorial-part">           
+	   
            <h1 id="top">Javascript Fundamentals with Questions</h1>		
 		   <br>						  
           			
@@ -164,8 +182,10 @@
 			<p>The Math object in Javascript is used to perform mathematical tasks on numbers</p>
 			<span>Note: If a Math function can't convert an argument to a number it returns NaN.</span><br>
 			<p>Some common methods of the Math object:</p>
-						
+
 			<div class="code-container">	
+				<button class="btn-change-color">Change Color</button>			
+
 				<code>
 				let floatNumber = 1.55			<br> 
 				Math.round(floatNumber)	--> 2 // will round to closest integer	<br><br>
@@ -657,8 +677,20 @@
 	   </div>
 	   
 	   </div>
-       <script>						
-						
+       <script>	
+			
+			// Toggles code color between green and orange
+			const btnChangeColor = document.querySelector('.btn-change-color');
+			const codeContainers = document.querySelectorAll('.code-container');	
+					
+			const changeCodeColor = ()=> {
+				Array.from(codeContainers, container => {
+					container.classList.toggle('code-container-mod');
+				})
+			}
+			btnChangeColor.addEventListener('click', changeCodeColor);
+			
 	   </script>
+	   <noscript>Your browser does not support JavaScript!</noscript>
 	   </body>
 	   </html>
