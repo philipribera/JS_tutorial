@@ -181,6 +181,10 @@
 			<p>In Javascript we only have one type for numbers. There is no distinction for decimals.... etc.</p>
 			<p>The Math object in Javascript is used to perform mathematical tasks on numbers</p>
 			<span>Note: If a Math function can't convert an argument to a number it returns NaN.</span><br>
+			<span>Note: To check for 'NaN' do not compare; NaN === NaN, this returns false since typeof NaN is number...!<br>
+			With ES6 we can use, 'Number.isNaN(value)' to check for NaN,</span><br>
+			<i class="link">See more; https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN</i>
+			
 			<p>Some common methods of the Math object:</p>
 
 			<div class="code-container">	
@@ -202,7 +206,7 @@
 				<i><b>// To solve this we can use ES6 features as spread or reduce </b></i>
 				<code><br>				
 				
-				let rand							<br>
+				let rand;							<br>
 				Math.random(rand) --> ? // returns a floating-point between 0 and 1.</b></i>
 				</code>
 			</div><br>
