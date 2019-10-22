@@ -83,16 +83,16 @@
 	   .code-container {
 			position: relative;
 			width: 84%;
-			background-color: rgb(12,12,12);
+			background-color: rgb(7,7,7);
 			color: rgb(247,247,247);
-			padding: 24px;
+			padding: 26px 24px;
 			margin: 12px 0 18px 0;
 	   }
 	   .code-container code, .code-container code span {
 			color: rgb(74, 249, 105);
 	   }
 	   .code-container-mod code, .code-container-mod code span {
-			color: rgb(255, 187, 82);
+			color: rgb(255, 189, 84);
 	   }
 	   
 	   	.code-container i {
@@ -199,7 +199,7 @@
 				let numbers = [4,7,9,11];		<br>				
 				Math.max(numbers)	--> NaN	// Math max/min do not work with arrays.<br>					
 				</code>	 
-				<i><b>// To solve this we can use ES6 features like spread or reduce method.</b></i>
+				<i><b>// To solve this we can use ES6 features as spread or reduce </b></i>
 				<code><br>				
 				
 				let rand							<br>
@@ -226,10 +226,10 @@
 			console.log(foo) --> 'Hello World'  // but the original value is unchanged<br>			
 			</code><br>
 						
-			<i><b>// We can do this</b></i>
+			<i><b>/*** We can do this ***/</b></i>
 			<code> console.log(foo[0]) --> H // we get the 1st character
 			</code>			
-			<i><b>// But not this...</b></i><code> foo[0] = "T" -->	"Hello World" // value doesn't change
+			<i><b>/*** But not this... ***/</b></i><code> foo[0] = "T" -->	"Hello World" // value doesn't change
 			</code>
 			</div>
 			<i><b>How come we can use properties and methods on primitives as with objects?</b></i>  		
@@ -631,7 +631,24 @@
 	   </div><br><!-- End Tutorial part 2 --> 	   	   
 	   
 	   <div class="tutorial-part">  
-	   <h1>Javascript Questions</h1><br>
+	   <h1>Interview Questions</h1><br>
+	   	   
+	   <h3>Checking for object</h3>
+	   <div class="example">
+	   <p>
+	   What could cause a problem when using typeof foo === "object" to determine if foo is an object? 
+	   </p>
+	   	<p>Show how to resolve the problem/s</p>    
+		</div>
+		<br>
+			
+		<h3>'use strict'</h3>
+	   <div class="example">
+	   <p>	
+		Why would we use 'use strict' statement in a Javascript file and what are the consequences/benefits?</p> 
+		</div>		
+		<br>			
+			
 	   <h3>Reverse a String </h3>
 			<div class="example">
 			 <i>Return the following string in reverse "KYH Frontend Developer".</i>
@@ -689,7 +706,7 @@
 				})
 			}
 			btnChangeColor.addEventListener('click', changeCodeColor);
-			
+													
 	   </script>
 	   <noscript>Your browser does not support JavaScript!</noscript>
 	   </body>
