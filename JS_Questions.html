@@ -45,7 +45,7 @@
 		}	   
 	   code {
 			font-size: 1.22rem;
-			line-height: 1.42rem;
+			line-height: 1.45rem;
 			color: rgb(20, 64, 86);			
 	   }
 	   	.go-top {
@@ -153,7 +153,8 @@
 				margin: 0;
 			}
 			code {
-				font-size: 1.12rem;			
+				font-size: 1.12rem;		
+				line-height: 1.4em;	
 			}
 			h1 {
 				font-size: 1.95rem;
@@ -174,10 +175,40 @@
           			
 			<h3>Primitive Types</h3>
 		   <div class="example">
-			<i><b>What are primitive types?</b></i><br>           
 			
+			<h4>Fundamentals</h4><br>
+			<span>There are 6 primitive data types: string, number, boolean, null, undefined, symbol  </span><br>
+			<span>Primitive values are passed by copying the value</span><br>			
+			<span>Assigning a value to a variable gives it a new value, does not mutate the original value as with objects</span>
+			
+		    <i>Understanding the above lets proceed...</i>		   	
 			<br>
-			<b>Datatype 'number' and the Math object</b><br>			
+
+			<i><b>Primitive types are immutable! But what does it really mean?</b></i>	
+		   
+		   <div class="code-container">
+		   <code>
+			<button class="btn-change-color">Change Color</button>			
+
+			let foo = "Hello World"	<br>		
+			foo.toUpperCase() --> 'HELLO WORLD' // we use a method on foo<br>	
+			console.log(foo) --> 'Hello World'  // but the original value is unchanged<br>			
+			</code><br>
+						
+			<i><b>/*** We can do this ***/</b></i>
+			<code> console.log(foo[0]) --> H // we get the 1st character
+			</code>			
+			<i><b>/*** But not this... ***/</b></i><code> foo[0] = "T" -->	"Hello World" // value doesn't change
+			</code>
+			</div>
+			<i><b>How come we can use properties and methods on primitives as with objects?</b></i>  		
+			<br>
+			<span>Note: Primitives being immutable is the reason we can't use mutator methods on strings. For example push, reverse and sort.
+			</span><br>
+			<i class="link">See more; https://developer.mozilla.org/en-US/docs/Glossary/Primitive</i><br>	
+			<br>
+			
+			<h4>Datatype 'number' and the Math object</h4><br>			
 			<p>In Javascript we only have one type for numbers. There is no distinction for decimals.... etc.</p>
 			<p>The Math object in Javascript is used to perform mathematical tasks on numbers</p>
 			<span>Note: If a Math function can't convert an argument to a number it returns NaN.</span><br>
@@ -187,9 +218,7 @@
 			
 			<p>Some common methods of the Math object:</p>
 
-			<div class="code-container">	
-				<button class="btn-change-color">Change Color</button>			
-
+			<div class="code-container">
 				<code>
 				let floatNumber = 1.55			<br> 
 				Math.round(floatNumber)	--> 2 // will round to closest integer	<br><br>
@@ -209,38 +238,44 @@
 				let rand;							<br>
 				Math.random(rand) --> ? // returns a floating-point between 0 and 1.</b></i>
 				</code>
-			</div><br>
-						
-			<b>Datatype 'string'</b><br>		
+			</div><br>					
 			
-			<br><br>
-			
-			<h4>Understanding fundamentals about primitive types</h4>
-			<i>Note: Primitive values are passed by copying the value</i>			
-			<i>Note: Assigning a value to a variable gives it a new value, does not mutate the original value as with objects</i>
-			
-		    <i>Understanding the above lets proceed...</i>		   	
-			<br>
-		   <i><b>Primitive types are immutable! But what does it really mean?</b></i>	
+			<h4>Understanding 'undefined'</h4><br>		   
 		   
-		   <div class="code-container">
+		   <div class="code-container">		   
+		   <i><b>// If we try to use a variable before being declared</b></i>
 		   <code>
-			let foo = "Hello World"	<br>		
-			foo.toUpperCase() --> 'HELLO WORLD' // we use a method on foo<br>	
-			console.log(foo) --> 'Hello World'  // but the original value is unchanged<br>			
-			</code><br>
-						
-			<i><b>/*** We can do this ***/</b></i>
-			<code> console.log(foo[0]) --> H // we get the 1st character
-			</code>			
-			<i><b>/*** But not this... ***/</b></i><code> foo[0] = "T" -->	"Hello World" // value doesn't change
-			</code>
-			</div>
-			<i><b>How come we can use properties and methods on primitives as with objects?</b></i>  		
-			<br>
-			<span>Note: Primitives being immutable is the reason we can't use mutator methods on strings. For example push, reverse and sort.
-			</span><br>
-			<i class="link">See more; https://developer.mozilla.org/en-US/docs/Glossary/Primitive</i>			
+		   console.log(a);		// Gives a reference error	<br>
+		   </code>	 
+			<i><b>// If we don't initialize a variable</b></i>
+			<code>
+		   let a; // This will give 'a' the value undefined.
+		   </code>
+		   <i><b>// But we can also do this</b></i>		   
+		   <code>
+		   let a = undefined;	// we assign the value 'undefined'<br>   
+		   typeof a --> 'undefined'	<br>
+		   if ( typeof a === 'undefined') --> true // We check for 'undefined'
+		   </code><br>		   		
+			</div>	
+			
+			<span>Notes: 'undefined' is of datatype 'undefined' and a so called 'falsy' value.<br> 
+			Important: 'falsy' is not the same as 'false'. The latter being of datatype Boolean.<br>
+			'undefined' is <b>not an error</b> in it self, tough it's often the cause of errors/bugs.<br>
+			A function that doesn't return a value will always return 'undefined'.<br>
+		   Javascript will automatically assign 'undefined' to a variable that are not initialized. </span><br>		   
+		   <br><br>		
+			
+			<h4>Understanding 'null'</h4><br> 
+			<div class="code-container">
+			<code>
+			let b = null;							<br>
+			typeof b --> object 	// null basically means empty object		
+		   </code><br>		   
+		   </div>
+		   <span>Note: The type of null is object while undefined has its own type.<br>If the purpose is to give a variable an empty value is can be done by assign it the value null, representing no value.</span><br>   		   
+		   <br>					
+		  
 			</div><br>
 							
 			<h3>Pass by Value vs Reference</h3>
@@ -303,52 +338,7 @@
 			<br>			
 			</div>					
 			</div><br><br>
-		
-		 <h3>Declaring variables and the concept of 'undefined'</h3>
-		   <div class="example">
-           <i>What is the difference between 'var' and 'let'?</i>	   
-           <i>When do we use 'const'?</i>
-		   <i>Explain the concept of 'undefined'.</i>
-		   <i>Explain the difference between 'undefined' and 'null'.</i>		   
-		   <br>
-		   		   
-		   <i><b>Understanding 'undefined'</b></i>		   
-		   
-		   <div class="code-container">		   
-		   <i><b>// If we try to use a variable before being declared</b></i>
-		   <code>
-		   console.log(a);		// Gives a reference error	<br>
-		   </code>	 
-			<i><b>// If we don't initialize a variable</b></i>
-			<code>
-		   let a; // This will give 'a' the value undefined.
-		   </code>
-		   <i><b>// But we can also do this</b></i>		   
-		   <code>
-		   let a = undefined;	// we assign the value 'undefined'<br>   
-		   typeof a --> 'undefined'	<br>
-		   if ( typeof a === 'undefined') --> true // We check for 'undefined'
-		   </code><br>		   		
-			</div>	
-			
-			<span>Notes: 'undefined' is of datatype 'undefined' and a so called 'falsy' value.<br> 
-			Important: 'falsy' is not the same as 'false'. The latter being of datatype Boolean.<br>
-			'undefined' is <b>not an error</b> in it self, tough it's often the cause of errors/bugs.<br>
-			A function that doesn't return a value will always return 'undefined'.<br>
-		   Javascript will automatically assign 'undefined' to a variable that are not initialized. </span><br>		   
-		   <br>
-			
-			<i><b>Understanding 'null'</b></i> 
-			<div class="code-container">
-			<code>
-			let b = null;							<br>
-			typeof b --> object 	// null basically means empty object		
-		   </code><br>		   
-		   </div>
-		   <span>Note: The type of null is object while undefined has its own type.<br>If the purpose is to give a variable an empty value is can be done by assign it the value null, representing no value.</span><br>		   		   
-		   <br>			
-		   </div><br>
-		   		
+				 		   		
 		
 			<h3>Global vs Function Scope</h3>
 			   <div class="example">
@@ -637,6 +627,17 @@
 	   <div class="tutorial-part">  
 	   <h1>Interview Questions</h1><br>
 	   	   
+		<h3>Fundamentals</h3>
+	   <div class="example">		
+		<i>Explain the difference of 'let' and 'var' when declaring variables</i>
+		<i>Explain how does 'const' work</i>
+		<i>Explain the concept of 'undefined'.</i>
+		<i>Explain the difference between 'undefined' and 'null'.</i>		   
+		<i>Explain the concept of hoisting</i>
+		<i>Explain the concept of global scope vs functional scope</i>
+		<i>Explain the concept of lexical scope</i>
+		</div><br>
+		
 	   <h3>Checking for object</h3>
 	   <div class="example">
 	   <p>
