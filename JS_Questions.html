@@ -92,7 +92,7 @@
 			color: rgb(74, 249, 105);
 	   }
 	   .code-container-mod code, .code-container-mod code span {
-			color: rgb(255, 189, 84);
+			color: rgb(255, 192, 89);
 	   }
 	   
 	   	.code-container i {
@@ -521,19 +521,50 @@
 			};								<br>							
 			</code>			
 			</div>			
-		   </div><br>
-		   
+		   </div><br>		   
 		    
 		   <h3>Spread & Rest Operator</h3>
 		   <div class="example">
-           <p>Explain; when to use, with examples</p><br>
-		   <i>Use the spread operator to copy the properties of an object into a new object.</i>
-			<i>Explain the importance/difference of using the spread operator to copy the props of an object vs just assigning the object to a new variable?</i>			
+		   <p>The spread operator will essentially take either an array or an object and expands it into its set of items.<br>	
+		   The rest operator is used to create an array from a collection of arguments passed to a function.<br> It works similar to the built in arguments object used to get all arguments passed to a function.</p>
+		   <br><br>
+		   
+		   <h4>Understanding the impact of the spread operator when copying an object</h4>
+		   <p>When using the spread operator to copy an objects properties to a new object we make a real copy of the original.<br> We do not copy the pointer/reference as is the case when we assign an object to a new variable.<br>With spread we can avoid the issue of an object that is manipulated affecting another object stored in a variable with the same pointer/reference.<br> In other words; with the spread operator we copy an object in a immutable way and not just the pointer/reference to the same.</p><br>				
+		   <div class="code-container">
+			<code>		   				
+				const myArr = [1,2,3]; <br>
+				const newArr = [...myArr,4,5] // newArray will consist of [1,2,3,4,5]
+									<br><br>
+				myObj = {	name: "John"	}			<br>							
+				newObj = {	...myObj, surname: "Doe" }	// We add props from myObj to new Obj <br> 				
+				<br>
+				
+				const myFunc = (...args) => {			<br>
+					return `All arguments ${args}`;		<br>
+				}										<br>										<br>							
+				console.log(myFunc(1,2,3,4)) -> All arguments 1,2,3,4
+				
+			</code>
+			</div>		   
 		   </div><br>		   
 		   
-		   <h3>Destructuring & Default values</h3>
-		   		   
+		   <h3>Destructuring & Default values</h3>		   		   
 		   <div class="example">
+		   
+		   <p>When using destructuring we can pull out elements from arrays or properties from objects and assign them to variables.<br>
+		   When it comes to arrays it is very straight forward and we we can use any variable name. The order matters tough.<br> 
+		   When it comes to objects the order doesn't matter since we use the corresponding property name as variable name.</p>
+		   
+   		   <div class="code-container">
+
+		   <code>
+			[a, b] = ["John", "Lisa"] // We assign the array items to variables a and b.
+			<br>
+			{name} = { name: "John", age: 28} // We assign the name prop to variable name.
+		   </code>
+			</div><br>
+		   
 		   <i><b>Pass the car object values to the showCar function</b></i>
 		   <i>Note: the function needs to cope with an unknown numbers of arguments</i>
 		   <div class="code-container">
@@ -682,8 +713,13 @@
            <i>Show if possible two ways to remove duplicates from an array.</i>
 		   <i>Extra: If not done already, use an object constructor method to remove the duplicates.</i><br>
 		   <span>Note: All results most consist of an array.</span><br><br>
-   		   <span>Tip: ES6 datatype 'Set' can only hold unique values.</span><br>       
-		   </div><br>	   
+   		   <span>Tip: ES6 datatype 'Set' can only hold unique values.</span><br>  </div><br>	   
+		   
+		   <h3>Spread and rest</h3>
+		   <div class="example">
+		   <i>Use the spread operator to copy the properties of an object into a new object.</i>
+			<i>Explain the importance/difference of using the spread operator to copy the props of an object vs just assigning the object to a new variable?</i>
+			</div><br>
 						
 		   <h3>FizzBuzz</h3>
 		   <div class="example">
@@ -711,7 +747,22 @@
 				})
 			}
 			btnChangeColor.addEventListener('click', changeCodeColor);
-													
+			
+			const person = {
+				name: "Olle"
+			}
+			
+			const newPerson = {
+				...person,
+				age: 32,
+				gender: 'male'
+			}			
+			
+			console.log(person);
+			console.log(newPerson);
+			console.log( Object.keys(newPerson).length );
+			
+			
 	   </script>
 	   <noscript>Your browser does not support JavaScript!</noscript>
 	   </body>
