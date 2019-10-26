@@ -300,9 +300,9 @@
 							
 			<h3>Pass by Value vs Reference</h3>
 			<div class="example">
-			<i>What does it mean when we pass value by reference?</i>	
+			<p>When we assign an object to new variable we copy the reference to where that object or array is stored in memory.<br>The reference works in other words as a pointer to where the object is stored, it doesn't copy the value as is the case with primitive types.<br>			
+			This means that if we change the value of a property/element it impacts all variables with a reference to the same object/array.</p>						
 			<br>
-
 			<i>Primitive types, pass value by copying</i>
 			<div class="code-container">			
 			<code>
@@ -314,7 +314,8 @@
 			</div><br>
 
 			<i>Objects, pass value by reference</i>
-			<div class="code-container">
+					
+			<div class="code-container">			
 			<code>					
 				let objA = { name: "Kal", lastname: "Doe" }	<br>
 				let objB = objA								<br>
@@ -324,7 +325,7 @@
 			</div>	
 			<i><b>objB</b> here points to the location of the original object. It's <b>not</b> a copy of objA.</i><br> 	
 			<span>Note: Function arguments are always passed by value and are copied into the function.</span><br>				
-			<span>Noteworthy: in <b>React</b> 'props'(the object) can not be mutated, by design.</span><br><br>		
+			<span>Noteworthy: If you want to make a real copy of an object/array we can use the spread operator(see more in next chapter).</span><br><br>		
 			
 			<span class="link">See more about passing values by reference: 
 			https://stackoverflow.com/questions/16880418/javascript-pas</span><br>   			
@@ -495,6 +496,29 @@
 			</div>
 		   </div><br>
 		   
+		   <h3>Default values</h3>
+		   <div class="example">			
+		   <p>To assign a default value we can just assign a value to a function parameter<br> 
+			This also works for destructuring where we can assign default values for variables.</p>
+		   <br>
+		   <div class="code-container">
+			<code>
+				
+				function addNumbers(numArr = []) {	// We add an empty array as default value<br>
+					<span class="example">let sum = 0;	</span><br>
+					<span class="example">numArr.forEach( num => {	</span><br>
+					<span class="example">	sum += num;			</span><br>
+					<span class="example">})					</span><br>
+					<span class="example">return sum;			</span><br></span>
+				}									<br>
+				
+				addNumbers() -> 0	// We get no error despite calling the function with no arguments.
+												
+			</code>
+			</div>			
+				
+		   </div><br>
+		   
            <h3>Key word 'this'</h3>
 		   <div class="example">			
 			<i>What gets returned when we call 'this'?</i>			
@@ -580,7 +604,7 @@
 		   <br><br>
 		   
 		   <h4>Understanding the impact of the spread operator when copying an object</h4>
-		   <p>When using the spread operator to copy an objects properties to a new object we make a real copy of the original.<br> We do not copy the pointer/reference as is the case when we assign an object to a new variable.<br>With spread we can avoid the issue of an object that is manipulated affecting another object stored in a variable with the same pointer/reference.<br> In other words; with the spread operator we copy an object in a immutable way and not just the pointer/reference to the same.</p><br>				
+		   <p>When using the spread operator to copy an objects properties to a new object we make a real copy of the original.<br>It's important to understand the same goes for arrays, in other words spread can be used to make a real copy of an array. We do not copy the pointer/reference as is the case when we assign an object or array to a new variable.<br>With spread we can avoid the issue of an object that is manipulated affecting another object stored in a variable with the same pointer/reference.<br> In other words; with the spread operator we copy an object in a immutable way and not just the pointer/reference to the same.</p><br>				
 		   <div class="code-container">
 			<code>		   				
 				const myArr = [1,2,3]; <br>
@@ -588,8 +612,7 @@
 									<br><br>
 				myObj = {	name: "John"	}			<br>							
 				newObj = {	...myObj, surname: "Doe" }	// We add props from myObj to new Obj <br> 				
-				<br>
-				
+				<br>				
 				const myFunc = (...args) => {			<br>
 					return `All arguments ${args}`;		<br>
 				}										<br>										<br>							
@@ -599,7 +622,7 @@
 			</div>		   
 		   </div><br>		   
 		   
-		   <h3>Destructuring & Default values</h3>		   		   
+		   <h3>Destructuring</h3>		   		   
 		   <div class="example">
 		   
 		   <p>When using destructuring we can pull out elements from arrays or properties from objects and assign them to variables.<br>
@@ -613,13 +636,7 @@
 			<br>
 			const {name} = { name: "John", age: 28} // We assign the name prop to variable name.
 		   </code>
-			</div><br>	
-			
-			<h4>Default values</h4>
-			<p>To assign a default value we just assign a value to the variable.</p> 
-				   	
-		   <i>Note: Default values can also be used for function arguments.</i><br>
-		   				
+			</div><br>					
 		   </div>
 		           
 		   <h3>Array constructor methods</h3>
@@ -822,8 +839,7 @@
 			
 			// Toggles code color between green and orange
 			const btnChangeColor = document.querySelector('.btn-change-color');
-			const codeContainers = document.querySelectorAll('.code-container');	
-					
+			const codeContainers = document.querySelectorAll('.code-container');						
 			const changeCodeColor = ()=> {
 				Array.from(codeContainers, container => {
 					container.classList.toggle('code-container-mod');
@@ -832,9 +848,16 @@
 			btnChangeColor.addEventListener('click', changeCodeColor);			
 			
 			
-			let divNumbers = `15 divided by 3 is: ${15/3}`
-			
-			
+			function addNumbers(numArr = []) {  
+				let sum = 0;
+				numArr.forEach( num => {
+				sum += num;
+				})
+				return sum;
+				}
+				
+				console.log( addNumbers([1,4,6]) )
+						
 	   </script>
 	   <noscript>Your browser does not support JavaScript!</noscript>
 	   </body>
