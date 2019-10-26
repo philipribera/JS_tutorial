@@ -35,6 +35,15 @@
 	   h3 {
 			font-size: 1.55rem;
 	   }
+	   ul {
+		padding: 4px;
+		margin-left: 14px;
+	   }
+	   li {
+		list-style-type: none;
+		padding: 0 4px;		
+	   }
+	   	   
 	   i {			
 			display: block;						
 	   }   
@@ -48,11 +57,23 @@
 			line-height: 1.45rem;
 			color: rgb(20, 64, 86);			
 	   }
+	   .log-list li {
+			width: 202px;
+			border-bottom: 1px solid rgb(192,192,192);
+	   }
+	   .log-list li:first-child {
+			font-weight: 600;
+	   }
+	   .info-list {
+			display: inline-block;
+			min-width: 72px;
+			margin-right: 14px;
+	   }
+	   	   
 	   	.go-top {
 			
 			padding: 4px 0;			
-		}		
-		   
+		}				   
 	   .go-top a {			
 			font-size: 1rem;
 			font-weight: 600;
@@ -274,8 +295,7 @@
 		   </code><br>		   
 		   </div>
 		   <span>Note: The type of null is object while undefined has its own type.<br>If the purpose is to give a variable an empty value is can be done by assign it the value null, representing no value.</span><br>   		   
-		   <br>					
-		  
+		   <br>		  
 			</div><br>
 							
 			<h3>Pass by Value vs Reference</h3>
@@ -312,34 +332,43 @@
 
 			<h3>Type Coercion & Comparisons</h3>
 			<div class="example">
-		   	<i><b>What do we get?</b></i>		
-			<div class="code-container">
-			<code>
-			4 + "2"					<br>					
-			8-"2"*3 				<br>
-			(4 + true + "2")/5 		<br>			
-			4*(3-2)/false 			<br>
-			Boolean("") 			<br>
-			true == "1" 			<br>
-			44%10 > 2				<br>								
-			10 - "KYH" 				<br>
-			"0" == false 			<br>
-			</code>			
-			<b>// "0" is converted to a 'falsy' value. What does it mean?</b>
-			<br><br>
-			<code>
-			(true &lt; 3 &lt; 5)	<br>
-			(8 &gt; 5 &gt; 3)		<br>
-			(false || Boolean)		<br>		
-			(33 || false && true) 	<br>
-			(1 === 1 && "Hello")	<br>			
-			</code>
-			<b>// 33 and "Hello" are converted to 'truthy' values. What does it mean?</b>
+			<p>Javascript use type coercion to convert a value from one type to another. It can be a string to number, object to boolean, and so on.</p>
 			<br>			
-			</div>					
-			</div><br><br>
-				 		   		
-		
+			
+			<h4>Comparison Operators</h4>
+			<p>The rules for type conversions can be confusing and it's not least important to understand the difference between <b>==</b> and <b>===</b>,<br> the former often called 'loose' equality operator' since it only compares the values and not the type and the latter being the 'strict' equivalent that compares both.</p>
+			<p>The other comparison operators are; not equal to <b>!= !==</b>, greater or less than <b>> <, >= <=.</b>
+			</p>
+			<div class="code-container">
+			<code>					
+				if(1 == "1") -> true // will make a comparison after type conversion of "1" to 1 <br>
+				<br>
+				if(1 === "1") -> false // strict equality will check for both value and type.	
+				<br>					
+			</code>
+			</div><br>			
+			
+			<h4>Logical Operators</h4>
+			<p>Logical operators are used to determine the logic between variables or values. </p>
+			<ul class="log-list">
+				<li><span class="info-list">Operator</span><span class="info-list"> Description</span> 
+				<li><span class="info-list">&&</span><span class="info-list">and</span></li>
+				<li><span class="info-list">||</span><span class="info-list">or</span></li>
+				<li><span class="info-list">!</span><span class="info-list">not</span></li>
+			</ul>			
+			<br><br>
+			
+			<h4>Implicit vs. explicit coercion</h4>	<br>	
+			<p>Type conversion can be done implicit and explicit.</p>
+			<p>
+			An example of implicit(automatic) type conversion is when using the loose equality operator.<br> Since it only compares the values and not the type Javascript will seek to make a type coercion so both values also share the same type. <br>As a developer such code should be avoided since it's often the reason for bugs.</p> 			
+			<p>Explicit coercion on the other hand is done on purpose, for example by using Number(value) that seeks to convert the value to the type 'number'.</p>
+			<br>
+				<span class="link">See more about type coercion: https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/
+			</span><br>		
+			</div><br>
+				 
+				 
 			<h3>Global vs Function Scope</h3>
 			   <div class="example">
 			   <i>Explain the concepts</i>
@@ -502,8 +531,29 @@
 		  		   
 		   <h3>Template Literals</h3>
 		   <div class="example">
-		   <i>Console log a sentence that has two embedded variables and one expression</i>
-		   <i>Goes without saying: Do not use concatenation</i>
+		   <p>Template Literals allows us to work with strings in a different way compared to earlier.<br>
+		   It's a more agile and less ugly way to write code but not least the ability to use expressions gives lot of room for creating more dynamic code.</p>
+		   
+		   <p>Instead of quotes we use `backticks` to write string within it.
+		   We use ${variable or expression} instead of concatenation.	<br>		
+		   Among the new features we also get a more agile syntax to define multiline strings.<br> 
+		   
+			
+		   <div class="code-container">
+			<code>
+				let firstName = "John"	<br>
+				let surName = "Doe"		<br>
+				const fullName = "John" + " " + "Doe"	-> John Doe // The pre ES6 way to do it.<br>
+				<br>
+				let firstName = "Lisa"	<br>
+				let surName = "Doe"		<br>
+				const fullName = `${firstName} ${surName}` -> Lisa Doe // Using template literals<br> <br>
+				
+				let divNumbers = `15 divided by 3 is ${15/3}` -> 5 // We insert an expression 				
+			</code>			
+			</div>		  
+			<span class="link">See more: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals 
+			</span><br>
 		   </div>
 		   <br>
 		   
@@ -559,9 +609,9 @@
    		   <div class="code-container">
 
 		   <code>
-			[a, b] = ["John", "Lisa"] // We assign the array items to variables a and b.
+			const [a, b] = ["John", "Lisa"] // We assign the array items to variables a and b.
 			<br>
-			{name} = { name: "John", age: 28} // We assign the name prop to variable name.
+			const {name} = { name: "John", age: 28} // We assign the name prop to variable name.
 		   </code>
 			</div><br>	
 			
@@ -578,7 +628,6 @@
 			<i>Extra 1: Use the Array.from() callback/mapfunction to manipulate each item.</i>					   
 		   <i>Extra 2: How can you check if a passed value is an array?</i>
 		   <i>Extra 3: What does it mean when you do a 'shallow copy' of an existing array or object?</i><br>
-		   <span>Note 1: it must be an iterable instance</span><br>
 		   <span class="link">More about <b>shallow</b> vs <b>deep</b> copy: https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/</span><br>
 	   	</div><br>
 			
@@ -615,14 +664,45 @@
 	   	   
 		<h3>Fundamentals</h3>
 	   <div class="example">		
-		<i>Explain the difference of 'let' and 'var' when declaring variables</i>
-		<i>Explain how does 'const' work</i>
-		<i>Explain the concept of 'undefined'.</i>
-		<i>Explain the difference between 'undefined' and 'null'.</i>		   
-		<i>Explain the concept of hoisting</i>
-		<i>Explain the concept of global scope vs functional scope</i>
-		<i>Explain the concept of lexical scope</i>
-		</div><br>	   
+		<span><b>Explain the concepts below:</b></span><br>
+		
+		<i>The difference of 'let' and 'var' when declaring variables</i>
+		<i>How does 'const' work</i>
+		<i>The concept of 'undefined'.</i>
+		<i>The difference between 'undefined' and 'null'.</i>		   
+		<i>The concept of hoisting</i>
+		<i>The concept of global scope vs functional scope</i>
+		<i>The concept of lexical scope</i>
+		</div><br>	 
+		
+		<h3>Type coercion</h3>
+	   <div class="example">	
+		<i><b>What do we get?</b></i>		
+			<div class="code-container">
+			<code>
+			4 + "2"					<br>					
+			8-"2"*3 				<br>
+			(4 + true + "2")/5 		<br>			
+			4*(3-2)/false 			<br>
+			Boolean("") 			<br>
+			true == "1" 			<br>
+			44%10 > 2				<br>								
+			10 - "KYH" 				<br>
+			"0" == false 			<br>
+			</code>			
+			<b>// "0" is converted to a 'falsy' value. What does it mean?</b>
+			<br><br>
+			<code>
+			(true &lt; 3 &lt; 5)	<br>
+			(8 &gt; 5 &gt; 3)		<br>
+			(false || Boolean)		<br>		
+			(33 || false && true) 	<br>
+			(1 === 1 && "Hello")	<br>			
+			</code>
+			<b>// 33 and "Hello" are converted to 'truthy' values. What does it mean?</b>
+			<br>			
+			</div>				
+		</div><br>
 			
 		<h3>'use strict'</h3>
 	   <div class="example">
@@ -752,17 +832,8 @@
 			btnChangeColor.addEventListener('click', changeCodeColor);			
 			
 			
-			car = { model: "Volvo", color: "blue", year: "2018" }			
-			const carVal = Object.values(car)									
-			const showCar = (...args) => args.map( val => val ) 				
+			let divNumbers = `15 divided by 3 is: ${15/3}`
 			
-			/*
-			const showCar = (...args)=> {
-				return ( carVal.map( val => {
-					return val;
-				}))
-			}*/					
-			console.log( showCar(carVal) ); 
 			
 	   </script>
 	   <noscript>Your browser does not support JavaScript!</noscript>
