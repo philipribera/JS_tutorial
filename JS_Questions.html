@@ -19,8 +19,8 @@
 			background-color: rgb(101, 101, 101);
 		}		
        .wrapper {			
-           width: 72%;
-           background-color: rgb(240, 240, 240);
+           width: 72%;           
+		   background-color: rgb(245, 245, 245);
            color: rgb(35, 35, 35);
            padding: 24px;
            margin: 0 auto;
@@ -88,16 +88,16 @@
 			opacity: 0.95;
 		}	   
 	   
-	   .tutorial-part {
-           background-color: rgb(250, 252, 252);
-           padding: 30px;
-           border: 2px solid rgb(202, 202, 202);
+	   .tutorial-part {           
+           padding: 28px; 	  
+		   border-bottom: 4px solid rgb(202, 202, 202);
        }	  
 	   .example {	
-			margin: 22px 0 22px 14px;
+			max-width: 74%;
+			margin-left: 14px;
 	   }
 	   .example2 {			
-			margin: 22px 0 22px 28px;
+			margin-left: 28px;
 	   }
 	   .link {
 			display: block;
@@ -106,8 +106,7 @@
 			padding: 0 8px;			
 	   }
 	   .code-container {
-			position: relative;
-			width: 84%;
+			position: relative;			
 			background-color: rgb(7,7,7);
 			color: rgb(247,247,247);
 			padding: 26px 24px;
@@ -121,7 +120,7 @@
 	   }
 	   
 	   	.code-container i {
-			color: rgb(245,245,245);
+			color: rgb(242,242,242);
 		}
 	   .code-container div {
 			margin-left: 14px;
@@ -145,6 +144,9 @@
 				width: 85%;
 				padding: 20px;
 			}	
+			.example {
+				max-width: 94%;			
+			}
 			.code-container {
 				width: 92%;
 			}				
@@ -153,12 +155,16 @@
 			.wrapper {
 				width: 100%;
 				padding: 20px;
-			}			
+			}		
+			.example {
+				max-width: 99%;			
+			}
 			.tutorial-part {
 	           padding: 20px;
 			}
 			.code-container {
 				width: 99%;
+				padding: 22px 20px;
 			}			
 			h1 {
 				font-size: 2rem;
@@ -172,11 +178,19 @@
 				padding: 7px;
 			}
 			.tutorial-part {
-	           padding: 12px;
+	           padding: 20px 6px;
 			}						  	 
 			.example {
-				margin: 0;
+				max-width: 100%;
+				margin-left: 12px;
 			}
+			.example2 {				
+				margin-left: 24px;
+			}
+			.code-container {
+				width: 99%;
+				padding: 18px 14px;
+			}	
 			code {
 				font-size: 1.12rem;		
 				line-height: 1.4em;	
@@ -193,7 +207,7 @@
 
 <body>
    <div class="wrapper">	   
-       <div class="tutorial-part">           
+       <div class="tutorial-part">         
 	   
            <h1 id="top">Javascript Fundamentals with Questions</h1>		
 		   <br>						  
@@ -224,7 +238,8 @@
 			<code> console.log(foo[0]) --> H // we get the 1st character<br>
 			</code>			
 			<i><b>/*** But not this... ***/</b></i><br>
-			<code> foo[0] = "T" -->	"Hello World" // value doesn't change
+			<code> foo[0] = "T" <br>
+			console.log(foo) --> Hello World // value doesn't change <br>
 			</code>
 			</div>
 			<i><b>How come we can use properties and methods on primitives as with objects?</b></i>  		
@@ -267,7 +282,12 @@
 			</div><br>					
 			
 			<h4>Understanding 'undefined'</h4><br>		   
-		   
+		   			
+			<p>'undefined' is a primitive datatype of type 'undefined'. 
+			It's a so called <b>falsy</b> value. Important: 'falsy' is not the same as 'false'. The latter being of datatype Boolean.			
+		   Javascript will automatically assign 'undefined' to a variable that are not initialized. A function that doesn't return a value will always return 'undefined'. To check for undefined we use the <b>typeof</b> operator.<br>   
+   			'undefined' is <b>not an error</b> in it self, tough it's often the cause of errors/bugs.</p>
+		   <br>
 		   <div class="code-container">		   
 		   <i><b>// If we try to use a variable before being declared</b></i><br>
 		   <code>
@@ -283,24 +303,21 @@
 		   typeof a --> 'undefined'	<br>
 		   if ( typeof a === 'undefined') --> true // We check for 'undefined'
 		   </code><br>		   		
-			</div>	
+			</div>			   
+		   <br>		
 			
-			<span>Notes: 'undefined' is of datatype 'undefined' and a so called 'falsy' value.<br> 
-			Important: 'falsy' is not the same as 'false'. The latter being of datatype Boolean.<br>
-			'undefined' is <b>not an error</b> in it self, tough it's often the cause of errors/bugs.<br>
-			A function that doesn't return a value will always return 'undefined'.<br>
-		   Javascript will automatically assign 'undefined' to a variable that are not initialized. </span><br>		   
-		   <br><br>		
-			
-			<h4>Understanding 'null'</h4><br> 
+			<h4>Understanding 'null'</h4><br> 			
+			<p>‘null’ is a primitive value and a keyword in JavaScript that means ‘no value’ or nonexistence of any value. The type of null is object while undefined has its own type. If the purpose is to give a variable an empty value is can be done by assign it the value null, representing no value.			
+			</p><br>
 			<div class="code-container">
 			<code>
 			let b = null;							<br>
-			typeof b --> object 	// null basically means empty object		
+			typeof b --> object 	// null basically means empty object	
+			<br>
+			if (b === null)	// We check for null		
 		   </code><br>		   
-		   </div>
-		   <span>Note: The type of null is object while undefined has its own type.<br>If the purpose is to give a variable an empty value is can be done by assign it the value null, representing no value.</span><br>   		   
-		   <br>		  
+		   </div>   
+		    
 			</div><br>
 							
 			<h3>Pass by Value vs Reference</h3>
@@ -367,10 +384,10 @@
 			<h4>Implicit vs. explicit coercion</h4>	<br>	
 			<p>Type conversion can be done implicit and explicit.</p>
 			<p>
-			An example of implicit(automatic) type conversion is when using the loose equality operator.<br> Since it only compares the values and not the type Javascript will seek to make a type coercion so both values also share the same type. <br>As a developer such code should be avoided since it's often the reason for bugs.</p> 			
-			<p>Explicit coercion on the other hand is done on purpose, for example by using Number(value) that seeks to convert the value to the type 'number'.</p>
+			An example of implicit(automatic) type conversion is when using the loose equality operator. Since it only compares the values and not the type Javascript will seek to make a type coercion so both values also share the same type. As a developer such code should be avoided since it's often the reason for bugs. 			
+			Explicit coercion on the other hand is done on purpose, for example by using Number(value) that seeks to convert the value to the type 'number'.</p>
 			<br>
-				<i class="link">See more about type coercion: https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/
+				<i class="link">See more: https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/
 			</i>		
 			</div><br>
 				 
@@ -474,9 +491,9 @@
 			<i>Explain closures in Javascript</i><br>
 			
 			<i class="link">More about closures: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures</i>
-			</div><br>								
-			
-		</div><br><!-- END TUTORIAL PART 1 -->           	   
+			</div><br>											
+		</div><br><!-- END TUTORIAL PART 1 -->      
+					
 		   
 		<div class="tutorial-part">
            <h1>ES6 Features</h1>
@@ -484,7 +501,7 @@
 		   
 		   <h3>let and const</h3>
 		   <div class="example">
-			<p>With ES6 <b>let</b> and <b>const</b> was introduced for variable declaration.
+			<p>ES6 introduced the keywords let and const to be used for variable declaration.
 			const is used for declaring variables where the intention is to not change its value. 
 			It could be said that the value will be read only. It's important tough that understand that it works different depending on the data type. For primitive types the value is set once and becomes read only. For objects it works differently since for example an array stored with const can still receive new elements. Tough it is impossible to change the data type of the value. 
 			</p><br>	
@@ -520,26 +537,35 @@
 		   
 		   <h3>Arrow functions</h3>
 		   <div class="example">
-		   <p>Arrow functions are anonymous functions that allows us to write shorter function syntax.</p> 
-		   
-		   <i>1) Convert the function to an arrow function.<br>
-		   2) Display the shortest possible version.</i>	
-			<div class="code-container">
-			<code>		   
-				function doSomething(arg) {	<br>
-					<span class="example">return arg * 2</span><br>
-				}	<br>
+		   <p>Arrow functions are anonymous functions that allows us to write shorter more leaner code.</p>
+			<p>An arrow function can omit the parenthesis if there is no more than one argument.<br> It can also omit the square brackets and the keyword 'return' if the function only consist of an return statement.
+			</p>			
+		   <br>
+		   <div class="code-container">
+			<i><b>// A named function, the pre ES6 way to declare a function</b></i><br>
+			<code>	
+				function doSmth(a) {						<br>				
+				<span class="example">	return a * 2		</span><br>
+				}											<br>
+		
+			</code>		
+			<i><b>// The same function refactored as an arrow function</b></i><br>
+			<code>
+				const doSmth = a => a * 2					<br>					
+										
 			</code>
 			</div><br>
-		   		   
-		   <h4>Arrow functions and 'this'</h4>
-		   			
-			<i>What gets returned when we call 'this'?</i>			
-			<span>Note: if 'use strict' mode is enabled 'this' in a stand-alone function will return 'undefined'.</span><br> 
-			<i class="link">See more: https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work</i>
+					   		   
+			<h4>Arrow functions and 'this'</h4><br>
+		   	<p>One of the reasons for introducing arrow functions was the behaviour of the keyword 'this'. 
+			By default in a function, this refers to the Global object; the window object. The exception being in strict mode where it will return undefined. To set the value of this and by such alter its default behavior inside a function, the bind() method has to be used.</p><br> 
+			<p>
+			Arrow functions does not have its own this, it inherits this from the enclosing lexical scope. So when this is not present in its current scope it looks for it in the enclosing scope. In other words if this is used in a nested function in a standalone function or for example in a method of a class it will look for the value of this in the parent scope. That's what is called lexical scoping. As such, with arrow functions the behaviour of the this keyword will be consistent and not change depending on where it is called. 
+			</p><br> 			
 			
+			<i class="link">See more: https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work</i>
 			</div><br>
-				   
+							   
 		   <h3>Default values</h3>
 		   <div class="example">			
 		   <p>To assign a default value we can just assign a value to a function parameter<br> 
@@ -778,6 +804,19 @@
 			 <span>Tip: reverse method only works with arrays.</span><br>
 			</div><br>
 			
+			<h3>Arrow functions</h3>
+			<div class="example">
+			<i>1) Convert the function to an arrow function.<br>
+			2) Display the shortest possible version.</i>	
+			
+			<div class="code-container">
+			<code>		   
+				function doSomething(arg) {	<br>
+					<span class="example">return arg * 2</span><br>
+				}	<br>
+			</code>
+			</div><br>
+			
 			<h3>Duplicate an Array</h3>
 			<div class="example">
 			<i>Show how to do it both in pre ES6 as well as ES6.</i>	
@@ -892,24 +931,7 @@
 				})
 			}
 			btnChangeColor.addEventListener('click', changeCodeColor);			
-			
-			
-			function checkScope() {
-				//console.log(foo)
-				console.log(bar) 
-				let foo = "Hello"
-				var bar = "World"
-				for(var i = 0; i < 5; i++) {
-					console.log(i);
-				}
-				for(let j = 0; j < 5; j++) {
-					console.log(j);
-				}
-				console.log(i);
-				//console.log(j);
-			}
-				
-				checkScope();
+						
 	   </script>
 	   <noscript>Your browser does not support JavaScript!</noscript>
 	   </body>
