@@ -25,6 +25,9 @@
            padding: 24px;
            margin: 0 auto;
        }
+	   p, h2 {
+		color: rgb(17,17,17);
+	   }
 	   h1, h3 {
 			color: rgb(242, 147, 38);
 			margin: 12px 0 32px 0;
@@ -34,6 +37,9 @@
 	   }
 	   h3 {
 			font-size: 1.55rem;
+	   }
+	   h4 {
+		color: rgb(32,32,32);
 	   }
 	   ul {
 		padding: 4px;
@@ -89,7 +95,7 @@
 		}	   
 	   
 	   .tutorial-part {           
-           padding: 28px; 	  
+           padding: 28px 28px 30px 28px; 	  
 		   border-bottom: 4px solid rgb(202, 202, 202);
        }	  
 	   .example {	
@@ -216,10 +222,10 @@
 		   <div class="example">
 			
 			<h4>Fundamentals</h4><br>
-			<span>There are 6 primitive data types: string, number, boolean, null, undefined, symbol  </span><br>
-			<span>Primitive values are passed by copying the value</span><br>			
-			<span>Assigning a value to a variable gives it a new value, does not mutate the original value as with objects</span>
-			
+			<p>There are 6 primitive data types: string, number, boolean, null, undefined, symbol.<br>
+			Primitive values are passed by copying the value.			
+			Assigning a value to a variable gives it a new value, does not mutate the original value as with objects.
+			</p>
 		    <i>Understanding the above lets proceed...</i>		   	
 			<br>
 
@@ -241,8 +247,7 @@
 			<code> foo[0] = "T" <br>
 			console.log(foo) --> Hello World // value doesn't change <br>
 			</code>
-			</div>
-			<i><b>How come we can use properties and methods on primitives as with objects?</b></i>  		
+			</div>			 		
 			<br>
 			<span>Note: Primitives being immutable is the reason we can't use mutator methods on strings. For example push, reverse and sort.
 			</span><br>
@@ -358,7 +363,7 @@
 			<p>Javascript use type coercion to convert a value from one type to another. It can be a string to number, object to boolean, and so on.</p>
 			<br>			
 			
-			<h4>Comparison Operators</h4>
+			<h4>Comparison Operators</h4><br>
 			<p>The rules for type conversions can be confusing and it's not least important to understand the difference between <b>==</b> and <b>===</b>,<br> the former often called 'loose' equality operator' since it only compares the values and not the type and the latter being the 'strict' equivalent that compares both.</p>
 			<p>The other comparison operators are; not equal to <b>!= !==</b>, greater or less than <b>> <, >= <=.</b>
 			</p>
@@ -371,7 +376,7 @@
 			</code>
 			</div><br>			
 			
-			<h4>Logical Operators</h4>
+			<h4>Logical Operators</h4><br>
 			<p>Logical operators are used to determine the logic between variables or values. </p>
 			<ul class="log-list">
 				<li><span class="info-list">Operator</span><span class="info-list"> Description</span> 
@@ -743,24 +748,31 @@
 	   <div class="tutorial-part">  
 	   <h1>Interview Questions</h1><br>
 	   	   
-		<h3>Fundamentals</h3>
-	   <div class="example">		
-		<span><b>Explain the concepts below:</b></span><br>
+		<h3>Fundamentals</h3><br>
+		<div class="example">
 		
-		<p>The difference of 'let' and 'var' when declaring variables</p>
-		<p>How does 'const' work</p>
-		<p>The concept of 'undefined'.</p>
-		<p>The difference between 'undefined' and 'null'.</p>		   
-		<p>The concept of hoisting</p>
-			<i>Explain the concept</i>
-			<i>Explain as well the behaviour of function -expressions vs -declarations when it comes to hoisting</i>
-		<p>The concept of global scope vs functional scope</p>
-		<p>The concept of lexical scope</p>
-		</div><br>	 
+		<h4>Basic concepts</h4></p><br>		
+		<div class="example">
+		<p>primitive datatypes</p> 				
+		<p>'undefined'</p>			
+		<p>hoisting</p>					
+		<p>global scope vs functional scope</p>
+		<p>lexical scope</p>
+		</div>
+		<br>	 
 		
-		<h3>Type coercion</h3>
-	   <div class="example">	
-		<i><b>What do we get?</b></i>		
+		<h4>Datatypes and keywords</h4><br>
+		<div class="example">
+		<p>The difference between 'undefined' and 'null'</p>		   
+		<p>How come we can use properties and methods on primitives as with objects?</p> 
+		<p>Explain the behaviour of function -expressions vs -declarations when it comes to hoisting</p>
+		<p>Explain the difference of 'let' vs. 'var'</p>		
+		<p>When do we use 'const'?</p>
+		</div>		
+		<br>
+		
+		<h4>Type coercion and comparison</h4><br>
+	   		
 			<div class="code-container">
 			<code>
 			4 + "2"					<br>					
