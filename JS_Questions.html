@@ -43,20 +43,20 @@
 		list-style-type: none;
 		padding: 0 4px;		
 	   }
-	   	   
-	   i {			
-			display: block;						
-	   }   
-		p,i,span {
-			line-height: 1.5rem;
+	   i {
+			line-height: 2.2rem;
+	   } 	  	   
+		p, span {		
 			color: rgb(37,37,37);
-			margin: 6px 0 2px 0;
+			line-height: 1.6rem;			
 		}	   
 	   code {
-			font-size: 1.22rem;
-			line-height: 1.45rem;
+			font-size: 1.25rem;
+			line-height: 1.7rem;
 			color: rgb(20, 64, 86);			
 	   }
+	  
+	   
 	   .log-list li {
 			width: 202px;
 			border-bottom: 1px solid rgb(192,192,192);
@@ -93,13 +93,17 @@
            padding: 30px;
            border: 2px solid rgb(202, 202, 202);
        }	  
-	   .example {			
+	   .example {	
 			margin: 22px 0 22px 14px;
 	   }
+	   .example2 {			
+			margin: 22px 0 22px 28px;
+	   }
 	   .link {
+			display: block;
 			color: rgb(123, 123, 123);
 			font-weight: 600;
-			padding: 4px 8px;
+			padding: 0 8px;			
 	   }
 	   .code-container {
 			position: relative;
@@ -216,10 +220,11 @@
 			console.log(foo) --> 'Hello World'  // but the original value is unchanged<br>			
 			</code><br>
 						
-			<i><b>/*** We can do this ***/</b></i>
-			<code> console.log(foo[0]) --> H // we get the 1st character
+			<i><b>/*** We can do this ***/</b></i><br>
+			<code> console.log(foo[0]) --> H // we get the 1st character<br>
 			</code>			
-			<i><b>/*** But not this... ***/</b></i><code> foo[0] = "T" -->	"Hello World" // value doesn't change
+			<i><b>/*** But not this... ***/</b></i><br>
+			<code> foo[0] = "T" -->	"Hello World" // value doesn't change
 			</code>
 			</div>
 			<i><b>How come we can use properties and methods on primitives as with objects?</b></i>  		
@@ -235,7 +240,7 @@
 			<span>Note: If a Math function can't convert an argument to a number it returns NaN.</span><br>
 			<span>Note: To check for 'NaN' do not compare; NaN === NaN, this returns false since typeof NaN is number...!<br>
 			With ES6 we can use, 'Number.isNaN(value)' to check for NaN,</span><br>
-			<i class="link">See more; https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN</i>
+			<i class="link">See more; https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN</i><br>
 			
 			<p>Some common methods of the Math object:</p>
 
@@ -264,15 +269,15 @@
 			<h4>Understanding 'undefined'</h4><br>		   
 		   
 		   <div class="code-container">		   
-		   <i><b>// If we try to use a variable before being declared</b></i>
+		   <i><b>// If we try to use a variable before being declared</b></i><br>
 		   <code>
 		   console.log(a);		// Gives a reference error	<br>
 		   </code>	 
-			<i><b>// If we don't initialize a variable</b></i>
+			<i><b>// If we don't initialize a variable</b></i><br>
 			<code>
 		   let a; // This will give 'a' the value undefined.
-		   </code>
-		   <i><b>// But we can also do this</b></i>		   
+		   </code><br>
+		   <i><b>// But we can also do this</b></i><br>		   
 		   <code>
 		   let a = undefined;	// we assign the value 'undefined'<br>   
 		   typeof a --> 'undefined'	<br>
@@ -324,11 +329,11 @@
 			</code>			
 			</div>	
 			<i><b>objB</b> here points to the location of the original object. It's <b>not</b> a copy of objA.</i><br> 	
-			<span>Note: Function arguments are always passed by value and are copied into the function.</span><br>				
-			<span>Noteworthy: If you want to make a real copy of an object/array we can use the spread operator(see more in next chapter).</span><br><br>		
+			<p>Note: Function arguments are always passed by value and are copied into the function.</p>			
+			<p>Noteworthy: If you want to make a real copy of an object/array we can use the spread operator(see more in next chapter).</p><br>		
 			
-			<span class="link">See more about passing values by reference: 
-			https://stackoverflow.com/questions/16880418/javascript-pas</span><br>   			
+			<i class="link">See more about passing values by reference: 
+			https://stackoverflow.com/questions/16880418/javascript-pas</i>			
 			</div><br>
 
 			<h3>Type Coercion & Comparisons</h3>
@@ -365,8 +370,8 @@
 			An example of implicit(automatic) type conversion is when using the loose equality operator.<br> Since it only compares the values and not the type Javascript will seek to make a type coercion so both values also share the same type. <br>As a developer such code should be avoided since it's often the reason for bugs.</p> 			
 			<p>Explicit coercion on the other hand is done on purpose, for example by using Number(value) that seeks to convert the value to the type 'number'.</p>
 			<br>
-				<span class="link">See more about type coercion: https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/
-			</span><br>		
+				<i class="link">See more about type coercion: https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/
+			</i>		
 			</div><br>
 				 
 				 
@@ -379,28 +384,24 @@
 		   
 			<h3>Hoisting</h3>
 			<div class="example">	
-				<i>Explain the concept</i>
-				<i>Explain as well the behaviour of function -expressions vs -declarations when it comes to hoisting</i>
+				<p>Lorem ipsum...</p>				
 				<br>
-				
-				<i><b>Check: </b></i>
+								
 				<div class="code-container">
+				<i><b>// Variable declarations are hoisted inside functions as well</b></i><br>
+				
 				<code>
-					1)							<br>
 				   var testScope = function()	{ <br>							
 				<span class="example">console.log(y);</span><br>
 				<span class="example">var y = 1;	 </span><br>
 				   }							<br>						
 				   testScope();					<br>
 				   
-				   </code>
-				   <i><b>// 1) Variable declarations are hoisted inside functions as well</b></i>					
-				<br>
-				
-				<code>				
-					2)<br>
-					var y = 2;						<br>
-													<br>
+				</code><br>
+					
+					<i><b>// Anonymous function expressions are not hoisted</b></i><br>					
+					<code>
+					var y = 2;						<br>										
 					var testScope = function() { 	<br>
 					<span class="example">console.log(y);	</span><br>
 					<span class="example">var y = 1;		</span><br>
@@ -408,12 +409,11 @@
 					testScope();					<br>
 					
 					</code>
-					<i><b>// 2) Anonymous function expressions are not hoisted</b></i><br>	
 					
+					<br>
 					<code>
 					3)<br>
-					var y = 2;						<br>
-													<br>
+					var y = 2;						<br>										
 					var testScope = function() { 	<br>
 					<span class="example">	console.log(y);</span><br>	
 					}								<br>
@@ -457,24 +457,23 @@
 			<span>Note: We can use console.dir() to get more info about the constructor
 			</span><br>			
 			<br>	
-			<span class="link">More about strings: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2</span>			
-			<br>
+			<i class="link">More about strings: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2</i>		
 			
-			<span class="link">More about arrays: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype#Methods</span><br>		
+			<i class="link">More about arrays: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype#Methods</i>	
 			</div><br>
 			
 			<h3>Promises</h3>	
 			<div class="example">
 			<i>Explain promises in Javascript</i> 
 			<br>
-			<span class="link">More about promises: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises</span>
-			</div><br>	
+			<i class="link">More about promises: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises</i>
+			</div><br>
 			
 			<h3>Closures</h3>	
 			<div class="example">
 			<i>Explain closures in Javascript</i><br>
 			
-			<span class="link">More about closures: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures</span>
+			<i class="link">More about closures: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures</i>
 			</div><br>								
 			
 		</div><br><!-- END TUTORIAL PART 1 -->           	   
@@ -483,8 +482,46 @@
            <h1>ES6 Features</h1>
 		   <br><br>
 		   
+		   <h3>let and const</h3>
+		   <div class="example">
+			<p>With ES6 <b>let</b> and <b>const</b> was introduced for variable declaration.
+			const is used for declaring variables where the intention is to not change its value. 
+			It could be said that the value will be read only. It's important tough that understand that it works different depending on the data type. For primitive types the value is set once and becomes read only. For objects it works differently since for example an array stored with const can still receive new elements. Tough it is impossible to change the data type of the value. 
+			</p><br>	
+			<h4>let vs var</h4>
+			<p>The main difference between var and let is that var has function scope and let has block scope. Another difference is that a let declaration is not hoisted as with var.<br>
+			This means that a variable declared with let will not be accessible before it has been initialized as when declared with var. Noteworthy; In strict mode, var will let you re-declare the same variable in the same scope while let raises a SyntaxError.</p> 
+			<br><p><i class="link">See more: https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var
+			</i></p><br>
+			<div class="code-container">
+			<code>					
+				
+					function checkScope() {										<br>	
+						<span class="example">console.log(foo) -> ReferenceError // foo is not hoisted		</span><br>					
+						<span class="example">console.log(bar) -> undefined // variable declaration is hoisted				</span><br>											
+						<span class="example">let foo = "Hello"		</span><br>
+						<span class="example">var bar = "World"		</span><br>
+						<br>		
+						<span class="example">for(var i = 0; i < 5; i++) {</span><br>
+					<span class="example2">console.log(i) -> 0,1,2,3,4</span><br>
+				<span class="example">}</span><br>
+				<span class="example">for(let j = 0; j < 5; j++) {</span><br>
+				<span class="example2">	console.log(j) -> 0,1,2,3,4</span><br>
+				<span class="example">}</span><br><br>
+				
+				<span class="example">console.log(i); -> 5 	</span><br>
+				<span class="example">console.log(j); -> ReferenceError	// can not be accessed outside its scope</span><br>
+					}														<br>
+																			<br>				
+					checkScope();				
+			</code>
+			</div>			
+		   </div><br>
+		   
 		   <h3>Arrow functions</h3>
 		   <div class="example">
+		   <p>Arrow functions are anonymous functions that allows us to write shorter function syntax.</p> 
+		   
 		   <i>1) Convert the function to an arrow function.<br>
 		   2) Display the shortest possible version.</i>	
 			<div class="code-container">
@@ -493,42 +530,40 @@
 					<span class="example">return arg * 2</span><br>
 				}	<br>
 			</code>
-			</div>
-		   </div><br>
-		   
+			</div><br>
+		   		   
+		   <h4>Arrow functions and 'this'</h4>
+		   			
+			<i>What gets returned when we call 'this'?</i>			
+			<span>Note: if 'use strict' mode is enabled 'this' in a stand-alone function will return 'undefined'.</span><br> 
+			<i class="link">See more: https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work</i>
+			
+			</div><br>
+				   
 		   <h3>Default values</h3>
 		   <div class="example">			
 		   <p>To assign a default value we can just assign a value to a function parameter<br> 
 			This also works for destructuring where we can assign default values for variables.</p>
 		   <br>
 		   <div class="code-container">
-			<code>
-				
-				function addNumbers(numArr = []) {	// We add an empty array as default value<br>
-					<span class="example">let sum = 0;	</span><br>
+			
+			   <i><b>// We add an empty array as default value</b></i><br>				
+				<code>
+				function addNumbers(numArr = []) {					<br>
+					<span class="example">let sum = 0;				</span><br>
 					<span class="example">numArr.forEach( num => {	</span><br>
-					<span class="example">	sum += num;			</span><br>
-					<span class="example">})					</span><br>
-					<span class="example">return sum;			</span><br></span>
-				}									<br>
+					<span class="example2">	sum += num;				</span><br>
+					<span class="example">})						</span><br>
+					<span class="example">return sum;				</span><br></span>
+				}													<br>
 				
 				addNumbers() -> 0	// We get no error despite calling the function with no arguments.
 												
 			</code>
-			</div>			
-				
+			</div>							
 		   </div><br>
 		   
-           <h3>Key word 'this'</h3>
-		   <div class="example">			
-			<i>What gets returned when we call 'this'?</i>			
-			<i>Explain how 'this' work when used in a stand-alone function (not; obj.method).</i>
-			<i>How does 'this' work when used inside an arrow function?</i><br>
-			<span>Note: if 'use strict' mode is enabled 'this' in a stand-alone function will return 'undefined'.</span><br> 
-			<span class="link">See more: https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work</span><br>
-			</div><br>
-		
-			<h3>Higher order functions</h3>
+           	<h3>Higher order functions</h3>
 			<div class="example">
 			<i>Explain how to use with examples</i><br>
 
@@ -588,10 +623,12 @@
 			<i>+ Add a method that returns all the class properties</i>
 			<div class="code-container">
 			<code>
-			let Person = function(name,gender,age) {	<br>
-			<span class="example">this.name = name;		</span><br>
-			<span class="example">this.gender = gender;	</span><br>
-			<span class="example">this.age = age;		</span><br>
+			let Person = function(name,gender,age) {	
+			<div class="example">
+			this.name = name;		<br>
+			this.gender = gender;	<br>
+			this.age = age;			<br>
+			</div>
 			};								<br>							
 			</code>			
 			</div>			
@@ -676,6 +713,7 @@
 	   </div>		   
 	   </div><br><!-- End Tutorial part 2 --> 	   	   
 	   
+	   
 	   <div class="tutorial-part">  
 	   <h1>Interview Questions</h1><br>
 	   	   
@@ -683,13 +721,15 @@
 	   <div class="example">		
 		<span><b>Explain the concepts below:</b></span><br>
 		
-		<i>The difference of 'let' and 'var' when declaring variables</i>
-		<i>How does 'const' work</i>
-		<i>The concept of 'undefined'.</i>
-		<i>The difference between 'undefined' and 'null'.</i>		   
-		<i>The concept of hoisting</i>
-		<i>The concept of global scope vs functional scope</i>
-		<i>The concept of lexical scope</i>
+		<p>The difference of 'let' and 'var' when declaring variables</p>
+		<p>How does 'const' work</p>
+		<p>The concept of 'undefined'.</p>
+		<p>The difference between 'undefined' and 'null'.</p>		   
+		<p>The concept of hoisting</p>
+			<i>Explain the concept</i>
+			<i>Explain as well the behaviour of function -expressions vs -declarations when it comes to hoisting</i>
+		<p>The concept of global scope vs functional scope</p>
+		<p>The concept of lexical scope</p>
 		</div><br>	 
 		
 		<h3>Type coercion</h3>
@@ -763,6 +803,12 @@
 		   <i>Use the spread operator to copy the properties of an object into a new object.</i>
 			<i>Explain the importance/difference of using the spread operator to copy the props of an object vs just assigning the object to a new variable?</i>
 			</div><br>
+			
+			<h3>Keyword this</h3>
+			<div class="example">
+			<i>Explain how 'this' work when used in a stand-alone function (not; obj.method).</i>
+			<i>How does 'this' work when used inside an arrow function?</i><br>
+			</div>
 			
 			<h3>Destructuring</h3>
 			<div class="example">
@@ -848,16 +894,22 @@
 			btnChangeColor.addEventListener('click', changeCodeColor);			
 			
 			
-			function addNumbers(numArr = []) {  
-				let sum = 0;
-				numArr.forEach( num => {
-				sum += num;
-				})
-				return sum;
+			function checkScope() {
+				//console.log(foo)
+				console.log(bar) 
+				let foo = "Hello"
+				var bar = "World"
+				for(var i = 0; i < 5; i++) {
+					console.log(i);
 				}
+				for(let j = 0; j < 5; j++) {
+					console.log(j);
+				}
+				console.log(i);
+				//console.log(j);
+			}
 				
-				console.log( addNumbers([1,4,6]) )
-						
+				checkScope();
 	   </script>
 	   <noscript>Your browser does not support JavaScript!</noscript>
 	   </body>
