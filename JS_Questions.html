@@ -107,9 +107,8 @@
 	   }
 	   .link {
 			display: block;
-			color: rgb(123, 123, 123);
-			font-weight: 600;
-			padding: 0 8px;			
+			color: rgb(123, 123, 123);			
+			font-weight: 600;						
 	   }
 	   .code-container {
 			position: relative;			
@@ -244,7 +243,7 @@
 			<code> console.log(foo[0]) --> H // we get the 1st character<br>
 			</code>			
 			<i><b>/*** But not this... ***/</b></i><br>
-			<code> foo[0] = "T" <br>
+			<code> foo[0] = "T" // We try to assign foo[0] a new value<br>
 			console.log(foo) --> Hello World // value doesn't change <br>
 			</code>
 			</div>			 		
@@ -605,7 +604,7 @@
 			<h4>find</h4>
 			<h4>includes</h4><br>
 						
-		    <span>Note: These methods do not mutate/change the orignal array (in general a good thing!)</span><br>
+		    <p>Noteworthy; These methods do not mutate/change the orignal array (in general a good thing!)</p><br>
 			<span class="link">See more: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#</span><br>
 			</div>		   
             <br>
@@ -621,12 +620,8 @@
 		  		   
 		   <h3>Template Literals</h3>
 		   <div class="example">
-		   <p>Template Literals allows us to work with strings in a different way compared to earlier.<br>
-		   It's a more agile and less ugly way to write code but not least the ability to use expressions gives lot of room for creating more dynamic code.</p>
-		   
-		   <p>Instead of quotes we use `backticks` to write string within it.
-		   We use ${variable or expression} instead of concatenation.	<br>		
-		   Among the new features we also get a more agile syntax to define multiline strings.<br> 
+		   <p>Template Literals allows us to work with strings in a more agile and less ugly way. Not least the ability to use expressions gives lot of room for creating more dynamic code.</p><br>
+		   <p>Instead of quotes we use `backticks` to write string within it. We use ${variable or expression} instead of concatenation. Among the new features we also get a more agile syntax to define multiline strings.</p><br> 
 		   
 			
 		   <div class="code-container">
@@ -671,7 +666,7 @@
 		   The rest operator is used to create an array from a collection of arguments passed to a function.<br> It works similar to the built in arguments object used to get all arguments passed to a function.</p>
 		   <br><br>
 		   
-		   <h4>Understanding the impact of the spread operator when copying an object</h4>
+		   <h4>Understanding the impact of the spread operator when copying an object</h4><br>
 		   <p>When using the spread operator to copy an objects properties to a new object we make a real copy of the original.<br>It's important to understand the same goes for arrays, in other words spread can be used to make a real copy of an array. We do not copy the pointer/reference as is the case when we assign an object or array to a new variable.<br>With spread we can avoid the issue of an object that is manipulated affecting another object stored in a variable with the same pointer/reference.<br> In other words; with the spread operator we copy an object in a immutable way and not just the pointer/reference to the same.</p><br>				
 		   <div class="code-container">
 			<code>		   				
@@ -926,7 +921,7 @@
 		   If both modulus 3 and 5 return FizzBuzz.</p>
 			</div>
 			<br>
-	   </div>
+	   </div><br>
 	   	   
 	   <div class="go-top"><a href="#top">To the Top</a><br>
 	   </div>
