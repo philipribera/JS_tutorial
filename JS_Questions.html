@@ -16,7 +16,7 @@
 		}
 		body {
 			font-family: Arial, Helvetica, sans-serif;
-			background-color: rgb(101, 101, 101);
+			background-color: rgb(97, 97, 97);
 		}		
        .wrapper {			
            width: 72%;           
@@ -131,6 +131,10 @@
 			margin-left: 14px;
 	   }	
 
+	   .question {
+			margin-bottom: 52px;
+	   }
+	   
 		.btn-change-color  {
 			position: absolute;
 			right: 0;
@@ -742,32 +746,36 @@
 	   
 	   <div class="tutorial-part">  
 	   <h1>Interview Questions</h1><br>
-	   	   
+	   	  
+		  
+	   <div class="question">		
 		<h3>Fundamentals</h3><br>
 		<div class="example">
-		
-		<h4>Basic concepts</h4></p><br>		
+
+		<h4>Explain the concepts:</h4><br>
 		<div class="example">
 		<p>primitive datatypes</p> 				
-		<p>'undefined'</p>			
+		<p>How come we can use properties and methods on primitives as with objects?</p> 		
+		<p>'undefined'</p>		
+		<p>Difference between undefined and null</p>	
 		<p>hoisting</p>					
+		<p>Explain the behaviour of function -expressions vs -declarations when it comes to hoisting</p>
 		<p>global scope vs functional scope</p>
 		<p>lexical scope</p>
 		</div>
-		<br>	 
+		<br><br>	 
 		
-		<h4>Datatypes and keywords</h4><br>
-		<div class="example">
-		<p>The difference between 'undefined' and 'null'</p>		   
-		<p>How come we can use properties and methods on primitives as with objects?</p> 
-		<p>Explain the behaviour of function -expressions vs -declarations when it comes to hoisting</p>
+		<h4>Variable declaration</h4><br>
+		<div class="example">		
 		<p>Explain the difference of 'let' vs. 'var'</p>		
 		<p>When do we use 'const'?</p>
 		</div>		
-		<br>
+		<br><br>
+				
+		<h4>Type coercion and comparison</h4><br>	
+		<div class="example">		
 		
-		<h4>Type coercion and comparison</h4><br>
-	   		
+		<p>What do we get?</hp>  		
 			<div class="code-container">
 			<code>
 			4 + "2"					<br>					
@@ -791,16 +799,22 @@
 			</code>
 			<b>// 33 and "Hello" are converted to 'truthy' values. What does it mean?</b>
 			<br>			
-			</div>				
-		</div><br>
-			
+			</div>		
+			</div>			
+			</div>		
+		</div>
+		
+		<div class="question">		
 		<h3>'use strict'</h3>
 	   <div class="example">
 	   <p>	
 		Why would we use 'use strict' statement in a Javascript file and what are the consequences/benefits?</p> 
 		</div>		
-		<br>			
-			
+		</div>
+					
+		
+		<div class="question">		
+
 	   <h3>Reverse a String </h3>
 			<div class="example">
 			 <i>Return the following string in reverse "KYH Frontend Developer".</i>
@@ -809,12 +823,15 @@
 			 <i>Extra: Reverse a collection of type number.</i>
 			 <br>
 			 <span>Tip: reverse method only works with arrays.</span><br>
-			</div><br>
+			</div>
+			</div>
 			
+			
+			<div class="question">		
 			<h3>Arrow functions</h3>
 			<div class="example">
-			<i>1) Convert the function to an arrow function.<br>
-			2) Display the shortest possible version.</i>	
+			<p>Explain arrow functions</p>
+			<i>Convert the function to an arrow function and display the shortest possible version.</i>	
 			
 			<div class="code-container">
 			<code>		   
@@ -822,43 +839,54 @@
 					<span class="example">return arg * 2</span><br>
 				}	<br>
 			</code>
-			</div><br>
+			</div>
+			</div>
+			</div>
 			
+			<div class="question">	
 			<h3>Duplicate an Array</h3>
 			<div class="example">
 			<i>Show how to do it both in pre ES6 as well as ES6.</i>	
-			</div><br>
+			</div>
+			</div>
 			
-			<h3>Sort an Array with numerical values</h3>           			
+			<div class="question">		
+			<h3>Sort an Array that consists of numerical values</h3>           			
 			<div class="example">
 			<p>let numbers = [114,22,4,5,11,41]</p>
 			<br>
 			<i>Extra: Get the highest number.</i><br>			
 			</div>
-		   <br>
-						   
+		   </div>
+			
+		<div class="question">				
            <h3>Remove Duplicates from an Array</h3>
    		   <div class="example">
            <i>Show if possible two ways to remove duplicates from an array.</i>
 		   <i>Extra: If not done already, use an object constructor method to remove the duplicates.</i><br>
 		   <span>Note: All results most consist of an array.</span><br><br>
-   		   <span>Tip: ES6 datatype 'Set' can only hold unique values.</span><br>  </div><br>	   
+   		   <span>Tip: ES6 datatype 'Set' can only hold unique values.</span><br>  </div>
+		   </div>
 		   
+	   		<div class="question">		
 		   <h3>Spread and rest</h3>
 		   <div class="example">
 		   <i>Use the spread operator to copy the properties of an object into a new object.</i>
 			<i>Explain the importance/difference of using the spread operator to copy the props of an object vs just assigning the object to a new variable?</i>
-			</div><br>
-			
+			</div>
+			</div>
+
+			<div class="question">					
 			<h3>Keyword this</h3>
 			<div class="example">
 			<i>Explain how 'this' work when used in a stand-alone function (not; obj.method).</i>
 			<i>How does 'this' work when used inside an arrow function?</i><br>
 			</div>
+			</div>
 			
+			<div class="question">		
 			<h3>Destructuring</h3>
-			<div class="example">
-					   
+			<div class="example">					   
 		   <i><b>Destructure (solely) the last item from the array</b></i>  
 		   <div class="code-container">
 		   <code>
@@ -889,19 +917,20 @@
 			console.log(a,b)	// unexpected token...	<br>
 			</code>
 			</div>		   
-			</div><br>
+			</div>
+			</div>
 					
-					
+		<div class="question">		
 		<h3>Objects and Object Constructor</h3>
 		<div class="example">
 		<p>
-		What could cause a problem when using typeof foo === "object" to determine if foo is an object? 
+		<b>What could cause a problem when using typeof foo === "object" to determine if foo is an object?</b> 
 		</p>
 	   	<p>Show how to resolve the problem/s</p>    
 		<br>
 
-		<i><b>Pass the values of the car object to the showCar function</b></i>
-		<i>Note: the function needs to cope with an unknown numbers of arguments</i>
+		<p><b>Pass the values of the car object to the showCar function</b></p>
+		<p>Note: the function needs to cope with an unknown numbers of arguments</p>
 		<div class="code-container">
 		<code>	   
 		car = { model: "Volvo", color: "blue", year: "2018" } <br><br>
@@ -911,8 +940,11 @@
 			}							<br>			
 			console.log(showCar(???)); // Display car features/values
 			</code>			
-			</div><br>
-							
+			</div>
+			</div>
+			</div>
+			
+		<div class="question">									
 		   <h3>FizzBuzz</h3>
 		   <div class="example">
 		   <i>Pretty common question(worth to google it...) present if possible 2 solutions</i>
@@ -920,12 +952,11 @@
 		   When modulus 3 (remainder 0) return Buzz and when modulus 5 return Fizz.<br>
 		   If both modulus 3 and 5 return FizzBuzz.</p>
 			</div>
-			<br>
-	   </div><br>
-	   	   
+			</div>
+			
+	   </div><br>	   	   
 	   <div class="go-top"><a href="#top">To the Top</a><br>
-	   </div>
-	   
+	   </div>	   
 	   </div>
        <script>	
 			
@@ -937,8 +968,8 @@
 					container.classList.toggle('code-container-mod');
 				})
 			}
-			btnChangeColor.addEventListener('click', changeCodeColor);			
-						
+			btnChangeColor.addEventListener('click', changeCodeColor);		
+							
 	   </script>
 	   <noscript>Your browser does not support JavaScript!</noscript>
 	   </body>
