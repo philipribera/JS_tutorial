@@ -132,7 +132,7 @@
 	   }	
 
 	   .question {
-			margin-bottom: 52px;
+			margin-bottom: 54px;
 	   }
 	   
 		.btn-change-color  {
@@ -614,14 +614,67 @@
             <br>
 		   		   
 		   <h3>Loops & Iteration</h3>
-		   <div class="example">
-           <i>Explain how and when to use with examples</i><br>
-           <h4>forEach</h4>
-           <h4>for/in</h4>
-           <h4>for/of</h4>
-		   </div>
+		   <div class="example">           
+           <h4>forEach</h4><br>		   
+		   <p>forEach() executes a provided function once for each array element. It will always returns the value undefined and is not chainable. As with other high order methods it does not mutate the array on which it is called.</p><br> 
+		   
+		   <div class="code-container">
+		   <code>
+			
+			const myArr = ["John", "Lisa", "Tom"]	<br><br>
+
+			myArr.forEach( name => {	<br>
+				<span class="example">console.log(`${name} Doe` ) -> John Doe, Lisa Doe...
+				</span><br>
+			})
+			
+		   </code>
+		   </div><br>
+		   
+           <h4>for/in</h4><br>
+		   <p>The for/in statement/loop iterates over all non-symbol properties of an object. The loop will iterate over all enumerable properties of the object itself and those the object inherits from its constructor's prototype as well. If the intention is to only consider properties of the object itself and not its prototypes, use getOwnPropertyNames() or perform a hasOwnProperty() check.</p><br>
+		   <div class="code-container">
+		   <code>			
+			const myObj = { name: "John", surname: "Doe" }	<br><br>
+
+			for(let prop in myObj) {<br>
+			<span class="example">console.log(prop) -> name, surname
+			</span><br>
+			}			
+		   </code>
+		   </div><br>
+		   
+           <h4>for/of</h4><br>
+		   <p>
+		   The for/of statement loops over iterable objects. The loops through data structures that are iterable such as Strings, Arrays and array-like objects such NodeLists, Maps, Set etc. In every iteration the value of the next property is assigned to the variable. for/of is in general the preferred way to loop through iterable objects. It is more concise than a conventional for loop but can't be chained like forEach(). 		   
+		   </p>
+		   
            <br>
-		  		   
+			<div class="code-container">
+		   <code>			
+			const myNumbers = [11,22,33,44,55]<br><br>
+
+			for(let number of myNumbers) {<br>
+			<span class="example">console.log(number) -> 11,22,33...
+			</span>							<br>
+			}								<br><br>	
+			</code>
+			<i>// To access the index we have to use <b>entries()</b>		</i><br>
+			<code>
+			const myArr = [a,b,c]						<br><br>
+			for (const [index, val] of myArr.entries()) {	<br>
+			<span class="example">console.log(index +": "+ val`); // Prints "0: a", "1: b", "2: c" </span><br>
+			}				<br>
+		   </code>
+		   </div><br>		  	
+
+		   <h4>Summary</h4><br>
+			<p>There are many ways to iterate over arrays and loops and they all have there strengths and tradeof:s. The standard for and for/in loop constructs gives access to the index in the iterable object but not the actual element. To access the element we have to print out the, item[index]. With forEach() and for/of we get access to the element itself.</p>
+			<br>			
+			<p class="link">See more: https://thecodebarbarian.com/for-vs-for-each-vs-for-in-vs-for-of-in-javascript</p>
+			</div>
+			<br><br>
+			
 		   <h3>Template Literals</h3>
 		   <div class="example">
 		   <p>Template Literals allows us to work with strings in a more agile and less ugly way. Not least the ability to use expressions gives lot of room for creating more dynamic code.</p><br>
