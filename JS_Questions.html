@@ -486,6 +486,7 @@
 			</div><br>
 			
 			<h3>Promises</h3>	
+			<div class="example">		   
 			<p>
 			The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value. 
 			A Promise is a proxy for a value not necessarily known when the promise is created. Instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.		
@@ -520,12 +521,33 @@
 			<span class="link">More about promises: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises</span>
 			</div><br>
 			
+			<h3>fetch API</h3>	
+			<div class="example">
+			<p>The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses. It also provides a global fetch() method that provides an easy, logical way to fetch resources asynchronously across the network. It will seem familiar to anyone who has used XMLHttpRequest, but the new API provides a more powerful and flexible feature set.
+			</p><br>			
+			<p>
+			Fetch provides a generic definition of Request and Response objects (and other things involved with network requests). This will allow them to be used wherever they are needed in the future, whether it’s for service workers, Cache API and other similar things that handle or modify requests and responses, or any kind of use case that might require you to generate your own responses programmatically.
+			</p>
+			<p>fetch() takes one mandatory argument, the <b>path(url)</b> to the resource you want to fetch. It returns a <b>Promise</b> containing a response object. We then need to extraxt the actual body content, usually the json() method to extract the JSON body content. The fetch() method can optionally accept a second parameter, an init object that allows a number of different settings.
+			</p><br>
+			
+			<div class="code-container">
+			<code>				
+			const response = await fetch('http://example.com/movies.json');<br>
+			const myJson = await response.json();	<br>
+			console.log(JSON.stringify(myJson));	<br>
+			</code>
+			</div>
+			<br>
+			
 			<h3>Closures</h3>	
 			<div class="example">
 			<i>Explain closures in Javascript</i><br>
 			
 			<i class="link">More about closures: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures</i>
+			</div>
 			</div><br>											
+			
 		</div><br><!-- END TUTORIAL PART 1 -->      
 					
 		   
