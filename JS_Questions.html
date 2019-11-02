@@ -30,7 +30,7 @@
 	   }
 	   h1, h3 {
 			color: rgb(242, 147, 38);
-			margin: 12px 0 32px 0;
+			margin: 24px 0 32px 0;
 	   }
 	   h1 {
 			font-size: 2.1rem;
@@ -324,14 +324,12 @@
 			<br>
 			if (b === null)	// We check for null		
 		   </code><br>		   
-		   </div>   
-		    
+		   </div>		    
 			</div><br>
 							
 			<h3>Pass by Value vs Reference</h3>
 			<div class="example">
-			<p>When we assign an object to new variable we copy the reference to where that object or array is stored in memory.<br>The reference works in other words as a pointer to where the object is stored, it doesn't copy the value as is the case with primitive types.<br>			
-			This means that if we change the value of a property/element it impacts all variables with a reference to the same object/array.</p>						
+			<p>When we assign an object to new variable we copy the reference to where that object or array is stored in memory.<br>The reference works in other words as a pointer to where the object is stored, it doesn't copy the value as is the case with primitive types. This means that if we change the value of a property/element it impacts all variables with a reference to the same spot in memory.</p>						
 			<br>
 			<i>Primitive types, pass value by copying</i>
 			<div class="code-container">			
@@ -488,10 +486,38 @@
 			</div><br>
 			
 			<h3>Promises</h3>	
-			<div class="example">
-			<i>Explain promises in Javascript</i> 
+			<p>
+			The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value. 
+			A Promise is a proxy for a value not necessarily known when the promise is created. Instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.		
+			</p>
+			<p>
+			The resolve and reject functions, when called, resolve or reject the promise, respectively. The executor normally initiates some asynchronous work, and then, once that completes, either calls the resolve function to resolve the promise or else rejects it if an error occurred. The 'Promise' constructor is primarily used to wrap functions that do not already support promises.
+			</p>
 			<br>
-			<i class="link">More about promises: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises</i>
+				
+			<div class="code-container">
+			<code>	
+				var myPromise = new Promise(function(resolve, reject) {	<br>
+				<span class="example">setTimeout(function() {	</span><br>
+				<span class="example2">resolve('Study Javascript');									</span><br>
+				<span class="example">  }, 300);										</span><br>
+				});														<br>
+				<br>
+				</code>
+				<b>// when promise is fullfilled we pass the argument here 'value' </b><br> 
+				<code>
+				myPromise.then(function(value) {						<br>
+				 <span class="example">console.log(`It's done: ${value}`);	-> 	It's done: Study Javascript						</span><br>				 
+				 </code>
+				 <b>// If the promise is rejected we use a catch </b>		<br>
+				 <code>
+				}).catch(function(rejected) {		<br>
+					<span class="example">console.log(`It's not done: ${value}`); -> It's not done: Study Javascript	<br>
+				})														<br>
+			</code>
+			</div><br>
+			
+			<span class="link">More about promises: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises</span>
 			</div><br>
 			
 			<h3>Closures</h3>	
@@ -504,8 +530,7 @@
 					
 		   
 		<div class="tutorial-part">
-           <h1>ES6 Features</h1>
-		   <br><br>
+           <h1>ES6 Features</h1><br>
 		   
 		   <h3>let and const</h3>
 		   <div class="example">
@@ -564,7 +589,7 @@
 			</code>
 			</div><br>
 					   		   
-			<h4>Arrow functions and 'this'</h4><br>
+			<h4>Arrow functions and keyword 'this'</h4><br>
 		   	<p>One of the reasons for introducing arrow functions was the behaviour of the keyword 'this'. 
 			By default in a function, this refers to the Global object; the window object. The exception being in strict mode where it will return undefined. To set the value of this and by such alter its default behavior inside a function, the bind() method has to be used.</p><br> 
 			<p>
@@ -599,16 +624,17 @@
 		   
            	<h3>Higher order functions</h3>
 			<div class="example">
-			<i>Explain how to use with examples</i><br>
-
-            <h4>map</h4>
-		    <h4>filter</h4>		   		   
-            <h4>reduce</h4><br>		 
-			
-			<h4>find</h4>
+			<p>When a function receives another function as an argument that function is called a <b>higher order function</b>. And the function you pass in is called a <b>callback</b>. 
+			With ES6 several new higher order functions were introduced. With this the Javascript language got more flexible and developers got access to some new effective tools. 
+			Noteworthy; These methods do not mutate/change the orignal array (in general a good thing!).</p><br>
+						
+            <h4>map</h4><br>
+		    <h4>filter</h4><br>		   		   
+            <h4>reduce</h4><br>		 			
+			<h4>find</h4><br>
 			<h4>includes</h4><br>
 						
-		    <p>Noteworthy; These methods do not mutate/change the orignal array (in general a good thing!)</p><br>
+		    
 			<span class="link">See more: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#</span><br>
 			</div>		   
             <br>
@@ -669,7 +695,7 @@
 		   </div><br>		  	
 
 		   <h4>Summary</h4><br>
-			<p>There are many ways to iterate over arrays and loops and they all have there strengths and tradeof:s. The standard for and for/in loop constructs gives access to the index in the iterable object but not the actual element. To access the element we have to print out the, item[index]. With forEach() and for/of we get access to the element itself.</p>
+			<p>There are many ways to iterate over arrays and loops and they all have there strengths and tradeof:s. The standard for and for/in loop constructs gives access to the index in the iterable object but not the actual element. To access the element we have to print out the, item[index]. With forEach() and for/of we get access to the element itself. In general the most robust/safe way to loop through an array/object will be the for/of loop. If the intention is to manipulate every element in an array the for/each loop is the best choice. The for/in loop should only be used to iterate through the properties of an object.</p>
 			<br>			
 			<p class="link">See more: https://thecodebarbarian.com/for-vs-for-each-vs-for-in-vs-for-of-in-javascript</p>
 			</div>
@@ -1022,7 +1048,22 @@
 				})
 			}
 			btnChangeColor.addEventListener('click', changeCodeColor);		
-							
+					
+
+			var myPromise = new Promise(function(resolve, reject) {
+				setTimeout(function() {
+					resolve('Study Javascript');
+				}, 300);
+			});
+
+			myPromise.then(function(value) {
+			console.log(`It's done: ${value}`);
+			// expected output: "It's done: Study Javascript"
+			}).catch(function(rejected) {
+				console.log(`It's not done: ${value}`); 
+			})
+
+					
 	   </script>
 	   <noscript>Your browser does not support JavaScript!</noscript>
 	   </body>
