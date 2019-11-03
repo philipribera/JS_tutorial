@@ -523,18 +523,29 @@
 			</p><br>			
 			<p>
 			Fetch provides a generic definition of Request and Response objects (and other things involved with network requests). This will allow them to be used wherever they are needed in the future, whether it’s for service workers, Cache API and other similar things that handle or modify requests and responses, or any kind of use case that might require you to generate your own responses programmatically.
-			</p>
-			<p>fetch() takes one mandatory argument, the <b>path(url)</b> to the resource you want to fetch. It returns a <b>Promise</b> containing a response object. We then need to extraxt the actual body content, usually the json() method to extract the JSON body content. The fetch() method can optionally accept a second parameter, an init object that allows a number of different settings.
+			fetch() takes one mandatory argument, the <b>path(url)</b> to the resource you want to fetch. It returns a <b>Promise</b> containing a response object. We then need to extraxt the actual body content, usually the json() method to extract the JSON body content. The fetch() method can optionally accept a second parameter, an init object that allows a number of different settings.
 			</p><br>
 			
 			<div class="code-container">
-			<code>				
-			const response = await fetch('http://example.com/movies.json');<br>
-			const myJson = await response.json();	<br>
-			console.log(JSON.stringify(myJson));	<br>
+			
+			<b>// We make a fetch request for weather data in London	</b><br> 
+			<code>			
+			const url = 'http://api.openweathermap.org/data/2.5/weather?q=London&APPID=8674cbad0da4e9ccd435f2442a4dcda7&units=metric';
+			<br><br>
+			fetch(url).then(response => {								<br>
+			<span class="example">return response.json()				</span><br>
+			<span class="example">.then(response=> {					</span><br>
+			<span class="example2">console.log(response.main.temp)		</span><br>
+			<span class="example">})									</span><br>
+			<span class="example">.catch(error => {						</span><br>
+			<span class="example2">console.log('Error')					</span><br>
+			<span class="example2">console.error(error)					</span><br>
+			<span class="example">});									</span><br>			
+			});															<br>	
 			</code>
 			</div>
-			<span class="link">See more: https://developers.google.com/web/updates/2015/03/introduction-to-fetch
+						
+			<span class="link">See more: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 			</span>
 			
 			<br>
@@ -547,17 +558,19 @@
 			
 			<div class="code-container">
 			<code>	
-			async function domSmth() {								<br>
-			<span class="example">let promise = new Promise((resolve, reject)	=> {		</span><br>
-				<span class="example">setTimeout(() => resolve("done!"), 1000)	</span><br>
-				});							<br>
-				<br>
-				let result = await promise; // wait until promise resolves		<br>
-				<span class="example">console.log(result); // "done!"		</span><br>
-									}										<br>
-																			<br>
-			doSmth();
+			const url = 'http://api.openweathermap.org/data/2.5/weather?q=London&APPID=8674cbad0da4e9ccd435f2442a4dcda7&units=metric';
+			<br><br>
 			
+			const getWeatherData = async function() {						<br>
+			<span class="example">const response = await fetch(url); 		</span><br>
+			<span class="example">const weatherData = await response.json();</span><br>
+			<span class="example">console.log(weatherData.main.temp)		</span><br>
+			}																<br>
+			<br>
+			getWeatherData().catch(error => { 								<br>
+			<span class="example">console.error(error);						<span><br>
+			<span class="example">console.log('Error');						<span><br>
+			})																<br>
 			</code>
 			</div><span class="link">See more: https://javascript.info/async-await
 			</span><br>
@@ -1097,21 +1110,21 @@
 			btnChangeColor.addEventListener('click', changeCodeColor);		
 					
 
-			var myPromise = new Promise(function(resolve, reject) {
-				setTimeout(function() {
-					resolve('Study Javascript');
-				}, 300);
-			});
+			const url = 'http://api.openweathermap.org/data/2.5/weather?q=London&APPID=8674cbad0da4e9ccd435f2442a4dcda7&units=metric';
 
-			myPromise.then(function(value) {
-			console.log(`It's done: ${value}`);
-			// expected output: "It's done: Study Javascript"
-			}).catch(function(rejected) {
-				console.log(`It's not done: ${value}`); 
+			const getWeatherData = async function() {
+			const response = await fetch(url);
+			const weatherData = await response.json();
+			console.log(weatherData.main.temp)
+			}
+
+			getWeatherData().catch(error => {
+			console.error(error);
+			console.log('Error');
 			})
-
-					
-	   </script>
+			
+			
+			</script>
 	   <noscript>Your browser does not support JavaScript!</noscript>
 	   </body>
 	   </html>
