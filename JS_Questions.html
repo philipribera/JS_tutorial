@@ -30,7 +30,7 @@
 	   }
 	   h1, h3 {
 			color: rgb(242, 147, 38);
-			margin: 24px 0 32px 0;
+			margin: 26px 0 32px 0;
 	   }
 	   h1 {
 			font-size: 2.1rem;
@@ -488,12 +488,8 @@
 			<h3>Promises</h3>	
 			<div class="example">		   
 			<p>
-			The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value. 
-			A Promise is a proxy for a value not necessarily known when the promise is created. Instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.		
-			</p>
-			<p>
-			The resolve and reject functions, when called, resolve or reject the promise, respectively. The executor normally initiates some asynchronous work, and then, once that completes, either calls the resolve function to resolve the promise or else rejects it if an error occurred. The 'Promise' constructor is primarily used to wrap functions that do not already support promises.
-			</p>
+			A promise in Javascript is just as in real life; A promise that is thought to be done sometime in the future. Either it's resolved or rejected. In programming language the Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value. A Promise consist of an resolved and rejected callback. Depending on if the promise is resolved or not the corresponding callback i executed. The resolve and reject functions, when called, resolve or reject the promise, respectively. Promises is a way to avoid what often is called 'callback hell' where callbacks has to be nested in a ever growing tree like code structure. With Promises we can in a easy way organize our code with chained then() and catch() methods depending on if the promise is resolved or rejected.		
+			</p><br> 
 			<br>
 				
 			<div class="code-container">
@@ -538,13 +534,42 @@
 			console.log(JSON.stringify(myJson));	<br>
 			</code>
 			</div>
+			<span class="link">See more: https://developers.google.com/web/updates/2015/03/introduction-to-fetch
+			</span>
+			
 			<br>
+			
+			<h3>asynch/await</h3>	
+			<div class="example">
+			<p>There’s a special syntax to work with promises called “async/await”. Using the keyword 'async' before a function means that the function always will return a promise. This is also required to be able to use 'await' that works only inside async functions. The keyword await makes JavaScript wait until the promise is settled and returns its result. This works as a more easy to understand syntax compared to the then()/catch() methods. 
+			</p>			
+			<br>
+			
+			<div class="code-container">
+			<code>	
+			async function domSmth() {								<br>
+			<span class="example">let promise = new Promise((resolve, reject)	=> {		</span><br>
+				<span class="example">setTimeout(() => resolve("done!"), 1000)	</span><br>
+				});							<br>
+				<br>
+				let result = await promise; // wait until promise resolves		<br>
+				<span class="example">console.log(result); // "done!"		</span><br>
+									}										<br>
+																			<br>
+			doSmth();
+			
+			</code>
+			</div><span class="link">See more: https://javascript.info/async-await
+			</span><br>
+			</div>
+			<br>
+			
 			
 			<h3>Closures</h3>	
 			<div class="example">
 			<i>Explain closures in Javascript</i><br>
 			
-			<i class="link">More about closures: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures</i>
+			<span class="link">More about closures: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures</span><br>
 			</div>
 			</div><br>											
 			
