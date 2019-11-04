@@ -537,7 +537,7 @@
 			
 			<div class="code-container">
 			
-			<b>// We make a fetch request for weather data</b><br> 
+			<b>// we make a fetch request for weather data</b><br> 
 			<code>			
 			const url = 'http://api.openweathermap.org/data/2.5/weather?q=London&APPID=8674cbad0da4e9ccd435f2442a4dcda7&units=metric';
 			<br><br>
@@ -552,22 +552,24 @@
 			<span class="example">});									</span><br>		
 			});															<br><br>
 			</code>
-			<b>// we make a POST request and spec the configure options.</b>			
+			<b>// we configure the options for a POST request</b>			
 			<code><br>
 			
 			const urlPost = "https://jsonplaceholder.typicode.com/posts";	<br>
 			const options = {											<br>
 			<span class="example">method:"POST",						</span><br>
-			<span class="example">body: JSON.stringify({				</span><br>
-			<span class="example2">title: 'foo',							</span><br>
-			<span class="example2">body: 'bar',							</span><br>
-			<span class="example2">id: 1								</span><br>
-			<span class="example">}),									</span><br>
 			<span class="example">headers: {							</span><br>
-			<span class="example2">"Content-type": "application/json; charset-utf-8"	</span><br>
-			<span class="example">}										</span><br>
+			<span class="example2">"Accept": "application/json; text/plain, */*",</span><br>
+			<span class="example2">"Content-type": "application/json"	</span><br>
+			<span class="example">},									<br>			
+			<span class="example">body: JSON.stringify({				</span><br>
+			<span class="example2">title: 'New Post',					</span><br>
+			<span class="example2">body: 'Lorem ipsum...!',				</span><br>
+			<span class="example2">id: 1								</span><br>
+			<span class="example">})									</span><br>				
 			}															<br>
-																		<br>
+			
+			<br>
 			fetch(urlPost, options)										<br>
 			<span class="example">.then(response => response.json())	</span><br>
 			<span class="example">.then(jsonResponse => console.log(jsonResponse))	</span><br>	
@@ -585,7 +587,7 @@
 			
 			<h3>async/await</h3>	
 			<div class="example">
-			<p>There’s a special syntax to work with promises called “async/await”. Using the keyword 'async' before a function means that the function always will return a promise. This is also required to be able to use 'await' that works only inside async functions. The keyword await makes JavaScript wait until the promise is settled and returns its result. This works as a more easy to understand syntax compared to the then()/catch() methods. 
+			<p>There’s a special syntax to work with promises called “async/await”. This works as a more easy to understand syntax compared to the then()/catch() methods. Using the keyword 'async' before a function means that the function always will return a promise. This is also required to be able to use 'await' inside async functions. The keyword await makes JavaScript wait until the promise is settled and returns its result. 
 			</p>			
 			<br>
 			
@@ -1146,7 +1148,26 @@
 			// Execercises
 			const url = 'http://api.openweathermap.org/data/2.5/weather?q=London&APPID=8674cbad0da4e9ccd435f2442a4dcda7&units=metric';
 
+const urlPost = "https://jsonplaceholder.typicode.com/posts";
+const options = {
+method:"POST",
+headers: {
+"Accept": "application/json; text/plain, */*",
+"Content-type": "application/json"
+},
+body: JSON.stringify({
+title: 'New Post',
+body: 'Lorem ipsum...!',
+id: 1
+})
+}
 
+fetch(urlPost, options)
+.then(response => response.json())
+.then(jsonResponse => console.log(jsonResponse))
+.catch(error => {
+console.log(error)
+});
 	
 			</script>
 	   <noscript>Your browser does not support JavaScript!</noscript>
