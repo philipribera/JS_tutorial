@@ -488,20 +488,30 @@
 			<h3>Promises</h3>	
 			<div class="example">		   
 			<p>
-			A promise in Javascript is just as in real life; A promise that is thought to be done sometime in the future. Either it's resolved or rejected. In programming language the Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value. A Promise consist of an resolved and rejected callback. Depending on if the promise is resolved or not the corresponding callback i executed. The resolve and reject functions, when called, resolve or reject the promise, respectively. Promises is a way to avoid what often is called 'callback hell' where callbacks has to be nested in a ever growing tree like code structure. With Promises we can in a easy way organize our code with chained then() and catch() methods depending on if the promise is resolved or rejected.		
+			A promise in Javascript is just as in real life; A promise is a commitment to do something at some point in the future. The promise will then be resolved, or rejected. In programming context the Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value. Promises in Javascript is a way to avoid what often is called 'callback hell' where callbacks are nested in an ever growing code structure.
+			</p><br>
+			<p>
+			A Promise consist of an resolved and rejected callback. Depending on if the promise is resolved or not the corresponding callback i executed. The resolve and reject functions, when called, resolve or reject the promise.  With Promises we can organize our code with chained then() and catch() methods depending on if the promise is resolved or rejected.		
 			</p><br> 
 			<br>
 				
 			<div class="code-container">
 			<code>	
 				var myPromise = new Promise(function(resolve, reject) {	<br>
-				<span class="example">setTimeout(function() {	</span><br>
-				<span class="example2">resolve('Study Javascript');									</span><br>
-				<span class="example">  }, 300);										</span><br>
-				});														<br>
-				<br>
 				</code>
-				<b>// when promise is fullfilled we pass the argument here 'value' </b><br> 
+				<b>// Here the promise will be resolved/Success</b><br>
+				<code>				
+				<span class="example">let studied = true;		</span><br>
+				<span class="example">if(studied) {				</span><br>
+				<span class="example2">resolve("Success");		</span><br>
+				<span class="example">} else {					</span><br>
+				<span class="example2">reject('Failed')			</span><br>			
+				<span class="example">	}						</span><br>
+				}) 												<br>
+				
+				</code>
+				<b>	// when promise is fullfilled we pass the resolved argument 'value'
+</b><br> 
 				<code>
 				myPromise.then(function(value) {						<br>
 				 <span class="example">console.log(`It's done: ${value}`);	-> 	It's done: Study Javascript						</span><br>				 
@@ -519,29 +529,52 @@
 			
 			<h3>fetch API</h3>	
 			<div class="example">
-			<p>The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses. It also provides a global fetch() method that provides an easy, logical way to fetch resources asynchronously across the network. It will seem familiar to anyone who has used XMLHttpRequest, but the new API provides a more powerful and flexible feature set.
+			<p>The Fetch API is a Javascript built in new standard for making server request. It provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses. It also provides a global fetch() method that provides an easy, logical way to fetch resources asynchronously across the network. 
 			</p><br>			
 			<p>
-			Fetch provides a generic definition of Request and Response objects (and other things involved with network requests). This will allow them to be used wherever they are needed in the future, whether it’s for service workers, Cache API and other similar things that handle or modify requests and responses, or any kind of use case that might require you to generate your own responses programmatically.
-			fetch() takes one mandatory argument, the <b>path(url)</b> to the resource you want to fetch. It returns a <b>Promise</b> containing a response object. We then need to extraxt the actual body content, usually the json() method to extract the JSON body content. The fetch() method can optionally accept a second parameter, an init object that allows a number of different settings.
+			The fetch() method takes one mandatory argument, the <b>path(url)</b> to the resource you want to fetch. By default it will make a 'get request' and return a <b>Promise</b> containing a response object. We then have to extract the actual body content, can for example be the json() method to extract JSON body content. The fetch() method can optionally accept a second parameter consisting of an init object that gives the possibility to add configuration options for the request object. 
 			</p><br>
 			
 			<div class="code-container">
 			
-			<b>// We make a fetch request for weather data in London	</b><br> 
+			<b>// We make a fetch request for weather data</b><br> 
 			<code>			
 			const url = 'http://api.openweathermap.org/data/2.5/weather?q=London&APPID=8674cbad0da4e9ccd435f2442a4dcda7&units=metric';
 			<br><br>
 			fetch(url).then(response => {								<br>
 			<span class="example">return response.json()				</span><br>
-			<span class="example">.then(response=> {					</span><br>
+			<span class="example">.then(response => {					</span><br>
 			<span class="example2">console.log(response.main.temp)		</span><br>
 			<span class="example">})									</span><br>
 			<span class="example">.catch(error => {						</span><br>
 			<span class="example2">console.log('Error')					</span><br>
 			<span class="example2">console.error(error)					</span><br>
-			<span class="example">});									</span><br>			
-			});															<br>	
+			<span class="example">});									</span><br>		
+			});															<br><br>
+			</code>
+			<b>// we make a POST request and spec the configure options.</b>			
+			<code><br>
+			
+			const urlPost = "https://jsonplaceholder.typicode.com/posts";	<br>
+			const options = {											<br>
+			<span class="example">method:"POST",						</span><br>
+			<span class="example">body: JSON.stringify({				</span><br>
+			<span class="example2">title: 'foo',							</span><br>
+			<span class="example2">body: 'bar',							</span><br>
+			<span class="example2">id: 1								</span><br>
+			<span class="example">}),									</span><br>
+			<span class="example">headers: {							</span><br>
+			<span class="example2">"Content-type": "application/json; charset-utf-8"	</span><br>
+			<span class="example">}										</span><br>
+			}															<br>
+																		<br>
+			fetch(urlPost, options)										<br>
+			<span class="example">.then(response => response.json())	</span><br>
+			<span class="example">.then(jsonResponse => console.log(jsonResponse))	</span><br>	
+			<span class="example">.catch(error => {						</span><br>
+			<span class="example2">console.log(error)					</span><br>		
+			<span class="example">});									</span><br>		
+									
 			</code>
 			</div>
 						
@@ -550,7 +583,7 @@
 			
 			<br>
 			
-			<h3>asynch/await</h3>	
+			<h3>async/await</h3>	
 			<div class="example">
 			<p>There’s a special syntax to work with promises called “async/await”. Using the keyword 'async' before a function means that the function always will return a promise. This is also required to be able to use 'await' that works only inside async functions. The keyword await makes JavaScript wait until the promise is settled and returns its result. This works as a more easy to understand syntax compared to the then()/catch() methods. 
 			</p>			
@@ -1109,21 +1142,12 @@
 			}
 			btnChangeColor.addEventListener('click', changeCodeColor);		
 					
-
+		
+			// Execercises
 			const url = 'http://api.openweathermap.org/data/2.5/weather?q=London&APPID=8674cbad0da4e9ccd435f2442a4dcda7&units=metric';
 
-			const getWeatherData = async function() {
-			const response = await fetch(url);
-			const weatherData = await response.json();
-			console.log(weatherData.main.temp)
-			}
 
-			getWeatherData().catch(error => {
-			console.error(error);
-			console.log('Error');
-			})
-			
-			
+	
 			</script>
 	   <noscript>Your browser does not support JavaScript!</noscript>
 	   </body>
