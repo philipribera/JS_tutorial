@@ -1143,32 +1143,9 @@
 				})
 			}
 			btnChangeColor.addEventListener('click', changeCodeColor);		
-					
-		
+							
 			// Execercises
-			const url = 'http://api.openweathermap.org/data/2.5/weather?q=London&APPID=8674cbad0da4e9ccd435f2442a4dcda7&units=metric';
-
-const urlPost = "https://jsonplaceholder.typicode.com/posts";
-const options = {
-method:"POST",
-headers: {
-"Accept": "application/json; text/plain, */*",
-"Content-type": "application/json"
-},
-body: JSON.stringify({
-title: 'New Post',
-body: 'Lorem ipsum...!',
-id: 1
-})
-}
-
-fetch(urlPost, options)
-.then(response => response.json())
-.then(jsonResponse => console.log(jsonResponse))
-.catch(error => {
-console.log(error)
-});
-	
+				
 			</script>
 	   <noscript>Your browser does not support JavaScript!</noscript>
 	   </body>
