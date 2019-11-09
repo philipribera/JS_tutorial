@@ -50,7 +50,7 @@
 		padding: 0 4px;		
 	   }
 	   i {
-			line-height: 2.2rem;
+			line-height: 2.15rem;
 	   } 	  	   
 		p, span {		
 			color: rgb(37,37,37);
@@ -281,11 +281,10 @@
 				let numbers = [4,7,9,11];		<br>				
 				Math.max(numbers)	--> NaN	// Math max/min do not work with arrays.<br>					
 				</code>	 
-				<i><b>// To solve this we can use ES6 features as spread or reduce </b></i>
-				<code><br>				
-				
+				<i><b>// To solve this we can use ES6 features as spread or reduce </b></i><br>
+				<code><br>					
 				let rand;							<br>
-				Math.random(rand) --> ? // returns a floating-point between 0 and 1.</b></i>
+				Math.random(rand) --> ? // returns a floating-point between 0 and 1.
 				</code>
 			</div><br>					
 			
@@ -366,7 +365,7 @@
 			
 			<h4>Comparison Operators</h4><br>
 			<p>The rules for type conversions can be confusing and it's not least important to understand the difference between <b>==</b> and <b>===</b>,<br> the former often called 'loose' equality operator' since it only compares the values and not the type and the latter being the 'strict' equivalent that compares both.</p>
-			<p>The other comparison operators are; not equal to <b>!= !==</b>, greater or less than <b>> <, >= <=.</b>
+			<p>The other comparison operators are; not equal to <b>!= !==</b>, greater or less than <b> &gt; &lt;, &gt;= &lt;=.</b>
 			</p>
 			<div class="code-container">
 			<code>					
@@ -418,8 +417,7 @@
 				<span class="example">console.log(y);</span><br>
 				<span class="example">var y = 1;	 </span><br>
 				   }							<br>						
-				   testScope();					<br>
-				   
+				   testScope();					<br>				   
 				</code><br>
 					
 					<i><b>// Anonymous function expressions are not hoisted</b></i><br>					
@@ -499,7 +497,7 @@
 			<code>	
 				var myPromise = new Promise(function(resolve, reject) {	<br>
 				</code>
-				<b>// Here the promise will be resolved/Success</b><br>
+				<i class="example"><b>// Here the promise will be resolved/Success</b></i><br>
 				<code>				
 				<span class="example">let studied = true;		</span><br>
 				<span class="example">if(studied) {				</span><br>
@@ -508,19 +506,17 @@
 				<span class="example2">reject('Failed')			</span><br>			
 				<span class="example">	}						</span><br>
 				}) 												<br>
-				
 				</code>
-				<b>	// when promise is fullfilled we pass the resolved argument 'value'
-</b><br> 
+				<i><b>// when promise is fullfilled we pass the resolved argument 'value'</b></i><br> 
 				<code>
 				myPromise.then(function(value) {						<br>
 				 <span class="example">console.log(`It's done: ${value}`);	-> 	It's done: Study Javascript						</span><br>				 
 				 </code>
-				 <b>// If the promise is rejected we use a catch </b>		<br>
+				 <i><b>// If the promise is rejected we use a catch </b></i>		<br>
 				 <code>
-				}).catch(function(rejected) {		<br>
-					<span class="example">console.log(`It's not done: ${value}`); -> It's not done: Study Javascript	<br>
-				})														<br>
+				}).catch(function(rejected) {								<br>
+					<span class="example">console.log(`It's not done: ${value}`); -> It's not done: Study Javascript						</span><br>
+				})															<br>
 			</code>
 			</div><br>
 			
@@ -535,9 +531,8 @@
 			The fetch() method takes one mandatory argument, the <b>path(url)</b> to the resource you want to fetch. By default it will make a 'get request' and return a <b>Promise</b> containing a response object. We then have to extract the actual body content, can for example be the json() method to extract JSON body content. The fetch() method can optionally accept a second parameter consisting of an init object that gives the possibility to add configuration options for the request object. 
 			</p><br>
 			
-			<div class="code-container">
-			
-			<b>// we make a fetch request for weather data</b><br> 
+			<div class="code-container">			
+			<i><b>// we make a fetch request for weather data</b></i><br> 
 			<code>			
 			const url = 'http://api.openweathermap.org/data/2.5/weather?q=London&APPID=8674cbad0da4e9ccd435f2442a4dcda7&units=metric';
 			<br><br>
@@ -549,24 +544,24 @@
 			<span class="example">.catch(error => {						</span><br>
 			<span class="example2">console.log('Error')					</span><br>
 			<span class="example2">console.error(error)					</span><br>
-			<span class="example">});									</span><br>		
+			<span class="example">});									</span><br>	
 			});															<br><br>
 			</code>
-			<b>// we configure the options for a POST request</b>			
-			<code><br>
+			<i><b>// we configure the options for a POST request</b></i>			
 			
+			<code><br>			
 			const urlPost = "https://jsonplaceholder.typicode.com/posts";	<br>
 			const options = {											<br>
 			<span class="example">method:"POST",						</span><br>
 			<span class="example">headers: {							</span><br>
 			<span class="example2">"Accept": "application/json; text/plain, */*",</span><br>
 			<span class="example2">"Content-type": "application/json"	</span><br>
-			<span class="example">},									<br>			
+			<span class="example">},									</span><br>		
 			<span class="example">body: JSON.stringify({				</span><br>
 			<span class="example2">title: 'New Post',					</span><br>
 			<span class="example2">body: 'Lorem ipsum...!',				</span><br>
 			<span class="example2">id: 1								</span><br>
-			<span class="example">})									</span><br>				
+			<span class="example">})									</span><br>	
 			}															<br>
 			
 			<br>
@@ -574,20 +569,19 @@
 			<span class="example">.then(response => response.json())	</span><br>
 			<span class="example">.then(jsonResponse => console.log(jsonResponse))	</span><br>	
 			<span class="example">.catch(error => {						</span><br>
-			<span class="example2">console.log(error)					</span><br>		
-			<span class="example">});									</span><br>		
-									
+			<span class="example2">console.log(error)					</span><br>	
+			<span class="example">});									</span><br>	
 			</code>
 			</div>
 						
 			<span class="link">See more: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-			</span>
-			
+			</span>			
 			<br>
 			
 			<h3>async/await</h3>	
 			<div class="example">
-			<p>There’s a special syntax to work with promises called “async/await”. This works as a more easy to understand syntax compared to the then()/catch() methods. Using the keyword 'async' before a function means that the function always will return a promise. This is also required to be able to use 'await' inside async functions. The keyword await makes JavaScript wait until the promise is settled and returns its result. 
+			<p>
+			There’s a special syntax to work with promises called “async/await”. This works as a more easy to understand syntax compared to the then()/catch() methods. Using the keyword 'async' before a function means that the function always will return a promise. This is also required to be able to use 'await' inside async functions. The keyword await makes JavaScript wait until the promise is settled and returns its result. 
 			</p>			
 			<br>
 			
@@ -603,8 +597,8 @@
 			}																<br>
 			<br>
 			getWeatherData().catch(error => { 								<br>
-			<span class="example">console.error(error);						<span><br>
-			<span class="example">console.log('Error');						<span><br>
+			<span class="example">console.error(error);						</span><br>
+			<span class="example">console.log('Error');						</span><br>
 			})																<br>
 			</code>
 			</div><span class="link">See more: https://javascript.info/async-await
@@ -634,9 +628,12 @@
 			It could be said that the value will be read only. It's important tough that understand that it works different depending on the data type. For primitive types the value is set once and becomes read only. For objects it works differently since for example an array stored with const can still receive new elements. Tough it is impossible to change the data type of the value. 
 			</p><br>	
 			<h4>let vs var</h4>
-			<p>The main difference between var and let is that var has function scope and let has block scope. Another difference is that a let declaration is not hoisted as with var.<br>
-			This means that a variable declared with let will not be accessible before it has been initialized as when declared with var. Noteworthy; In strict mode, var will let you re-declare the same variable in the same scope while let raises a SyntaxError.</p> 
-			<br><p><i class="link">See more: https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var
+			<p>
+			The main difference between var and let is that var has function scope and let has block scope. Another difference is that a let declaration is not hoisted as with var.<br>
+			This means that a variable declared with let will not be accessible before it has been initialized as when declared with var. Noteworthy; In strict mode, var will let you re-declare the same variable in the same scope while let raises a SyntaxError.
+			</p> 
+			<br><p>
+			<i class="link">See more: https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var
 			</i></p><br>
 			<div class="code-container">
 			<code>					
@@ -647,17 +644,17 @@
 						<span class="example">let foo = "Hello"		</span><br>
 						<span class="example">var bar = "World"		</span><br>
 						<br>		
-						<span class="example">for(var i = 0; i < 5; i++) {</span><br>
+						<span class="example">for(var i = 0; i &lt; 5; i++) {</span><br>
 					<span class="example2">console.log(i) -> 0,1,2,3,4</span><br>
 				<span class="example">}</span><br>
-				<span class="example">for(let j = 0; j < 5; j++) {</span><br>
-				<span class="example2">	console.log(j) -> 0,1,2,3,4</span><br>
-				<span class="example">}</span><br><br>
+				<span class="example">for(let j = 0; j &lt; 5; j++) {</span><br>
+				<span class="example2">	console.log(j) <i>Expected output -> 0,1,2,3,4</i></span><br>
+				<span class="example">}</span><br>
 				
-				<span class="example">console.log(i); -> 5 	</span><br>
-				<span class="example">console.log(j); -> ReferenceError	// can not be accessed outside its scope</span><br>
+				<span class="example">console.log(i); <i>Expected output -> 5</i> 	</span><br>
+				<span class="example">console.log(j); <i>Expected output -> ReferenceError</i>	// can not be accessed outside its scope</span><br>
 					}														<br>
-																			<br>				
+											
 					checkScope();				
 			</code>
 			</div>			
@@ -665,8 +662,8 @@
 		   
 		   <h3>Arrow functions</h3>
 		   <div class="example">
-		   <p>Arrow functions are anonymous functions that allows us to write shorter more leaner code.</p>
-			<p>An arrow function can omit the parenthesis if there is no more than one argument.<br> It can also omit the square brackets and the keyword 'return' if the function only consist of an return statement.
+		   <p>
+		   Arrow functions are anonymous functions that allows us to write shorter more leaner code. An arrow function can omit the parenthesis if there is no more than one argument. It can also omit the square brackets and the keyword 'return' if the function only consist of an return statement. We can further omit the brackets even if the function consist of several lines and returns a value by incapsulating the code block with parenthesis.
 			</p>			
 		   <br>
 		   <div class="code-container">
@@ -675,20 +672,18 @@
 				function doSmth(a) {						<br>				
 				<span class="example">	return a * 2		</span><br>
 				}											<br>
-		
 			</code>		
 			<i><b>// The same function refactored as an arrow function</b></i><br>
 			<code>
-				const doSmth = a => a * 2					<br>					
-										
-			</code>
+				const doSmth = a => a * 2						<br>				
+			</code>			
 			</div><br>
 					   		   
 			<h4>Arrow functions and keyword 'this'</h4><br>
-		   	<p>One of the reasons for introducing arrow functions was the behaviour of the keyword 'this'. 
-			By default in a function, this refers to the Global object; the window object. The exception being in strict mode where it will return undefined. To set the value of this and by such alter its default behavior inside a function, the bind() method has to be used.</p><br> 
+		   	<p>
+			One of the reasons for introducing arrow functions was the behaviour of the keyword 'this'. By default in a function 'this' will refer to the object that called the function. In other words 'this' in a standalone function will refer to the window object since it was called in the global scope. The exception being in strict mode where 'this' will return undefined. To set the value of 'this' and by such alter its default behavior inside a function, the bind() method has to be used.</p><br> 
 			<p>
-			Arrow functions does not have its own this, it inherits this from the enclosing lexical scope. So when this is not present in its current scope it looks for it in the enclosing scope. In other words if this is used in a nested function in a standalone function or for example in a method of a class it will look for the value of this in the parent scope. That's what is called lexical scoping. As such, with arrow functions the behaviour of the this keyword will be consistent and not change depending on where it is called. 
+			Arrow functions does not have its own this, it inherits this from the enclosing lexical scope. So when this is not present in its current scope it looks for it in the enclosing scope. In other words 'this' will always represent the object that defined the arrow function. If 'this' is used in a nested function or for example in a method of a class it will look for the value of this in the parent scope. That is in the parent function or the class where the method has been defined. With arrow functions the behaviour of 'this' will therefore be consistent and not change depending on where it is called. 
 			</p><br> 			
 			
 			<i class="link">See more: https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work</i>
@@ -699,20 +694,18 @@
 		   <p>To assign a default value we can just assign a value to a function parameter<br> 
 			This also works for destructuring where we can assign default values for variables.</p>
 		   <br>
-		   <div class="code-container">
-			
-			   <i><b>// We add an empty array as default value</b></i><br>				
+		   <div class="code-container">			
+			   <i><b>// We add an empty array as default value</b></i><br>			
 				<code>
 				function addNumbers(numArr = []) {					<br>
 					<span class="example">let sum = 0;				</span><br>
 					<span class="example">numArr.forEach( num => {	</span><br>
 					<span class="example2">	sum += num;				</span><br>
 					<span class="example">})						</span><br>
-					<span class="example">return sum;				</span><br></span>
+					<span class="example">return sum;				</span><br>
 				}													<br>
 				
-				addNumbers() -> 0	// We get no error despite calling the function with no arguments.
-												
+				addNumbers() -> 0	// We get no error despite calling the function with no arguments.												
 			</code>
 			</div>							
 		   </div><br>
@@ -721,15 +714,12 @@
 			<div class="example">
 			<p>When a function receives another function as an argument that function is called a <b>higher order function</b>. And the function you pass in is called a <b>callback</b>. 
 			With ES6 several new higher order functions were introduced. With this the Javascript language got more flexible and developers got access to some new effective tools. 
-			Noteworthy; These methods do not mutate/change the orignal array (in general a good thing!).</p><br>
-						
+			Noteworthy; These methods do not mutate/change the orignal array (in general a good thing!).</p><br>						
             <h4>map</h4><br>
 		    <h4>filter</h4><br>		   		   
             <h4>reduce</h4><br>		 			
 			<h4>find</h4><br>
-			<h4>includes</h4><br>
-						
-		    
+			<h4>includes</h4><br>	    
 			<span class="link">See more: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#</span><br>
 			</div>		   
             <br>
@@ -780,7 +770,7 @@
 			</span>							<br>
 			}								<br><br>	
 			</code>
-			<i>// To access the index we have to use <b>entries()</b>		</i><br>
+			<i><b>// To access the index we have to use entries()	</b></i><br>
 			<code>
 			const myArr = [a,b,c]						<br><br>
 			for (const [index, val] of myArr.entries()) {	<br>
@@ -827,12 +817,10 @@
 			<i>+ Add a method that returns all the class properties</i>
 			<div class="code-container">
 			<code>
-			let Person = function(name,gender,age) {	
-			<div class="example">
-			this.name = name;		<br>
-			this.gender = gender;	<br>
-			this.age = age;			<br>
-			</div>
+			let Person = function(name,gender,age) {		<br>			
+			<span class="example">this.name = name;			</span><br>
+			<span class="example">this.gender = gender;		</span><br>
+			<span class="example">this.age = age;			</span><br>			
 			};								<br>							
 			</code>			
 			</div>			
@@ -916,11 +904,9 @@
 			<br>	  
 	   </div>		   
 	   </div><br><!-- End Tutorial part 2 --> 	   	   
-	   
-	   
+	  	   
 	   <div class="tutorial-part">  
-	   <h1>Interview Questions</h1><br>
-	   	  
+	   <h1>Interview Questions</h1><br>	   	  
 		  
 	   <div class="question">		
 		<h3>Fundamentals</h3><br>
@@ -949,7 +935,7 @@
 		<h4>Type coercion and comparison</h4><br>	
 		<div class="example">		
 		
-		<p>What do we get?</hp>  		
+		<p>What do we get?</p>  		
 			<div class="code-container">
 			<code>
 			4 + "2"					<br>					
@@ -962,7 +948,7 @@
 			10 - "KYH" 				<br>
 			"0" == false 			<br>
 			</code>			
-			<b>// "0" is converted to a 'falsy' value. What does it mean?</b>
+			<i><b>// "0" is converted to a 'falsy' value. What does it mean?</b></i>
 			<br><br>
 			<code>
 			(true &lt; 3 &lt; 5)	<br>
@@ -971,12 +957,11 @@
 			(33 || false && true) 	<br>
 			(1 === 1 && "Hello")	<br>			
 			</code>
-			<b>// 33 and "Hello" are converted to 'truthy' values. What does it mean?</b>
+			<i><b>// 33 and "Hello" are converted to 'truthy' values. What does it mean?</b></i>
 			<br>			
 			</div>		
 			</div>			
-			</div>		
-		</div>
+		</div><br>
 		
 		<div class="question">		
 		<h3>'use strict'</h3>
@@ -999,14 +984,12 @@
 			 <span>Tip: reverse method only works with arrays.</span><br>
 			</div>
 			</div>
-			
-			
+						
 			<div class="question">		
 			<h3>Arrow functions</h3>
 			<div class="example">
 			<p>Explain arrow functions</p>
-			<i>Convert the function to an arrow function and display the shortest possible version.</i>	
-			
+			<i>Convert the function to an arrow function and display the shortest possible version.</i>				
 			<div class="code-container">
 			<code>		   
 				function doSomething(arg) {	<br>
@@ -1042,10 +1025,10 @@
    		   <span>Tip: ES6 datatype 'Set' can only hold unique values.</span><br>  </div>
 		   </div>
 		   
-	   		<div class="question">		
-		   <h3>Spread and rest</h3>
-		   <div class="example">
-		   <i>Use the spread operator to copy the properties of an object into a new object.</i>
+			<div class="question">		
+			<h3>Spread and rest</h3>
+			<div class="example">
+			<i>Use the spread operator to copy the properties of an object into a new object.</i>
 			<i>Explain the importance/difference of using the spread operator to copy the props of an object vs just assigning the object to a new variable?</i>
 			</div>
 			</div>
@@ -1132,6 +1115,7 @@
 	   <div class="go-top"><a href="#top">To the Top</a><br>
 	   </div>	   
 	   </div>
+	   </div>
        <script>	
 			
 			// Toggles code color between green and orange
@@ -1145,7 +1129,9 @@
 			btnChangeColor.addEventListener('click', changeCodeColor);		
 							
 			// Execercises
-				
+			
+			
+			
 			</script>
 	   <noscript>Your browser does not support JavaScript!</noscript>
 	   </body>
