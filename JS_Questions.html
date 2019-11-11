@@ -112,25 +112,34 @@
 	   }
 	   .code-container {
 			position: relative;			
-			background-color: rgb(7,7,7);
+			background-color: rgb(9,9,9);
+			background-color: rgb(231, 231, 231);
 			color: rgb(247,247,247);
 			padding: 26px 24px;
 			margin: 12px 0 18px 0;
 	   }
 	   .code-container code, .code-container code span {
 			color: rgb(74, 249, 105);
+			color: rgb(0,78,220);
 	   }
-	   .code-container-mod code, .code-container-mod code span {
-			color: rgb(255, 192, 89);
-	   }
-	   
-	   	.code-container i {
+	   .code-container i {
 			color: rgb(242,242,242);
+			color: rgb(0,78,220);
 		}
 	   .code-container div {
 			margin-left: 14px;
-	   }	
-
+	   }
+	   
+	   /*** color change event ***/
+	   .code-container-mod {
+			background-color: rgb(231, 231, 231);
+			background-color: rgb(9,9,9);
+		}			
+	   .code-container-mod code, .code-container-mod code span, .code-container-mod i {		
+			color: rgb(0,78,220);
+			color: rgb(74, 249, 105);
+	   }   		
+	   
 	   .question {
 			margin-bottom: 54px;
 	   }
@@ -663,7 +672,7 @@
 		   <h3>Arrow functions</h3>
 		   <div class="example">
 		   <p>
-		   Arrow functions are anonymous functions that allows us to write shorter more leaner code. An arrow function can omit the parenthesis if there is no more than one argument. It can also omit the square brackets and the keyword 'return' if the function only consist of an return statement. We can further omit the brackets even if the function consist of several lines and returns a value by incapsulating the code block with parenthesis.
+		   Arrow functions are anonymous functions that allows us to write shorter more leaner code. An arrow function can omit the parenthesis if there is no more than one argument. It can also omit the square brackets and the keyword 'return' if the function only consist of an return statement. 
 			</p>			
 		   <br>
 		   <div class="code-container">
@@ -713,13 +722,13 @@
            	<h3>Higher order functions</h3>
 			<div class="example">
 			<p>When a function receives another function as an argument that function is called a <b>higher order function</b>. And the function you pass in is called a <b>callback</b>. 
-			With ES6 several new higher order functions were introduced. With this the Javascript language got more flexible and developers got access to some new effective tools. 
-			Noteworthy; These methods do not mutate/change the orignal array (in general a good thing!).</p><br>						
-            <h4>map</h4><br>
-		    <h4>filter</h4><br>		   		   
-            <h4>reduce</h4><br>		 			
-			<h4>find</h4><br>
-			<h4>includes</h4><br>	    
+			With ES6 several new higher order functions were introduced. With this the Javascript language got more flexible and developers got access to some new effective tools. Noteworthy; These methods do not mutate/change the orignal array (in general a good thing!).</p><br>						
+            <h4>map()</h4><br>
+		    <h4>filter()</h4><br>		   		   
+            <h4>reduce()</h4><br>		 			
+            <h4>sort()</h4><br>		 			
+			<h4>find()</h4><br>
+			<h4>includes()</h4><br>	    
 			<span class="link">See more: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#</span><br>
 			</div>		   
             <br>
@@ -788,10 +797,8 @@
 			
 		   <h3>Template Literals</h3>
 		   <div class="example">
-		   <p>Template Literals allows us to work with strings in a more agile and less ugly way. Not least the ability to use expressions gives lot of room for creating more dynamic code.</p><br>
-		   <p>Instead of quotes we use `backticks` to write string within it. We use ${variable or expression} instead of concatenation. Among the new features we also get a more agile syntax to define multiline strings.</p><br> 
-		   
-			
+		   <p>Template Literals allows us to work with strings in a more agile and less ugly way. Not least the ability to use expressions gives lot of room for creating more dynamic code. Instead of quotes we use `backticks` to write string within it. We use ${variable or expression} instead of concatenation. Among the new features we also get a more agile syntax to define multiline strings.</p><br> 
+		   			
 		   <div class="code-container">
 			<code>
 				let firstName = "John"	<br>
@@ -833,7 +840,7 @@
 		   <br><br>
 		   
 		   <h4>Understanding the impact of the spread operator when copying an object</h4><br>
-		   <p>When using the spread operator to copy an objects properties to a new object we make a real copy of the original.<br>It's important to understand the same goes for arrays, in other words spread can be used to make a real copy of an array. We do not copy the pointer/reference as is the case when we assign an object or array to a new variable.<br>With spread we can avoid the issue of an object that is manipulated affecting another object stored in a variable with the same pointer/reference.<br> In other words; with the spread operator we copy an object in a immutable way and not just the pointer/reference to the same.</p><br>				
+		   <p>When using the spread operator to copy an objects properties to a new object we make a real copy of the original.<br>It's important to understand the same goes for arrays, in other words spread can be used to make a real copy of an array. We do not copy the pointer/reference as is the case when we assign an object or array to a new variable.<br>With spread we can avoid the issue of an object that is manipulated affecting another object stored in a variable with the same pointer/reference. In other words; with the spread operator we copy an object in a immutable way and not just the pointer/reference to the same.</p><br>				
 		   <div class="code-container">
 			<code>		   				
 				const myArr = [1,2,3]; <br>
@@ -842,9 +849,9 @@
 				myObj = {	name: "John"	}			<br>							
 				newObj = {	...myObj, surname: "Doe" }	// We add props from myObj to new Obj <br> 				
 				<br>				
-				const myFunc = (...args) => {			<br>
-					return `All arguments ${args}`;		<br>
-				}										<br>										<br>							
+				const myFunc = (...args) => {							<br>
+				<span class="example">return `All arguments ${args}`;	</span><br>
+				}														<br>														<br>			
 				console.log(myFunc(1,2,3,4)) -> All arguments 1,2,3,4
 				
 			</code>
@@ -861,9 +868,9 @@
    		   <div class="code-container">
 
 		   <code>
-			const [a, b] = ["John", "Lisa"] // We assign the array items to variables a and b.
+			const [a, b] = ["John", "Lisa"] // We assign the array items to variables a and b
 			<br>
-			const {name} = { name: "John", age: 28} // We assign the name prop to variable name.
+			const {name} = { name: "John", age: 28} // We assign the name prop to variable name
 		   </code>
 			</div><br>					
 		   </div>
@@ -948,7 +955,7 @@
 			10 - "KYH" 				<br>
 			"0" == false 			<br>
 			</code>			
-			<i><b>// "0" is converted to a 'falsy' value. What does it mean?</b></i>
+			<i><b>// "0" is converted to a 'falsy' value but what does it mean?</b></i>
 			<br><br>
 			<code>
 			(true &lt; 3 &lt; 5)	<br>
@@ -957,7 +964,7 @@
 			(33 || false && true) 	<br>
 			(1 === 1 && "Hello")	<br>			
 			</code>
-			<i><b>// 33 and "Hello" are converted to 'truthy' values. What does it mean?</b></i>
+			<i><b>// 33 and "Hello" are converted to 'truthy' values but what does it mean?</b></i>
 			<br>			
 			</div>		
 			</div>			
@@ -999,23 +1006,7 @@
 			</div>
 			</div>
 			</div>
-			
-			<div class="question">	
-			<h3>Duplicate an Array</h3>
-			<div class="example">
-			<i>Show how to do it both in pre ES6 as well as ES6.</i>	
-			</div>
-			</div>
-			
-			<div class="question">		
-			<h3>Sort an Array that consists of numerical values</h3>           			
-			<div class="example">
-			<p>let numbers = [114,22,4,5,11,41]</p>
-			<br>
-			<i>Extra: Get the highest number.</i><br>			
-			</div>
-		   </div>
-			
+									
 		<div class="question">				
            <h3>Remove Duplicates from an Array</h3>
    		   <div class="example">
@@ -1025,13 +1016,31 @@
    		   <span>Tip: ES6 datatype 'Set' can only hold unique values.</span><br>  </div>
 		   </div>
 		   
-			<div class="question">		
-			<h3>Spread and rest</h3>
+		   <div class="question">		
+			<h3>Sort an Array</h3>			
 			<div class="example">
-			<i>Use the spread operator to copy the properties of an object into a new object.</i>
-			<i>Explain the importance/difference of using the spread operator to copy the props of an object vs just assigning the object to a new variable?</i>
+			<p>Sort the array so the lowest number comes first and the highest last.</p>
+			<div class="code-container">
+			<code>
+				let numbers = [114,22,4,5,11,41]<br>
+			</code>
+			</div>		
 			</div>
+		   </div>
+		   
+		   <div class="question">	
+			<h3>Duplicate an Array</h3>
+			<div class="example">
+			<i>Duplicate the array, both in pre ES6 as well as ES6.</i>				
+			<div class="code-container">
+			<code>
+				const numbers = [2,4,6,8] <br>
+			</code>
+			</div>			
+			
+			<i>Explain the importance/difference of using the spread operator to copy the props of an object -or the elements in an array- vs just assigning the object to a new variable?</i><br>	
 			</div>
+			</div>	
 
 			<div class="question">					
 			<h3>Keyword this</h3>
@@ -1109,11 +1118,10 @@
 		   When modulus 3 (remainder 0) return Buzz and when modulus 5 return Fizz.<br>
 		   If both modulus 3 and 5 return FizzBuzz.</p>
 			</div>
-			</div>
-			
-	   </div><br>	   	   
-	   <div class="go-top"><a href="#top">To the Top</a><br>
-	   </div>	   
+			</div>			
+	   </div>	   	   
+	   </div>	
+	   <div class="go-top"><a href="#top">To the Top</a><br>	      
 	   </div>
 	   </div>
        <script>	
