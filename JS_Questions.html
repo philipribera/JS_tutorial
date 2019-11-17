@@ -112,18 +112,15 @@
 	   }
 	   .code-container {
 			position: relative;			
-			background-color: rgb(9,9,9);
 			background-color: rgb(231, 231, 231);
 			color: rgb(247,247,247);
 			padding: 26px 24px;
 			margin: 12px 0 18px 0;
 	   }
 	   .code-container code, .code-container code span {
-			color: rgb(74, 249, 105);
 			color: rgb(0,78,220);
 	   }
 	   .code-container i {
-			color: rgb(242,242,242);
 			color: rgb(0,78,220);
 		}
 	   .code-container div {
@@ -131,15 +128,15 @@
 	   }
 	   
 	   /*** color change event ***/
-	   .code-container-mod {
-			background-color: rgb(231, 231, 231);
-			background-color: rgb(9,9,9);
+		.code-container-mod {
+			background-color: rgb(9,9,9);						
 		}			
-	   .code-container-mod code, .code-container-mod code span, .code-container-mod i {		
-			color: rgb(0,78,220);
+		.code-container-mod code, .code-container-mod code span  {			
 			color: rgb(74, 249, 105);
-	   }   		
-	   
+		}   		
+		.code-container-mod i {
+			color: rgb(247,247,247);
+		}	   
 	   .question {
 			margin-bottom: 54px;
 	   }
@@ -736,15 +733,19 @@
 		   <h3>Loops & Iteration</h3>
 		   <div class="example">           
            <h4>forEach</h4><br>		   
-		   <p>forEach() executes a provided function once for each array element. It will always returns the value undefined and is not chainable. As with other high order methods it does not mutate the array on which it is called.</p><br> 
+		   <p>forEach() executes a provided function once for each array element. It will always returns the value undefined and is not chainable. ForEach can take tree arguments, the value of the current elment, what is required as well as two optional arguments, the index for each element and the array object it self. As with other high order methods it does not mutate the array on which it is called.</p><br> 
 		   
 		   <div class="code-container">
 		   <code>
+		   <i><b>
+			// Basic syntax <br>
+			</b></i>
+			array.forEach(function(currentValue, index, arr), thisValue)
+			<br><br>
 			
 			const myArr = ["John", "Lisa", "Tom"]	<br><br>
-
 			myArr.forEach( name => {	<br>
-				<span class="example">console.log(`${name} Doe` ) -> John Doe, Lisa Doe...
+				<span class="example">console.log(`${name} Doe` ) -> Expected output; John Doe, Lisa Doe...
 				</span><br>
 			})
 			
@@ -1132,6 +1133,7 @@
 			const changeCodeColor = ()=> {
 				Array.from(codeContainers, container => {
 					container.classList.toggle('code-container-mod');
+					//container.classList.toggle('code-container');
 				})
 			}
 			btnChangeColor.addEventListener('click', changeCodeColor);		
