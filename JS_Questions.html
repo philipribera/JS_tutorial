@@ -49,6 +49,10 @@
 		list-style-type: none;
 		padding: 0 4px;		
 	   }
+	   a {
+		   color: rgb(132,132,132);
+		   text-decoration: none;
+	   }
 	   i {
 			line-height: 2.15rem;
 	   } 	  	   
@@ -62,6 +66,9 @@
 			color: rgb(20, 64, 86);			
 	   }
 	  
+	   hr {
+		   	display: none;			
+	   }	  
 	   
 	   .log-list li {
 			width: 202px;
@@ -96,7 +103,7 @@
 	   
 	   .tutorial-part {           
            padding: 28px 28px 30px 28px; 	  
-		   border-bottom: 4px solid rgb(202, 202, 202);
+		   border-bottom: 4px solid rgb(207, 207, 207);
        }	  
 	   .example {	
 			max-width: 74%;
@@ -169,7 +176,6 @@
 	   @media only screen and (max-width: 990px) {
 			.wrapper {
 				width: 100%;
-				padding: 20px;
 			}		
 			.example {
 				max-width: 99%;			
@@ -193,11 +199,11 @@
 				padding: 7px;
 			}
 			.tutorial-part {
-	           padding: 20px 6px;
+	           padding: 6px;
 			}						  	 
 			.example {
 				max-width: 100%;
-				margin-left: 12px;
+				margin-left: 10px;
 			}
 			.example2 {				
 				margin-left: 24px;
@@ -215,8 +221,33 @@
 			}
 			h3 {
 				font-size: 1.4rem;
-			}						
-	   }	  
+			}	
+			h1, h3 {
+				margin-bottom: 18px;
+	  		}
+	   }
+		
+		@media only screen and (max-width: 600px) {
+				h1 {
+					font-size: 1.8rem;
+				}
+				h3 {
+					font-size: 1.35rem;
+				}
+				.example {
+					max-width: 100%;
+					margin-left: 0;
+				}
+				hr {
+					display: block;
+					font-weight: 700;
+					box-shadow: 0px 2px 3px rgb(255, 255, 255);
+					border-bottom: 2px solid rgb(194,194,194);
+					border-top: 2px solid rgb(233,233,233);
+					border-radius: 6px;
+					margin-bottom: 38px;
+				}
+		}	   	  
    </style>
 </head>
 
@@ -260,7 +291,7 @@
 			<br>
 			<span>Note: Primitives being immutable is the reason we can't use mutator methods on strings. For example push, reverse and sort.
 			</span><br>
-			<i class="link">See more; https://developer.mozilla.org/en-US/docs/Glossary/Primitive</i><br>	
+			<i class="link">See more; <a href="https://developer.mozilla.org/en-US/docs/Glossary/Primitive">https://developer.mozilla.org/en-US/docs/Glossary/Primitive</a></i><br>	
 			<br>
 			
 			<h4>Datatype 'number' and the Math object</h4><br>			
@@ -331,7 +362,9 @@
 		   </code><br>		   
 		   </div>		    
 			</div><br>
-							
+
+			
+
 			<h3>Pass by Value vs Reference</h3>
 			<div class="example">
 			<p>When we assign an object to new variable we copy the reference to where that object or array is stored in memory.<br>The reference works in other words as a pointer to where the object is stored, it doesn't copy the value as is the case with primitive types. This means that if we change the value of a property/element it impacts all variables with a reference to the same spot in memory.</p>						
@@ -363,6 +396,7 @@
 			<i class="link">See more about passing values by reference: 
 			https://stackoverflow.com/questions/16880418/javascript-pas</i>			
 			</div><br>
+			
 
 			<h3>Type Coercion & Comparisons</h3>
 			<div class="example">
@@ -401,7 +435,8 @@
 				<i class="link">See more: https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/
 			</i>		
 			</div><br>
-				 
+				
+			
 				 
 			<h3>Global vs Function Scope</h3>
 			   <div class="example">
@@ -410,6 +445,8 @@
 			   </div>
 			   <br>		   	   
 		   
+			   
+
 			<h3>Hoisting</h3>
 			<div class="example">	
 				<p>Lorem ipsum...</p>				
@@ -450,6 +487,7 @@
 			</div><br>
 			<br>
 			
+
 			<h3>Usage of common String and Array methods</h3>
 			<div class="example">		   
 			<b>Explain and show how to use these methods.</b>
@@ -489,6 +527,7 @@
 			<i class="link">More about arrays: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype#Methods</i>	
 			</div><br>
 			
+
 			<h3>Promises</h3>	
 			<div class="example">		   
 			<p>
@@ -528,6 +567,7 @@
 			
 			<span class="link">More about promises: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises</span>
 			</div><br>
+			
 			
 			<h3>fetch API</h3>	
 			<div class="example">
@@ -584,6 +624,7 @@
 			</span>			
 			<br>
 			
+
 			<h3>async/await</h3>	
 			<div class="example">
 			<p>
@@ -909,8 +950,8 @@
 			<span>Note: 1) Can be done with for/in as well but then it will also show props that are inherited by the prototype.</span><br>
 			<span>Note: 2) The length property on the Object constructor will return undefined.</span><br>
 			<span>Note: 3) It will return(true) for all declared properties even those with no value.</span>
-			<br>	  
-	   </div>		   
+				  
+	   </div><br>		   
 	   </div><br><!-- End Tutorial part 2 --> 	   	   
 	  	   
 	   <div class="tutorial-part">  
