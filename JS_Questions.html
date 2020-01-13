@@ -6,8 +6,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta name="author" content="Philip R">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
-   <title>Javascript Questions</title>
-   <style>
+   <title>Javascript Questions</title>   	
+   <style>   
 		*  {
 			box-sizing: border-box;
 			outline: none;
@@ -25,7 +25,7 @@
            padding: 24px;
            margin: 0 auto;
        }
-	   p, h2 {
+	   p {
 		color: rgb(17,17,17);
 	   }
 	   h1, h3 {
@@ -64,10 +64,6 @@
 			font-size: 1.25rem;
 			line-height: 1.7rem;
 			color: rgb(20, 64, 86);			
-	   }
-	  
-	   hr {
-		   	display: none;			
 	   }	  
 	   
 	   .log-list li {
@@ -129,12 +125,9 @@
 	   }
 	   .code-container i {
 			color: rgb(0,78,220);
-		}
-	   .code-container div {
-			margin-left: 14px;
-	   }
-	   
-	   /*** color change event ***/
+		}	
+
+		/*** CODE COLOR CHANGE ***/	
 		.code-container-mod {
 			background-color: rgb(9,9,9);						
 		}			
@@ -144,6 +137,7 @@
 		.code-container-mod i {
 			color: rgb(247,247,247);
 		}	   
+		
 	   .question {
 			margin-bottom: 54px;
 	   }
@@ -158,9 +152,7 @@
 			padding: 6px;	
 			border: 1px solid rgb(102,102,102);
 		}
-		
 		  
-		/*** MEDIA QUERIES ***/	
 	   @media only screen and (max-width: 1280px) {
 			.wrapper {
 				width: 85%;
@@ -238,16 +230,7 @@
 					max-width: 100%;
 					margin-left: 0;
 				}
-				hr {
-					display: block;
-					font-weight: 700;
-					box-shadow: 0px 2px 3px rgb(255, 255, 255);
-					border-bottom: 2px solid rgb(194,194,194);
-					border-top: 2px solid rgb(233,233,233);
-					border-radius: 6px;
-					margin-bottom: 38px;
-				}
-		}	   	  
+		}   
    </style>
 </head>
 
@@ -435,8 +418,7 @@
 				<i class="link">See more: https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/
 			</i>		
 			</div><br>
-				
-			
+							
 				 
 			<h3>Global vs Function Scope</h3>
 			   <div class="example">
@@ -444,8 +426,7 @@
 			   <i>Explain <b>lexical scope</b> in Javascript</i><br>	   		
 			   </div>
 			   <br>		   	   
-		   
-			   
+		   			   
 
 			<h3>Hoisting</h3>
 			<div class="example">	
@@ -628,7 +609,7 @@
 			<h3>async/await</h3>	
 			<div class="example">
 			<p>
-			There’s a special syntax to work with promises called “async/await”. This works as a more easy to understand syntax compared to the then()/catch() methods. Using the keyword 'async' before a function means that the function always will return a promise. This is also required to be able to use 'await' inside async functions. The keyword await makes JavaScript wait until the promise is settled and returns its result. 
+			There’s a special syntax to work with promises called “async/await”. It works as a more easy to understand syntax compared to the then()/catch() methods. Using the keyword 'async' before a function means that the function always will return a promise. This is also required to be able to use 'await' inside async functions. The keyword await makes JavaScript wait until the promise is settled and first thereafter returns its result. 
 			</p>			
 			<br>
 			
@@ -668,19 +649,25 @@
 		<div class="tutorial-part">
            <h1>ES6 Features</h1><br>
 		   
-		   <h3>let and const</h3>
+		   <h3>Variable declaration; let and const</h3>
 		   <div class="example">
-			<p>ES6 introduced the keywords let and const to be used for variable declaration.
-			const is used for declaring variables where the intention is to not change its value. 
-			It could be said that the value will be read only. It's important tough that understand that it works different depending on the data type. For primitive types the value is set once and becomes read only. For objects it works differently since for example an array stored with const can still receive new elements. Tough it is impossible to change the data type of the value. 
+			<br>
+			
+			<h4>const</h4>
+			<p>
+			const is used for declaring variables where the intention is to not change its value. It could be said that the value will be read only. It's important tough to understand that it works different depending on the data type. For primitive types the value is set once and becomes read only. For objects it works differently since for example an array stored with const can still receive new elements tough it is impossible to change the data type of the value. 
 			</p><br>	
+			
 			<h4>let vs var</h4>
 			<p>
 			The main difference between var and let is that var has function scope and let has block scope. Another difference is that a let declaration is not hoisted as with var.<br>
-			This means that a variable declared with let will not be accessible before it has been initialized as when declared with var. Noteworthy; In strict mode, var will let you re-declare the same variable in the same scope while let raises a SyntaxError.
+			This means that a variable declared with let will not be accessible before it has been initialized. This will result in a reference error while doing the same with a variable declared with var will return as undefined. 
+			</p><br>
+			<p>
+			Note; In strict mode, var will allow you re-declare a variable in the same scope while a variable declared with let raises a SyntaxError.
 			</p> 
 			<br><p>
-			<i class="link">See more: https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var
+			<i class="link">See more: <a href="https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var">https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var</a>
 			</i></p><br>
 			<div class="code-container">
 			<code>					
@@ -830,7 +817,7 @@
 		   </code>
 		   </div><br>		  	
 
-		   <h4>Summary</h4><br>
+		   <h4>Summary for loops and iteration</h4><br>
 			<p>There are many ways to iterate over arrays and loops and they all have there strengths and tradeof:s. The standard for and for/in loop constructs gives access to the index in the iterable object but not the actual element. To access the element we have to print out the, item[index]. With forEach() and for/of we get access to the element itself. In general the most robust/safe way to loop through an array/object will be the for/of loop. If the intention is to manipulate every element in an array the for/each loop is the best choice. The for/in loop should only be used to iterate through the properties of an object.</p>
 			<br>			
 			<p class="link">See more: https://thecodebarbarian.com/for-vs-for-each-vs-for-in-vs-for-of-in-javascript</p>
@@ -861,6 +848,25 @@
 		   
 		   <h3>Classes</h3>
 		   <div class="example">
+			<p>With ES6 we got classes in Javascript. In reality it is only syntactical sugar or an alternative syntax to prototype-bases inheritance or in other words; Javascript constructor functions. A class is a special type of funtions that uses the keyword class. As with constructor functions the name is capitalized by convention.
+			</p><br>
+			<p>A constructor method for creating and initializing an object can be specified. If this is not done a default constructor method - basically an empty function - is used. This is an empty object for a base class.
+			</p><br>			
+						
+			<h4>'constructor functions' vs classes</h4><br>
+			<p>In most cases they are quite similar and they do the same thing but there are a some things that differs. A constructor requires the keyword <i>new</i> to work. While we still can call a constructor function without the keyword new this will throw an error when trying to do the same with a class. A class will in contrast to constructor functions create a constructor method by default if not given one. While constructor functions are hoisted this is not the case with class declarations. Another important difference is that everything that is written inside a class is typed in strict mode. 
+			
+			With ES2019 we also got a few new important features when it comes to classes. 
+			It is now possible to create private properties and methods inside classes using the # prefix. There is also the possibility to initialize public properties at the top of a class before specifying a constructor. There are some important benefits to this that I will not go deeper in to here, for those that are interested to dwell more into all that classes offers I have added some links down here that explains the concept more in depth.   
+			</p><br>
+			
+			<span class="link"><See more about classes (incl features introduced with ES2019): <br>
+			<a href="https://www.sitepoint.com/javascript-private-class-fields/">https://www.sitepoint.com/javascript-private-class-fields/</a>
+			<br>
+			<a href="https://dmitripavlutin.com/javascript-classes-complete-guide/">
+			https://dmitripavlutin.com/javascript-classes-complete-guide/
+			</a><br><br>
+			</span>
 			
 			<i>Rewrite the constructor function with ES6 alt ES7 class syntax</i>
 			<i>+ Add a method that returns all the class properties</i>
@@ -993,9 +999,11 @@
 			4*(3-2)/false 			<br>
 			Boolean("") 			<br>
 			true == "1" 			<br>
-			44%10 > 2				<br>								
+			14%10 > 2				<br>								
 			10 - "KYH" 				<br>
 			"0" == false 			<br>
+			NaN == NaN				<br>			
+			isNaN("Hello World")	<br>
 			</code>			
 			<i><b>// "0" is converted to a 'falsy' value but what does it mean?</b></i>
 			<br><br>
@@ -1025,9 +1033,9 @@
 
 	   <h3>Reverse a String </h3>
 			<div class="example">
-			 <i>Return the following string in reverse "KYH Frontend Developer".</i>
+			 <i>Return the following string in reverse "Frontend Developer".</i>
 			 <br>
-			 <i>Extra: Show another way to achieve the same result. If not done already don't use reverse().</i>			 
+			 <i>Extra: Show another way to achieve the same result. If not done already don't use the reverse method.</i>			 
 			 <i>Extra: Reverse a collection of type number.</i>
 			 <br>
 			 <span>Tip: reverse method only works with arrays.</span><br>
@@ -1168,7 +1176,7 @@
 	   </div>
        <script>	
 			
-			// Toggles code color between green and orange
+			// Toggles code color 
 			const btnChangeColor = document.querySelector('.btn-change-color');
 			const codeContainers = document.querySelectorAll('.code-container');						
 			const changeCodeColor = ()=> {
@@ -1181,7 +1189,33 @@
 							
 			// Execercises
 			
+/*			
+			let Person = function(name,gender,age) {
+				this.name = name;
+				this.gender = gender;
+				this.age = age;
+				
+				this.fullInfo = function() {
+					return this.name+ " " +this.gender+ " " +this.age 
+				}				
+			};
+			*/
+				
+			class Person {
+
+				constructor(name,gender,age) {				
+					this.name = name
+					this.gender = gender
+					this.age = age
+				}
+				
+				fullInfo() {
+					return this.name + " " + this.gender +" "+ this.age
+				}
+			}			
 			
+			let foo = new Person('Lisa', 'female', 24) 
+			console.log(foo.fullInfo()); 
 			
 			</script>
 	   <noscript>Your browser does not support JavaScript!</noscript>
