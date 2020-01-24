@@ -1,1187 +1,1846 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Free Javascript Guide with Questions">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="author" content="Philip R">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">   
-	<title>Javascript Questions</title>   	
-	<style>   
-		*  {
-			box-sizing: border-box;
-			outline: none;
-			padding: 0;
-			margin: 0;			
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Free Javascript Guide with Questions" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Philip R" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Javascript Questions</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        outline: none;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        font-family: "Montserrat", Helvetica, sans-serif;
+        background-color: rgb(92, 92, 92);
+      }
+	  header {
+		  width: 100%;
+		  height: 84px;
+		  position: fixed;
+		  top: 0;
+		  z-index: 9999;
+		  background-color: rgb(77,77,77);
+		  box-shadow: 1px 1px 2px 1px rgb(102,102,102);
+	  }
+	  .header-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		align-items: center;
+		padding: 0 32px;
+	  }
+	  .header-title {		
+		margin-right: auto;
+		align-self: baseline;
+	  }
+	  .header-title h3 {
+		color: rgb(244, 244, 244);
+	  }
+	  .header-menu {		  
+		color: rgb(247,247,247);
+	  }
+	  .collapsed-menu {
+		  display: none;
+	  }
+	  .header-menu ul li {
+		  display: inline;
+		  cursor: pointer;
+	  }
+	  .header-menu ul li:hover {
+		color: rgb(255, 159, 32)
+	  }
+      .wrapper {
+        display: block;
+        width: 100%;
+        max-width: 1040px;
+        background-color: rgb(250, 250, 250);
+        color: rgb(35, 35, 35);
+        padding: 24px;
+        margin: 0 auto;
+      }
+
+      /*** GENERICS ***/
+      p {
+        color: rgb(17, 17, 17);
+      }
+      h1,
+      h2,
+      h3 {
+        color: rgb(242, 147, 38);
+        margin: 26px 0 32px 0;
+      }
+      h1 {
+        font-size: 2.1rem;
+      }
+      h3 {
+        font-size: 1.55rem;
+      }
+      h4 {
+        color: rgb(37, 37, 37);
+      }
+      ul {
+        padding: 4px;
+        margin-left: 14px;
+      }
+      li {
+        list-style-type: none;
+        padding: 0 4px;
+      }
+      a {
+        color: rgb(132, 132, 132);
+        text-decoration: none;
+      }
+      i {
+        line-height: 2.15rem;
+      }
+      p,
+      span,
+      b {
+        color: rgb(37, 37, 37);
+        line-height: 1.6rem;
+      }
+      code {
+        font-size: 1.26rem;
+        line-height: 1.7rem;
+        color: rgb(20, 64, 86);
+      }
+
+      /*** CLASSES ***/
+      .log-list li {
+        width: 202px;
+        border-bottom: 1px solid rgb(192, 192, 192);
+      }
+      .log-list li:first-child {
+        font-weight: 600;
+      }
+      .info-list {
+        display: inline-block;
+        min-width: 72px;
+        margin-right: 14px;
+      }
+      .go-top {
+        padding: 4px 0;
+      }
+      .go-top a {
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        background: rgb(222, 222, 222);
+        color: rgb(42, 96, 117);
+        padding: 4px 6px;
+        border: 1px solid rgb(190, 190, 190);
+      }
+      .go-top a:hover {
+        opacity: 0.95;
+      }
+      .tutorial-part {
+        padding: 28px 28px 30px 28px;
+        border-bottom: 4px solid rgb(207, 207, 207);
+      }
+	  .subject-article {
+		  display: inline-block;
+		  margin: 20px 0;
+	  }
+      .example {
+        margin-left: 14px;
+      }
+      .example2 {
+        margin-left: 28px;
+      }
+      .link {
+        word-break: break-all;
+        display: inline-block;
+        color: rgb(123, 123, 123);
+        font-weight: 600;
+        margin: 12px 0;
+      }
+	  .code * {
+		  word-break: break-all;
+	  }
+      .code-container {
+        position: relative;
+        background-color: rgb(235, 235, 235);
+        color: rgb(247, 247, 247);
+        padding: 26px 24px;
+        margin: 12px 0 18px 0;
+        overflow: auto;
+      }
+      .code-container code,
+      .code-container code span {
+        color: rgb(19, 76, 105);
+      }
+      .code-container i {
+        color: rgb(37, 63, 110);
+      }
+      .code-container .comment-oneline {
+        display: block;
+        color: rgb(41, 54, 103);
+        opacity: 0.95;
+        font-weight: 600;
+        margin: 12px 0;
+      }
+      .code-container-mod {
+        background-color: rgb(9, 9, 9);
+      }
+      .code-container-mod code,
+      .code-container-mod code span {
+        color: rgb(74, 249, 105);
+      }
+      .code-container-mod i {
+        color: rgb(247, 247, 247);
+      }
+      .question {
+        margin-bottom: 54px;
+      }
+      .btn-change-color {
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+        background: rgb(45, 45, 45);
+        color: rgb(222, 222, 222);
+        padding: 6px;
+        border: 1px solid rgb(102, 102, 102);
+      }
+      /*** MEDIA QUERIES ***/
+      @media only screen and (max-width: 990px) {
+        .tutorial-part {
+          padding: 20px;
+        }
+        .code-container {
+          width: 99%;
+          padding: 22px 20px;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+        h3 {
+          font-size: 1.45rem;
+        }
+      }
+      @media only screen and (max-width: 767px) {
+        .wrapper {
+          padding: 9px;
+          margin: 0;
+        }
+        .tutorial-part {
+          padding: 6px;
+        }
+        .example {
+          margin-left: 10px;
+        }
+        .example2 {
+          margin-left: 24px;
+        }
+        .code-container {
+          width: 99%;
+          padding: 22px 14px;
+        }
+        code {
+          font-size: 1.15rem;
+          line-height: 1.4em;
+        }
+        h1 {
+          font-size: 1.95rem;
+        }
+        h3 {
+          font-size: 1.4rem;
+        }
+        h1,
+        h3 {
+          margin-bottom: 18px;
+        }
+        i {
+          line-height: 1.6rem;
+        }
+      }
+      @media only screen and (max-width: 600px) {		
+		.header-container {
+			display: inline-block;
+			text-align: center;
+			height: auto;
+			padding: 0 14px;
 		}
-		body {
-			font-family: Arial, Helvetica, sans-serif;
-			background-color: rgb(97, 97, 97);
-		}		
-       .wrapper {	
+		.header-title {
 			display: block;
-           width: 100%;
-		   max-width: 1040px;	   
-		   background-color: rgb(249, 249, 249);
-           color: rgb(35, 35, 35);
-           padding: 24px;
-           margin: 0 auto;
-       }
-	   
-	   /*** GENERICS ***/	   
-	   p {
-		color: rgb(17,17,17);
-	   }
-	   h1, h3 {
-			color: rgb(242, 147, 38);
-			margin: 26px 0 32px 0;
-	   }
-	   h1 {
-			font-size: 2.1rem;
-	   }
-	   h3 {
-			font-size: 1.55rem;
-	   }
-	   h4 {
-		color: rgb(32,32,32);
-	   }
-	   ul {
-		padding: 4px;
-		margin-left: 14px;
-	   }
-	   li {
-		list-style-type: none;
-		padding: 0 4px;		
-	   }
-	   a {
-		   color: rgb(132,132,132);
-		   text-decoration: none;
-	   }
-	   i {
-			line-height: 2.15rem;
-	   } 	  	   
-		p, span {		
-			color: rgb(37,37,37);
-			line-height: 1.6rem;			
-		}	   
-	   code {
-			font-size: 1.25rem;
-			line-height: 1.7rem;
-			color: rgb(20, 64, 86);			
-	   }	  
-	   
-	   .log-list li {
-			width: 202px;
-			border-bottom: 1px solid rgb(192,192,192);
-	   }
-	   .log-list li:first-child {
-			font-weight: 600;
-	   }
-	   .info-list {
-			display: inline-block;
-			min-width: 72px;
-			margin-right: 14px;
-	   }
-	   	   
-	   	.go-top {
-			
-			padding: 4px 0;			
-		}				   
-	   .go-top a {			
-			font-size: 1rem;
-			font-weight: 600;
-			text-decoration: none;
-			cursor: pointer;
-			background: rgb(222,222,222);
-			color: rgb(42, 96, 117);
-			padding: 4px 6px;
-			border: 1px solid rgb(190,190,190);
-	   }
-	   .go-top a:hover {
-			opacity: 0.95;
-		}	   
-	   
-	   .tutorial-part {           
-           padding: 28px 28px 30px 28px; 	  
-		   border-bottom: 4px solid rgb(207, 207, 207);
-       }	  
-	   .example {	
-			margin-left: 14px;
-	   }
-	   .example2 {			
-			margin-left: 28px;
-	   }
-	   .link {			
-			word-break: break-all;
-			display: inline-block;
-			color: rgb(123, 123, 123);			
-			font-weight: 600;
-			margin: 12px 0;			
-	   }
-	   .code-container {
-			position: relative;			
-			background-color: rgb(234, 234, 234);
-			color: rgb(247,247,247);
-			padding: 26px 24px;
-			margin: 12px 0 18px 0;
-			overflow: auto;
-	   }
-	   .code-container code, .code-container code span {
-			color: rgb(0,78,220);
-	   }
-	   .code-container i {
-			color: rgb(0,78,220);
-		}	
-
-		.code-container-mod {
-			background-color: rgb(9,9,9);						
-		}			
-		.code-container-mod code, .code-container-mod code span  {			
-			color: rgb(74, 249, 105);
-		}   		
-		.code-container-mod i {
-			color: rgb(247,247,247);
-		}	   
-		
-	   .question {
-			margin-bottom: 54px;
-	   }
-	   
-		.btn-change-color  {
-			position: absolute;
-			right: 0;
-			top: 0;
-			cursor: pointer;
-			background: rgb(45,45,45);
-			color: rgb(222,222,222);
-			padding: 6px;	
-			border: 1px solid rgb(102,102,102);
+			margin: 0;
 		}
-		
-			   
-	   @media only screen and (max-width: 990px) {	
-			.tutorial-part {
-	           padding: 20px;
-			}
-			.code-container {
-				width: 99%;
-				padding: 22px 20px;
-			}			
-			h1 {
-				font-size: 2rem;
-			}
-			h3 {
-				font-size: 1.45rem;
-			}				
-	   }
-	   @media only screen and (max-width: 767px) {
-			.wrapper {	
-				padding: 9px;
-				margin: 0;
-			}
-			.tutorial-part {
-				padding: 6px;
-			}						  	 
-			.example {
-				margin-left: 10px;
-			}
-			.example2 {				
-				margin-left: 24px;
-			}
-			.code-container {
-				width: 99%;
-				padding: 22px 14px;
-			}	
-			code {
-				font-size: 1.15rem;		
-				line-height: 1.4em;	
-			}
-			h1 {
-				font-size: 1.95rem;
-			}
-			h3 {
-				font-size: 1.4rem;
-			}	
-			h1, h3 {
-				margin-bottom: 18px;
-	  		}
-			i {
-				line-height: 1.6rem;
-			}
-	   }
-		
-		@media only screen and (max-width: 600px) {
-				.wrapper {
-					width: initial;
-				}
-				h1 {
-					font-size: 1.8rem;
-				}
-				h3 {
-					font-size: 1.35rem;
-				}
-				.example 	{
-					margin-left: 0;
-				}
-		}   
-   </style>
-</head>
+		.header-title h3 {
+			font-size: 1.15rem;
+		}
+		.header-menu {
+			display: none;
+		}
+		.collapsed-menu {
+			display: block;
+		}
+        .wrapper {
+          width: initial;
+        }
+		.code-container {
+          padding: 22px 12px;
+        }
+        h1 {
+          font-size: 1.8rem;
+        }
+        h3 {
+          font-size: 1.37rem;
+        }
+        .example {
+          margin-left: 0;
+        }
+      }	  
+    </style>
+  </head>
 
-<body>
-   <div class="wrapper">	   
-       <div class="tutorial-part">         
-	   
-           <h1 id="top">Javascript Fundamentals with Questions</h1>		
-		   <br>						  
-          			
-			<h3>Primitive Types</h3>
-		   <div class="example">
-			
-			<h4>Fundamentals</h4><br>
-			<p>There are 6 primitive data types: string, number, boolean, null, undefined, symbol.<br>
-			Primitive values are passed by copying the value.			
-			Assigning a value to a variable gives it a new value, does not mutate the original value as with objects.
-			</p>
-		    <i>Understanding the above lets proceed...</i>		   	
-			<br>
-
-			<i><b>Primitive types are immutable! But what does it really mean?</b></i>	
-		   
-		   <div class="code-container">
-		   <code>
-			<button class="btn-change-color">Change Color</button>			
-
-			let foo = "Hello World"	<br>		
-			foo.toUpperCase() --> 'HELLO WORLD' // we use a method on foo<br>	
-			console.log(foo) --> 'Hello World'  // but the original value is unchanged<br>			
-			</code><br>
-						
-			<i><b>/*** We can do this ***/</b></i><br>
-			<code> console.log(foo[0]) --> H // we get the 1st character<br>
-			</code><br>			
-			<i><b>/*** But not this... ***/</b></i><br>
-			<code> foo[0] = "T" // We try to assign foo[0] a new value<br>
-			console.log(foo) --> Hello World // value doesn't change <br>
-			</code>
-			</div>			 		
-			<br>
-			<span>Note: Primitives being immutable is the reason we can't use mutator methods on strings. For example push, reverse and sort.
-			</span><br>
-			<i class="link">See more; <a href="https://developer.mozilla.org/en-US/docs/Glossary/Primitive">https://developer.mozilla.org/en-US/docs/Glossary/Primitive</a></i><br>	
-			<br>
-			
-			<h4>Datatype 'number' and the Math object</h4><br>			
-			<p>In Javascript we only have one type for numbers. There is no distinction for decimals... etc. The Math object in Javascript is used to perform mathematical tasks on numbers</p>
-			<span>Note: If a Math function can't convert an argument to a number it returns NaN.</span><br>
-			<span>Note: To check for 'NaN' do not compare; NaN === NaN, this returns false since typeof NaN is number...!<br>
-			With ES6 we can use, 'Number.isNaN(value)' to check for NaN,</span><br>
-			<i class="link">See more; https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN</i><br>
-			
-			<p>Some common methods of the Math object:</p>
-
-			<div class="code-container">
-				<code>
-				let floatNumber = 1.55			<br> 
-				Math.round(floatNumber)	--> 2 // will round to closest integer	<br><br>
-				
-				let num1 = 2.3					<br>
-				let num2 = 1.4					<br>
-				Math.floor(num1 + num2)	--> 3	// will round downwards to closest integer	<br><br>
-				
-				Math.max(4,7,9,11)	--> 11		<br>			
-				Math.min(4,7,9,11)	--> 4		<br>
-				let numbers = [4,7,9,11];		<br>				
-				Math.max(numbers)	--> NaN	// Math max/min do not work with arrays.<br>					
-				</code>	 
-				<i><b>// To solve this we can use ES6 features as spread or reduce </b></i><br>
-				<code><br>					
-				let rand;							<br>
-				Math.random(rand) --> ? // returns a floating-point between 0 and 1.
-				</code>
-			</div><br>					
-			
-			<h4>Understanding 'undefined'</h4><br>		   
-		   			
-			<p>'undefined' is a primitive datatype of type 'undefined'. 
-			It's a so called <b>falsy</b> value. Important: 'falsy' is not the same as 'false'. The latter being of datatype Boolean.			
-		   Javascript will automatically assign 'undefined' to a variable that are not initialized. A function that doesn't return a value will always return 'undefined'. To check for undefined we use the <b>typeof</b> operator.<br>   
-   			'undefined' is <b>not an error</b> in it self, tough it's often the cause of errors/bugs.</p>
-		   <br>
-		   <div class="code-container">		   
-		   <i><b>// If we try to use a variable before being declared</b></i><br>
-		   <code>
-		   console.log(a);		// Gives a reference error	<br>
-		   </code>	 
-			<i><b>// If we don't initialize a variable</b></i><br>
-			<code>
-		   let a; // This will give 'a' the value undefined.
-		   </code><br>
-		   <i><b>// But we can also do this</b></i><br>		   
-		   <code>
-		   let a = undefined;	// we assign the value 'undefined'<br>   
-		   typeof a --> 'undefined'	<br>
-		   if ( typeof a === 'undefined') --> true // We check for 'undefined'
-		   </code><br>		   		
-			</div>			   
-		   <br>		
-			
-			<h4>Understanding 'null'</h4><br> 			
-			<p>‘null’ is a primitive value and a keyword in JavaScript that means ‘no value’ or nonexistence of any value. The type of null is object while undefined has its own type. If the purpose is to give a variable an empty value is can be done by assign it the value null, representing no value.			
-			</p><br>
-			<div class="code-container">
-			<code>
-			let b = null;							<br>
-			typeof b --> object 	// null basically means empty object	
-			<br>
-			if (b === null)	// We check for null		
-		   </code><br>		   
-		   </div>		    
-			</div><br>
-
-			
-
-			<h3>Pass by Value vs Reference</h3>
-			<div class="example">
-			<p>When we assign an object to new variable we copy the reference to where that object or array is stored in memory.<br>The reference works in other words as a pointer to where the object is stored, it doesn't copy the value as is the case with primitive types. This means that if we change the value of a property/element it impacts all variables with a reference to the same spot in memory.</p>						
-			<br>
-			<i>Primitive types, pass value by copying</i>
-			<div class="code-container">			
-			<code>
-				let a = "KYH"		<br>
-				let b = a 			<br>
-				a = "Hello"  // We assign a new value to a	<br>
-				console.log(b) --> "KYH"  // We retain the copied value	<br>
-			</code>
-			</div><br>
-
-			<i>Objects, pass value by reference</i>
-					
-			<div class="code-container">			
-			<code>					
-				let objA = { name: "Kal", lastname: "Doe" }	<br>
-				let objB = objA								<br>
-				objA.name = "Ada"	// we change the value of prop name<br>
-				console.log(objB.name) --> "Ada"  // prop name has changed <br>			
-			</code>			
-			</div>	
-			<i><b>objB</b> here points to the location of the original object. It's <b>not</b> a copy of objA.</i><br> 	
-			<p>Note: Function arguments are always passed by value and are copied into the function.</p>			
-			<p>Noteworthy: If you want to make a real copy of an object/array we can use the spread operator(see more in next chapter).</p><br>		
-			
-			<i class="link">See more about passing values by reference: 
-			https://stackoverflow.com/questions/16880418/javascript-pas</i>			
-			</div><br>
-			
-
-			<h3>Type Coercion & Comparisons</h3>
-			<div class="example">
-			<p>Javascript use type coercion to convert a value from one type to another. It can be a string to number, object to boolean, and so on.</p>
-			<br>			
-			
-			<h4>Comparison Operators</h4><br>
-			<p>The rules for type conversions can be confusing and it's not least important to understand the difference between <b>==</b> and <b>===</b>,<br> the former often called 'loose' equality operator' since it only compares the values and not the type and the latter being the 'strict' equivalent that compares both.</p>
-			<p>The other comparison operators are; not equal to <b>!= !==</b>, greater or less than <b> &gt; &lt;, &gt;= &lt;=.</b>
-			</p>
-			<div class="code-container">
-			<code>					
-				if(1 == "1") -> true // will make a comparison after type conversion of "1" to 1 <br>
-				<br>
-				if(1 === "1") -> false // strict equality will check for both value and type.	
-				<br>					
-			</code>
-			</div><br>			
-			
-			<h4>Logical Operators</h4><br>
-			<p>Logical operators are used to determine the logic between variables or values. </p>
-			<ul class="log-list">
-				<li><span class="info-list">Operator</span><span class="info-list"> Description</span> 
-				<li><span class="info-list">&&</span><span class="info-list">and</span></li>
-				<li><span class="info-list">||</span><span class="info-list">or</span></li>
-				<li><span class="info-list">!</span><span class="info-list">not</span></li>
-			</ul>			
-			<br><br>
-			
-			<h4>Implicit vs. explicit coercion</h4>	<br>	
-			<p>Type conversion can be done implicit and explicit.</p>
-			<p>
-			An example of implicit(automatic) type conversion is when using the loose equality operator. Since it only compares the values and not the type Javascript will seek to make a type coercion so both values also share the same type. As a developer such code should be avoided since it's often the reason for bugs. 			
-			Explicit coercion on the other hand is done on purpose, for example by using Number(value) that seeks to convert the value to the type 'number'.</p>
-			<br>
-				<i class="link">See more: https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/
-			</i>		
-			</div><br>
-							
-				 
-			<h3>Global vs Function Scope</h3>
-			   <div class="example">
-			   <i>Explain the concepts</i>
-			   <i>Explain <b>lexical scope</b> in Javascript</i><br>	   		
-			   </div>
-			   <br>		   	   
-		   			   
-
-			<h3>Hoisting</h3>
-			<div class="example">	
-				<p>Lorem ipsum...</p>				
-				<br>
-								
-				<div class="code-container">
-				<i><b>// Variable declarations are hoisted inside functions as well</b></i><br>
-				
-				<code>
-				   var testScope = function()	{ <br>							
-				<span class="example">console.log(y);</span><br>
-				<span class="example">var y = 1;	 </span><br>
-				   }							<br>						
-				   testScope();					<br>				   
-				</code><br>
-					
-					<i><b>// Anonymous function expressions are not hoisted</b></i><br>					
-					<code>
-					var y = 2;						<br>										
-					var testScope = function() { 	<br>
-					<span class="example">console.log(y);	</span><br>
-					<span class="example">var y = 1;		</span><br>
-					}								<br>
-					testScope();					<br>
-					
-					</code>
-					
-					<br>
-					<code>
-					3)<br>
-					var y = 2;						<br>										
-					var testScope = function() { 	<br>
-					<span class="example">	console.log(y);</span><br>	
-					}								<br>
-					testScope();					<br>
-					</code>	
-					</div>
-			</div><br>
-			<br>
-			
-
-			<h3>Usage of common String and Array methods</h3>
-			<div class="example">		   
-			<b>Explain and show how to use these methods.</b>
-			<p>push, split, slice, join, sort, indexOf, charAt</p><br>
-		   
-		   <i><b>What does this gives us?</b></i>
-			
-			<div class="code-container">
-			<code>		   
-		    let greet = new String("Hello")	<br>					
-			typeof greet 					<br>
-			greet.charAt(greet.length-1)	<br><br>
-			
-			let str = "KYH Frontend"		<br>
-			typeof str 						<br>						
-			str.indexOf("F")				<br><br>
-			
-			let foo = str.split(" ")		<br>
-			typeof foo 						<br>
-			foo.sort()						<br><br>
-						
-			let first = foo.slice(0,1)		<br>			
-			foo.push(first.join())			<br>
-			console.log(foo)				<br><br>				
-			
-			foo.constructor 				
-			</code><br>
-			</div>				
-			<span>Note: push and sort are so called mutator methods since they change the original array. Push for example adds item/s to the end of the array while returning the new length of the array. Mutator methods can't be used with strings because... ( you know why! )
-			<i>...since primitive types are immutable.</i>
-			</span>
-			<span>Note: We can use console.dir() to get more info about the constructor
-			</span><br>			
-			<br>	
-			<i class="link">More about strings: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2</i>		
-			
-			<i class="link">More about arrays: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype#Methods</i>	
-			</div><br>
-			
-
-			<h3>Promises</h3>	
-			<div class="example">		   
-			<p>
-			A promise in Javascript is just as in real life; A promise is a commitment to do something at some point in the future. The promise will then be resolved, or rejected. In programming context the Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value. Promises in Javascript is a way to avoid what often is called 'callback hell' where callbacks are nested in an ever growing code structure.
-			</p><br>
-			<p>
-			A Promise consist of an resolved and rejected callback. Depending on if the promise is resolved or not the corresponding callback i executed. The resolve and reject functions, when called, resolve or reject the promise.  With Promises we can organize our code with chained then() and catch() methods depending on if the promise is resolved or rejected.		
-			</p><br> 
-			<br>
-				
-			<div class="code-container">
-			<code>	
-				var myPromise = new Promise(function(resolve, reject) {	<br>
-				</code>
-				<i class="example"><b>// Here the promise will be resolved/Success</b></i><br>
-				<code>				
-				<span class="example">let studied = true;		</span><br>
-				<span class="example">if(studied) {				</span><br>
-				<span class="example2">resolve("Success");		</span><br>
-				<span class="example">} else {					</span><br>
-				<span class="example2">reject('Failed')			</span><br>			
-				<span class="example">	}						</span><br>
-				}) 												<br>
-				</code>
-				<i><b>// when promise is fullfilled we pass the resolved argument 'value'</b></i><br> 
-				<code>
-				myPromise.then(function(value) {						<br>
-				 <span class="example">console.log(`It's done: ${value}`);	-> 	It's done: Study Javascript						</span><br>				 
-				 </code>
-				 <i><b>// If the promise is rejected we use a catch </b></i>		<br>
-				 <code>
-				}).catch(function(rejected) {								<br>
-					<span class="example">console.log(`It's not done: ${value}`); -> It's not done: Study Javascript						</span><br>
-				})															<br>
-			</code>
-			</div><br>
-			
-			<span class="link">More about promises: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises</span>
-			</div><br>
-			
-			
-			<h3>fetch API</h3>	
-			<div class="example">
-			<p>The Fetch API is a Javascript built in new standard for making server request. It provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses. It also provides a global fetch() method that provides an easy, logical way to fetch resources asynchronously across the network. 
-			</p><br>			
-			<p>
-			The fetch() method takes one mandatory argument, the <b>path(url)</b> to the resource you want to fetch. By default it will make a 'get request' and return a <b>Promise</b> containing a response object. We then have to extract the actual body content, can for example be the json() method to extract JSON body content. The fetch() method can optionally accept a second parameter consisting of an init object that gives the possibility to add configuration options for the request object. 
-			</p><br>
-			
-			<div class="code-container">			
-			<i><b>// we make a fetch request for weather data</b></i><br> 
-			<code>			
-			const url = 'http://api.openweathermap.org/data/2.5/weather?q=London&APPID=8674cbad0da4e9ccd435f2442a4dcda7&units=metric';
-			<br><br>
-			fetch(url).then(response => {								<br>
-			<span class="example">return response.json()				</span><br>
-			<span class="example">.then(response => {					</span><br>
-			<span class="example2">console.log(response.main.temp)		</span><br>
-			<span class="example">})									</span><br>
-			<span class="example">.catch(error => {						</span><br>
-			<span class="example2">console.log('Error')					</span><br>
-			<span class="example2">console.error(error)					</span><br>
-			<span class="example">});									</span><br>	
-			});															<br><br>
-			</code>
-			<i><b>// we configure the options for a POST request</b></i>			
-			
-			<code><br>			
-			const urlPost = "https://jsonplaceholder.typicode.com/posts";	<br>
-			const options = {											<br>
-			<span class="example">method:"POST",						</span><br>
-			<span class="example">headers: {							</span><br>
-			<span class="example2">"Accept": "application/json; text/plain, */*",</span><br>
-			<span class="example2">"Content-type": "application/json"	</span><br>
-			<span class="example">},									</span><br>		
-			<span class="example">body: JSON.stringify({				</span><br>
-			<span class="example2">title: 'New Post',					</span><br>
-			<span class="example2">body: 'Lorem ipsum...!',				</span><br>
-			<span class="example2">id: 1								</span><br>
-			<span class="example">})									</span><br>	
-			}															<br>
-			
-			<br>
-			fetch(urlPost, options)										<br>
-			<span class="example">.then(response => response.json())	</span><br>
-			<span class="example">.then(jsonResponse => console.log(jsonResponse))	</span><br>	
-			<span class="example">.catch(error => {						</span><br>
-			<span class="example2">console.log(error)					</span><br>	
-			<span class="example">});									</span><br>	
-			</code>
+  <body>			
+	  
+		<header class="header-container">
+			<div class="header-title">
+				<h3>JAVASCRIPT FUNDAMENTALS WITH QUESTIONS</h3>
 			</div>
-						
-			<span class="link">See more: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-			</span>			
-			<br>
-			
-
-			<h3>async/await</h3>	
-			<div class="example">
-			<p>
-			There’s a special syntax to work with promises called “async/await”. It works as a more easy to understand syntax compared to the then()/catch() methods. Using the keyword 'async' before a function means that the function always will return a promise. This is also required to be able to use 'await' inside async functions. The keyword await makes JavaScript wait until the promise is settled and first thereafter returns its result. 
-			</p>			
-			<br>
-			
-			<div class="code-container">
-			<code>	
-			const url = 'http://api.openweathermap.org/data/2.5/weather?q=London&APPID=8674cbad0da4e9ccd435f2442a4dcda7&units=metric';
-			<br><br>
-			
-			const getWeatherData = async function() {						<br>
-			<span class="example">const response = await fetch(url); 		</span><br>
-			<span class="example">const weatherData = await response.json();</span><br>
-			<span class="example">console.log(weatherData.main.temp)		</span><br>
-			}																<br>
-			<br>
-			getWeatherData().catch(error => { 								<br>
-			<span class="example">console.error(error);						</span><br>
-			<span class="example">console.log('Error');						</span><br>
-			})																<br>
-			</code>
-			</div><span class="link">See more: https://javascript.info/async-await
-			</span><br>
+			<div class="collapsed-menu">
+				M
 			</div>
-			<br>
-			
-			
-			<h3>Closures</h3>	
-			<div class="example">
-			<i>Explain closures in Javascript</i><br>
-			
-			<span class="link">More about closures: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures</span><br>
+			<div class="header-menu">
+				<ul>
+					<li>Fundamentals </li>|
+					<li>ES6 </li>|
+					<li>Questions</li>
+				</ul>
 			</div>
-			</div><br>											
-			
-		</div><br><!-- END TUTORIAL PART 1 -->      
-					
-		   
-		<div class="tutorial-part">
-           <h1>ES6 Features</h1><br>
-		   
-		   <h3>Variable declaration; let and const</h3>
-		   <div class="example">
-			<br>
-			
-			<h4>const</h4>
-			<p>
-			const is used for declaring variables where the intention is to not change its value. It could be said that the value will be read only. It's important tough to understand that it works different depending on the data type. For primitive types the value is set once and becomes read only. For objects it works differently since for example an array stored with const can still receive new elements tough it is impossible to change the data type of the value. 
-			</p><br>	
-			
-			<h4>let vs var</h4>
-			<p>
-			The main difference between var and let is that var has function scope and let has block scope. Another difference is that a let declaration is not hoisted as with var.<br>
-			This means that a variable declared with let will not be accessible before it has been initialized. This will result in a reference error while doing the same with a variable declared with var will return as undefined. 
-			</p><br>
-			<p>
-			Note; In strict mode, var will allow you re-declare a variable in the same scope while a variable declared with let raises a SyntaxError.
-			</p> 
-			<br><p>
-			<i class="link">See more: <a href="https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var">https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var</a>
-			</i></p><br>
-			<div class="code-container">
-			<code>					
-				
-					function checkScope() {										<br>	
-						<span class="example">console.log(foo) -> ReferenceError // foo is not hoisted		</span><br>					
-						<span class="example">console.log(bar) -> undefined // variable declaration is hoisted				</span><br>											
-						<span class="example">let foo = "Hello"		</span><br>
-						<span class="example">var bar = "World"		</span><br>
-						<br>		
-						<span class="example">for(var i = 0; i &lt; 5; i++) {</span><br>
-					<span class="example2">console.log(i) -> 0,1,2,3,4</span><br>
-				<span class="example">}</span><br>
-				<span class="example">for(let j = 0; j &lt; 5; j++) {</span><br>
-				<span class="example2">	console.log(j) <i>Expected output -> 0,1,2,3,4</i></span><br>
-				<span class="example">}</span><br>
-				
-				<span class="example">console.log(i); <i>Expected output -> 5</i> 	</span><br>
-				<span class="example">console.log(j); <i>Expected output -> ReferenceError</i>	// can not be accessed outside its scope</span><br>
-					}														<br>
-											
-					checkScope();				
-			</code>
-			</div>			
-		   </div><br>
-		   
-		   <h3>Arrow functions</h3>
-		   <div class="example">
-		   <p>
-		   Arrow functions are anonymous functions that allows us to write shorter more leaner code. An arrow function can omit the parenthesis if there is no more than one argument. It can also omit the square brackets and the keyword 'return' if the function only consist of an return statement. 
-			</p>			
-		   <br>
-		   <div class="code-container">
-			<i><b>// A named function, the pre ES6 way to declare a function</b></i><br>
-			<code>	
-				function doSmth(a) {						<br>				
-				<span class="example">	return a * 2		</span><br>
-				}											<br>
-			</code>		
-			<i><b>// The same function refactored as an arrow function</b></i><br>
-			<code>
-				const doSmth = a => a * 2						<br>				
-			</code>			
-			</div><br>
-					   		   
-			<h4>Arrow functions and keyword 'this'</h4><br>
-		   	<p>
-			One of the reasons for introducing arrow functions was the behaviour of the keyword 'this'. By default in a function 'this' will refer to the object that called the function. In other words 'this' in a standalone function will refer to the window object since it was called in the global scope. The exception being in strict mode where 'this' will return undefined. To set the value of 'this' and by such alter its default behavior inside a function, the bind() method has to be used.</p><br> 
-			<p>
-			Arrow functions does not have its own this, it inherits this from the enclosing lexical scope. So when this is not present in its current scope it looks for it in the enclosing scope. In other words 'this' will always represent the object that defined the arrow function. If 'this' is used in a nested function or for example in a method of a class it will look for the value of this in the parent scope. That is in the parent function or the class where the method has been defined. With arrow functions the behaviour of 'this' will therefore be consistent and not change depending on where it is called. 
-			</p><br> 			
-			
-			<i class="link">See more: https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work</i>
-			</div><br>
-							   
-		   <h3>Default values</h3>
-		   <div class="example">			
-		   <p>To assign a default value we can just assign a value to a function parameter<br> 
-			This also works for destructuring where we can assign default values for variables.</p>
-		   <br>
-		   <div class="code-container">			
-			   <i><b>// We add an empty array as default value</b></i><br>			
-				<code>
-				function addNumbers(numArr = []) {					<br>
-					<span class="example">let sum = 0;				</span><br>
-					<span class="example">numArr.forEach( num => {	</span><br>
-					<span class="example2">	sum += num;				</span><br>
-					<span class="example">})						</span><br>
-					<span class="example">return sum;				</span><br>
-				}													<br>
-				
-				addNumbers() -> 0	// We get no error despite calling the function with no arguments.												
-			</code>
-			</div>							
-		   </div><br>
-		   
-           	<h3>Higher order functions</h3>
-			<div class="example">
-			<p>When a function receives another function as an argument that function is called a <b>higher order function</b>. And the function you pass in is called a <b>callback</b>. 
-			With ES6 several new higher order functions were introduced. With this the Javascript language got more flexible and developers got access to some new effective tools. Noteworthy; These methods do not mutate/change the orignal array (in general a good thing!).</p><br>						
-            <h4>map()</h4><br>
-		    <h4>filter()</h4><br>		   		   
-            <h4>reduce()</h4><br>		 			
-            <h4>sort()</h4><br>		 			
-			<h4>find()</h4><br>
-			<h4>includes()</h4><br>	    
-			<span class="link">See more: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#</span><br>
-			</div>		   
-            <br>
-		   		   
-		   <h3>Loops & Iteration</h3>
-		   <div class="example">           
-           <h4>forEach</h4><br>		   
-		   <p>forEach() executes a provided function once for each array element. It will always returns the value undefined and is not chainable. ForEach can take tree arguments, the value of the current elment, what is required as well as two optional arguments, the index for each element and the array object it self. As with other high order methods it does not mutate the array on which it is called.</p><br> 
-		   
-		   <div class="code-container">
-		   <code>
-		   <i><b>
-			// Basic syntax <br>
-			</b></i>
-			array.forEach(function(currentValue, index, arr), thisValue)
-			<br><br>
-			
-			const myArr = ["John", "Lisa", "Tom"]	<br><br>
-			myArr.forEach( name => {	<br>
-				<span class="example">console.log(`${name} Doe` ) -> Expected output; John Doe, Lisa Doe...
-				</span><br>
-			})
-			
-		   </code>
-		   </div><br>
-		   
-           <h4>for/in</h4><br>
-		   <p>The for/in statement/loop iterates over all non-symbol properties of an object. The loop will iterate over all enumerable properties of the object itself and those the object inherits from its constructor's prototype as well. If the intention is to only consider properties of the object itself and not its prototypes, use getOwnPropertyNames() or perform a hasOwnProperty() check.</p><br>
-		   <div class="code-container">
-		   <code>			
-			const myObj = { name: "John", surname: "Doe" }	<br><br>
+		</header>
 
-			for(let prop in myObj) {<br>
-			<span class="example">console.log(prop) -> name, surname
-			</span><br>
-			}			
-		   </code>
-		   </div><br>
-		   
-           <h4>for/of</h4><br>
-		   <p>
-		   The for/of statement loops over iterable objects. The loops through data structures that are iterable such as Strings, Arrays and array-like objects such NodeLists, Maps, Set etc. In every iteration the value of the next property is assigned to the variable. for/of is in general the preferred way to loop through iterable objects. It is more concise than a conventional for loop but can't be chained like forEach(). 		   
-		   </p>
-		   
-           <br>
-			<div class="code-container">
-		   <code>			
-			const myNumbers = [11,22,33,44,55]<br><br>
+		<div class="wrapper">	
+			<br />	
+      <div class="tutorial-part">
+        <!--<h1 id="top">Javascript Fundamentals with Questions</h1>
+        <br />-->
 
-			for(let number of myNumbers) {<br>
-			<span class="example">console.log(number) -> 11,22,33...
-			</span>							<br>
-			}								<br><br>	
-			</code>
-			<i><b>// To access the index we have to use entries()	</b></i><br>
-			<code>
-			const myArr = [a,b,c]						<br><br>
-			for (const [index, val] of myArr.entries()) {	<br>
-			<span class="example">console.log(index +": "+ val`); // Prints "0: a", "1: b", "2: c" </span><br>
-			}				<br>
-		   </code>
-		   </div><br>		  	
+		<article class="subject-article">
+        <h3 class="subject-title">Primitive Types</h3>
+        <div class="example">
+          <h4>Fundamentals</h4>
+          <br />
+          <p>
+            There are 6 primitive data types: string, number, boolean, null,
+            undefined, symbol.<br />
+            Primitive values are passed by copying the value. Assigning a value
+            to a variable gives it a new value, does not mutate the original
+            value as with objects.
+          </p>
+          <i>Understanding the above lets proceed...</i>
+          <br />
+          <i
+            ><b
+              >Primitive types are immutable! But what does it really mean?</b
+            ></i
+          >
 
-		   <h4>Summary for loops and iteration</h4><br>
-			<p>There are many ways to iterate over arrays and loops and they all have there strengths and tradeof:s. The standard for and for/in loop constructs gives access to the index in the iterable object but not the actual element. To access the element we have to print out the, item[index]. With forEach() and for/of we get access to the element itself. In general the most robust/safe way to loop through an array/object will be the for/of loop. If the intention is to manipulate every element in an array the for/each loop is the best choice. The for/in loop should only be used to iterate through the properties of an object.</p>
-			<br>			
-			<p class="link">See more: https://thecodebarbarian.com/for-vs-for-each-vs-for-in-vs-for-of-in-javascript</p>
-			</div>
-			<br><br>
-			
-		   <h3>Template Literals</h3>
-		   <div class="example">
-		   <p>Template Literals allows us to work with strings in a more agile and less ugly way. Not least the ability to use expressions gives lot of room for creating more dynamic code. Instead of quotes we use `backticks` to write string within it. We use ${variable or expression} instead of concatenation. Among the new features we also get a more agile syntax to define multiline strings.</p><br> 
-		   			
-		   <div class="code-container">
-			<code>
-				let firstName = "John"	<br>
-				let surName = "Doe"		<br>
-				const fullName = "John" + " " + "Doe"	-> John Doe // The pre ES6 way to do it.<br>
-				<br>
-				let firstName = "Lisa"	<br>
-				let surName = "Doe"		<br>
-				const fullName = `${firstName} ${surName}` -> Lisa Doe // Using template literals<br> <br>
-				
-				let divNumbers = `15 divided by 3 is ${15/3}` -> 5 // We insert an expression 				
-			</code>			
-			</div>		  
-			<span class="link">See more: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals 
-			</span><br>
-		   </div>
-		   <br>
-		   
-		   <h3>Classes</h3>
-		   <div class="example">
-			<p>With ES6 we got classes in Javascript. In reality it is only syntactical sugar or an alternative syntax to prototype-bases inheritance or in other words; Javascript constructor functions. A class is a special type of funtions that uses the keyword class. As with constructor functions the name is capitalized by convention.
-			</p><br>
-			<p>A constructor method for creating and initializing an object can be specified. If this is not done a default constructor method - basically an empty function - is used. This is an empty object for a base class.
-			</p><br>			
-						
-			<h4>'constructor functions' vs classes</h4><br>
-			<p>In most cases they are quite similar and they do the same thing but there are a some things that differs. A constructor requires the keyword <i>new</i> to work. While we still can call a constructor function without the keyword new this will throw an error when trying to do the same with a class. A class will in contrast to constructor functions create a constructor method by default if not given one. While constructor functions are hoisted this is not the case with class declarations. Another important difference is that everything that is written inside a class is typed in strict mode. 
-			
-			With ES2019 we also got a few new important features when it comes to classes. 
-			It is now possible to create private properties and methods inside classes using the # prefix. There is also the possibility to initialize public properties at the top of a class before specifying a constructor. There are some important benefits to this that I will not go deeper in to here, for those that are interested to dwell more into all that classes offers I have added some links down here that explains the concept more in depth.   
-			</p><br>
-			
-			<span class="link">See more about classes (incl features introduced with ES2019): <br>
-			<a href="https://www.sitepoint.com/javascript-private-class-fields/">https://www.sitepoint.com/javascript-private-class-fields/</a>
-			<br>
-			<a href="https://dmitripavlutin.com/javascript-classes-complete-guide/">
-			https://dmitripavlutin.com/javascript-classes-complete-guide/
-			</a><br><br>
-			</span>
-			
-			<i>Rewrite the constructor function with ES6 alt ES7 class syntax</i>
-			<i>+ Add a method that returns all the class properties</i>
-			<div class="code-container">
-			<code>
-			let Person = function(name,gender,age) {		<br>			
-			<span class="example">this.name = name;			</span><br>
-			<span class="example">this.gender = gender;		</span><br>
-			<span class="example">this.age = age;			</span><br>			
-			};								<br>							
-			</code>			
-			</div>			
-		   </div><br>		   
-		    
-		   <h3>Spread & Rest Operator</h3>
-		   <div class="example">
-		   <p>The spread operator will essentially take either an array or an object and expands it into its set of items.<br>	
-		   The rest operator is used to create an array from a collection of arguments passed to a function.<br> It works similar to the built in arguments object used to get all arguments passed to a function.</p>
-		   <br><br>
-		   
-		   <h4>Understanding the impact of the spread operator when copying an object</h4><br>
-		   <p>When using the spread operator to copy an objects properties to a new object we make a real copy of the original.<br>It's important to understand the same goes for arrays, in other words spread can be used to make a real copy of an array. We do not copy the pointer/reference as is the case when we assign an object or array to a new variable.<br>With spread we can avoid the issue of an object that is manipulated affecting another object stored in a variable with the same pointer/reference. In other words; with the spread operator we copy an object in a immutable way and not just the pointer/reference to the same.</p><br>				
-		   <div class="code-container">
-			<code>		   				
-				const myArr = [1,2,3]; <br>
-				const newArr = [...myArr,4,5] // newArray will consist of [1,2,3,4,5]
-									<br><br>
-				myObj = {	name: "John"	}			<br>							
-				newObj = {	...myObj, surname: "Doe" }	// We add props from myObj to new Obj <br> 				
-				<br>				
-				const myFunc = (...args) => {							<br>
-				<span class="example">return `All arguments ${args}`;	</span><br>
-				}														<br>														<br>			
-				console.log(myFunc(1,2,3,4)) -> All arguments 1,2,3,4
-				
-			</code>
-			</div>		   
-		   </div><br>		   
-		   
-		   <h3>Destructuring</h3>		   		   
-		   <div class="example">
-		   
-		   <p>When using destructuring we can pull out elements from arrays or properties from objects and assign them to variables.<br>
-		   When it comes to arrays it is very straight forward and we we can use any variable name. The order matters tough.<br> 
-		   When it comes to objects the order doesn't matter since we use the corresponding property name as variable name.</p>
-		   
-   		   <div class="code-container">
+          <div class="code-container">
+            <code>
+              <button class="btn-change-color">Change Color</button>
+              let foo = "Hello World" <br />
+              foo.toUpperCase() --> 'HELLO WORLD' // we use a method on foo<br />
+              console.log(foo) --> 'Hello World' // but the original value is
+              unchanged<br /> </code
+            ><br />
 
-		   <code>
-			const [a, b] = ["John", "Lisa"] // We assign the array items to variables a and b
-			<br>
-			const {name} = { name: "John", age: 28} // We assign the name prop to variable name
-		   </code>
-			</div><br>					
-		   </div>
-		           
-		   <h3>Array constructor methods</h3>
-		   <div class="example">		   
-           <i><b>Array.from(), Explain what it does</b></i><br>		   
-			<i>Extra 1: Use the Array.from() callback/mapfunction to manipulate each item.</i>					   
-		   <i>Extra 2: How can you check if a passed value is an array?</i>
-		   <i>Extra 3: What does it mean when you do a 'shallow copy' of an existing array or object?</i><br>
-		   <span class="link">More about <b>shallow</b> vs <b>deep</b> copy: https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/</span><br>
-	   	</div><br>
-			
-	   <h3>Object constructor methods</h3>
-		<div class="example">
-			<i><b>Get the keys and values from the object</b></i><br>
-		    <i>myObj = { str1: "Hello", str2: "World" }</i><br>
-			
-		    <i>Extra 1; Good, now show an alternative solution.</i>			
-			<i>Extra 2; Extend your original answer and get the length(quantity) of the properties.</i>
-			<i>Extra 3; For what can you use the constructor method 'hasOwnProperty' and what will it return?</i><br> 
-				
-			<span>Notes: The Object.keys/values will return an array.<br>		
-			The Object.entries returns an array of arrays.<br>		
-			An easy way to check if an object is empty is to check the length of the 'keys' property in the Object constructor<br>
-			You can define how/if a prop can be accessed/changed by using the corresponding Object constructor method.
-			</span><br>	  
-			
-			<span class="link">More about define access to props:  https://stackoverflow.com/questions/7757337/defining-read-only-properties-in-javascript
-			</span><br> 
-			
-			<span class="link">See more; https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in
-			</span><br><br>
-						
-			<span>Note: 1) Can be done with for/in as well but then it will also show props that are inherited by the prototype.</span><br>
-			<span>Note: 2) The length property on the Object constructor will return undefined.</span><br>
-			<span>Note: 3) It will return(true) for all declared properties even those with no value.</span>
-				  
-	   </div><br>		   
-	   </div><br><!-- End Tutorial part 2 --> 	   	   
-	  	   
-	   <div class="tutorial-part">  
-	   <h1>Interview Questions</h1><br>	   	  
-		  
-	   <div class="question">		
-		<h3>Fundamentals</h3><br>
-		<div class="example">
+            <div class="comment-oneline">// We can do this</div>
+            <code>
+              console.log(foo[0]) --> H // we get the 1st character<br /> </code
+            ><br />
+            <div class="comment-oneline">// But not this...</div>
+            <code>
+              foo[0] = "T" // We try to assign foo[0] a new value<br />
+              console.log(foo) --> Hello World // value doesn't change <br />
+            </code>
+          </div>
+          <br />
+          <span
+            >Note: Primitives being immutable is the reason we can't use mutator
+            methods on strings. For example push, reverse and sort. </span
+          ><br />
+          <i class="link"
+            >See more;
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Glossary/Primitive"
+              >https://developer.mozilla.org/en-US/docs/Glossary/Primitive</a
+            ></i
+          ><br />
+          <br />
 
-		<h4>Explain the concepts:</h4><br>
-		<div class="example">
-		<p>primitive datatypes</p> 				
-		<p>How come we can use properties and methods on primitives as with objects?</p> 		
-		<p>'undefined'</p>		
-		<p>Difference between undefined and null</p>	
-		<p>hoisting</p>					
-		<p>Explain the behaviour of function -expressions vs -declarations when it comes to hoisting</p>
-		<p>global scope vs functional scope</p>
-		<p>lexical scope</p>
+          <h4>Datatype 'number' and the Math object</h4>
+          <br />
+          <p>
+            In Javascript we only have one type for numbers. There is no
+            distinction for decimals... etc. The Math object in Javascript is
+            used to perform mathematical tasks on numbers
+          </p>
+          <span
+            >Note: If a Math function can't convert an argument to a number it
+            returns NaN.</span
+          ><br />
+          <span
+            >Note: To check for 'NaN' do not compare; NaN === NaN, this returns
+            false since typeof NaN is number...!<br />
+            With ES6 we can use, 'Number.isNaN(value)' to check for NaN,</span
+          ><br />
+          <span class="link"
+            >See more;
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN"
+              >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN</a
+            ></span
+          ><br />
+          <p>Some common methods of the Math object:</p>
+
+          <div class="code-container">
+            <code>
+              let floatNumber = 1.55 <br />
+              Math.round(floatNumber) --> 2 // will round to closest integer
+              <br /><br />
+
+              let num1 = 2.3 <br />
+              let num2 = 1.4 <br />
+              Math.floor(num1 + num2) --> 3 // will round downwards to closest
+              integer <br /><br />
+
+              Math.max(4,7,9,11) --> 11 <br />
+              Math.min(4,7,9,11) --> 4 <br />
+              let numbers = [4,7,9,11]; <br />
+              Math.max(numbers) --> NaN // Math max/min do not work with
+              arrays.<br />
+            </code>
+            <div class="comment-oneline">
+              // To solve this we can use ES6 features as spread or reduce
+            </div>
+            <code>
+              Math.max(...numbers) --> 11 <br /><br />
+              let rand; <br />
+              Math.random(rand) --> ? // returns a floating-point between 0 and
+              1.
+            </code>
+          </div>
+          <br />
+
+          <h4>Understanding 'undefined'</h4>
+          <br />
+          <p>
+            'undefined' is a primitive datatype of type 'undefined'. It's a so
+            called <b>falsy</b> value. Important: 'falsy' is not the same as
+            'false'. The latter being of datatype Boolean. Javascript will
+            automatically assign 'undefined' to a variable that are not
+            initialized. A function that doesn't return a value will always
+            return 'undefined'. To check for undefined we use the
+            <b>typeof</b> operator.<br />
+            'undefined' is <b>not an error</b> in it self, tough it's often the
+            cause of errors/bugs.
+          </p>
+          <br />
+          <div class="code-container">
+            <div class="comment-oneline">
+              // If we try to use a variable before being declared
+            </div>
+            <code> console.log(a); // Gives a reference error <br /> </code>
+            <div class="comment-oneline">
+              // If we don't initialize a variable
+            </div>
+            <code> let a; // This will give 'a' the value undefined. </code
+            ><br />
+            <div class="comment-oneline">// But we can also do this</div>
+            <code>
+              let a = undefined; // we assign the value 'undefined'<br />
+              typeof a --> 'undefined' <br />
+              if ( typeof a === 'undefined') --> true // We check for
+              'undefined' </code
+            ><br />
+          </div>
+          <br />
+
+          <h4>Understanding 'null'</h4>
+          <br />
+          <p>
+            ‘null’ is a primitive value and a keyword in JavaScript that means
+            ‘no value’ or nonexistence of any value. The type of null is object
+            while undefined has its own type. If the purpose is to give a
+            variable an empty value is can be done by assign it the value null,
+            representing no value.
+          </p>
+          <br />
+          <div class="code-container">
+            <code>
+              let b = null; <br />
+              typeof b --> object // null basically means empty object
+              <br />
+              if (b === null) // We check for null </code
+            ><br />
+          </div>
 		</div>
-		<br><br>	 
-		
-		<h4>Variable declaration</h4><br>
-		<div class="example">		
-		<p>Explain the difference of 'let' vs. 'var'</p>		
-		<p>When do we use 'const'?</p>
-		</div>		
-		<br><br>
-				
-		<h4>Type coercion and comparison</h4><br>	
-		<div class="example">		
-		
-		<p>What do we get?</p>  		
-			<div class="code-container">
-			<code>
-			4 + "2"					<br>					
-			8-"2"*3 				<br>
-			(4 + true + "2")/5 		<br>			
-			4*(3-2)/false 			<br>
-			Boolean("") 			<br>
-			true == "1" 			<br>
-			14%10 > 2				<br>								
-			10 - "KYH" 				<br>
-			"0" == false 			<br>
-			NaN == NaN				<br>			
-			isNaN("Hello World")	<br>
-			</code>			
-			<i><b>// "0" is converted to a 'falsy' value but what does it mean?</b></i>
-			<br><br>
-			<code>
-			(true &lt; 3 &lt; 5)	<br>
-			(8 &gt; 5 &gt; 3)		<br>
-			(false || Boolean)		<br>		
-			(33 || false && true) 	<br>
-			(1 === 1 && "Hello")	<br>			
-			</code>
-			<i><b>// 33 and "Hello" are converted to 'truthy' values but what does it mean?</b></i>
-			<br>			
-			</div>		
-			</div>			
-		</div><br>
-		
-		<div class="question">		
-		<h3>'use strict'</h3>
-	   <div class="example">
-	   <p>	
-		Why would we use 'use strict' statement in a Javascript file and what are the consequences/benefits?</p> 
-		</div>		
+		</article>
+
+		<article class="subject-article">
+        <h3 class="subject-title">Pass by Value vs Reference</h3>
+        <div class="example">
+          <p>
+            When we assign an object to new variable we copy the reference to
+            where that object or array is stored in memory.<br />The reference
+            works in other words as a pointer to where the object is stored, it
+            doesn't copy the value as is the case with primitive types. This
+            means that if we change the value of a property/element it impacts
+            all variables with a reference to the same spot in memory.
+          </p>
+          <br />
+          <i>Primitive types, pass value by copying</i>
+          <div class="code-container">
+            <code>
+              let a = "KYH" <br />
+              let b = a <br />
+              a = "Hello" // We assign a new value to a <br />
+              console.log(b) --> "KYH" // We retain the copied value <br />
+            </code>
+          </div>
+          <br />
+
+          <i>Objects, pass value by reference</i>
+
+          <div class="code-container">
+            <code>
+              let objA = { name: "Kal", lastname: "Doe" } <br />
+              let objB = objA <br />
+              objA.name = "Ada" // we change the value of prop name<br />
+              console.log(objB.name) --> "Ada" // prop name has changed <br />
+            </code>
+          </div>
+          <i
+            ><b>objB</b> here points to the location of the original object.
+            It's <b>not</b> a copy of objA.</i
+          ><br />
+          <p>
+            Note: Function arguments are always passed by value and are copied
+            into the function.
+          </p>
+          <p>
+            Noteworthy: If you want to make a real copy of an object/array we
+            can use the spread operator(see more in next chapter).
+          </p>
+          <br />
+
+          <span class="link"
+            >See more:
+            <a
+              href="https://stackoverflow.com/questions/16880418/javascript-pas"
+              >https://stackoverflow.com/questions/16880418/javascript-pas</a
+            ></span
+          >
 		</div>
-					
+		</article>
+
+		<article class="subject-article">
+        <h3 class="subject-title">Type Coercion & Comparisons</h3>
+        <div class="example">
+          <p>
+            Javascript use type coercion to convert a value from one type to
+            another. It can be a string to number, object to boolean, and so on.
+          </p>
+          <br />
+
+          <h4>Comparison Operators</h4>
+          <br />
+          <p>
+            The rules for type conversions can be confusing and it's not least
+            important to understand the difference between <b>==</b> and
+            <b>===</b>,<br />
+            the former often called 'loose' equality operator' since it only
+            compares the values and not the type and the latter being the
+            'strict' equivalent that compares both.
+          </p>
+          <p>
+            The other comparison operators are; not equal to <b>!= !==</b>,
+            greater or less than <b> &gt; &lt;, &gt;= &lt;=.</b>
+          </p>
+          <div class="code-container">
+            <code>
+              if(1 == "1") -> true // will make a comparison after type
+              conversion of "1" to 1 <br />
+              <br />
+              if(1 === "1") -> false // strict equality will check for both
+              value and type.
+              <br />
+            </code>
+          </div>
+          <br />
+
+          <h4>Logical Operators</h4>
+          <br />
+          <p>
+            Logical operators are used to determine the logic between variables
+            or values.
+          </p>
+          <ul class="log-list">
+            <li>
+              <span class="info-list">Operator</span
+              ><span class="info-list"> Description</span>
+            </li>
+            <li>
+              <span class="info-list">&&</span
+              ><span class="info-list">and</span>
+            </li>
+            <li>
+              <span class="info-list">||</span><span class="info-list">or</span>
+            </li>
+            <li>
+              <span class="info-list">!</span><span class="info-list">not</span>
+            </li>
+          </ul>
+          <br /><br />
+
+          <h4>Implicit vs. explicit coercion</h4>
+          <br />
+          <p>Type conversion can be done implicit and explicit.</p>
+          <p>
+            An example of implicit(automatic) type conversion is when using the
+            loose equality operator. Since it only compares the values and not
+            the type Javascript will seek to make a type coercion so both values
+            also share the same type. As a developer such code should be avoided
+            since it's often the reason for bugs. Explicit coercion on the other
+            hand is done on purpose, for example by using Number(value) that
+            seeks to convert the value to the type 'number'.
+          </p>
+          <br />
+          <span class="link"
+            >See more:
+            <a  href="https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/"
+              >https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/</a>
+          </span>
+		</div>
+		</article>
+
+		<article class="subject-article">
+        <h3 class="subject-title">Variable Scope</h3>
+        <div class="example">
+          <p>
+            When talking about variable scope we are in essence referring to
+            which scope a variable is accessible. In plain english a scope in Javascript defines where we can look/access variables or functions. 
+          </p>
+          <p>
+            For a long time Javascript variable declarations were either global
+            or function scoped. The latter sometimes also called local scope. A
+            variable accessible anywhere in our code is said to exist in the
+            global scope while a variable accessible inside a function exist in
+            the local scope of the function where it was declared. 
+          </p>
+          <br />
+          <p>
+            With ES6 support was added for block level scopes, this is done by declaring
+            variables with the keyword 'let'. A variable declared with let will
+            only be accessible inside the block where it was declared. This can for
+            example be inside a for loop that exist inside a function.
+          </p>
+          <br />
+          <p>
+			When it comes to function scope it's also important to understand the concept of <b>lexical scope</b> sometimes also called Static scope.<br />
+			Lexical scope is the concept of a variable being accessible inside nested blocks, typically block scopes inside functions. 
+          </p>
+		</div>
+		</article>
+
+		<article class="subject-article">
+        <h3 class="subject-title">Hoisting</h3>
+        <div class="example">
+          <p>
+            The definition of hoisting in Javascript is that declarations of
+            variables and functions are moved to the top of the code when
+            compiled. This means that a variable or function can be used even
+            before it has been initialized. This can be the source for confusion
+            since the written code is only moved in the memory, not physically.
+          </p>
+          <br />
+          <p>
+            This means that if we call a variable before it has been initialized
+            it's value will be undefined, even if it's given a value after it
+            has been called. Since undefined is a valid value, it even has it's
+            own data type, this can be the cause of many bugs. It is important
+            to remember that it's only the declaration that is hoisted not the
+            value of a variable or a function expression.
+          </p>
+          <br />
+          <span class="link"
+            >See more;
+            <a href="https://developer.mozilla.org/en-US/docs/Glossary/Hoisting"
+              >https://developer.mozilla.org/en-US/docs/Glossary/Hoisting</a
+            >
+          </span>
+
+          <div class="code-container">
+            <div class="comment-oneline">
+              // Variable declarations are hoisted inside functions as well
+            </div>
+            <code>
+              var testScope = function() { <br />
+              <span class="example">console.log(y);</span><br />
+              <span class="example">var y = 1; </span><br />
+              } <br />
+              testScope(); <br /> </code
+            ><br />
+
+            <div class="comment-oneline">
+              // Anonymous function expressions are not hoisted
+            </div>
+            <code>
+              var y = 2; <br />
+              var testScope = function() { <br />
+              <span class="example">console.log(y); </span><br />
+              <span class="example">var y = 1; </span><br />
+              } <br />
+              testScope(); <br />
+            </code>
+
+            <br />
+            <code>
+              3)<br />
+              var y = 2; <br />
+              var testScope = function() { <br />
+              <span class="example"> console.log(y);</span><br />
+              } <br />
+              testScope(); <br />
+            </code>
+          </div>
+		</div>
+		</article>
 		
-		<div class="question">		
-
-	   <h3>Reverse a String </h3>
-			<div class="example">
-			 <i>Return the following string in reverse "Frontend Developer".</i>
-			 <br>
-			 <i>Extra: Show another way to achieve the same result. If not done already don't use the reverse method.</i>			 
-			 <i>Extra: Reverse a collection of type number.</i>
-			 <br>
-			 <span>Tip: reverse method only works with arrays.</span><br>
-			</div>
-			</div>
-						
-			<div class="question">		
-			<h3>Arrow functions</h3>
-			<div class="example">
-			<p>Explain arrow functions</p>
-			<i>Convert the function to an arrow function and display the shortest possible version.</i>				
-			<div class="code-container">
-			<code>		   
-				function doSomething(arg) {	<br>
-					<span class="example">return arg * 2</span><br>
-				}	<br>
-			</code>
-			</div>
-			</div>
-			</div>
-									
-		<div class="question">				
-           <h3>Remove Duplicates from an Array</h3>
-   		   <div class="example">
-           <i>Show if possible two ways to remove duplicates from an array.</i>
-		   <i>Extra: If not done already, use an object constructor method to remove the duplicates.</i><br>
-		   <span>Note: All results most consist of an array.</span><br><br>
-   		   <span>Tip: ES6 datatype 'Set' can only hold unique values.</span><br>  </div>
-		   </div>
-		   
-		   <div class="question">		
-			<h3>Sort an Array</h3>			
-			<div class="example">
-			<p>Sort the array so the lowest number comes first and the highest last.</p>
-			<div class="code-container">
-			<code>
-				let numbers = [114,22,4,5,11,41]<br>
-			</code>
-			</div>		
-			</div>
-		   </div>
-		   
-		   <div class="question">	
-			<h3>Duplicate an Array</h3>
-			<div class="example">
-			<i>Duplicate the array, both in pre ES6 as well as ES6.</i>				
-			<div class="code-container">
-			<code>
-				const numbers = [2,4,6,8] <br>
-			</code>
-			</div>			
-			
-			<i>Explain the importance/difference of using the spread operator to copy the props of an object -or the elements in an array- vs just assigning the object to a new variable?</i><br>	
-			</div>
-			</div>	
-
-			<div class="question">					
-			<h3>Keyword this</h3>
-			<div class="example">
-			<i>Explain how 'this' work when used in a stand-alone function (not; obj.method).</i>
-			<i>How does 'this' work when used inside an arrow function?</i><br>
-			</div>
-			</div>
-			
-			<div class="question">		
-			<h3>Destructuring</h3>
-			<div class="example">					   
-		   <i><b>Destructure (solely) the last item from the array</b></i>  
-		   <div class="code-container">
-		   <code>
-		   	<span>const letters = ["A","B","C"]	</span>
-		   </code>
-		   <br>
-		   </div>
-		   
-		   <i><b>What is the value of variables; a,c,d ?</b></i>
-		   <div class="code-container">
-		   <code>
-		   <span>numberArr = [12,4,7]	</span><br>	   
-			<span>const [a=5,, c, d=12] = [...numberArr] </span>	   	
-			</code>
-			</div>
-			<i><b>What do we get?</b></i>
-		   <div class="code-container">		   
-		   <code>	   		   
-		   <span>const add = (a, b=5, c) => a + b</span><br>	   		   
-		   <span>add(4)</span>
-		   <br>
-   		   </code>
-		   </div>
-			<i><b>How can this be fixed without declaration?</b></i>
-			<div class="code-container">
-			<code>
-			{a, b} = { a: "Hello", b: "World" }			<br>
-			console.log(a,b)	// unexpected token...	<br>
-			</code>
-			</div>		   
-			</div>
-			</div>
-					
-		<div class="question">		
-		<h3>Objects and Object Constructor</h3>
+		<article class="subject-article">
+		<h3 class="subject-title">Closures</h3>
 		<div class="example">
-		<p>
-		<b>What could cause a problem when using typeof foo === "object" to determine if foo is an object?</b> 
-		</p>
-	   	<p>Show how to resolve the problem/s</p>    
-		<br>
+		  <i>Explain closures in Javascript</i><br />
 
-		<p><b>Pass the values of the car object to the showCar function</b></p>
-		<p>Note: the function needs to cope with an unknown numbers of arguments</p>
-		<div class="code-container">
-		<code>	   
-		car = { model: "Volvo", color: "blue", year: "2018" } <br><br>
-			???	<br>			
-			showCar = (???)=> {			<br>			
-			<span class="example">return ???;	</span><br>
-			}							<br>			
-			console.log(showCar(???)); // Display car features/values
-			</code>			
-			</div>
-			</div>
-			</div>
-			
-		<div class="question">									
-		   <h3>FizzBuzz</h3>
-		   <div class="example">
-		   <i>Pretty common question(worth to google it...) present if possible 2 solutions</i>
-           <p>Iterate over a 100 numbers.<br>
-		   When modulus 3 (remainder 0) return Buzz and when modulus 5 return Fizz.<br>
-		   If both modulus 3 and 5 return FizzBuzz.</p>
-			</div>
-			</div>			
-	   </div>	   	   
-	   </div>	
-	   <div class="go-top"><a href="#top">To the Top</a><br>	      
-	   </div>
-	   </div>
-       <script>	
-			
-			// Toggles code color 
-			const btnChangeColor = document.querySelector('.btn-change-color');
-			const codeContainers = document.querySelectorAll('.code-container');						
-			const changeCodeColor = ()=> {
-				Array.from(codeContainers, container => {
-					container.classList.toggle('code-container-mod');
-					//container.classList.toggle('code-container');
-				})
-			}
-			btnChangeColor.addEventListener('click', changeCodeColor);		
-							
-			// Execercises
-			
-/*			
+		  <span class="link"
+			>More about closures:
+			https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures</span
+		  ><br />
+		</div>
+		</article>
+
+		<article class="subject-article">
+        <h3 class="subject-title">Usage of common String and Array methods</h3>
+        <div class="example">
+          <b>Explain and show how to use these methods.</b>
+          <p>push, split, slice, join, sort, indexOf, charAt</p>
+          <br />
+          <i><b>What does this gives us?</b></i>
+
+          <div class="code-container">
+            <code>
+              let greet = new String("Hello") <br />
+              typeof greet <br />
+              greet.charAt(greet.length-1) <br /><br />
+
+              let str = "KYH Frontend" <br />
+              typeof str <br />
+              str.indexOf("F") <br /><br />
+
+              let foo = str.split(" ") <br />
+              typeof foo <br />
+              foo.sort() <br /><br />
+
+              let first = foo.slice(0,1) <br />
+              foo.push(first.join()) <br />
+              console.log(foo) <br /><br />
+
+              foo.constructor </code
+            ><br />
+          </div>
+          <span
+            >Note: push and sort are so called mutator methods since they change
+            the original array. Push for example adds item/s to the end of the
+            array while returning the new length of the array. Mutator methods
+            can't be used with strings because...? (well, you know why!)
+            <i>...since primitive types are immutable.</i>
+          </span>
+          <span
+            >Note: We can use console.dir() to get more info about the
+            constructor </span
+          ><br />
+          <br />
+          <span class="link"
+            >See more:
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2"
+              >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2</a
+            ><br />
+            <a
+              href="https://www.tutorialrepublic.com/javascript-reference/javascript-array-object.php"
+              >https://www.tutorialrepublic.com/javascript-reference/javascript-array-object.php</a
+            ></span
+          >
+		</div>
+		</article>
+
+		<article class="subject-article">
+        <h3 class="subject-title">Promises</h3>
+        <div class="example">
+          <p>
+            A promise in Javascript is just as in real life; A promise is a
+            commitment to do something at some point in the future. The promise
+            will then be resolved, or rejected. In programming context the
+            Promise object represents the eventual completion (or failure) of an
+            asynchronous operation and its resulting value. Promises in
+            Javascript is a way to avoid what often is called 'callback hell'
+            where callbacks are nested in an ever growing code structure.
+          </p>
+          <br />
+          <p>
+            A Promise consist of an resolved and rejected callback. Depending on
+            if the promise is resolved or not the corresponding callback i
+            executed. The resolve and reject functions, when called, resolve or
+            reject the promise. With Promises we can organize our code with
+            chained then() and catch() methods depending on if the promise is
+            resolved or rejected.
+          </p>
+          <br />
+          <br />
+
+          <div class="code-container">
+            <code>
+              var myPromise = new Promise(function(resolve, reject) { <br />
+            </code>
+            <b>// Here the promise will be resolved/Success</b><br />
+            <code>
+              <span class="example">let studied = true; </span><br />
+              <span class="example">if(studied) { </span><br />
+              <span class="example2">resolve("Success"); </span><br />
+              <span class="example">} else { </span><br />
+              <span class="example2">reject('Failed') </span><br />
+              <span class="example"> } </span><br />
+              }) <br />
+            </code>
+            <i
+              ><b
+                >// when promise is fullfilled we pass the resolved argument
+                'value'</b
+              ></i
+            ><br />
+            <code>
+              myPromise.then(function(value) { <br />
+              <span class="example"
+                >console.log(`It's done: ${value}`); -> It's done: Study
+                Javascript </span
+              ><br />
+            </code>
+            <i><b>// If the promise is rejected we use a catch </b></i> <br />
+            <code>
+              }).catch(function(rejected) { <br />
+              <span class="example"
+                >console.log(`It's not done: ${value}`); -> It's not done: Study
+                Javascript </span
+              ><br />
+              }) <br />
+            </code>
+          </div>
+          <br />
+
+          <span class="link"
+            >See more:
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises"
+              >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises</a
+            ></span
+          >
+		</div>
+		</article>
+		
+
+		<article class="subject-article">
+        <h3 class="subject-title">fetch API</h3>
+        <div class="example">
+          <p>
+            The Fetch API is a Javascript built in new standard for making
+            server request. It provides a JavaScript interface for accessing and
+            manipulating parts of the HTTP pipeline, such as requests and
+            responses. It also provides a global fetch() method that provides an
+            easy, logical way to fetch resources asynchronously across the
+            network.
+          </p>
+          <br />
+          <p>
+            The fetch() method takes one mandatory argument, the
+            <b>path(url)</b> to the resource you want to fetch. By default it
+            will make a 'get request' and return a <b>Promise</b> containing a
+            response object. We then have to extract the actual body content,
+            can for example be the json() method to extract JSON body content.
+            The fetch() method can optionally accept a second parameter
+            consisting of an init object that gives the possibility to add
+            configuration options for the request object.
+          </p>
+          <br />
+
+          <div class="code-container">
+            <i><b>// We make a fetch request from API Open Weather Data</b></i
+            ><br />
+            <code>
+              const url =
+              <a href="http://api.openweathermap.org/data/2.5/weather?q=London&APPID=8674cbad0da4e9ccd435f2442a4dcda7&units=metric">API OPEN WEATHER DATA</a>;
+              <br />
+              fetch(url).then(response => { <br />
+              <span class="example">return response.json() </span><br />
+              <span class="example">.then(response => { </span><br />
+              <span class="example2">console.log(response.main.temp) </span
+              ><br />
+              <span class="example">}) </span><br />
+              <span class="example">.catch(error => { </span><br />
+              <span class="example2">console.log('Error') </span><br />
+              <span class="example2">console.error(error) </span><br />
+              <span class="example">}); </span><br />
+              }); <br /><br />
+            </code>
+            <i><b>// We configure the options for a POST request</b></i>
+
+            <code
+              ><br />
+              const urlPost = <a href="https://jsonplaceholder.typicode.com/posts">JSON PLACEHOLDER</a>;
+              <br />
+              const options = { <br />
+              <span class="example">method:"POST", </span><br />
+              <span class="example">headers: { </span><br />
+              <span class="example2"
+                >"Accept": "application/json; text/plain, */*",</span
+              ><br />
+              <span class="example2">"Content-type": "application/json" </span
+              ><br />
+              <span class="example">}, </span><br />
+              <span class="example">body: JSON.stringify({ </span><br />
+              <span class="example2">title: 'New Post', </span><br />
+              <span class="example2">body: 'Lorem ipsum...!', </span><br />
+              <span class="example2">id: 1 </span><br />
+              <span class="example">}) </span><br />
+              } <br />
+
+              <br />
+              fetch(urlPost, options) <br />
+              <span class="example">.then(response => response.json()) </span
+              ><br />
+              <span class="example"
+                >.then(jsonResponse => console.log(jsonResponse)) </span
+              ><br />
+              <span class="example">.catch(error => { </span><br />
+              <span class="example2">console.log(error) </span><br />
+              <span class="example">}); </span><br />
+            </code>
+          </div>
+          <span class="link">See more:
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">API OPEN WEATHER DATA</a>
+          </span>
+		  </article>
+
+		  <article class="subject-article">
+          <h3 class="subject-title">async/await</h3>
+          <div class="example">
+            <p>
+              There’s a special syntax to work with promises called
+              “async/await”. It works as a more easy to understand syntax
+              compared to the then()/catch() methods. Using the keyword 'async'
+              before a function means that the function always will return a
+              promise. This is also required to be able to use 'await' inside
+              async functions. The keyword await makes JavaScript wait until the
+              promise is settled and first thereafter returns its result.
+            </p>
+            <br />
+
+            <div class="code-container">
+              <code>
+                const url =
+                <a href="http://api.openweathermap.org/data/2.5/weather?q=London&APPID=8674cbad0da4e9ccd435f2442a4dcda7&units=metric">API OPEN WEATHER DATA</a>;
+                <br /><br />
+
+                const getWeatherData = async function() { <br />
+                <span class="example">const response = await fetch(url); </span
+                ><br />
+                <span class="example"
+                  >const weatherData = await response.json();</span
+                ><br />
+                <span class="example">console.log(weatherData.main.temp) </span
+                ><br />
+                } <br />
+                <br />
+                getWeatherData().catch(error => { <br />
+                <span class="example">console.error(error); </span><br />
+                <span class="example">console.log('Error'); </span><br />
+                }) <br />
+              </code>
+            </div>
+            <span class="link"
+              >See more: <a href="https://javascript.info/async-await">https://javascript.info/async-await</a></span
+            ><br />
+          </div>         
+		</div>
+		</article>
+        <br />
+      <!-- END TUTORIAL PART 1 -->
+
+      <div class="tutorial-part">
+        <h1>ES6 Features</h1>
+        <br />
+
+        <h3>Variable declaration; let and const</h3>
+        <div class="example">
+          <br />
+
+          <h4>const</h4>
+          <p>
+            const is used for declaring variables where the intention is to not
+            change its value. It could be said that the value will be read only.
+            It's important tough to understand that it works different depending
+            on the data type. For primitive types the value is set once and
+            becomes read only. For objects it works differently since for
+            example an array stored with const can still receive new elements
+            tough it is impossible to change the data type of the value.
+          </p>
+          <br />
+
+          <h4>let vs var</h4>
+          <p>
+            The main difference between var and let is that var has function
+            scope and let has block scope. Another difference is that a let
+            declaration is not hoisted as with var.<br />
+            This means that a variable declared with let will not be accessible
+            before it has been initialized. This will result in a reference
+            error while doing the same with a variable declared with var will
+            return as undefined.
+          </p>
+          <br />
+          <p>
+            Note; In strict mode, var will allow you re-declare a variable in
+            the same scope while a variable declared with let raises a
+            SyntaxError.
+          </p>
+          <br />
+          <p>
+            <i class="link"
+              >See more:
+              <a
+                href="https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var"
+                >https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var</a
+              >
+            </i>
+          </p>
+          <br />
+          <div class="code-container">
+            <code>
+              function checkScope() { <br />
+              <span class="example"
+                >console.log(foo) -> ReferenceError // foo is not hoisted </span
+              ><br />
+              <span class="example"
+                >console.log(bar) -> undefined // variable declaration is
+                hoisted </span
+              ><br />
+              <span class="example">let foo = "Hello" </span><br />
+              <span class="example">var bar = "World" </span><br />
+              <br />
+              <span class="example">for(var i = 0; i &lt; 5; i++) {</span><br />
+              <span class="example2">console.log(i) -> 0,1,2,3,4</span><br />
+              <span class="example">}</span><br />
+              <span class="example">for(let j = 0; j &lt; 5; j++) {</span><br />
+              <span class="example2">
+                console.log(j) <i>Expected output -> 0,1,2,3,4</i></span
+              ><br />
+              <span class="example">}</span><br />
+
+              <span class="example"
+                >console.log(i); <i>Expected output -> 5</i> </span
+              ><br />
+              <span class="example"
+                >console.log(j); <i>Expected output -> ReferenceError</i> // can
+                not be accessed outside its scope</span
+              ><br />
+              } <br />
+
+              checkScope();
+            </code>
+          </div>
+        </div>
+        <br />
+
+        <h3>Arrow functions</h3>
+        <div class="example">
+          <p>
+            Arrow functions are anonymous functions that allows us to write
+            shorter more leaner code. An arrow function can omit the parenthesis
+            if there is no more than one argument. It can also omit the square
+            brackets and the keyword 'return' if the function only consist of an
+            return statement.
+          </p>
+          <br />
+          <div class="code-container">
+            <i
+              ><b
+                >// A named function, the pre ES6 way to declare a function</b
+              ></i
+            ><br />
+            <code>
+              function doSmth(a) { <br />
+              <span class="example"> return a * 2 </span><br />
+              } <br />
+            </code>
+            <i><b>// The same function refactored as an arrow function</b></i
+            ><br />
+            <code> const doSmth = a => a * 2 <br /> </code>
+          </div>
+          <br />
+
+          <h4>Arrow functions and keyword 'this'</h4>
+          <br />
+          <p>
+            One of the reasons for introducing arrow functions was the behaviour
+            of the keyword 'this'. By default in a function 'this' will refer to
+            the object that called the function. In other words 'this' in a
+            standalone function will refer to the window object since it was
+            called in the global scope. The exception being in strict mode where
+            'this' will return undefined. To set the value of 'this' and by such
+            alter its default behavior inside a function, the bind() method has
+            to be used.
+          </p>
+          <br />
+          <p>
+            Arrow functions does not have its own this, it inherits this from
+            the enclosing lexical scope. So when this is not present in its
+            current scope it looks for it in the enclosing scope. In other words
+            'this' will always represent the object that defined the arrow
+            function. If 'this' is used in a nested function or for example in a
+            method of a class it will look for the value of this in the parent
+            scope. That is in the parent function or the class where the method
+            has been defined. With arrow functions the behaviour of 'this' will
+            therefore be consistent and not change depending on where it is
+            called.
+          </p>
+          <br />
+
+          <i class="link"
+            >See more:
+            https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work</i
+          >
+        </div>
+        <br />
+
+        <h3>Default values</h3>
+        <div class="example">
+          <p>
+            To assign a default value we can just assign a value to a function
+            parameter<br />
+            This also works for destructuring where we can assign default values
+            for variables.
+          </p>
+          <br />
+          <div class="code-container">
+            <i><b>// We add an empty array as default value</b></i
+            ><br />
+            <code>
+              function addNumbers(numArr = []) { <br />
+              <span class="example">let sum = 0; </span><br />
+              <span class="example">numArr.forEach( num => { </span><br />
+              <span class="example2"> sum += num; </span><br />
+              <span class="example">}) </span><br />
+              <span class="example">return sum; </span><br />
+              } <br />
+
+              addNumbers() -> 0 // We get no error despite calling the function
+              with no arguments.
+            </code>
+          </div>
+        </div>
+        <br />
+
+        <h3>Higher order functions</h3>
+        <div class="example">
+          <p>
+            When a function receives another function as an argument that
+            function is called a <b>higher order function</b>. And the function
+            you pass in is called a <b>callback</b>. With ES6 several new higher
+            order functions were introduced. With this the Javascript language
+            got more flexible and developers got access to some new effective
+            tools. Noteworthy; These methods do not mutate/change the orignal
+            array (in general a good thing!).
+          </p>
+          <br />
+          <h4>map()</h4>
+          <br />
+          <h4>filter()</h4>
+          <br />
+          <h4>reduce()</h4>
+          <br />
+          <h4>sort()</h4>
+          <br />
+          <h4>find()</h4>
+          <br />
+          <h4>includes()</h4>
+          <br />
+          <span class="link"
+            >See more:
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#</span
+          ><br />
+        </div>
+        <br />
+
+        <h3>Loops & Iteration</h3>
+        <div class="example">
+          <h4>forEach</h4>
+          <br />
+          <p>
+            forEach() executes a provided function once for each array element.
+            It will always returns the value undefined and is not chainable.
+            ForEach can take tree arguments, the value of the current elment,
+            what is required as well as two optional arguments, the index for
+            each element and the array object it self. As with other high order
+            methods it does not mutate the array on which it is called.
+          </p>
+          <br />
+
+          <div class="code-container">
+            <code>
+              <i
+                ><b> // Basic syntax <br /> </b
+              ></i>
+              array.forEach(function(currentValue, index, arr), thisValue)
+              <br /><br />
+
+              const myArr = ["John", "Lisa", "Tom"] <br /><br />
+              myArr.forEach( name => { <br />
+              <span class="example"
+                >console.log(`${name} Doe` ) -> Expected output; John Doe, Lisa
+                Doe... </span
+              ><br />
+              })
+            </code>
+          </div>
+          <br />
+
+          <h4>for/in</h4>
+          <br />
+          <p>
+            The for/in statement/loop iterates over all non-symbol properties of
+            an object. The loop will iterate over all enumerable properties of
+            the object itself and those the object inherits from its
+            constructor's prototype as well. If the intention is to only
+            consider properties of the object itself and not its prototypes, use
+            getOwnPropertyNames() or perform a hasOwnProperty() check.
+          </p>
+          <br />
+          <div class="code-container">
+            <code>
+              const myObj = { name: "John", surname: "Doe" } <br /><br />
+
+              for(let prop in myObj) {<br />
+              <span class="example">console.log(prop) -> name, surname </span
+              ><br />
+              }
+            </code>
+          </div>
+          <br />
+
+          <h4>for/of</h4>
+          <br />
+          <p>
+            The for/of statement loops over iterable objects. The loops through
+            data structures that are iterable such as Strings, Arrays and
+            array-like objects such NodeLists, Maps, Set etc. In every iteration
+            the value of the next property is assigned to the variable. for/of
+            is in general the preferred way to loop through iterable objects. It
+            is more concise than a conventional for loop but can't be chained
+            like forEach().
+          </p>
+
+          <br />
+          <div class="code-container">
+            <code>
+              const myNumbers = [11,22,33,44,55]<br /><br />
+
+              for(let number of myNumbers) {<br />
+              <span class="example">console.log(number) -> 11,22,33... </span>
+              <br />
+              } <br /><br />
+            </code>
+            <i><b>// To access the index we have to use entries() </b></i><br />
+            <code>
+              const myArr = [a,b,c] <br /><br />
+              for (const [index, val] of myArr.entries()) { <br />
+              <span class="example"
+                >console.log(index +": "+ val`); // Prints "0: a", "1: b", "2:
+                c" </span
+              ><br />
+              } <br />
+            </code>
+          </div>
+          <br />
+
+          <h4>Summary for loops and iteration</h4>
+          <br />
+          <p>
+            There are many ways to iterate over arrays and loops and they all
+            have there strengths and tradeof:s. The standard for and for/in loop
+            constructs gives access to the index in the iterable object but not
+            the actual element. To access the element we have to print out the,
+            item[index]. With forEach() and for/of we get access to the element
+            itself. In general the most robust/safe way to loop through an
+            array/object will be the for/of loop. If the intention is to
+            manipulate every element in an array the for/each loop is the best
+            choice. The for/in loop should only be used to iterate through the
+            properties of an object.
+          </p>
+          <br />
+          <p class="link">
+            See more:
+            https://thecodebarbarian.com/for-vs-for-each-vs-for-in-vs-for-of-in-javascript
+          </p>
+        </div>
+        <br /><br />
+
+        <h3>Template Literals</h3>
+        <div class="example">
+          <p>
+            Template Literals allows us to work with strings in a more agile and
+            less ugly way. Not least the ability to use expressions gives lot of
+            room for creating more dynamic code. Instead of quotes we use
+            `backticks` to write string within it. We use ${variable or
+            expression} instead of concatenation. Among the new features we also
+            get a more agile syntax to define multiline strings.
+          </p>
+          <br />
+
+          <div class="code-container">
+            <code>
+              let firstName = "John" <br />
+              let surName = "Doe" <br />
+              const fullName = "John" + " " + "Doe" -> John Doe // The pre ES6
+              way to do it.<br />
+              <br />
+              let firstName = "Lisa" <br />
+              let surName = "Doe" <br />
+              const fullName = `${firstName} ${surName}` -> Lisa Doe // Using
+              template literals<br />
+              <br />
+
+              let divNumbers = `15 divided by 3 is ${15/3}` -> 5 // We insert an
+              expression
+            </code>
+          </div>
+          <span class="link"
+            >See more:
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals </span
+          ><br />
+        </div>
+        <br />
+
+        <h3>Classes</h3>
+        <div class="example">
+          <p>
+            With ES6 we got classes in Javascript. In reality it is only
+            syntactical sugar or an alternative syntax to prototype-bases
+            inheritance or in other words; Javascript constructor functions. A
+            class is a special type of funtions that uses the keyword class. As
+            with constructor functions the name is capitalized by convention.
+          </p>
+          <br />
+          <p>
+            A constructor method for creating and initializing an object can be
+            specified. If this is not done a default constructor method -
+            basically an empty function - is used. This is an empty object for a
+            base class.
+          </p>
+          <br />
+
+          <h4>'constructor functions' vs classes</h4>
+          <br />
+          <p>
+            In most cases they are quite similar and they do the same thing but
+            there are a some things that differs. A constructor requires the
+            keyword <i>new</i> to work. While we still can call a constructor
+            function without the keyword new this will throw an error when
+            trying to do the same with a class. A class will in contrast to
+            constructor functions create a constructor method by default if not
+            given one. While constructor functions are hoisted this is not the
+            case with class declarations. Another important difference is that
+            everything that is written inside a class is typed in strict mode.
+            With ES2019 we also got a few new important features when it comes
+            to classes. It is now possible to create private properties and
+            methods inside classes using the # prefix. There is also the
+            possibility to initialize public properties at the top of a class
+            before specifying a constructor. There are some important benefits
+            to this that I will not go deeper in to here, for those that are
+            interested to dwell more into all that classes offers I have added
+            some links down here that explains the concept more in depth.
+          </p>
+          <br />
+
+          <span class="link"
+            >See more about classes (incl features introduced with ES2019):
+            <br />
+            <a href="https://www.sitepoint.com/javascript-private-class-fields/"
+              >https://www.sitepoint.com/javascript-private-class-fields/</a
+            >
+            <br />
+            <a
+              href="https://dmitripavlutin.com/javascript-classes-complete-guide/"
+            >
+              https://dmitripavlutin.com/javascript-classes-complete-guide/ </a
+            ><br /><br />
+          </span>
+
+          <i>Rewrite the constructor function with ES6 alt ES7 class syntax</i>
+          <i>+ Add a method that returns all the class properties</i>
+          <div class="code-container">
+            <code>
+              let Person = function(name,gender,age) { <br />
+              <span class="example">this.name = name; </span><br />
+              <span class="example">this.gender = gender; </span><br />
+              <span class="example">this.age = age; </span><br />
+              }; <br />
+            </code>
+          </div>
+        </div>
+        <br />
+
+        <h3>Spread & Rest Operator</h3>
+        <div class="example">
+          <p>
+            The spread operator will essentially take either an array or an
+            object and expands it into its set of items.<br />
+            The rest operator is used to create an array from a collection of
+            arguments passed to a function.<br />
+            It works similar to the built in arguments object used to get all
+            arguments passed to a function.
+          </p>
+          <br /><br />
+
+          <h4>
+            Understanding the impact of the spread operator when copying an
+            object
+          </h4>
+          <br />
+          <p>
+            When using the spread operator to copy an objects properties to a
+            new object we make a real copy of the original.<br />It's important
+            to understand the same goes for arrays, in other words spread can be
+            used to make a real copy of an array. We do not copy the
+            pointer/reference as is the case when we assign an object or array
+            to a new variable.<br />With spread we can avoid the issue of an
+            object that is manipulated affecting another object stored in a
+            variable with the same pointer/reference. In other words; with the
+            spread operator we copy an object in a immutable way and not just
+            the pointer/reference to the same.
+          </p>
+          <br />
+          <div class="code-container">
+            <code>
+              const myArr = [1,2,3]; <br />
+              const newArr = [...myArr,4,5] // newArray will consist of
+              [1,2,3,4,5]
+              <br /><br />
+              myObj = { name: "John" } <br />
+              newObj = { ...myObj, surname: "Doe" } // We add props from myObj
+              to new Obj <br />
+              <br />
+              const myFunc = (...args) => { <br />
+              <span class="example">return `All arguments ${args}`; </span
+              ><br />
+              } <br />
+              <br />
+              console.log(myFunc(1,2,3,4)) -> All arguments 1,2,3,4
+            </code>
+          </div>
+        </div>
+        <br />
+
+        <h3>Destructuring</h3>
+        <div class="example">
+          <p>
+            When using destructuring we can pull out elements from arrays or
+            properties from objects and assign them to variables.<br />
+            When it comes to arrays it is very straight forward and we we can
+            use any variable name. The order matters tough.<br />
+            When it comes to objects the order doesn't matter since we use the
+            corresponding property name as variable name.
+          </p>
+
+          <div class="code-container">
+            <code>
+              const personArray = ["John", "Lisa"]<br />
+              const [a, b] = ["John", "Lisa"] // We assign the array items to
+              variables a and b
+              <br /><br />
+              const person = { name: "John", age: 28 }<br />
+              const {name} = { name: "John", age: 28} // We assign the name prop
+              to variable name<br />
+              name --> John
+            </code>
+          </div>
+          <br />
+        </div>
+
+        <h3>Array constructor methods</h3>
+        <div class="example">
+          <i><b>Array.from(), Explain what it does</b></i
+          ><br />
+          <i
+            >Extra 1: Use the Array.from() callback/mapfunction to manipulate
+            each item.</i
+          >
+          <i>Extra 2: How can you check if a passed value is an array?</i>
+          <i
+            >Extra 3: What does it mean when you do a 'shallow copy' of an
+            existing array or object?</i
+          ><br />
+          <span class="link"
+            >More about <b>shallow</b> vs <b>deep</b> copy:
+            https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/</span
+          ><br />
+        </div>
+        <br />
+
+        <h3>Object constructor methods</h3>
+        <div class="example">
+          <i><b>Get the keys and values from the object</b></i
+          ><br />
+          <i>myObj = { str1: "Hello", str2: "World" }</i><br />
+
+          <i>Extra 1; Good, now show an alternative solution.</i>
+          <i
+            >Extra 2; Extend your original answer and get the length(quantity)
+            of the properties.</i
+          >
+          <i
+            >Extra 3; For what can you use the constructor method
+            'hasOwnProperty' and what will it return?</i
+          ><br />
+
+          <span
+            >Notes: The Object.keys/values will return an array.<br />
+            The Object.entries returns an array of arrays.<br />
+            An easy way to check if an object is empty is to check the length of
+            the 'keys' property in the Object constructor<br />
+            You can define how/if a prop can be accessed/changed by using the
+            corresponding Object constructor method. </span
+          ><br />
+
+          <span class="link"
+            >More about define access to props:
+            https://stackoverflow.com/questions/7757337/defining-read-only-properties-in-javascript </span
+          ><br />
+
+          <span class="link"
+            >See more;
+            https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in </span
+          ><br /><br />
+
+          <span
+            >Note: 1) Can be done with for/in as well but then it will also show
+            props that are inherited by the prototype.</span
+          ><br />
+          <span
+            >Note: 2) The length property on the Object constructor will return
+            undefined.</span
+          ><br />
+          <span
+            >Note: 3) It will return(true) for all declared properties even
+            those with no value.</span
+          >
+        </div>
+        <br />
+      </div>
+      <br /><!-- End Tutorial part 2 -->
+
+      <div class="tutorial-part">
+        <h1>Interview Questions</h1>
+        <br />
+
+        <div class="question">
+          <h3>Fundamentals</h3>
+          <br />
+          <div class="example">
+            <h4>Explain the concepts:</h4>
+            <br />
+            <div class="example">
+              <p>primitive datatypes</p>
+              <p>
+                How come we can use properties and methods on primitives as with
+                objects?
+              </p>
+              <p>'undefined'</p>
+              <p>Difference between undefined and null</p>
+              <p>hoisting</p>
+              <p>
+                Explain the behaviour of function -expressions vs -declarations
+                when it comes to hoisting
+              </p>
+              <p>global scope vs functional scope</p>
+              <p>lexical scope</p>
+            </div>
+            <br /><br />
+
+            <h4>Variable declaration</h4>
+            <br />
+            <div class="example">
+              <p>Explain the difference of 'let' vs. 'var'</p>
+              <p>When do we use 'const'?</p>
+            </div>
+            <br /><br />
+
+            <h4>Type coercion and comparison</h4>
+            <br />
+            <div class="example">
+              <p>What do we get?</p>
+              <div class="code-container">
+                <code>
+                  4 + "2" <br />
+                  8-"2"*3 <br />
+                  (4 + true + "2")/5 <br />
+                  4*(3-2)/false <br />
+                  Boolean("") <br />
+                  true == "1" <br />
+                  14%10 > 2 <br />
+                  10 - "KYH" <br />
+                  "0" == false <br />
+                  NaN == NaN <br />
+                  isNaN("Hello World") <br />
+                </code>
+                <i
+                  ><b
+                    >// "0" is converted to a 'falsy' value but what does it
+                    mean?</b
+                  ></i
+                >
+                <br /><br />
+                <code>
+                  (true &lt; 3 &lt; 5) <br />
+                  (8 &gt; 5 &gt; 3) <br />
+                  (false || Boolean) <br />
+                  (33 || false && true) <br />
+                  (1 === 1 && "Hello") <br />
+                </code>
+                <i
+                  ><b
+                    >// 33 and "Hello" are converted to 'truthy' values but what
+                    does it mean?</b
+                  ></i
+                >
+                <br />
+              </div>
+            </div>
+          </div>
+          <br />
+
+          <div class="question">
+            <h3>'use strict'</h3>
+            <div class="example">
+              <p>
+                Why would we use 'use strict' statement in a Javascript file and
+                what are the consequences/benefits?
+              </p>
+            </div>
+          </div>
+
+          <div class="question">
+            <h3>Reverse a String</h3>
+            <div class="example">
+              <i
+                >Return the following string in reverse "Frontend Developer".</i
+              >
+              <br />
+              <i
+                >Extra: Show another way to achieve the same result. If not done
+                already don't use the reverse method.</i
+              >
+              <i>Extra: Reverse a collection of type number.</i>
+              <br />
+              <span>Tip: reverse method only works with arrays.</span><br />
+            </div>
+          </div>
+
+          <div class="question">
+            <h3>Arrow functions</h3>
+            <div class="example">
+              <p>Explain arrow functions</p>
+              <i
+                >Convert the function to an arrow function and display the
+                shortest possible version.</i
+              >
+              <div class="code-container">
+                <code>
+                  function doSomething(arg) { <br />
+                  <span class="example">return arg * 2</span><br />
+                  } <br />
+                </code>
+              </div>
+            </div>
+          </div>
+
+          <div class="question">
+            <h3>Remove Duplicates from an Array</h3>
+            <div class="example">
+              <i
+                >Show if possible two ways to remove duplicates from an
+                array.</i
+              >
+              <i
+                >Extra: If not done already, use an object constructor method to
+                remove the duplicates.</i
+              ><br />
+              <span>Note: All results most consist of an array.</span
+              ><br /><br />
+              <span>Tip: ES6 datatype 'Set' can only hold unique values.</span
+              ><br />
+            </div>
+          </div>
+
+          <div class="question">
+            <h3>Sort an Array</h3>
+            <div class="example">
+              <p>
+                Sort the array so the lowest number comes first and the highest
+                last.
+              </p>
+              <div class="code-container">
+                <code> let numbers = [114,22,4,5,11,41]<br /> </code>
+              </div>
+            </div>
+          </div>
+
+          <div class="question">
+            <h3>Duplicate an Array</h3>
+            <div class="example">
+              <i>Duplicate the array, both in pre ES6 as well as ES6.</i>
+              <div class="code-container">
+                <code> const numbers = [2,4,6,8] <br /> </code>
+              </div>
+
+              <i
+                >Explain the importance/difference of using the spread operator
+                to copy the props of an object -or the elements in an array- vs
+                just assigning the object to a new variable?</i
+              ><br />
+            </div>
+          </div>
+
+          <div class="question">
+            <h3>Keyword this</h3>
+            <div class="example">
+              <i
+                >Explain how 'this' work when used in a stand-alone function
+                (not; obj.method).</i
+              >
+              <i>How does 'this' work when used inside an arrow function?</i
+              ><br />
+            </div>
+          </div>
+
+          <div class="question">
+            <h3>Destructuring</h3>
+            <div class="example">
+              <i><b>Destructure (solely) the last item from the array</b></i>
+              <div class="code-container">
+                <code>
+                  <span>const letters = ["A","B","C"] </span>
+                </code>
+                <br />
+              </div>
+
+              <i><b>What is the value of variables; a,c,d ?</b></i>
+              <div class="code-container">
+                <code>
+                  <span>numberArr = [12,4,7] </span><br />
+                  <span>const [a=5,, c, d=12] = [...numberArr] </span>
+                </code>
+              </div>
+              <i><b>What do we get?</b></i>
+              <div class="code-container">
+                <code>
+                  <span>const add = (a, b=5, c) => a + b</span><br />
+                  <span>add(4)</span>
+                  <br />
+                </code>
+              </div>
+              <i><b>How can this be fixed without declaration?</b></i>
+              <div class="code-container">
+                <code>
+                  {a, b} = { a: "Hello", b: "World" } <br />
+                  console.log(a,b) // unexpected token... <br />
+                </code>
+              </div>
+            </div>
+          </div>
+
+          <div class="question">
+            <h3>Objects and Object Constructor</h3>
+            <div class="example">
+              <p>
+                <b
+                  >What could cause a problem when using typeof foo === "object"
+                  to determine if foo is an object?</b
+                >
+              </p>
+              <p>Show how to resolve the problem/s</p>
+              <br />
+
+              <p>
+                <b>Pass the values of the car object to the showCar function</b>
+              </p>
+              <p>
+                Note: the function needs to cope with an unknown numbers of
+                arguments
+              </p>
+              <div class="code-container">
+                <code>
+                  car = { model: "Volvo", color: "blue", year: "2018" }
+                  <br /><br />
+                  ??? <br />
+                  showCar = (???)=> { <br />
+                  <span class="example">return ???; </span><br />
+                  } <br />
+                  console.log(showCar(???)); // Display car features/values
+                </code>
+              </div>
+            </div>
+          </div>
+
+          <div class="question">
+            <h3>FizzBuzz</h3>
+            <div class="example">
+              <i
+                >Pretty common question(worth to google it...) present if
+                possible 2 solutions</i
+              >
+              <p>
+                Iterate over a 100 numbers.<br />
+                When modulus 3 (remainder 0) return Buzz and when modulus 5
+                return Fizz.<br />
+                If both modulus 3 and 5 return FizzBuzz.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="go-top"><a href="#top">To the Top</a><br /></div>
+    </div>
+    <script>
+      // Toggles code color
+      const btnChangeColor = document.querySelector(".btn-change-color");
+      const codeContainers = document.querySelectorAll(".code-container");
+      const changeCodeColor = () => {
+        Array.from(codeContainers, container => {
+          container.classList.toggle("code-container-mod");
+          //container.classList.toggle('code-container');
+        });
+      };
+      btnChangeColor.addEventListener("click", changeCodeColor);
+
+      // Execercises
+
+      /*			
 			let Person = function(name,gender,age) {
 				this.name = name;
 				this.gender = gender;
@@ -1209,8 +1868,7 @@
 			let foo = new Person('Lisa', 'female', 24) 
 			console.log(foo.fullInfo()); 
 			*/
-			
-			</script>
-	   <noscript>Your browser does not support JavaScript!</noscript>
-	   </body>
-	   </html>
+    </script>
+    <noscript>Your browser does not support JavaScript!</noscript>
+  </body>
+</html>
