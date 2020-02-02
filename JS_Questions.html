@@ -13,6 +13,7 @@
         outline: none;
         padding: 0;
         margin: 0;
+		font-size: 1rem;
       }
       body {
         font-family: "Montserrat", Helvetica, sans-serif;
@@ -103,7 +104,7 @@
       span,
       b {
         color: rgb(37, 37, 37);
-        line-height: 1.6rem;
+        line-height: 1.55rem;
       }
       code {
 		font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -208,7 +209,7 @@
         color: rgb(41, 54, 103);
         opacity: 0.95;
         font-weight: 600;
-        margin: 14px 0 12px 0;
+        margin: 16px 0;
       }
 	  .subject-article .code-container:first-child {
 		margin-top: 0;
@@ -411,17 +412,17 @@
             <div class="code-container">
                 <button class="btn-change-color">Change Theme</button>
 
-                <span class="comment-oneline">
+                <div class="comment-oneline">
                 We can use properties on a string
-                </span>
+                </div>
                 <code>
                 let str = "Hello World"<br />
                 console.log(str.length) <span class="comment-outcome">--> 11</span>// We get the numbers of characters<br />
                 <br />
                  </code> 
-                <span class="comment-oneline">
+                <div class="comment-oneline">
                 Primitive values do not mutate
-                </span>
+                </div>
                 <code>
                 let foo = "Hello World" <br />
                 foo.toUpperCase() <span class="comment-outcome">--> 'HELLO WORLD'</span> // we use a method on foo<br />
@@ -429,11 +430,11 @@
                 unchanged<br /> </code
               ><br />
 
-              <span class="comment-oneline">// We can do this</span>
+              <div class="comment-oneline">We can do this</div>
               <code>
                 console.log(foo[0]) <span class="comment-outcome">--> H</span> // we get the 1st character<br /> </code
               ><br />
-              <span class="comment-oneline">// But not this...</span>
+              <div class="comment-oneline">But not this...</div>
               <code>
                 foo[0] = "T" // We try to assign foo[0] a new value<br />
                 console.log(foo) <span class="comment-outcome">--> Hello World</span> // value of 'foo' doesn't change <br />
@@ -477,7 +478,7 @@
             >
             
             <div class="code-container">
-			<span class="comment-oneline">Some common methods of the Math object: </span>
+			<div class="comment-oneline">Some common methods of the Math object: </div>
               <code>
                 let floatNumber = 1.55 <br />
                 Math.round(floatNumber) <span class="comment-outcome">--> 2</span> // will round to closest integer
@@ -507,8 +508,8 @@
             <h4><i>undefined</i></h4>
             <p>
               <i>undefined</i> is a primitive datatype of type 'undefined'. It's a so
-              called <i>falsy</i> value. Important: 'falsy' is not the same as
-              'false'. The latter being of datatype Boolean. Javascript will
+              called <i>falsy</i> value. It's important to not confuse <i>falsy</i> as
+              'false', the latter being of type Boolean. Javascript will
               automatically assign <i>undefined</i> to a variable that are not
               initialized. In other words a variable that has been declared but not given a value will always return undefined. 
               A function with no return statement will always return <i>undefined</i> as well. To check for <i>undefined</i> we use the
@@ -517,15 +518,16 @@
 
             <div class="code-container">
               <div class="comment-oneline">
-                // If we try to use a variable before being declared
+                If we try to use a variable before being declared
               </div>
-              <code> console.log(a); // Gives a reference error <br /> </code>
+              <code> console.log(a); --> Gives a reference error <br /> 
+			  </code>
               <div class="comment-oneline">
-                // If we don't initialize a variable
+                If we don't initialize a variable
               </div>
               <code> let a; // This will give 'a' the value undefined. </code
               ><br />
-              <div class="comment-oneline">// But we can also do this</div>
+              <div class="comment-oneline">But we can also do this</div>
               <code>
                 let a = undefined; // we assign the value 'undefined'<br />
                 typeof a <span class="comment-outcome">--> 'undefined'</span> <br />
@@ -553,6 +555,10 @@
                 if (b === null) <span class="comment-outcome">--> true </span>// We check for null </code
               >
             </div>
+			
+			<h4><i>Boolean and falsy/truthy values</i></h4>
+			<p>...</p>
+			<br />
           </div>
         </article>
 
@@ -623,19 +629,19 @@
               </li>
             </ul>
 			<div class="code-container">			
-			<span class="comment-oneline">The <span class="expand-text">||</span> (or) operator will return true if either operand is true</span>
+			<div class="comment-oneline">The <span class="expand-text">||</span> (or) operator will return true if either operand is true</div>
 			<code>
 				var a = true;	<br />
 				var b = false; 	<br />
 				( a || b ) <span class="comment-outcome">--> true</span><br />   
 			</code>
-			<span class="comment-oneline">The <span class="expand-text">&&</span> (and) operator will return true if both operands are true</span>
+			<div class="comment-oneline">The <span class="expand-text">&&</span> (and) operator will return true if both operands are true</div>
 			<code>
 				var a = true;	<br />
 				var b = false; 	<br />
 				( a && b ) <span class="comment-outcome">--> false</span><br />   
 			</code>
-			<span class="comment-oneline">Logical (&&) operator will return second operand if both operands are true</span>			
+			<div class="comment-oneline">Logical (&&) operator will return second operand if both operands are true</div>			
 			<code>
 				var age = 20;	<br />
 				var allowedAge = 15; <br />
@@ -651,7 +657,7 @@
 				var message = age > 15 ? "Horror movie." : "It's Disney for you." <br />
 				message <span class="comment-outcome">--> "It's Disney for you."</span>
 			</code>		
-			<span class="comment-oneline">Ternary operator combined wth logical operator</span>
+			<div class="comment-oneline">Ternary operator combined wth logical operator</div>
 			<code>
 			var age = 20;		<br />
 			var allowedAge = 15	<br />
@@ -713,7 +719,7 @@
             </p>
 
             <div class="code-container">
-			<span class="comment-oneline">Primitive types, pass value by copying</span>
+			<div class="comment-oneline">Primitive types, pass value by copying</div>
               <code>
                 let a = "KYH" <br />
                 let b = a <br />
@@ -723,14 +729,14 @@
             </div>
 			
             <div class="code-container">
-			<span class="comment-oneline">Objects, pass value by reference</span>
+			<div class="comment-oneline">Objects, pass value by reference</div>
               <code>
                 let objectA = {name: "Kal", lastname: "Doe"} <br />
                 let objectB = objectA <br />
                 objectA.name = "Ada" // we change the value of prop name<br>
 				</code>				
-				<span class="comment-oneline">objectB points to the location of the original object.
-              It's not a copy of objectA.</span>
+				<div class="comment-oneline">objectB points to the location of the original object.
+              It's not a copy of objectA.</div>
 			  <code>
                 objectB.name <span class="comment-outcome">--> "Ada"</span> // prop name has changed <br />
               </code>
@@ -763,14 +769,11 @@
               The definition of hoisting in Javascript is that declarations of
               variables and functions are moved to the top of the code when
               compiled. This means that a variable or function can be used even
-              before it has been initialized. This feature can be the source for
-              confusion since the written code is only moved in the memory, not
-              physically. It is important to remember that it's only the declaration
-              that is hoisted not the value of a variable or a function expression.
+              before it has been initialized. One of the benefits with hoisting is that functions are hoisted as well making it possible to use them anywhere in your code. The concept of Hoisting can be the source for confusion, not least since the written code is only moved in the memory, not physically. 
             </p>
             <br />
             <p>
-              If we call a variable before it has been initialized it's value will be undefined, even if it's given a value after it has been called. <i>undefined</i> being a valid value, it even has it's own data type, will not result in an error.               
+              If we call a variable before it has been initialized it's value will be <i>undefined</i> and <i>undefined</i> being a valid value, even having its own type, will not result in an error. The same applies for function expressions being an expression assigned to a variable. It's important to remember that it's only the declaration that is hoisted not the value of the variable.           
             </p>
             <br />
             <span class="link"
@@ -782,9 +785,9 @@
             </span>
 
             <div class="code-container">
-              <span class="comment-oneline">
+              <div class="comment-oneline">
                 Variable declarations are hoisted inside functions as well
-              </span>
+              </div>
               <code>
                 var testScope = function() { <br />
                 <span class="example">console.log(y);</span><br />
@@ -793,9 +796,9 @@
                 testScope(); <span class="comment-outcome">--> undefined</span><br /> </code
               ><br />
 
-              <span class="comment-oneline">
+              <div class="comment-oneline">
                 Anonymous function expressions are not hoisted
-              </span>
+              </div>
               <code>
                 var y = 2; <br />
                 var testScope = function() { <br />
@@ -961,7 +964,7 @@
               <code>
                 var myPromise = new Promise(function(resolve, reject) { <br />
               </code>
-              <span class="comment-oneline">// Here the promise will be either resolved or rejected</span>
+              <div class="comment-oneline">The promise will be either resolved or rejected</div>
               <code>
                 <span class="example">let studied = true; </span><br />
                 <span class="example">if(studied) { </span><br />
@@ -971,8 +974,8 @@
                 <span class="example"> } </span><br />
                 }) <br />
               </code>
-              <span class="comment-oneline">// If the promise is fullfilled we pass the resolved argument
-                  'value'</span>
+              <div class="comment-oneline">If the promise is fullfilled we pass the resolved argument
+                  'value'</div>
               <code>
                 myPromise.then(function(value) { <br />
                 <span class="example"
@@ -980,7 +983,7 @@
                   Javascript</span></span
                 ><br />
               </code>
-              <span class="comment-oneline">// If the promise is rejected we use a catch </span>
+              <div class="comment-oneline">If rejected we use a catch </div>
               <code>
                 }).catch(function(rejected) { <br />
                 <span class="example"
@@ -1023,7 +1026,7 @@
             </p>
 
             <div class="code-container">
-              <span class="comment-oneline">// We make a fetch request from API Open Weather Data</span>
+              <div class="comment-oneline">We make a fetch request from API Open Weather Data</div>
               <code>
                 const url =
                 <a
@@ -1043,7 +1046,7 @@
                 <span class="example">}); </span><br />
                 }); <br /><br />
               </code>
-              <span class="comment-oneline">// We configure the options for a POST request</span>  
+              <div class="comment-oneline">We configure the options for a POST request</div>  
 				<code>			  
 				const urlPost =
                 <a href="https://jsonplaceholder.typicode.com/posts"
@@ -1249,38 +1252,31 @@
 
             <div class="code-container">
               <span class="comment-oneline">
-                  // A named function, the pre ES6 way to declare a function</span>
+                  A named function, the pre ES6 way to declare a function</span>
               <code>
                 function doSmth(a) { <br />
                 <span class="example"> return a * 2 </span><br />
                 } <br />
               </code>
-              <span class="comment-oneline">// The same function refactored as an arrow function</span>
+              <span class="comment-oneline">The same function refactored as an anonymous arrow function</span>
               <code> const doSmth = a => a * 2 <br /> </code>
             </div>
 
-            <h4>Arrow functions and keyword 'this'</h4>
+            <h4>Arrow functions and the keyword <i>this</i></h4>
             <p>
-              One of the reasons for introducing arrow functions was the
-              behaviour of the keyword 'this'. By default in a function 'this'
-              will refer to the object that called the function. In other words
-              'this' in a standalone function will refer to the window object
-              since it was called in the global scope. The exception being in
-              strict mode where 'this' will return undefined. To set the value
-              of 'this' and by such alter its default behavior inside a
-              function, the bind() method has to be used.
+             One of the reasons for introducing arrow functions was the behaviour of the keyword <i>this</i>. 
+			If not using arrow functions the value of <i>this</i> will depend on how the function is called. 
+			To set the value of <i>this</i> and alter its default behavior inside a function, the bind() method has to be used.
             </p>
             <br />
             <p>
-              Arrow functions does not have its own this, it inherits this from
-              the enclosing lexical scope. So when this is not present in its
-              current scope it looks for it in the enclosing scope. In other
-              words 'this' will always represent the object that defined the
-              arrow function. If 'this' is used in a nested function or for
-              example in a method of a class it will look for the value of this
-              in the parent scope. That is in the parent function or the class
-              where the method has been defined. With arrow functions the
-              behaviour of 'this' will therefore be consistent and not change
+              Arrow functions inherits <i>this</i> from the enclosing lexical scope. Meaning if <i>this</i> is not present in its current scope it will look for it in the enclosing scope. 			  
+			  If <i>this</i> is used in a nested function or for example in a method of a class it will look for the value of this
+              in the parent scope meaning the parent function or the class where the method was defined. 
+			  In other words <i>this</i> will always represent the object that defined the
+              arrow function. 
+			  
+			  With arrow functions the behaviour of <i>this</i> is consistent and do not change
               depending on where it is called.
             </p>
             <br />
@@ -1304,7 +1300,7 @@
             </p>
 
             <div class="code-container">
-              <span class="comment-oneline">// We assign default values to the parameters</span><br />
+              <div class="comment-oneline">We assign default values to the parameters</div>
               <code>
                 function withDefaultValues(a=10, b=20) { <br />
                   <span class="example">let sum = a + b; </span><br />
@@ -1312,8 +1308,8 @@
                   <span>}</span><br />
                   <span>withDefaultValues() <span class="comment-outcome">--> 30</span></span><br />
               </code><br />
-              <span class="comment-oneline">// We add an empty array as default value</span>
-              ><br />
+              <div class="comment-oneline">We add an empty array as default value</div>
+              
               <code>
                 function addNumbers(numArr = []) { <br />
                 <span class="example">let sum = 0; </span><br />
@@ -1379,12 +1375,12 @@
             </p>
 
             <div class="code-container">
-                <span class="comment-oneline">// Basic syntax </span>
+                <span class="comment-oneline">Basic syntax </span>
                 <code>
                 array.forEach(function(currentValue, index, arr), thisValue)
                 <br /><br />
                 </code>
-                <span class="comment-oneline">// We loop through each name and add 'Doe'</span>
+                <span class="comment-oneline">We loop through each name and add 'Doe'</span>
                 <code>
                 const myArr = ["John", "Lisa", "Tom"] <br /><br />
                 myArr.forEach( name => { <br />
@@ -1397,14 +1393,13 @@
 
             <h4><i>for/in</i></h4>
             <p>
-              The for/in statement/loop iterates over all non-symbol properties
-              of an object. The loop will iterate over all enumerable properties
-              of the object itself and those the object inherits from its
-              constructor's prototype as well. If the intention is to only
-              consider properties of the object itself and not its prototypes,
-              use getOwnPropertyNames() or perform a hasOwnProperty() check.
-            </p>
-
+              The for/in statement iterates over all non-symbol properties of an object. The loop will iterate over all enumerable properties of the object itself and those the object inherits from its constructor's prototype as well. If the intention is to only
+              consider properties of the object itself and not its prototypes, use getOwnPropertyNames() or perform a hasOwnProperty() check.
+            </p><br />
+			<p>
+			The for/in statement can be used for arrays but this is not recommended. The reason is that there are no guarantee that a for/in loop will return the values in certain order. When it comes to arrays the order of access is important unlike objects where the value is assigned to a certain property. 
+			</p>
+			
             <div class="code-container">
               <code>
                 const myObj = { name: "John", surname: "Doe" } <br /><br />
@@ -1413,6 +1408,16 @@
                 <span class="example">console.log(prop) <span class="comment-outcome">--> name, surname </span></span
                 ><br />
                 }
+              </code>
+			  <span class="comment-oneline">A nested for/in</span>
+			  <code>
+               const myObj = { test: {name: 'John Doe', age: 34 }};		<br /><br />
+				for(let prop in myObj) {								<br />
+				<span class="example">let innerObj = myObj[prop]		</span><br />
+				<span class="example">for(let innerProp in innerObj) {	</span><br />
+				<span class="example2">console.log(innerObj[innerProp])	<span class="comment-outcome">--> John Doe 34</span></span></br />
+				<span class="example">	}								</span><br />
+				}
               </code>
             </div>
 
@@ -1436,8 +1441,7 @@
                 <br />
                 } <br /><br />
               </code>
-              <i><b>// To access the index we have to use entries() </b></i
-              ><br />
+              <span class="comment-oneline">To access the index we have to use entries() </span>
               <code>
                 const myArr = [a,b,c] <br /><br />
                 for (const [index, val] of myArr.entries()) { <br />
@@ -1460,7 +1464,7 @@
               through an array/object will be the for/of loop. If the intention
               is to manipulate every element in an array the for/each loop is
               the best choice. The for/in loop should only be used to iterate
-              through the properties of an object.
+              through the properties and values of an object.
             </p>
             <br />
             <span class="link">
@@ -1521,11 +1525,7 @@
               inheritance or in other words; Javascript constructor functions. A
               class is a special type of funtions that uses the keyword class.
               As with constructor functions the name is capitalized by
-              convention.
-            </p>
-            <br />
-            <p>
-              A constructor method for creating and initializing an object can
+              convention. A constructor method for creating and initializing an object can
               be specified. If this is not done a default constructor method -
               basically an empty function - is used. This is an empty object for
               a base class.
@@ -1552,8 +1552,7 @@
               offers I have added some links down here that explains the concept
               more in depth.
             </p>
-            <br />
-
+            
             <span class="link"
               >See more:
               <a
@@ -1567,18 +1566,15 @@
               >
                 https://dmitripavlutin.com/javascript-classes-complete-guide/ </a
               ><br /> </span
-            ><br /><br />
+            ><br />
 
-            <i
-              >Rewrite the constructor function with ES6 alt ES7 class syntax</i
-            >
-            <i>+ Add a method that returns all the class properties</i>
             <div class="code-container">
               <code>
                 let Person = function(name,gender,age) { <br />
                 <span class="example">this.name = name; </span><br />
                 <span class="example">this.gender = gender; </span><br />
                 <span class="example">this.age = age; </span><br />
+				<span class="example">this.getName = function() { return this.name }; </span><br />
                 }; <br />
               </code>
             </div>
@@ -2024,17 +2020,33 @@
       };
       btnChangeColor.addEventListener("click", changeCodeColor);
 		
-	/*
-	function blockScope(num) {
-		for(let i = 1; i < num; i++) {
-		console.log(i) //--> 1,2,3,4,5
-		var b = "I exist in function scope"
+					
+		class Area {
+		  constructor(width, height) {
+			this.width = width;
+			this.height = height;
+		  }		  
+		  calcArea() {
+			return this.width * this.height;
+		  }		 
+		  get Area() {
+			return this.calcArea();
+		  }		 
 		}
-		console.log(b) //--> I exist in function scope
-		console.log(i) //--> ReferencError, i is not defined
-	}
-	blockScope(5);
-		*/
+		
+		const Person2 = function(name, age) {
+			this.name = name
+			this.age = age,				
+			this.checkAge = function() {
+				return this.age
+			}		
+		}
+		
+		let person2 = new Person2('olle', 34)
+		console.log(person2.checkAge())
+		
+		let foo = new Area(100,100) 
+		console.log(foo.calcArea())
 		
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
