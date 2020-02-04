@@ -1096,7 +1096,7 @@
           <div class="example">
             <p>
               The Fetch API is a Javascript built in new standard for making
-              server request. It provides a JavaScript interface for accessing
+              server requests. It provides a JavaScript interface for accessing
               and manipulating parts of the HTTP pipeline, such as requests and
               responses. It also provides a global fetch() method that provides
               an easy, logical way to fetch resources asynchronously across the
@@ -2168,16 +2168,16 @@
     </div>
     <script>
 	
-      // Toggles code color
-      const btnChangeColor = document.querySelector(".btn-change-color");
-      const codeContainers = document.querySelectorAll(".code-container");
-      const changeCodeColor = () => {
-        Array.from(codeContainers, container => {
-          container.classList.toggle("code-container-mod");
-        });
-      };
-      btnChangeColor.addEventListener("click", changeCodeColor);
-		
+		// Toggles code color
+		const btnChangeColor = document.querySelector(".btn-change-color");
+		const codeContainers = document.querySelectorAll(".code-container");
+		const changeCodeColor = () => {
+			Array.from(codeContainers, container => {
+			container.classList.toggle("code-container-mod");
+			});
+		};
+		btnChangeColor.addEventListener("click", changeCodeColor);
+		// END TOGGLE
 					
 		class Area {
 		  constructor(width, height) {
@@ -2192,27 +2192,15 @@
 		  }		 
 		}
 		
-		const Person2 = function(name, age) {
-			this.name = name
-			this.age = age,				
-			this.checkAge = function() {
-				return this.age
-			}		
-		}
-		/*
-		let person2 = new Person2('olle', 34)
-		console.log(person2.checkAge())		
-		let foo = new Area(100,100) 
-		console.log(foo.calcArea())
-		*/
 		
+		// THE OBJECT CONSTRUCTOR		
 		const employees = [
 			  {name: "John", role: "Accountant", age: 44, salary: 10000},
 			  {name: "Lisa", role: "Adminstrator", age: 22, salary: 8000},
 			  {name: "Tom", role: "Janitor", age: 53, salary: 7000},
 			  {name: "Patty", role: "Manager", age: 37, salary: 14000},
 			  {name: "Sally", role: "Sale", age: 23, salary: 9000},
-			  {name: "Rex", role: "Guard", age: 3, salary: 'T-bone Steak'}
+			  {name: "Rex", role: "Guard", age: 3, salary: 'T-bone'}
 			];			
 		
 		// Lets suppose that the data above is returned as an object consisting of objects.
@@ -2228,41 +2216,28 @@
 			rex:	{name: "Rex", role: "Guard", age: 3, salary: 'T-bone Steak'}
 		}
 		
-	let richKids = employees.filter( employee => employee.salary > 9000)		
-	let oldKids = employees.filter(employee => employee.age > 30)
-		
-	console.log(richKids)
-	console.log(oldKids)
-		
-	let myObj = {
-		name: 'Lisa',
-		age: 24
-	}	
-		
-	const getOld = ()=> {
-		let foo = []
-		for(let prop in objectArray) {
-			if(objectArray[prop].age > 30) {
-				foo.push(objectArray[prop])
-			}			
+		let richKids = employees.filter( employee => employee.salary > 9000)		
+		let oldKids = employees.filter(employee => employee.age > 30)
+			
+		console.log(richKids)
+		console.log(oldKids)
+			
+		let myObj = {
+			name: 'Lisa',
+			age: 24
+		}	
+			
+		const getOld = ()=> {
+			let foo = []
+			for(let prop in objectArray) {
+				if(objectArray[prop].age > 30) {
+					foo.push(objectArray[prop])
+				}			
+			}
+			return foo
 		}
-		return foo
-	}
-	
-	console.log("old: ", getOld())
-	
-	// to use filter we need to create an array of the values	
-	//let foo = Object.values(objectArray)	
-	//let output = foo.filter(item => item.age > 30)
-	//console.log(output)
 		
-		
-		var y = 2;
-		let testScope = function() {
-			console.log("y: ", y); // we try to access y before it has been initialized
-			var y = 1;
-		}
-		testScope();
+		console.log("old: ", getOld())
 		
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
