@@ -60,10 +60,10 @@
       .wrapper {
         display: block;
         width: 100%;
-        max-width: 992px;
+        max-width: 984px;
         background-color: rgb(251, 251, 251);
         color: rgb(35, 35, 35);
-        padding: 24px;
+        padding: 26px;
         margin: 42px auto;
       }
 
@@ -163,6 +163,7 @@
       }
       .subject-article {
         display: inline-block;
+		width: 100%;
         margin: 24px 0;
       }
       .subject-title {
@@ -299,12 +300,15 @@
       }
       @media only screen and (max-width: 767px) {
         .wrapper {
-          padding: 9px;
+          padding: 12px;
           margin: 94px 0 0 0;
         }
         .tutorial-part {
           padding: 6px;
         }
+		.subject-article {
+			margin: 20px 0;
+		}
         .example {
 			margin-left: 10px;
 		}
@@ -334,6 +338,9 @@
 		}
       }
       @media only screen and (max-width: 600px) {
+		.wrapper {
+          padding: 10px;
+		}
         .header-container {
           display: flex;
           flex-wrap: wrap;
@@ -355,7 +362,7 @@
         }
         .header-menu ul,
         .header-menu li {
-          padding: 10px;
+          padding: 9px;
         }
 
         .collapsed-menu {
@@ -898,11 +905,9 @@
               which scope a variable is accessible. In other words where we can look/access variables or functions.
               For a long time Javascript variable declarations were either
               global or function scoped. The latter sometimes also called local
-              scope. This changed with the introduction of ES6 and the keyword <i>let</i> for declaring variables. A variable accessible anywhere in our code is said to exist
+              scope. A variable accessible anywhere in our code is said to exist
               in the global scope while a variable accessible inside a function
-              exist in the local scope of the function where it was declared. The <i>let</i> keyword allows for block level scope. A variable declared
-              with let will only be accessible inside the block where it was
-              declared. This can for example be inside the block restricted by a for loop that exist inside a function.
+              exist in the local scope of the function where it was declared. With the ES6 update and the introduction of the keyword <i>let</i> for declaring variables we now also have <i>block scope</i>. A variable declared with <i>let</i> will only be accessible inside the block where it was declared. This can for example be inside the block restricted by a for loop that exist inside a function.
 			</p>            
             <br />
             <p>
@@ -1767,9 +1772,9 @@
           <div class="example">
             <p>
               When using destructuring we can pull out elements from arrays or
-              properties from objects and assign them to variables.<br />
+              properties from objects and assign them to variables.
               When it comes to arrays it is very straight forward and we we can
-              use any variable name. The order matters tough.<br />
+              use any variable name. The order matters tough.
               When it comes to objects the order doesn't matter since we use the
               corresponding property name as variable name.
             </p>
