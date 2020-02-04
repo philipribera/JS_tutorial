@@ -413,14 +413,14 @@
 		  <h4>Dynamically typed</h4>
             <p>
 			 Javascript is what we call <i>dynamically typed</i> meaning the type of an variable is interpreted by the compiler. Sometime Javascript is also called a <i>weakly typed</i> language in contrast to languages that are <i>strongly</i> or <i>static</i> typed where a variable has to be given a type when it's declared. 
-			 Javascript being dynamically typed means that variable types will be interpreted and if necessary even change implicitly at runtime. With runtime meaning when the program executes the commands. The type and value can be changed at any time both explicit in the code or implicitly by the Javascript engine. This behaviour can be confusing and give unexpected outcomes if not understood fully. Before looking deeper into this tough we need to get a better understanding of different data types and their behaviour in Javascript.      
+			 Javascript being dynamically typed means that variable types will be interpreted and if necessary even change implicitly at runtime. With runtime meaning when the program executes the commands. The type and value can be changed at any time both explicit in the code or implicitly by the Javascript engine. This behaviour can be confusing and give unexpected outcomes if not understood fully. Before looking deeper into this tough we need to get a better understanding on different data types and their behaviour in Javascript.      
 			</p>
 			
 		<h4>Data Types</h4>
 			<p>
 			  Data types specify what kind of data can be stored and manipulated in the Javascript memory. Data types in Javascript are either objects or primitives. While there is only one <i>object</i> data type there are 7 primitive data types:
               <i>string, number, boolean, null, undefined, bigInt</i> and
-              <i>symbol</i>. The fundamental difference between primitives and objects is that primitives can hold a single value while objects can hold a collection of data and values. Javascript being weakly typed means that we dont't specify a certain type when declaring a variable (there are exceptions tough). But even if no type is implicitly given Javascript will give the variable a type depending on the value it was given when initialized. If the variable hasn't been initalized it will get a type as <i>undefined</i>. 
+              <i>symbol</i>. The fundamental difference between primitives and objects is that primitives can hold a single value while objects can hold a collection of data and values. Javascript being weakly typed means that we do not specify a certain type when declaring a variable (there are exceptions tough). But even if no type is implicitly given Javascript will give the variable a type depending on the value it was given when initialized. If the variable hasn't been initialized it will get a type as <i>undefined</i>. 
 			</p>
 			
 			<span class="note-comment">
@@ -429,7 +429,7 @@
 			
 			<span class="note-comment">
               <span class="first-word">Note: </span>
-			  The <i>var</i> keyword will be used in code examples until the section where 'Variable Scope' is explained more in depth.</span>
+			  The <i>var</i> keyword will be used in code examples until the section 'Variable Scope' where variable declarations are explained more in depth.</span>
 			
 			</div>			
 		</article>
@@ -951,11 +951,11 @@
               The definition of hoisting in Javascript is that declarations of
               variables and functions are moved to the top of the code when
               compiled. This means that a variable or function can be used even
-              before it has been initialized. One of the benefits with hoisting is that functions are hoisted as well making it possible to use them anywhere in your code. The concept of Hoisting can be the source for confusion, not least since the written code is only moved in the memory, not physically. 
+              before it has been initialized. It's important to remember that variables declared with <i>let</i> will not be hoisted. One of the benefits with hoisting is that functions are hoisted as well making it possible to use them anywhere in your code. The concept of Hoisting can be the source for confusion, not least since the written code is only moved in the memory, not physically. 
             </p>
             <br />
             <p>
-              If we call a variable before it has been initialized it's value will be <i>undefined</i> and <i>undefined</i> being a valid value, even having its own type, will not result in an error. The same applies for function expressions being an expression assigned to a variable. It's important to remember that it's only the declaration that is hoisted not the value of the variable.           
+              If we call a variable declared with <i>var</i> before it has been initialized it's value will be <i>undefined</i> and <i>undefined</i> being a valid value, even having its own type, will not result in an error. The same applies for function expressions being an expression assigned to a variable. It's important to remember that it's only the declaration that is hoisted not the value of the variable.           
             </p>
             <br />
             <span class="link"
@@ -971,9 +971,9 @@
                 Variable declarations are hoisted inside functions as well
               </div>
               <code>
-                let testScope = function() { <br />
+                var testScope = function() { <br />
                 <span class="example">console.log(y);</span><br />
-                <span class="example">let y = 1; </span><br />
+                <span class="example">var y = 1; </span><br />
                 } <br />
                 testScope(); <span class="comment-outcome">--> undefined</span><br /> </code
               ><br />
@@ -982,29 +982,30 @@
                 Anonymous function expressions are not hoisted
               </div>
               <code>
-                let y = 2; <br />
-                let testScope = function() { <br />
+                var y = 2; <br />
+                var testScope = function() { <br />
                 <span class="example">console.log(y); // we try to access y before it has been initialized</span><br />
-                <span class="example">let y = 1; </span><br />
+                <span class="example">var y = 1; </span><br />
                 } <br />
                 testScope(); <span class="comment-outcome">--> undefined </span><br />
               </code>
 
               <br />
 			  <div class="comment-oneline">
-                y is not redeclared inside the function
+                Here y is not redeclared inside the function
               </div>
               <code>			  
-                let y = 2; <br />
-                let testScope = function() { <br />
+                var y = 2; <br />
+                var testScope = function() { <br />
                 <span class="example"> console.log(y);</span><br />
                 } <br />
                 testScope(); <span class="comment-outcome">--> 2</span><br />
               </code>			  
             </div>
+			<!--
 			<span class="note-comment">
               <span class="first-word">Note: </span>Variables declared with the <i>let</i> keyword are not hoisted (see more under ES6 features).
-			  </span>
+			  </span>-->
           </div>
         </article>
 
@@ -2251,24 +2252,17 @@
 	console.log("old: ", getOld())
 	
 	// to use filter we need to create an array of the values	
-	let foo = Object.values(objectArray)	
-	let output = foo.filter(item => item.age > 30)
-	console.log(output)
+	//let foo = Object.values(objectArray)	
+	//let output = foo.filter(item => item.age > 30)
+	//console.log(output)
 		
-		const race = {
-		  0: 'first rider',
-		  1: 'second rider',
-		  2: 'third rider',
-		  3: 'fourth rider',
-		  stadium: 'Motoarena'
-		  //length: 5
-		};
 		
-		let numbers = [1,2,3,4,5]
-		for(let i = 0; i < numbers.length; i++) {
-			console.log(numbers[i])
+		var y = 2;
+		let testScope = function() {
+			console.log("y: ", y); // we try to access y before it has been initialized
+			var y = 1;
 		}
-		console.log(i)
+		testScope();
 		
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
