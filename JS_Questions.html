@@ -2173,7 +2173,7 @@
     </div>
     <script>
 	
-		// Toggles code color
+		// TOGGLE COLOR THEME
 		const btnChangeColor = document.querySelector(".btn-change-color");
 		const codeContainers = document.querySelectorAll(".code-container");
 		const changeCodeColor = () => {
@@ -2183,6 +2183,9 @@
 		};
 		btnChangeColor.addEventListener("click", changeCodeColor);
 		// END TOGGLE
+		
+		
+		// EXCERCISES  
 					
 		class Area {
 		  constructor(width, height) {
@@ -2196,9 +2199,8 @@
 			return this.calcArea();
 		  }		 
 		}
-		
-		
-		// THE OBJECT CONSTRUCTOR		
+				
+		// STANDARD ARRAY/OBJECT
 		const employees = [
 			  {name: "John", role: "Accountant", age: 44, salary: 10000},
 			  {name: "Lisa", role: "Adminstrator", age: 22, salary: 8000},
@@ -2209,9 +2211,10 @@
 			];			
 		
 		// Lets suppose that the data above is returned as an object consisting of objects.
-		// How would be proceed to get the same data and filter as above?
+		// How would we proceed to get the same data and filter as above?
 		// for that we need Object constructor methods.  
 		
+		// OBJECT OF OBJECTS		
 		const objectArray = {
 			john: 	{name: "John", role: "Accountant", age: 44, salary: 10000},
 			lisa: 	{name: "Lisa", role: "Adminstrator", age: 22, salary: 8000},
@@ -2220,18 +2223,23 @@
 			sally:  {name: "Sally", role: "Sale", age: 23, salary: 9000},
 			rex:	{name: "Rex", role: "Guard", age: 3, salary: 'T-bone Steak'}
 		}
-		
+	
+
 		let richKids = employees.filter( employee => employee.salary > 9000)		
 		let oldKids = employees.filter(employee => employee.age > 30)
-			
-		console.log(richKids)
-		console.log(oldKids)
-			
-		let myObj = {
-			name: 'Lisa',
-			age: 24
-		}	
-			
+		
+		// THE OBJECT CONSTRUCTOR
+		// we use object constructor to get values before filter  		
+		let arrValues = Object.values(objectArray).filter(obj => obj.age > 32)			
+		console.log("Test: ", arrValues)
+		
+		// more verbose solutions...
+		for(let prop in objectArray) {
+			if(objectArray[prop].age > 37) {
+				console.log(objectArray[prop])
+			}
+		}
+		
 		const getOld = ()=> {
 			let foo = []
 			for(let prop in objectArray) {
@@ -2242,7 +2250,9 @@
 			return foo
 		}
 		
-		console.log("old: ", getOld())
+		//console.log(richKids)
+		//console.log(oldKids)	
+		//console.log("old: ", getOld())
 		
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
