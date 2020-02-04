@@ -13,7 +13,6 @@
         outline: none;
         padding: 0;
         margin: 0;
-		font-size: 1rem;
       }
       body {
         font-family: "Montserrat", Helvetica, sans-serif;
@@ -192,7 +191,7 @@
         position: relative;
         background-color: rgb(236, 236, 236);
         color: rgb(247, 247, 247);
-        padding: 26px 24px;
+        padding: 22px 24px 24px 24px;
         margin: 22px 0 24px 0;
         overflow: auto;
       }
@@ -209,7 +208,7 @@
         color: rgb(41, 54, 103);
         opacity: 0.95;
         font-weight: 600;
-        margin: 16px 0;
+        margin: 18px 0 12px 0;
       }
 	  .subject-article .code-container:first-child {
 		margin-top: 0;
@@ -259,12 +258,28 @@
 			width: 100%;
 		    background-color: rgb(255,226,168);
 		    padding: 16px 12px;
-		    margin: 18px 0;
+		    margin: 20px 0;
 	    }
 	    .first-word {
 		    color: rgb(37,37,37);
 		    font-weight: 600;
 	    }
+		
+		.falsy-list {
+			width: 30%;
+			padding: 12px 4px;
+			margin: 4px 0;
+		}
+		.falsy-list li {
+			padding: 4px;
+			border-bottom: 1px solid rgb(242,242,242);
+		}
+		.falsy-list li:nth-child(odd) {
+			background-color: rgb(240,240,240);
+		}
+		.list-comment {
+			padding-left: 16px;
+		}
 
       /*** MEDIA QUERIES ***/
       @media only screen and (max-width: 990px) {
@@ -312,6 +327,11 @@
         i {
           line-height: 1.6rem;
         }
+		.falsy-list {
+			width: 70%;
+			padding: 10px 2px;
+			margin: 0;
+		}
       }
       @media only screen and (max-width: 600px) {
         .header-container {
@@ -380,43 +400,59 @@
       <div class="tutorial-part">
         <h1 class="tutorial-title">Javascript Fundamentals</h1>
 
-        <article class="subject-article">
-          <h3 class="subject-title">Dynamically typed</h3>
+		<article class="subject-article">
+          <h3 class="subject-title">Introduction</h3>
           <div class="example">
-            <p>
-			 Javascript is what we call <i>dynamically typed</i> meaning the type of an variable is interpreted by the compiler. The opposite to dynamic typed is <i>static typed</i>. Sometime Javascript is also called a <i>weakly typed</i> language in contrast to languages that are <i>strongly typed</i> where a variable has to be given a type when it's declared.  
-			 </p><br />
-			 <p>
-			 Javascript being dynamically typed means that types will be intrepreted and if necessary even change implicitly at runtime. With runtime meaning when the program executes the commands. The type and its value can be changed at any time, both explicitly or implicitly by the Javascript engine. This behaviour can be confusing and give unexpected outcomes if not understood fully. Before looking deeper into this tough we will start by looking at different types- and their behaviour in Javascript      
+			<p>
+			Javascript is the language of the web, it is an interpreted language that runs directly on the clients browser meaning that no compiler is needed. This is the core of Javascript; It was designed to be easy to use and easy to learn. It also explains some of its characteristics, strengths and drawbacks, that differentiate it from some of the most common programming languages. But Javascript has evolved a lot since its introduction and with the latest updates it has become a much more versatile language. Now days Javascript isn't limited to the browser either. With the help of <i>Node</i> it can be run on both the browser and on the server side.  
+			</p><br />
+			<p>
+			This tutorial will not focus on the rules for how to name variables or explain what an expression is. There are already good tutorials that explains the core basic in detail. With the exception of a few pointers on some basic facts, this tutorial will focus on the core concepts of the language to get a better understanding on how Javascript works. There is also a chapter dedicated to the ECMAScript 2015 update(ES6) and how to use some of the new features that was introduced. The ES6 update was probably the most important development of Javascript since its introduction making Javascript more powerful and versatile.   
 			</p>
-			</div>
+
+		  <h4>Dynamically typed</h4>
+            <p>
+			 Javascript is what we call <i>dynamically typed</i> meaning the type of an variable is interpreted by the compiler. Sometime Javascript is also called a <i>weakly typed</i> language in contrast to languages that are <i>strongly</i> or <i>static</i> typed where a variable has to be given a type when it's declared. 
+			 Javascript being dynamically typed means that variable types will be interpreted and if necessary even change implicitly at runtime. With runtime meaning when the program executes the commands. The type and value can be changed at any time both explicit in the code or implicitly by the Javascript engine. This behaviour can be confusing and give unexpected outcomes if not understood fully. Before looking deeper into this tough we need to get a better understanding of different data types and their behaviour in Javascript.      
+			</p>
+			
+		<h4>Data Types</h4>
+			<p>
+			  Data types specify what kind of data can be stored and manipulated in the Javascript memory. Data types in Javascript are either objects or primitives. While there is only one <i>object</i> data type there are 7 primitive data types:
+              <i>string, number, boolean, null, undefined, bigInt</i> and
+              <i>symbol</i>. The fundamental difference between primitives and objects is that primitives can hold a single value while objects can hold a collection of data and values. Javascript being weakly typed means that we dont't specify a certain type when declaring a variable (there are exceptions tough). But even if no type is implicitly given Javascript will give the variable a type depending on the value it was given when initialized. If the variable hasn't been initalized it will get a type as <i>undefined</i>. 
+			</p>
+			
+			<span class="note-comment">
+              <span class="first-word">Note: </span>
+			  Javascript is case-sensitive; meaning that consistent capitalization of characters matters when it comes to keywords, variables- and function names.</span>
+			
+			<span class="note-comment">
+              <span class="first-word">Note: </span>
+			  The <i>var</i> keyword will be used in code examples until the section where 'Variable Scope' is explained more in depth.</span>
+			
+			</div>			
 		</article>
         
         <article class="subject-article">
-          <h3 class="subject-title">Primitive Types</h3>
+          <h3 class="subject-title">Primitive types</h3>
           <div class="example">		  
-			  <p>
-			  Data types in Javascript are either objects or primitives. While
-              there is only one <i>object</i> data type there are 7 primitive
-              data types:
-              <i>string, number, boolean, null, undefined, bigInt</i> and
-              <i>symbol</i>.<br />
-            </p>
-            <br />
             <p>
               Primitive values can not have properties and methods since they
-              are not objects. But Javascript will still treat primitive values
-              as objects, meaning that properties and methods can be applied on them. Javascript does this by wrapping the value in an object kind of entity. One example is the 'length' property that can be applied on strings. But even if primitives can behave as objects there are differences that are important to keep in mind. Firstly; primitive values are non-mutable, assigning a value to a variable gives it a new value it does not mutate the original value as the case with objects. Primitive types are in other words <i>immutable</i>. Secondly; primitive values are passed by <i>copying the value</i>. This means that if the value is assigned to a new variable it's copied and can be changed without affecting the value of the original variable. Objects on the other hand <i>pass value by reference</i>.
+              are not objects. But Javascript can, depending on the circumstances, treat primitive values as objects. Javascript does this by wrapping the value in an object kind of entity making it possible to apply properties and methods on them. One example is the 'length' property that can be applied on strings.
+			</p>
+			<br />
+			<p>
+			But even if primitives can behave as objects there are some important differences when compared with objects. Apart from only being able to hold a single value they are also non-mutable. Meaning that assigning a value to a variable that already holds a value replaces this value with a new value. It does not mutate the original value as the case with objects. The fact that primitives are non-mutable is the reason mutator methods - <i>methods that change the original value</i> - can not be applied on strings. For example push, reverse and sort. Another difference is that primitive values are passed by <i>copying the value</i>. This means that if the value is assigned to a new variable it's copied and can be changed without affecting the value of the original variable. Objects on the other hand <i>pass value by reference</i>.
             </p>
-
+			  
             <div class="code-container">
                 <button class="btn-change-color">Change Theme</button>
-
                 <div class="comment-oneline">
-                We can use properties on a string
+                We use the length property/element
                 </div>
                 <code>
-                let str = "Hello World"<br />
+                var str = "Hello World"<br />
                 console.log(str.length) <span class="comment-outcome">--> 11</span>// We get the numbers of characters<br />
                 <br />
                  </code> 
@@ -424,15 +460,15 @@
                 Primitive values do not mutate
                 </div>
                 <code>
-                let foo = "Hello World" <br />
-                foo.toUpperCase() <span class="comment-outcome">--> 'HELLO WORLD'</span> // we use a method on foo<br />
-                console.log(foo) <span class="comment-outcome">--> 'Hello World'</span> // the original value is
+                var foo = "Hello World" <br />
+                foo.toUpperCase() <span class="comment-outcome">--> HELLO WORLD</span> // we use a method on foo<br />
+                console.log(foo) <span class="comment-outcome">--> Hello World</span> // the original value is
                 unchanged<br /> </code
               ><br />
 
               <div class="comment-oneline">We can do this</div>
               <code>
-                console.log(foo[0]) <span class="comment-outcome">--> H</span> // we get the 1st character<br /> </code
+               foo[0]) <span class="comment-outcome">--> H</span> // we get the 1st character<br /> </code
               ><br />
               <div class="comment-oneline">But not this...</div>
               <code>
@@ -440,12 +476,7 @@
                 console.log(foo) <span class="comment-outcome">--> Hello World</span> // value of 'foo' doesn't change <br />
               </code>
             </div>
-			
-            <span class="note-comment">
-              <span class="first-word">Note:</span> Primitives being immutable is the reason we can't use
-              mutator methods on strings. For example push, reverse and sort. 
-			  </span><br />
-			
+						
             <i class="link"
               >See more;
               <a
@@ -455,14 +486,36 @@
             ><br />
             
             <h4><i>string</i></h4>
-            <p>String values consists of normal characters. Special characters can be encoded using the escape character '\'. In Javascript strings can be denominated with both single and double quotes. As already mentioned Javascript will treat strings as objects making it possible to use object properties and methods.</p>
-                       
-            <h4><i>number</i>, <i>NaN</i> and the <i>Math</i> object</h4>         
+            <p>The string type holds data that can be represented as text. String values consists of normal characters, special characters can be encoded using the escape character '\'. In Javascript strings can be denominated with both single and double quotes. With ES6 support was also added for 'template literals'. Template literals also allows for variables and expressions to be embedded with string literals. (we will cover template literals further in the chapter 'ES6 Features'. 
+			</p>
+			
+			<div class="code-container">			
+				<div class="comment-oneline">Some common methods used with strings</div>
+				<code>
+                var greet = "Hello World"		 				<br />                
+				greet.charAt(0) <span class="comment-outcome">--> H</span>	<br />
+				greet[0] <span class="comment-outcome">--> H </span>// we use bracket notation<br />
+				greet.indexOf("W")<span class="comment-outcome"> --> 6</span><br /><br />
+
+                var str = new String("KYH Frontend") // we use the string object constructor  				<br />
+                typeof str <span class="comment-outcome">--> 'object'</span> // we use the typeof operator<br />
+            </code>
+			</div>
+			<span class="note-comment">
+              <span class="first-word">Note: </span>Strings being primitives means we can't use mutator methods as push() and sort()
+			</span>
+			
+            <h4><i>number</i></h4>         
             <p>
               In Javascript we only have one type for numbers. There is no
-              distinction for decimals etc. The Math object in Javascript is
-              used to perform mathematical tasks on numbers. If a Math function can't convert an argument to a number it returns <i>NaN</i>.
-				To check for <i>NaN</i> do <b>not</b> compare; NaN === NaN, this returns false since type of NaN is number!. Instead the <i>isNaN</i> function is used; isNaN === NaN.
+              distinction for integers, floats etc. 
+			  The number data type also consist of so called, special numeric values as <i>NaN</i>, <i>Infinity</i> and <i>-infinity</i>.  
+			</p>
+			<br />
+			
+			<p>			
+			   If a Math function can't convert an argument to a number it returns <i>NaN</i>.
+				To check for <i>NaN</i> do <b>not</b> compare; NaN === NaN, this returns false since type of <i>NaN</i> is number. Instead the <i>isNaN</i> function is used, isNaN === NaN.
 			</p>
 
 			<span class="note-comment">
@@ -476,20 +529,21 @@
                 >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN</a
               ></span
             >
-            
+			
             <div class="code-container">
-			<div class="comment-oneline">Some common methods of the Math object: </div>
+			<div class="comment-oneline">The Math object in Javascript is
+              used to perform mathematical tasks on numbers</div>
               <code>
-                let floatNumber = 1.55 <br />
+                var floatNumber = 1.55 <br />
                 Math.round(floatNumber) <span class="comment-outcome">--> 2</span> // will round to closest integer
                 <br /><br />
-                let num1 = 2.3 <br />
-                let num2 = 1.4 <br />
+                var num1 = 2.3 <br />
+                var num2 = 1.4 <br />
                 Math.floor(num1 + num2) <span class="comment-outcome">--> 3</span> // will round downwards to closest
                 integer <br /><br />
                 Math.max(4,7,9,11) <span class="comment-outcome">--> 11</span><br />
                 Math.min(4,7,9,11) <span class="comment-outcome">--> 4</span><br />
-                let numbers = [4,7,9,11]; <br />
+                var numbers = [4,7,9,11]; <br />
                 Math.max(numbers) <span class="comment-outcome">--> NaN</span> // Math max/min do not work with
                 arrays.<br />
               </code>
@@ -499,7 +553,7 @@
               </div>
               <code>
                 Math.max(...numbers) <span class="comment-outcome">--> 11</span><br /><br />
-                let rand; <br />
+                var rand; <br />
                 Math.random(rand) <span class="comment-outcome">--> ?</span> // returns a floating-point between 0
                 and 1.
               </code>
@@ -507,13 +561,13 @@
 
             <h4><i>undefined</i></h4>
             <p>
-              <i>undefined</i> is a primitive datatype of type 'undefined'. It's a so
+              <i>undefined</i> is a primitive datatype and a so
               called <i>falsy</i> value. It's important to not confuse <i>falsy</i> as
               'false', the latter being of type Boolean. Javascript will
               automatically assign <i>undefined</i> to a variable that are not
               initialized. In other words a variable that has been declared but not given a value will always return undefined. 
               A function with no return statement will always return <i>undefined</i> as well. To check for <i>undefined</i> we use the
-              <b>typeof</b> operator.<br />              
+              <i>typeof</i> operator.<br />              
             </p>
 
             <div class="code-container">
@@ -525,14 +579,14 @@
               <div class="comment-oneline">
                 If we don't initialize a variable
               </div>
-              <code> let a; // This will give 'a' the value undefined. </code
+              <code> var a; // This will give 'a' the value undefined. </code
               ><br />
               <div class="comment-oneline">But we can also do this</div>
               <code>
-                let a = undefined; // we assign the value 'undefined'<br />
+                var a = undefined; // we assign the value 'undefined'<br />
                 typeof a <span class="comment-outcome">--> 'undefined'</span> <br />
                 if ( typeof a === 'undefined') <span class="comment-outcome">--> true</span> // We check for
-                'undefined' </code
+                <i>undefined</i>(note; the quotes!)</code
               >
 			  </div>
 			  
@@ -543,8 +597,8 @@
             <h4><i>null</i></h4>
             <p>
               <i>null</i> is a primitive value and a keyword in JavaScript that means
-              ‘no value’ or nonexistence of any value. The type of null is
-              object while <i>undefined</i> has its own type. If the purpose is to give a variable an empty value is can be done by assign it the value null, representing no value. You could say that <i>null</i> has the same purpose/meaning for objects as <i>undefined</i> for primitives with the difference that the latter has its own type while <i>null</i> hasn't.
+              ‘no value’ or nonexistence of any value. <i>null</i> is also as the case with <i>undefined</i> a so called falsy value. The type of null tough is
+              object while <i>undefined</i> has its own type. The fact that <i>null</i> is considered a primitive value and its type is object (non-primitive) can be very confusing and more or less be seen as a bug inherited from the time Javascript was designed. The best way to understand <i>null</i> is to interpret it as something that does not exist. If the purpose is to give a variable an empty value it can be done by assign it the value null, representing no value. It could be said that <i>null</i> has the same purpose/meaning for objects as <i>undefined</i> for primitives with the difference that the latter has its own type while <i>null</i> hasn't.
             </p>
             
             <div class="code-container">
@@ -556,9 +610,140 @@
               >
             </div>
 			
-			<h4><i>Boolean and falsy/truthy values</i></h4>
-			<p>...</p>
+			<h4><i>Boolean</i></h4>
+			<p>
+			Boolean types are either true or false and denominated by <i>true</i> or <i>false</i>.
+			The major importance of boolean:s are as result of comparison. 
+			</p>			
+			
+			<h4><i>truthy</i> and <i>falsy</i> values</h4>
+			<p>All values in Javascript can be said to have an inherent boolean value. To simplify there are six <i>falsy</i> values and all other values are <i>truthy</i>. The falsy values are: 
+				<ul class="falsy-list">
+				<li><i>false</i></li>
+				<li><i>0</i></li>
+				<li><i>undefined</i></li>
+				<li><i>' '</i> or <i>" "</i><span class="list-comment">// empty string</span> </li> 
+				<li><i>NaN</i></li>
+				<li><i>null</i></li>
+				</ul>
+
 			<br />
+          </div>
+        </article>
+		
+		<article class="subject-article">
+          <h3 class="subject-title">Objects</h3>
+          <div class="example">
+		  <p>The easiest way to understand objects are to see them as a collection of key value pairs. In Javascript the correct term for keys are properties. Properties being the 'key' in a key value pair can also be seen as variable names inside objects. If the property holds a function expression we would call it a <i>method</i>. 		  	  
+		  <p>
+		  
+		  <h4>Literal Objects</h4>
+			<p>In general the properties and values have something in common as for example all car objects can be expected to have the properties color and model. 			
+			</p>
+
+		<h4>Arrays</h4>
+			<p>Arrays are basically a variable consisting of a collection of values.
+			The values are accessed by referring to its index number unlike objects where a value is assigned to a named property. That said it's important to remember that arrays are also objects but with there own properties and methods.   
+			</p>	          
+
+            <div class="code-container">
+			   <div class="comment-oneline">Some common Array methods</div>        
+              <code>			  
+                let greet = new String("Hello") <br />
+                greet.charAt(greet.length-1) 	<br /><br />
+
+                let str = "KYH Frontend" 		<br />
+                typeof str 						<br />
+                str.indexOf("F") 				<br /><br />
+
+                let foo = str.split(" ") 		<br />
+                typeof foo 						<br />
+                foo.sort() 						<br /><br />
+
+                let first = foo.slice(0,1)		<br />
+                foo.push(first.join()) 			<br />
+                console.log(foo) 				<br /><br />
+
+                foo.constructor 
+				</code>				
+            </div>
+			
+            <span class="note-comment"
+              ><span class="first-word">Note: </span>push and sort are so called mutator methods since they
+              change the original array. Push for example adds item/s to the end
+              of the array while returning the new length of the array. 
+            </span>
+            <span class="note-comment"><span class="first-word">Note: </span>We can use console.dir() to get more info about the
+              constructor </span
+            ><br />
+            <br />
+            <span class="link"
+              >See more:
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2"
+                >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2</a
+              ><br />
+              <a
+                href="https://www.tutorialrepublic.com/javascript-reference/javascript-array-object.php"
+                >https://www.tutorialrepublic.com/javascript-reference/javascript-array-object.php</a
+              ></span
+            >		
+		  </div>
+	  </article>
+
+<article class="subject-article">
+          <h3 class="subject-title">Pass by Value vs. Reference</h3>
+          <div class="example">
+            <p>
+              When we assign an object to new variable we copy the reference to
+              where that object or array is stored in memory.<br />The reference
+              works in other words as a pointer to where the object is stored,
+              it doesn't copy the value as is the case with primitive types.
+              This means that if we change the value of a property/element it
+              impacts all variables with a reference to the same spot in memory.
+            </p>
+
+            <div class="code-container">
+			<div class="comment-oneline">Primitive types, pass value by copying</div>
+              <code>
+                let a = "KYH" <br />
+                let b = a <br />
+                a = "Hello" // We assign a new value to a <br />
+                b <span class="comment-outcome">--> "KYH"</span> // We retain the copied value <br />
+              </code>
+            </div>
+			
+            <div class="code-container">
+			<div class="comment-oneline">Objects, pass value by reference</div>
+              <code>
+                let objectA = {name: "Kal", lastname: "Doe"} <br />
+                let objectB = objectA <br />
+                objectA.name = "Ada" // we change the value of prop name<br>
+				</code>				
+				<div class="comment-oneline">objectB points to the location of the original object.
+              It's not a copy of objectA.</div>
+			  <code>
+                objectB.name <span class="comment-outcome">--> "Ada"</span> // prop name has changed <br />
+              </code>
+            </div>
+            <span class="note-comment">
+              <span class="first-word">Note: </span>Function arguments are always passed by value and are copied
+              into the function.
+			  </span>
+            <br />
+			<span class="note-comment"><span class="first-word">Note: </span>
+            To make a real copy of an object/array we
+              can use the spread operator(see more under ES6 features).
+            </span>
+            <br />
+
+            <span class="link"
+              >See more:
+              <a
+                href="https://stackoverflow.com/questions/16880418/javascript-pas"
+                >https://stackoverflow.com/questions/16880418/javascript-pas</a
+              ></span
+            >
           </div>
         </article>
 
@@ -664,8 +849,7 @@
 			var result = allowedAge ? ( age && "Welcome!" ) : null				<br />	
 			result	<span class="comment-outcome">--> "Welcome" </span><br />
 			</code>			
-			</div>
-			
+			</div>			
           </div>
         </article>
 
@@ -705,62 +889,60 @@
             </span>
           </div>
         </article>
-
-        <article class="subject-article">
-          <h3 class="subject-title">Pass by Value vs. Reference</h3>
+		
+		<article class="subject-article">
+          <h3 class="subject-title">Variable Scope</h3>
           <div class="example">
             <p>
-              When we assign an object to new variable we copy the reference to
-              where that object or array is stored in memory.<br />The reference
-              works in other words as a pointer to where the object is stored,
-              it doesn't copy the value as is the case with primitive types.
-              This means that if we change the value of a property/element it
-              impacts all variables with a reference to the same spot in memory.
-            </p>
-
-            <div class="code-container">
-			<div class="comment-oneline">Primitive types, pass value by copying</div>
-              <code>
-                let a = "KYH" <br />
-                let b = a <br />
-                a = "Hello" // We assign a new value to a <br />
-                b <span class="comment-outcome">--> "KYH"</span> // We retain the copied value <br />
-              </code>
-            </div>
-			
-            <div class="code-container">
-			<div class="comment-oneline">Objects, pass value by reference</div>
-              <code>
-                let objectA = {name: "Kal", lastname: "Doe"} <br />
-                let objectB = objectA <br />
-                objectA.name = "Ada" // we change the value of prop name<br>
-				</code>				
-				<div class="comment-oneline">objectB points to the location of the original object.
-              It's not a copy of objectA.</div>
+              When talking about variable scope we are in essence referring to
+              which scope a variable is accessible. In other words where we can look/access variables or functions.
+              For a long time Javascript variable declarations were either
+              global or function scoped. The latter sometimes also called local
+              scope. This changed with the introduction of ES6 and the keyword <i>let</i> for declaring variables. A variable accessible anywhere in our code is said to exist
+              in the global scope while a variable accessible inside a function
+              exist in the local scope of the function where it was declared. The <i>let</i> keyword allows for block level scope. A variable declared
+              with let will only be accessible inside the block where it was
+              declared. This can for example be inside the block restricted by a for loop that exist inside a function.
+			</p>            
+            <br />
+            <p>
+              When it comes to function scope it's also important to understand
+              the concept of lexical scope sometimes also called Static
+              scope. Lexical scope is the concept of a variable being accessible
+              inside nested blocks, typically function or block scopes inside an outer function. 
+              </p>
+			  <div class="code-container">
+			  
+			  <div class="comment-oneline">Global Scope</div>
+				<code>
+				let a = "Hello"	// we create a global variable		<br />
+				
+				function() {			<br />
+				<span class="example">	console.log(a)	<span class="comment-outcome">--> "Hello"</span> // a is accessible everywhere in our code </span><br />
+				}	<br />
+				</code>
+				
+				<div class="comment-oneline">Block Scope</div>
+				<code>
+				let numbers = [1,2,3,4,5]											<br />
+				for(let i = 0; i &lt; numbers.length; i++) {						<br />
+				<span class="example2">	console.log(numbers[i]) <span class="comment-outcome">--> 1,2,3,4,5		</span></span><br />	
+				}											<br />
+				console.log(i) <span class="comment-outcome">--> referenceError </span>// i does not exist outside its block scope <br />
+				</code>
+			  
+			  <div class="comment-oneline">Lexical Scope</div>
 			  <code>
-                objectB.name <span class="comment-outcome">--> "Ada"</span> // prop name has changed <br />
-              </code>
-            </div>
-            <span class="note-comment">
-              <span class="first-word">Note: </span>Function arguments are always passed by value and are copied
-              into the function.
-			  </span>
-            <br />
-			<span class="note-comment"><span class="first-word">Note: </span>
-            To make a real copy of an object/array we
-              can use the spread operator(see more under ES6 features).
-            </span>
-            <br />
-
-            <span class="link"
-              >See more:
-              <a
-                href="https://stackoverflow.com/questions/16880418/javascript-pas"
-                >https://stackoverflow.com/questions/16880418/javascript-pas</a
-              ></span
-            >
-          </div>
-        </article>
+                function outerFunction() { 							<br />
+				<span class="example2">	var a = "I'm from outside";					</span><br />
+				<span class="example2">	function innerFunction() {					</span><br />
+				<span class="example3">		console.log(a)	<span class="comment-outcome">-->	I'm from outside	</span></span><br />
+				<span class="example2"> }</span><br />
+				}	
+				</code>	
+			</div>
+		  </div>
+        </article>       
 
 		<article class="subject-article">
           <h3 class="subject-title">Hoisting</h3>
@@ -789,9 +971,9 @@
                 Variable declarations are hoisted inside functions as well
               </div>
               <code>
-                var testScope = function() { <br />
+                let testScope = function() { <br />
                 <span class="example">console.log(y);</span><br />
-                <span class="example">var y = 1; </span><br />
+                <span class="example">let y = 1; </span><br />
                 } <br />
                 testScope(); <span class="comment-outcome">--> undefined</span><br /> </code
               ><br />
@@ -800,19 +982,21 @@
                 Anonymous function expressions are not hoisted
               </div>
               <code>
-                var y = 2; <br />
-                var testScope = function() { <br />
-                <span class="example">console.log(y); </span><br />
-                <span class="example">var y = 1; </span><br />
+                let y = 2; <br />
+                let testScope = function() { <br />
+                <span class="example">console.log(y); // we try to access y before it has been initialized</span><br />
+                <span class="example">let y = 1; </span><br />
                 } <br />
                 testScope(); <span class="comment-outcome">--> undefined </span><br />
               </code>
 
               <br />
-              <code>
-                3)<br />
-                var y = 2; <br />
-                var testScope = function() { <br />
+			  <div class="comment-oneline">
+                y is not redeclared inside the function
+              </div>
+              <code>			  
+                let y = 2; <br />
+                let testScope = function() { <br />
                 <span class="example"> console.log(y);</span><br />
                 } <br />
                 testScope(); <span class="comment-outcome">--> 2</span><br />
@@ -824,47 +1008,7 @@
           </div>
         </article>
 
-        <article class="subject-article">
-          <h3 class="subject-title">Variable Scope</h3>
-          <div class="example">
-            <p>
-              When talking about variable scope we are in essence referring to
-              which scope a variable is accessible. In other words where we can look/access variables or
-              functions.
-              For a long time Javascript variable declarations were either
-              global or function scoped. The latter sometimes also called local
-              scope. A variable accessible anywhere in our code is said to exist
-              in the global scope while a variable accessible inside a function
-              exist in the local scope of the function where it was declared.
-            </p>
-            <br />
-            <p>
-              With ES6 support was added for block level scopes, this is done by
-              declaring variables with the keyword <i>let</i>. A variable declared
-              with let will only be accessible inside the block where it was
-              declared. This can for example be inside the block restricted by a for loop that exist
-              inside a function.
-			</p>            
-            <br />
-            <p>
-              When it comes to function scope it's also important to understand
-              the concept of lexical scope sometimes also called Static
-              scope. Lexical scope is the concept of a variable being accessible
-              inside nested blocks, typically function or block scopes inside an outer function. 
-              </p>
-			  <div class="code-container">
-              <span class="comment-oneline"></span>
-			  <code>
-                function outerFunction() { 							<br />
-				<span class="example2">	var a = "I'm from outside";					</span><br />
-				<span class="example2">	function innerFunction() {					</span><br />
-				<span class="example3">		console.log(a)	<span class="comment-outcome">-->	I'm from outside	</span></span><br />
-				<span class="example2"> }</span><br />
-				}									<br />	
-              </code>
-			</div>
-		  </div>
-        </article>        
+         
 
         <article class="subject-article">
           <h3 class="subject-title">Closures</h3>
@@ -884,66 +1028,10 @@
         </article>
 
         <article class="subject-article">
-          <h3 class="subject-title">
-            Usage of common String and Array methods
-          </h3>
-          <div class="example">
-            <b>Explain and show how to use these methods.</b>
-            <p>push, split, slice, join, sort, indexOf, charAt</p>
-            <br />
-            <i><b>What does this gives us?</b></i>
-
-            <div class="code-container">
-              <code>
-                let greet = new String("Hello") <br />
-                greet.charAt(greet.length-1) <br /><br />
-
-                let str = "KYH Frontend" <br />
-                typeof str <br />
-                str.indexOf("F") <br /><br />
-
-                let foo = str.split(" ") <br />
-                typeof foo <br />
-                foo.sort() <br /><br />
-
-                let first = foo.slice(0,1) <br />
-                foo.push(first.join()) <br />
-                console.log(foo) <br /><br />
-
-                foo.constructor </code
-              ><br />
-            </div>
-            <span class="note-comment"
-              ><span class="first-word">Note: </span>push and sort are so called mutator methods since they
-              change the original array. Push for example adds item/s to the end
-              of the array while returning the new length of the array. Mutator
-              methods can't be used with strings because...? (well, you know
-              why!)
-              <i>...since primitive types are immutable.</i>
-            </span>
-            <span class="note-comment"><span class="first-word">Note: </span>We can use console.dir() to get more info about the
-              constructor </span
-            ><br />
-            <br />
-            <span class="link"
-              >See more:
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2"
-                >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2</a
-              ><br />
-              <a
-                href="https://www.tutorialrepublic.com/javascript-reference/javascript-array-object.php"
-                >https://www.tutorialrepublic.com/javascript-reference/javascript-array-object.php</a
-              ></span
-            >
-          </div>
-        </article>
-
-        <article class="subject-article">
           <h3 class="subject-title">Promises</h3>
           <div class="example">
             <p>
-              A promise in Javascript is just as in real life; a promise or commitment to do something at some point in the future. The
+              A promise in Javascript is just as in real life; a promise/commitment to do something at some point in the future. The
               promise will then be resolved, or rejected. In programming context
               the Promise object represents the eventual completion (or failure)
               of an asynchronous operation and its resulting value. Promises in
@@ -1142,11 +1230,11 @@
 
       <span id="es6"></span>
       <div class="tutorial-part">
-        <h1 class="tutorial-title">ECMAScript 2015(ES6) features</h1>
+        <h1 class="tutorial-title">ECMAScript 2015(ES6)</h1>
         <br />
 
         <article class="subject-article">
-          <h3 class="subject-title">Variable declaration; let and const</h3>
+          <h3 class="subject-title">Variable declaration; const and let</h3>
           <div class="example">
             <br />
             <p>
@@ -1169,11 +1257,11 @@
             <p>
               The main difference between <i>var</i> and <i>let</i> is that
               <i>var</i> has function scope and <i>let</i> has block scope. 
-			  Meaning that block level variables can be created, for example inside an if branch or a for loop. Another difference is that <i>let</i> declaration is not hoisted unlike the case with <i>var</i>. This means that a variable declared with let will not be accessible before it has been initialized, this will result in a reference error while doing the same with a variable declared with <i>var</i> will return as <i>undefined</i>. Another difference is that a variable declared with <i>let,</i> unike <i>var</i> will not create a property on the global object. 
+			  Meaning that <i>let</i> allows for block level variables to be created, for example inside an if branch or a for loop. Another difference is that <i>let</i> declarations are not hoisted unlike variables declared with <i>var</i>. Therefore a variable declared with <i>let</i> will not be accessible before it has been initialized, trying to will result in a reference error. While doing the same with a variable declared with <i>var</i> will return as <i>undefined</i>. Another difference is that a <i>let</i> declaration will not create a property on the global object as the case with <i>var</i> declarations. 
             </p>
 			
 			<div class="code-container">
-              <span class="comment-oneline">The iterator is declared with let meaning it's only accessible in its scope while variable b is accessible everywhere inside the function.</span>
+              <div class="comment-oneline">The <i>iterator</i> is only accessible in its own scope while <i>b</i> is declared with var and accessible everywhere inside the function.</div>
 			  <code>
 			  function blockScope(num) {									<br />
 				<span class="example">for(let i = 1; i &lt; num; i++) {		</span><br /> 
@@ -1181,7 +1269,7 @@
 				<span class="example2">var b = "I exist in function scope"	</span><br />
 				<span class="example">	}									</span><br />
 				<span class="example">console.log(b) <span class="comment-outcome">--> 	I exist in function scope		</span></span><br />
-				<span class="example">console.log(i) <span class="comment-outcome">--> 	ReferencError, i is not defined</span></span><br />
+				<span class="example">console.log(i) <span class="comment-outcome">--> 	ReferenceError, i is not defined</span></span><br />
 				}	<br />
 				blockScope(5);	<br />
               </code>
@@ -1251,14 +1339,14 @@
             </p>
 
             <div class="code-container">
-              <span class="comment-oneline">
-                  A named function, the pre ES6 way to declare a function</span>
+              <div class="comment-oneline">
+                  A named function, the pre ES6 way to declare a function</div>
               <code>
                 function doSmth(a) { <br />
                 <span class="example"> return a * 2 </span><br />
                 } <br />
               </code>
-              <span class="comment-oneline">The same function refactored as an anonymous arrow function</span>
+              <div class="comment-oneline">The same function refactored as an anonymous arrow function</div>
               <code> const doSmth = a => a * 2 <br /> </code>
             </div>
 
@@ -1290,73 +1378,47 @@
           </div>
         </article>
 
-        <article class="subject-article">
-          <h3 class="subject-title">Default values</h3>
+		<article class="subject-article">
+          <h3 class="subject-title">Template Literals</h3>
           <div class="example">
             <p>
-              With ES6 support was added for the use of default values. To assign a default value we just assign a value to a function
-              parameter. If no argument/s is given when calling the function it will be given its default value.
-              This also works for destructuring where we can assign default values for variables.
+              Template Literals allows us to work with strings in a more agile
+              and less ugly way. Not least the ability to use expressions gives
+              lot of room for creating more dynamic code. Instead of quotes we
+              use `backticks` to write string within it. We use ${variable or
+              expression} instead of concatenation. Among the new features we
+              also get a more agile syntax to define multiline strings.
             </p>
 
             <div class="code-container">
-              <div class="comment-oneline">We assign default values to the parameters</div>
               <code>
-                function withDefaultValues(a=10, b=20) { <br />
-                  <span class="example">let sum = a + b; </span><br />
-                  <span class="example">return sum;</span><br />
-                  <span>}</span><br />
-                  <span>withDefaultValues() <span class="comment-outcome">--> 30</span></span><br />
-              </code><br />
-              <div class="comment-oneline">We add an empty array as default value</div>
-              
-              <code>
-                function addNumbers(numArr = []) { <br />
-                <span class="example">let sum = 0; </span><br />
-                <span class="example">numArr.forEach( num => { </span><br />
-                <span class="example2"> sum += num; </span><br />
-                <span class="example">}) </span><br />
-                <span class="example">return sum; </span><br />
-                } <br />
+                let firstName = "John" <br />
+                let surName = "Doe" <br />
+                const fullName = "John" + " " + "Doe" <span class="comment-outcome">--> John Doe</span> // The pre ES6
+                way to do it.<br />
+                <br />
+                let firstName = "Lisa" <br />
+                let surName = "Doe" <br />
+                const fullName = `${firstName} ${surName}` <span class="comment-outcome">--> Lisa Doe</span> // Using
+                template literals<br />
+                <br />
 
-                addNumbers() <span class="comment-outcome">--> 0</span> // We get no error despite calling the
-                function with no arguments.
+                let divNumbers = `15 divided by 3 is ${15/3}` <span class="comment-outcome">--> 5</span> // We insert
+                an expression
+				</code>
+				<span class="comment-oneline">
+                  Tagged templates allows for template literals to be parsed with functions.</span>
+				  <code>
+				  ...
               </code>
             </div>
-          </div>
-        </article>
-
-        <article class="subject-article">
-          <h3 class="subject-title">Higher order functions</h3>
-          <div class="example">
-            <p>
-              When a function receives another function as an argument that
-              function is called a <b>higher order function</b>. And the
-              function you pass in is called a <b>callback</b>. With ES6 several
-              new higher order functions were introduced. With this the
-              Javascript language got more flexible and developers got access to
-              some new effective tools. Noteworthy; These methods do not
-              mutate/change the orignal array (in general a good thing!).
-            </p>
-            <h4><i>map()</i></h4>
-			<p>...</p>
-            <h4><i>filter()</i></h4>
-			<p>...</p>
-            <h4><i>reduce()</i></h4>
-			<p>...</p>
-            <h4><i>sort()</i></h4>
-            <p>...</p>
-            <h4><i>find()</i></h4>
-            <p>...</p>
-            <h4><i>includes()</i></h4>
-            <p>...</p>
+			
             <span class="link"
               >See more:
               <a
-                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#"
-                >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#</a
-              ></span
-            >
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals"
+                >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals</a
+              ></span>
           </div>
         </article>
 
@@ -1409,16 +1471,34 @@
                 ><br />
                 }
               </code>
-			  <span class="comment-oneline">A nested for/in</span>
+			  <div class="comment-oneline">A nested for/in</div>
 			  <code>
                const myObj = { test: {name: 'John Doe', age: 34 }};		<br /><br />
 				for(let prop in myObj) {								<br />
 				<span class="example">let innerObj = myObj[prop]		</span><br />
 				<span class="example">for(let innerProp in innerObj) {	</span><br />
-				<span class="example2">console.log(innerObj[innerProp])	<span class="comment-outcome">--> John Doe 34</span></span></br />
+				<span class="example2">console.log(innerObj[innerProp])	<span class="comment-outcome">--> John Doe 34</span></span><br />
 				<span class="example">	}								</span><br />
 				}
               </code>
+			  <div class="comment-oneline">for/in combined with forEach</div>
+			  <code>
+			  const employees = [
+			  <span class="example">{name: "John", role: "Accountant", salary: 10000},</span><br />
+			  <span class="example">{name: "Lisa", role: "Adminstrator", salary: 8000},</span><br />
+			  <span class="example">{name: "Tom", role: "Janitor", salary: 7000},</span><br />
+			  <span class="example">{name: "Patty", role: "Manager", salary: 14000},</span><br />
+			  <span class="example">{name: "Sally", role: "Sale", salary: 9000}</span><br />
+			];	<br /><br />
+		
+		employees.forEach(employee => {	<br />
+		<span class="example">for(let prop in employee) {					</span><br />
+		<span class="example2">let data = `${prop}: ${employee[prop]}`		</span><br />
+		<span class="example2">	console.log(`${data}`)						</span><br />
+		<span class="example2">	}											</span><br />
+		<span class="example">	console.log('')								</span><br />
+		})																	<br />
+			  </code>
             </div>
 
             <h4><i>for/of</i></h4>
@@ -1439,32 +1519,26 @@
                 for(let number of myNumbers) {<br />
                 <span class="example">console.log(number) <span class="comment-outcome">--> 11,22,33...</span></span>
                 <br />
-                } <br /><br />
+                } <br />
               </code>
-              <span class="comment-oneline">To access the index we have to use entries() </span>
+              <div class="comment-oneline">To access the index we have to use entries() </div>
               <code>
                 const myArr = [a,b,c] <br /><br />
                 for (const [index, val] of myArr.entries()) { <br />
                 <span class="example"
-                  >console.log(index +": "+ val`); // Prints "0: a", "1: b", "2:
-                  c" </span
-                ><br />
+                  >console.log(index +": "+ val`); <span class="comment-outcome">--> "0: a", "1: b", "2: c" </span
+                ></span><br />
                 } <br />
               </code>
             </div>
 
-            <h4>Summary for loops and iteration</h4>
-            <p>
-              There are many ways to iterate over arrays and loops and they all
-              have there strengths and tradeof:s. The standard for and for/in
-              loop constructs gives access to the index in the iterable object
+            <h4>Summary; which loop to use and when</h4>
+			<!--The standard <i>for</i> and <i>for/in</i> loop constructs gives access to the index in the iterable object
               but not the actual element. To access the element we have to print
-              out the, item[index]. With forEach() and for/of we get access to
-              the element itself. In general the most robust/safe way to loop
-              through an array/object will be the for/of loop. If the intention
-              is to manipulate every element in an array the for/each loop is
-              the best choice. The for/in loop should only be used to iterate
-              through the properties and values of an object.
+              out the, item[index]. With forEach() and for/of on the other hand we get access to the element itself. -->
+            <p>			
+              There are many ways to iterate over arrays and loops and they all
+              have there strengths and tradeof:s. In general the most robust/safe way to loop through an array/object will be the <i>for/of</i> loop. If the intention is to manipulate every element in an array the <i>for/each</i> loop is the best choice. The <i>for/in</i> loop should only be used to iterate through the properties of an object and avoided for arrays where the index order is of importance. If the intention is to manipulate or filter data from an array consisting of objects a callback function will probably do the job most effectively. It might also be necessary with a combination of different tools and methods.<!-- It can For example a higher order function as the <i>filter()</i> method if the intention is to filter data that correspond to a certain condition or maybe the <i>map()</i> method to render data in a list on a webpage.--> With experience the choice of tool/s will come natural depending on the circumstances.
             </p>
             <br />
             <span class="link">
@@ -1476,110 +1550,166 @@
             </span>
           </div>
         </article>
-
-        <article class="subject-article">
-          <h3 class="subject-title">Template Literals</h3>
+		
+		<article class="subject-article">
+          <h3 class="subject-title">Higher order functions</h3>
           <div class="example">
             <p>
-              Template Literals allows us to work with strings in a more agile
-              and less ugly way. Not least the ability to use expressions gives
-              lot of room for creating more dynamic code. Instead of quotes we
-              use `backticks` to write string within it. We use ${variable or
-              expression} instead of concatenation. Among the new features we
-              also get a more agile syntax to define multiline strings.
+              When a function receives another function as an argument that
+              function is called a <b>higher order function</b>. And the
+              function you pass in is called a <b>callback</b>. With ES6 several
+              new higher order functions were introduced. With this the
+              Javascript language got more flexible and developers got access to
+              some new effective tools. Noteworthy; These methods do not
+              mutate/change the orignal array (in general a good thing!).
             </p>
-
-            <div class="code-container">
-              <code>
-                let firstName = "John" <br />
-                let surName = "Doe" <br />
-                const fullName = "John" + " " + "Doe" <span class="comment-outcome">--> John Doe</span> // The pre ES6
-                way to do it.<br />
-                <br />
-                let firstName = "Lisa" <br />
-                let surName = "Doe" <br />
-                const fullName = `${firstName} ${surName}` <span class="comment-outcome">--> Lisa Doe</span> // Using
-                template literals<br />
-                <br />
-
-                let divNumbers = `15 divided by 3 is ${15/3}` <span class="comment-outcome">--> 5</span> // We insert
-                an expression
-              </code>
-            </div>
+            <h4><i>map()</i></h4>
+			<p>...</p>
+            <h4><i>filter()</i></h4>
+			<p>...</p>
+            <h4><i>reduce()</i></h4>
+			<p>...</p>
+            <h4><i>sort()</i></h4>
+            <p>...</p>
+            <h4><i>find()</i></h4>
+            <p>...</p>
+            <h4><i>includes()</i></h4>
+            <p>...</p>
+			
+			<div class="code-container">
+			
+				<div class="comment-oneline">ARRAY CONSISTING OF OBJECTS</div>
+				<code>
+				const employees = [																	<br />
+				<span class="example">  {name: "John", role: "Accountant", age: 44, salary: 10000},	</span><br />
+				<span class="example">  {name: "Lisa", role: "Adminstrator", age: 22, salary: 8000},</span><br />
+				<span class="example">  {name: "Tom", role: "Janitor", age: 53, salary: 7000},		</span><br />
+				<span class="example">  {name: "Patty", role: "Manager", age: 37, salary: 14000},	</span><br />
+				<span class="example">  {name: "Sally", role: "Sale", age: 23, salary: 9000},		</span><br />
+				<span class="example">  {name: "Helen", role: "IT", age: 31, salary: 11000},		</span><br />
+				<span class="example">  {name: "Rex", role: "Guard", age: 3, salary: 'T-Bone'}		</span><br />
+				];																					<br />
+			</code>
+			<br />
+			<div class="comment-oneline">map()</div>
+			<code>
+				...
+			</code>
+			<div class="comment-oneline">filter()</div>
+			<code>
+				...
+			</code>
+			<div class="comment-oneline">reduce()</div>
+			<code>
+				...
+			</code>
+			<div class="comment-oneline">sort()</div>
+			<code>
+				...			
+			</code>
+			<div class="comment-oneline">find()</div>
+			<code>
+				...
+			</code>
+			
+			<div class="comment-oneline">includes()</div>
+			<code>
+				...
+			</code>
+			
+			</div>
+			
             <span class="link"
               >See more:
               <a
-                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals"
-                >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals</a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#"
+                >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#</a
+              ></span
+            >
+			<span class="link">
+			See more: <a href="https://www.youtube.com/watch?v=rRgD1yVwIvE">JavaScript Higher Order Functions & Arrays (Youtube: Traversy Media)</a>
+			</span>
+		  </div>
+        </article>
+		
+		<article class="subject-article">
+          <h3 class="subject-title">Object constructor methods</h3>
+          <div class="example">
+		  
+		  <h4>Object; keys(), values(), entries()</h4>
+		  <p>...</p>
+		  <!--
+            <i><b>Get the keys and values from the object</b></i
+            ><br />
+            <i>myObj = { str1: "Hello", str2: "World" }</i><br />
+
+            <i>Extra 1; Good, now show an alternative solution.</i>
+            <i
+              >Extra 2; Extend your original answer and get the length(quantity)
+              of the properties.</i
+            >
+            <i
+              >Extra 3; For what can you use the constructor method
+              'hasOwnProperty' and what will it return?</i
+            ><br />
+
+            <span
+              >Notes: The Object.keys/values will return an array.<br />
+              The Object.entries returns an array of arrays.<br />
+              An easy way to check if an object is empty is to check the length
+              of the 'keys' property in the Object constructor<br />
+              You can define how/if a prop can be accessed/changed by using the
+              corresponding Object constructor method. </span
+            ><br />
+
+            <span
+              >Note: 1) Can be done with for/in as well but then it will also
+              show props that are inherited by the prototype.</span
+            ><br />
+            <span
+              >Note: 2) The length property on the Object constructor will
+              return undefined.</span
+            ><br />
+            <span
+              >Note: 3) It will return(true) for all declared properties even
+              those with no value.</span
+            >-->
+            <span class="link"
+              >See more:
+              <a
+                href="https://stackoverflow.com/questions/7757337/defining-read-only-properties-in-javascript"
+                >https://stackoverflow.com/questions/7757337/defining-read-only-properties-in-javascript</a
+              ><br />
+              See more:
+              <a
+                href="https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in"
+                >https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in</a
+              >
+            </span>
+          </div>
+        </article>
+		
+		<article class="subject-article">
+          <h3 class="subject-title">Array constructor methods</h3>
+          <div class="example">
+            <br />
+            <h4>Array.from()</h4>
+            <p>
+              The Array.from() method returns an Array object from any object
+              with a length property or an iterable object.
+            </p>
+            <br />
+
+            <h4>Array.isArray()</h4>
+            <span class="link"
+              >More about <b>shallow</b> vs <b>deep</b> copy:
+              <a
+                href="https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/"
+                >https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/</a
               ></span
             >
           </div>
-        </article>
-
-        <article class="subject-article">
-          <h3 class="subject-title">Classes</h3>
-          <div class="example">
-            <p>
-              With ES6 we got classes in Javascript. In reality it is only
-              syntactical sugar or an alternative syntax to prototype-bases
-              inheritance or in other words; Javascript constructor functions. A
-              class is a special type of funtions that uses the keyword class.
-              As with constructor functions the name is capitalized by
-              convention. A constructor method for creating and initializing an object can
-              be specified. If this is not done a default constructor method -
-              basically an empty function - is used. This is an empty object for
-              a base class.
-            </p>
-
-            <h4>'constructor functions' vs classes</h4>
-            <p>
-              In most cases they are quite similar and they do the same thing
-              but there are a some things that differs. A constructor requires
-              the keyword <i>new</i> to work. While we still can call a
-              constructor function without the keyword new this will throw an
-              error when trying to do the same with a class. A class will in
-              contrast to constructor functions create a constructor method by
-              default if not given one. While constructor functions are hoisted
-              this is not the case with class declarations. Another important
-              difference is that everything that is written inside a class is
-              typed in strict mode. With ES2019 we also got a few new important
-              features when it comes to classes. It is now possible to create
-              private properties and methods inside classes using the # prefix.
-              There is also the possibility to initialize public properties at
-              the top of a class before specifying a constructor. There are some
-              important benefits to this that I will not go deeper in to here,
-              for those that are interested to dwell more into all that classes
-              offers I have added some links down here that explains the concept
-              more in depth.
-            </p>
-            
-            <span class="link"
-              >See more:
-              <a
-                href="https://www.sitepoint.com/javascript-private-class-fields/"
-                >https://www.sitepoint.com/javascript-private-class-fields/</a
-              >
-              <br />
-              See more:
-              <a
-                href="https://dmitripavlutin.com/javascript-classes-complete-guide/"
-              >
-                https://dmitripavlutin.com/javascript-classes-complete-guide/ </a
-              ><br /> </span
-            ><br />
-
-            <div class="code-container">
-              <code>
-                let Person = function(name,gender,age) { <br />
-                <span class="example">this.name = name; </span><br />
-                <span class="example">this.gender = gender; </span><br />
-                <span class="example">this.age = age; </span><br />
-				<span class="example">this.getName = function() { return this.name }; </span><br />
-                }; <br />
-              </code>
-            </div>
-          </div>
-        </article>
+        </article>        
 
         <article class="subject-article">
           <h3 class="subject-title">Spread & Rest Operator</h3>
@@ -1657,79 +1787,106 @@
         </article>
 
         <article class="subject-article">
-          <h3 class="subject-title">Array constructor methods</h3>
+          <h3 class="subject-title">Default values</h3>
           <div class="example">
-            <br />
-            <h4>Array.from()</h4>
             <p>
-              The Array.from() method returns an Array object from any object
-              with a length property or an iterable object.
+              With ES6 support was added for the use of default values. To assign a default value we just assign a value to a function
+              parameter. If no argument/s is given when calling the function it will be given its default value.
+              This also works for destructuring where we can assign default values for variables.
             </p>
-            <br />
 
-            <h4>Array.isArray()</h4>
-            <span class="link"
-              >More about <b>shallow</b> vs <b>deep</b> copy:
-              <a
-                href="https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/"
-                >https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/</a
-              ></span
-            >
+            <div class="code-container">
+              <div class="comment-oneline">We assign default values to the parameters</div>
+              <code>
+                function withDefaultValues(a=10, b=20) { <br />
+                  <span class="example">let sum = a + b; </span><br />
+                  <span class="example">return sum;</span><br />
+                  <span>}</span><br />
+                  <span>withDefaultValues() <span class="comment-outcome">--> 30</span></span><br />
+              </code><br />
+              <div class="comment-oneline">We add an empty array as default value</div>
+              
+              <code>
+                function addNumbers(numArr = []) { <br />
+                <span class="example">let sum = 0; </span><br />
+                <span class="example">numArr.forEach( num => { </span><br />
+                <span class="example2"> sum += num; </span><br />
+                <span class="example">}) </span><br />
+                <span class="example">return sum; </span><br />
+                } <br />
+
+                addNumbers() <span class="comment-outcome">--> 0</span> // We get no error despite calling the
+                function with no arguments.
+              </code>
+            </div>
           </div>
         </article>
 
         <article class="subject-article">
-          <h3 class="subject-title">Object constructor methods</h3>
+          <h3 class="subject-title">Classes</h3>
           <div class="example">
-            <i><b>Get the keys and values from the object</b></i
-            ><br />
-            <i>myObj = { str1: "Hello", str2: "World" }</i><br />
+            <p>
+              With ES6 we got classes in Javascript. In reality it is only
+              syntactical sugar or an alternative syntax to prototype-bases
+              inheritance or in other words; Javascript constructor functions. A
+              class is a special type of funtions that uses the keyword class.
+              As with constructor functions the name is capitalized by
+              convention. A constructor method for creating and initializing an object can
+              be specified. If this is not done a default constructor method -
+              basically an empty function - is used. This is an empty object for
+              a base class.
+            </p>
 
-            <i>Extra 1; Good, now show an alternative solution.</i>
-            <i
-              >Extra 2; Extend your original answer and get the length(quantity)
-              of the properties.</i
-            >
-            <i
-              >Extra 3; For what can you use the constructor method
-              'hasOwnProperty' and what will it return?</i
-            ><br />
-
-            <span
-              >Notes: The Object.keys/values will return an array.<br />
-              The Object.entries returns an array of arrays.<br />
-              An easy way to check if an object is empty is to check the length
-              of the 'keys' property in the Object constructor<br />
-              You can define how/if a prop can be accessed/changed by using the
-              corresponding Object constructor method. </span
-            ><br />
-
-            <span
-              >Note: 1) Can be done with for/in as well but then it will also
-              show props that are inherited by the prototype.</span
-            ><br />
-            <span
-              >Note: 2) The length property on the Object constructor will
-              return undefined.</span
-            ><br />
-            <span
-              >Note: 3) It will return(true) for all declared properties even
-              those with no value.</span
-            >
+            <h4>'constructor functions' vs classes</h4>
+            <p>
+              In most cases they are quite similar and they do the same thing
+              but there are a some things that differs. A constructor requires
+              the keyword <i>new</i> to work. While we still can call a
+              constructor function without the keyword new this will throw an
+              error when trying to do the same with a class. A class will in
+              contrast to constructor functions create a constructor method by
+              default if not given one. While constructor functions are hoisted
+              this is not the case with class declarations. Another important
+              difference is that everything that is written inside a class is
+              typed in strict mode. With ES2019 we also got a few new important
+              features when it comes to classes. It is now possible to create
+              private properties and methods inside classes using the # prefix.
+              There is also the possibility to initialize public properties at
+              the top of a class before specifying a constructor. There are some
+              important benefits to this that I will not go deeper in to here,
+              for those that are interested to dwell more into all that classes
+              offers I have added some links down here that explains the concept
+              more in depth.
+            </p>
+            
             <span class="link"
               >See more:
               <a
-                href="https://stackoverflow.com/questions/7757337/defining-read-only-properties-in-javascript"
-                >https://stackoverflow.com/questions/7757337/defining-read-only-properties-in-javascript</a
-              ><br />
+                href="https://www.sitepoint.com/javascript-private-class-fields/"
+                >https://www.sitepoint.com/javascript-private-class-fields/</a
+              >
+              <br />
               See more:
               <a
-                href="https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in"
-                >https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in</a
+                href="https://dmitripavlutin.com/javascript-classes-complete-guide/"
               >
-            </span>
+                https://dmitripavlutin.com/javascript-classes-complete-guide/ </a
+              ><br /> </span
+            ><br />
+
+            <div class="code-container">
+              <code>
+                let Person = function(name,gender,age) { <br />
+                <span class="example">this.name = name; </span><br />
+                <span class="example">this.gender = gender; </span><br />
+                <span class="example">this.age = age; </span><br />
+				<span class="example">this.getName = function() { return this.name }; </span><br />
+                }; <br />
+              </code>
+            </div>
           </div>
         </article>
+        
       </div>
       <!-- End Tutorial part 2 -->
 
@@ -2041,12 +2198,77 @@
 				return this.age
 			}		
 		}
-		
+		/*
 		let person2 = new Person2('olle', 34)
-		console.log(person2.checkAge())
-		
+		console.log(person2.checkAge())		
 		let foo = new Area(100,100) 
 		console.log(foo.calcArea())
+		*/
+		
+		const employees = [
+			  {name: "John", role: "Accountant", age: 44, salary: 10000},
+			  {name: "Lisa", role: "Adminstrator", age: 22, salary: 8000},
+			  {name: "Tom", role: "Janitor", age: 53, salary: 7000},
+			  {name: "Patty", role: "Manager", age: 37, salary: 14000},
+			  {name: "Sally", role: "Sale", age: 23, salary: 9000},
+			  {name: "Rex", role: "Guard", age: 3, salary: 'T-bone Steak'}
+			];			
+		
+		// Lets suppose that the data above is returned as an object consisting of objects.
+		// How would be proceed to get the same data and filter as above?
+		// for that we need Object constructor methods.  
+		
+		const objectArray = {
+			john: 	{name: "John", role: "Accountant", age: 44, salary: 10000},
+			lisa: 	{name: "Lisa", role: "Adminstrator", age: 22, salary: 8000},
+			tom:  	{name: "Tom", role: "Janitor", age: 53, salary: 7000},
+			patty:  {name: "Patty", role: "Manager", age: 37, salary: 14000},
+			sally:  {name: "Sally", role: "Sale", age: 23, salary: 9000},
+			rex:	{name: "Rex", role: "Guard", age: 3, salary: 'T-bone Steak'}
+		}
+		
+	let richKids = employees.filter( employee => employee.salary > 9000)		
+	let oldKids = employees.filter(employee => employee.age > 30)
+		
+	console.log(richKids)
+	console.log(oldKids)
+		
+	let myObj = {
+		name: 'Lisa',
+		age: 24
+	}	
+		
+	const getOld = ()=> {
+		let foo = []
+		for(let prop in objectArray) {
+			if(objectArray[prop].age > 30) {
+				foo.push(objectArray[prop])
+			}			
+		}
+		return foo
+	}
+	
+	console.log("old: ", getOld())
+	
+	// to use filter we need to create an array of the values	
+	let foo = Object.values(objectArray)	
+	let output = foo.filter(item => item.age > 30)
+	console.log(output)
+		
+		const race = {
+		  0: 'first rider',
+		  1: 'second rider',
+		  2: 'third rider',
+		  3: 'fourth rider',
+		  stadium: 'Motoarena'
+		  //length: 5
+		};
+		
+		let numbers = [1,2,3,4,5]
+		for(let i = 0; i < numbers.length; i++) {
+			console.log(numbers[i])
+		}
+		console.log(i)
 		
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
