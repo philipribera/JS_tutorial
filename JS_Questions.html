@@ -61,7 +61,7 @@
         display: block;
         width: 100%;
         max-width: 984px;
-        background-color: rgb(252, 252, 252);
+        background-color: rgba(254, 254, 254, 1);
         color: rgb(35, 35, 35);
         padding: 26px;
         margin: 42px auto;
@@ -85,7 +85,7 @@
       h4 {
         font-size: 1.15rem;
         color: rgb(39, 39, 39);
-		    margin: 32px 0 12px 0;
+		margin: 32px 0 12px 0;
       }
       ul {
         padding: 4px;
@@ -116,6 +116,7 @@
       /*** CLASSES ***/
 	  .expand-text {
 		font-size: 1.1rem;
+		color: rgb(41, 54, 103);
 	  }
       .tutorial-title {
         margin: 20px 0;
@@ -190,9 +191,8 @@
       }
       .code-container {
         position: relative;
-        background-color: rgb(236, 236, 236);
-        color: rgb(247, 247, 247);
-        padding: 22px 24px 24px 24px;
+        background-color: rgb(237, 237, 237);
+        padding: 20px 24px 24px 24px;
         margin: 22px 0 24px 0;
         overflow: auto;
       }
@@ -209,7 +209,7 @@
         color: rgb(41, 54, 103);
         opacity: 0.95;
         font-weight: 600;
-        margin: 18px 0 12px 0;
+        margin: 20px 0 12px 0;
       }
 	  .subject-article .code-container:first-child {
 		margin-top: 0;
@@ -221,12 +221,15 @@
       .code-container-mod code,
       .code-container-mod code span {
         color: rgb(74, 249, 105);
+		color: rgb(235, 125, 255);
+		color: rgb(82, 231, 255);
       }
-      .code-container-mod .comment-oneline {
+      .code-container-mod .comment-oneline, .code-container-mod i, .code-container-mod .expand-text {
         color: rgb(237, 238, 237);
       }
 	  .code-container-mod span.comment-outcome {
 		color: #62ff2e;
+		color: rgb(212,200,80);
 	  }
       .question {
         margin-bottom: 54px;
@@ -249,7 +252,7 @@
         top: -120px;
         visibility: hidden;
       }	 
-	  
+	  	  
 		code span.comment-outcome {
 			font-weight: 600;
 			color: rgb(82,101,167);
@@ -261,6 +264,9 @@
 		    padding: 16px 12px;
 		    margin: 20px 0;
 	    }
+		.note-comment, .code-container {
+			border-radius: 3px;
+		}
 	    .first-word {
 		    color: rgb(37,37,37);
 		    font-weight: 600;
@@ -272,7 +278,8 @@
 			margin: 4px 0;
 		}
 		.falsy-list li {
-			padding: 4px;
+			background-color: rgb(247,247,247);
+			padding: 5px 4px;
 			border-bottom: 1px solid rgb(242,242,242);
 		}
 		.falsy-list li:nth-child(odd) {
@@ -446,37 +453,44 @@
           <div class="example">		  
             <p>
               Primitive values can not have properties and methods since they
-              are not objects. But Javascript can, depending on the circumstances, treat primitive values as objects. Javascript does this by wrapping the value in an object kind of entity making it possible to apply properties and methods on them. One example is the 'length' property that can be applied on strings.
+              are not objects. But Javascript can, depending on the circumstances, treat primitives as objects. Javascript does this by wrapping the value in an object kind of entity making it possible to apply properties and methods. One example is the 'length' property that can be applied on strings.
 			</p>
 			<br />
 			<p>
-			But even if primitives can behave as objects there are some important differences when compared with objects. Apart from only being able to hold a single value they are also non-mutable. Meaning that assigning a value to a variable that already holds a value replaces this value with a new value. It does not mutate the original value as the case with objects. The fact that primitives are non-mutable is the reason mutator methods - <i>methods that change the original value</i> - can not be applied on strings. For example push, reverse and sort. Another difference is that primitive values are passed by <i>copying the value</i>. This means that if the value is assigned to a new variable it's copied and can be changed without affecting the value of the original variable. Objects on the other hand <i>pass value by reference</i>.
+			But even if primitives can behave as objects there are some important differences when compared with objects. Apart from only being able to hold a single value they are also non-mutable. Meaning that assigning a value to a variable that already holds a value replaces this value with a new value it doesn't mutate/change the original value. This is the reason mutator methods - <i>methods that change the original value</i> - can not be applied on primitives. For example <i>push</i>, <i>reverse</i> and <i>sort</i>. Another difference is that primitive values are passed by <i>copying the value</i> unlike objects that <i>pass value by reference</i>. This means that if a primitive variable is assigned to a new variable its value is copied to the new variable and can be changed without affecting the value of the original variable.  
             </p>
 			  
             <div class="code-container">
                 <button class="btn-change-color">Change Theme</button>
-                <div class="comment-oneline">
+                
+				 <div class="comment-oneline">Values are passed by copying</div>
+			  <code>
+				var a = "Hello"								<br />
+				var b = a 	// we assign 'a' to 'b'			<br />
+				b = "World"	 // we give 'b' a new value		<br />
+				console.log(a) <span class="comment-outcome">--> Hello</span> // The value of 'a' doesn't  change	<br />			  
+              </code>
+				 <div class="comment-oneline">
                 We use the length property/element
                 </div>
                 <code>
                 var str = "Hello World"<br />
                 console.log(str.length) <span class="comment-outcome">--> 11</span>// We get the numbers of characters<br />
-                <br />
                  </code> 
                 <div class="comment-oneline">
                 Primitive values do not mutate
                 </div>
                 <code>
                 var foo = "Hello World" <br />
-                foo.toUpperCase() <span class="comment-outcome">--> HELLO WORLD</span> // we use a method on foo<br />
+                console.log(foo.toUpperCase()) <span class="comment-outcome">--> HELLO WORLD</span> // we use a method on foo<br />
                 console.log(foo) <span class="comment-outcome">--> Hello World</span> // the original value is
                 unchanged<br /> </code
-              ><br />
-
-              <div class="comment-oneline">We can do this</div>
-              <code>
-               foo[0]) <span class="comment-outcome">--> H</span> // we get the 1st character<br /> </code
-              ><br />
+              >				
+              
+  				<div class="comment-oneline">We can do this</div>
+				<code>
+               foo[0] <span class="comment-outcome">--> H</span> // we get the 1st character<br /> 
+			   </code>
               <div class="comment-oneline">But not this...</div>
               <code>
                 foo[0] = "T" // We try to assign foo[0] a new value<br />
@@ -493,7 +507,7 @@
             ><br />
             
             <h4><i>string</i></h4>
-            <p>The string type holds data that can be represented as text. String values consists of normal characters, special characters can be encoded using the escape character '\'. In Javascript strings can be denominated with both single and double quotes. With ES6 support was also added for 'template literals'. Template literals also allows for variables and expressions to be embedded with string literals. (we will cover template literals further in the chapter 'ES6 Features'. 
+            <p>The string type holds data that can be represented as text. String values consists of normal characters, special characters can be encoded using the escape character '\'. In Javascript strings can be denominated with both single and double quotes. With ES6 support was also added for 'template literals'. Template literals also allows for variables and expressions to be embedded with string literals. (we will cover template literals further in the next chapter). 
 			</p>
 			
 			<div class="code-container">			
@@ -622,31 +636,37 @@
 			Boolean types are either true or false and denominated by <i>true</i> or <i>false</i>.
 			The major importance of boolean:s are as result of comparison. 
 			</p>			
-			
-			<h4><i>truthy</i> and <i>falsy</i> values</h4>
-			<p>All values in Javascript can be said to have an inherent boolean value. To simplify there are six <i>falsy</i> values and all other values are <i>truthy</i>. The falsy values are: 
-				<ul class="falsy-list">
-				<li><i>false</i></li>
-				<li><i>0</i></li>
-				<li><i>undefined</i></li>
-				<li><i>' '</i> or <i>" "</i><span class="list-comment">// empty string</span> </li> 
-				<li><i>NaN</i></li>
-				<li><i>null</i></li>
-				</ul>
-
-			<br />
           </div>
         </article>
 		
 		<article class="subject-article">
           <h3 class="subject-title">Objects</h3>
           <div class="example">
-		  <p>The easiest way to understand objects are to see them as a collection of key value pairs. In Javascript the correct term for keys are properties. Properties being the 'key' in a key value pair can also be seen as variable names inside objects. If the property holds a function expression we would call it a <i>method</i>. 		  	  
 		  <p>
-		  
-		  <h4>Literal Objects</h4>
-			<p>In general the properties and values have something in common as for example all car objects can be expected to have the properties color and model. 			
+		  All values in Javascript, except primitives, are objects. The easiest way to understand objects are to see them as a collection of key value pairs. In Javascript the correct term for keys are properties. Properties being the 'key' in a key value pair can also be seen as variable names inside objects. If the property holds a function expression we would call it a <i>method</i>.		  	  
+		  </p><br />
+		  <p>
+		  Javascript has for a long time used constructor functions to create an object data type, basically a 'blueprint' for creating objects. With constructors we can create an object type that can be the base for creating an unlimited quantity of instances without having to redefine the same object. 	
+		</p>
+						  
+		  <h4>Constructor functions</h4>		  
+			<p>In general the properties and values have something in common as for example all car objects can be expected to have the properties color and model. IT therefore makes sense to create a function that can be used to create an unlimited quantity of instances of a certain object type. For example a constructor function for a <i>car</i> object.  			
 			</p>
+			<div class="code-container">
+				<div class="comment-oneline">We create a 'car' constructor</div>
+				<code>
+					function Car(model, color, year, doors) {		<br />	
+						<span class="example">this.model = model	</span><br />
+						<span class="example">this.color = color	</span><br />
+						<span class="example">this.year = year		</span><br />
+						<span class="example">this.doors = doors	</span><br />
+					}												<br />	
+				</code>
+			</div>
+			
+			<span class="note-comment">
+        <span class="first-word">Note: </span>With the ES6 update classes was introduced to Javascript that performs basically the same operations as constructor functions. We will look more at classes in the next chapter.
+		</span>	
 
 		<h4>Arrays</h4>
 			<p>Arrays are basically a variable consisting of a collection of values.
@@ -753,7 +773,7 @@
             >
           </div>
         </article>
-
+		
         <article class="subject-article">
           <h3 class="subject-title">Operators</h3>
           <div class="example">
@@ -859,6 +879,49 @@
 			</div>			
           </div>
         </article>
+		
+		 <article class="subject-article">
+          <h3 class="subject-title"><i>truthy</i> and <i>falsy</i></h3>
+          <div class="example">
+			<p>
+			All values in Javascript can be said to be either <i>truthy</i> or <i>falsy</i>. 			
+			This should not be confused with <i>false</i> or <i>true</i> that are of type Boolean.
+			<i>truthy</i> and <i>falsy</i> are no data type in its own, a value of type string for example is of type string no matter its inherent boolean value. 
+			To simplify there are six <i>falsy</i> values and all other values are considered to be <i>truthy</i>.
+			</p><br />
+				<p>The falsy values are:</p> 
+				<ul class="falsy-list">
+				<li><i>false</i></li>
+				<li><i>0</i></li>
+				<li><i>undefined</i></li>
+				<li><i>' '</i> or <i>" "</i><span class="list-comment">// empty string</span> </li> 
+				<li><i>NaN</i></li>
+				<li><i>null</i></li>
+				</ul>
+				<br />
+			
+			<p>
+			So why do we have <i>truthy</i> and <i>falsy</i> in Javascript?  
+			In JavaScript all values, no matter its type, will be considered either true or false when encountered in a Boolean context. In other words; A condition where one or more values are set in a boolean context will result in either a true or false outcome. The typical situation being an if statement where a block of code will be excecuted depending on if the condition will be considered true or false. The boolean context can consist of values of any type but they will always have an inherent boolean value as either <i>truthy</i> or <i>falsy</i>.  
+			</p>
+			
+			<div class="code-container">
+				<code>
+					if(1) {		<br />
+							<span class="example">console.log("Hello") <span class="comment-outcome">--> Hello</span> // 1 will be considered <i>truthy</i> </span><br />
+					}				<br />	
+					<br />
+					var a;		<br />
+					if(a) {		<br />
+					<span class="example">	console.log(a)</span> -->  // a is of type 'undefined' considered as <i>falsy</i><br />
+					}	<br />				
+				</code>
+			</div>
+			
+			
+			
+			</div>
+			</article>
 
         <article class="subject-article">
           <h3 class="subject-title">Type Coercion</h3>
@@ -1465,7 +1528,7 @@
               consider properties of the object itself and not its prototypes, use getOwnPropertyNames() or perform a hasOwnProperty() check.
             </p><br />
 			<p>
-			The for/in statement can be used for arrays but this is not recommended. The reason is that there are no guarantee that a for/in loop will return the values in certain order. When it comes to arrays the order of access is important unlike objects where the value is assigned to a certain property. 
+			The for/in statement can be used on arrays but this is not recommended. The reason is that there are no guarantee that a for/in loop will return the values in certain order. When it comes to arrays the order of access is important unlike objects where the value is assigned to a certain property. 
 			</p>
 			
             <div class="code-container">
@@ -1564,13 +1627,20 @@
               When a function receives another function as an argument that
               function is called a <b>higher order function</b>. And the
               function you pass in is called a <b>callback</b>. With ES6 several
-              new higher order functions were introduced. With this the
-              Javascript language got more flexible and developers got access to
-              some new effective tools. Noteworthy; These methods do not
+              new higher order functions were introduced that are designed to be used with arrays. 
+			  With this the Javascript language got more versatile and developers got access to
+              some new powerful tools. Noteworthy; These methods do not
               mutate/change the orignal array (in general a good thing!).
+			  
+			  A typical scenario where higerorder functions can be used are when handling JSON data from an external database. This data is not seldom in the form of an array consisting of objects. This is a common way of structuring data and with ES6 we now have a set of tools to handle such data effectively. 
             </p>
             <h4><i>map()</i></h4>
-			<p>...</p>
+			<p>
+			The map method will return a new array with the result of the callback function. The callback will be called for every element in the array and the returned value will be added to the new array. 
+			The callback function can take three parameters, the element, index and the array object. Only the element is required the others are optional.		
+			The map method should only be used if the intention is to create a new array, if the intention is to alter the elements in the existing array the forEach function should be used instead.	
+			</p>
+			
             <h4><i>filter()</i></h4>
 			<p>...</p>
             <h4><i>reduce()</i></h4>
@@ -1598,9 +1668,10 @@
 			</code>
 			<br />
 			<div class="comment-oneline">map()</div>
-			<code>
-				...
-			</code>
+			
+			<code></code>
+			
+			
 			<div class="comment-oneline">filter()</div>
 			<code>
 				...
@@ -1641,9 +1712,26 @@
 		<article class="subject-article">
           <h3 class="subject-title">Object constructor methods</h3>
           <div class="example">
+		  <p>
+			We already now that to create an instance of an object we have to use an object constructor function. This is done by calling the constructor function with the <i>new</i> keyword. 
+			This will at the same time create a constructor property for the Object. Referencing this property will return the Object constructor that created the instance object. 
+		  <div class="code-container">
+			<code>
+				
+			</code>
+		  </div>
 		  
-		  <h4>Object; keys(), values(), entries()</h4>
-		  <p>...</p>
+		  <h4>Built in Object constructor methods</h4>
+
+			<p><i>Object.keys()</i> and <i>Object.values()</i></p>
+				<p>....</p>
+				
+			<h5>Object.entries()</h5>
+			<p>...</p>
+	
+			<h5>hasOwnProperty()</h5>
+			<p>...</p>
+			
 		  <!--
             <i><b>Get the keys and values from the object</b></i
             ><br />
@@ -2185,8 +2273,7 @@
 		// END TOGGLE
 		
 		
-		// EXCERCISES  
-					
+		// EXCERCISES 					
 		class Area {
 		  constructor(width, height) {
 			this.width = width;
@@ -2224,7 +2311,6 @@
 			rex:	{name: "Rex", role: "Guard", age: 3, salary: 'T-bone Steak'}
 		}
 	
-
 		let richKids = employees.filter( employee => employee.salary > 9000)		
 		let oldKids = employees.filter(employee => employee.age > 30)
 		
@@ -2249,10 +2335,6 @@
 			}
 			return foo
 		}
-		
-		//console.log(richKids)
-		//console.log(oldKids)	
-		//console.log("old: ", getOld())
 		
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
