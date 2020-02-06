@@ -9,7 +9,7 @@ Nothing more is needed.
 Only thing needed is a browser.
 
 # Project Status 
-The tutorial is still under development but can be used in it's present state.
+The tutorial is still under development but can be used in its present state.
 
 # Version 
 Ver1.4
