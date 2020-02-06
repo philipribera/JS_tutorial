@@ -17,6 +17,7 @@
       body {
         font-family: "Montserrat", Helvetica, sans-serif;
         background-color: rgb(215,215,215);
+		z-index: -999;
       }
       header {
         width: 100%;
@@ -62,7 +63,7 @@
         display: block;
         width: 100%;
         max-width: 984px;
-        background-color: rgba(254, 254, 254, 1);
+        background-color: rgba(255, 255, 255, 1);
         color: rgb(35, 35, 35);
         padding: 26px;
         margin: 42px auto;
@@ -445,7 +446,7 @@
 			Javascript is the language of the web, it is an interpreted language that runs directly on the clients browser meaning that no compiler is needed. This is the core of Javascript; It was designed to be easy to use and easy to learn. It also explains some of its characteristics, strengths and drawbacks, that differentiate it from some of the most common programming languages. But Javascript has evolved a lot since its introduction and with the latest updates it has become a much more versatile language. Now days Javascript isn't limited to the browser either. With the help of <i>Node</i> it can be run on both the browser and on the server side.  
 			</p><br />
 			<p>
-			This tutorial will not focus on the rules for how to name variables or explain what an expression is. There are already good tutorials that explains the core basic in detail. With the exception of a few pointers on some basic facts, this tutorial will focus on the core concepts of the language to get a better understanding on how Javascript works. There is also a chapter dedicated to the ECMAScript 2015 update(ES6) and how to use some of the new features that was introduced. The ES6 update was probably the most important development of Javascript since its introduction making Javascript more powerful and versatile.   
+			This tutorial will not focus on the rules for how to name variables or explain what an expression is. There are already good tutorials that explains the core basic in detail. With the exception of a few pointers on some basic facts, this tutorial will focus on key concepts of the language to get a better understanding on how Javascript works. There is also a chapter dedicated to the ECMAScript 2015 update(ES6) and how to use some of the new features that was introduced. The ES6 update was probably the most important development of Javascript since its introduction making Javascript more powerful and versatile.   
 			</p>
 
 		  <h4>Dynamically typed</h4>
@@ -1699,7 +1700,7 @@
 					})													<br />	
 				console.log(numbersDoubled)	<span class="comment-outcome"> --> [4,8,12,16,20] </span><span class="code-comment">// We get a new array with all numbers doubled.						</span><br />					
 				</code>
-				<div class="comment-oneline">Refactored short version</div>
+				<div class="comment-oneline">Refactored short-hand version</div>
 				<code>
 					let numbersDoubleShort = numbers.map(number => number * 2)	<br />
 					console.log(numbersDoubledShort)	<span class="comment-outcome"> --> [4,8,12,16,20]	</span><span class="code-comment">// We get the same result.	</span><br />
