@@ -58,6 +58,7 @@
         color: rgb(255, 159, 32);
       }
       .wrapper {
+		position: relative;
         display: block;
         width: 100%;
         max-width: 984px;
@@ -121,8 +122,11 @@
       .tutorial-title {
         margin: 20px 0;
       }
+	  .log-list-title {
+		font-weight: 600;
+	  }
 	  .log-list {
-		margin: 22px 0;
+		margin: 24px 0;
 	  }
       .log-list li {
 		display: flex;        
@@ -140,6 +144,9 @@
         margin-right: 14px;
       }
       .go-top {
+		position: absolute;
+		bottom: 0;
+		left: 0;
         padding: 4px 0;
       }
       .go-top a {
@@ -156,12 +163,14 @@
         opacity: 0.95;
       }
       .tutorial-part {
-        padding: 28px 28px 30px 28px;
-        border-bottom: 4px solid rgb(207, 207, 207);
+        padding: 28px 28px 30px 28px;        
       }
       .tutorial-part:not(:first-of-type) {
         margin-top: 24px;
       }
+      .tutorial-part:not(:nth-last-child(2)) {
+	  	  border-bottom: 4px solid rgb(207, 207, 207);
+	  }
       .subject-article {
         display: inline-block;
 		width: 100%;
@@ -221,7 +230,7 @@
       .code-container-mod code,
       .code-container-mod code span {
         color: rgb(74, 249, 105);
-		color: rgb(235, 125, 255);
+		color: rgb(240, 158, 255);
 		color: rgb(82, 231, 255);
       }
       .code-container-mod .comment-oneline, .code-container-mod i, .code-container-mod .expand-text {
@@ -278,12 +287,13 @@
 			margin: 4px 0;
 		}
 		.falsy-list li {
-			background-color: rgb(247,247,247);
-			padding: 5px 4px;
-			border-bottom: 1px solid rgb(242,242,242);
+			background-color: rgb(249,249,249);
+			padding: 5px 8px;
+			border-left: 1px solid rgb(222,222,222);
+			border-bottom: 1px solid rgb(241,241,241);
 		}
-		.falsy-list li:nth-child(odd) {
-			background-color: rgb(240,240,240);
+		.falsy-list li:nth-child(odd), .log-list li:nth-child(even) {
+			background-color: rgb(241,241,241);
 		}
 		.list-comment {
 			padding-left: 16px;
@@ -426,7 +436,7 @@
 
 		  <h4>Dynamically typed</h4>
             <p>
-			 Javascript is what we call <i>dynamically typed</i> meaning the type of an variable is interpreted by the compiler. Sometime Javascript is also called a <i>weakly typed</i> language in contrast to languages that are <i>strongly</i> or <i>static</i> typed where a variable has to be given a type when it's declared. 
+			 Javascript is what we call <i>dynamically typed</i> meaning the type of an variable is interpreted by the compiler. Javascript is also said to be <i>weakly typed</i> in contrast to languages that are <i>strongly</i> or <i>static</i> typed where a variable has to be given a type when it's declared. 
 			 Javascript being dynamically typed means that variable types will be interpreted and if necessary even change implicitly at runtime. With runtime meaning when the program executes the commands. The type and value can be changed at any time both explicit in the code or implicitly by the Javascript engine. This behaviour can be confusing and give unexpected outcomes if not understood fully. Before looking deeper into this tough we need to get a better understanding on different data types and their behaviour in Javascript.      
 			</p>
 			
@@ -624,7 +634,7 @@
             
             <div class="code-container">
               <code>
-                let b = null; <br />
+                var b = null; <br />
                 typeof b <span class="comment-outcome">--> object</span> // null basically means empty object
                 <br />
                 if (b === null) <span class="comment-outcome">--> true </span>// We check for null </code
@@ -676,18 +686,18 @@
             <div class="code-container">
 			   <div class="comment-oneline">Some common Array methods</div>        
               <code>			  
-                let greet = new String("Hello") <br />
+                var greet = new String("Hello") <br />
                 greet.charAt(greet.length-1) 	<br /><br />
 
-                let str = "KYH Frontend" 		<br />
+                var str = "KYH Frontend" 		<br />
                 typeof str 						<br />
                 str.indexOf("F") 				<br /><br />
 
-                let foo = str.split(" ") 		<br />
+                var foo = str.split(" ") 		<br />
                 typeof foo 						<br />
                 foo.sort() 						<br /><br />
 
-                let first = foo.slice(0,1)		<br />
+                var first = foo.slice(0,1)		<br />
                 foo.push(first.join()) 			<br />
                 console.log(foo) 				<br /><br />
 
@@ -718,7 +728,7 @@
 		  </div>
 	  </article>
 
-<article class="subject-article">
+		<article class="subject-article">
           <h3 class="subject-title">Pass by Value vs. Reference</h3>
           <div class="example">
             <p>
@@ -733,8 +743,8 @@
             <div class="code-container">
 			<div class="comment-oneline">Primitive types, pass value by copying</div>
               <code>
-                let a = "KYH" <br />
-                let b = a <br />
+                var a = "KYH" <br />
+                var b = a <br />
                 a = "Hello" // We assign a new value to a <br />
                 b <span class="comment-outcome">--> "KYH"</span> // We retain the copied value <br />
               </code>
@@ -743,8 +753,8 @@
             <div class="code-container">
 			<div class="comment-oneline">Objects, pass value by reference</div>
               <code>
-                let objectA = {name: "Kal", lastname: "Doe"} <br />
-                let objectB = objectA <br />
+                var objectA = {name: "Kal", lastname: "Doe"} <br />
+                var objectB = objectA <br />
                 objectA.name = "Ada" // we change the value of prop name<br>
 				</code>				
 				<div class="comment-oneline">objectB points to the location of the original object.
@@ -772,9 +782,201 @@
               ></span
             >
           </div>
+        </article>        
+		
+		 <article class="subject-article">
+          <h3 class="subject-title"><i>truthy</i> and <i>falsy</i></h3>
+          <div class="example">
+			<p>
+			All values in Javascript can be said to be either <i>truthy</i> or <i>falsy</i>. 			
+			This should not be confused with <i>false</i> or <i>true</i> that are of type Boolean.
+			<i>truthy</i> and <i>falsy</i> are no data type in its own, a value of type string for example is of type string no matter its inherent boolean value. 
+			To simplify there are six <i>falsy</i> values and all other values are considered to be <i>truthy</i>.
+			</p><br />
+				<p class="log-list-title">Values considered falsy:</p> 
+				<ul class="falsy-list">
+				<li><i>false</i></li>
+				<li><i>0</i></li>
+				<li><i>undefined</i></li>
+				<li><i>' '</i> or <i>" "</i><span class="list-comment">// empty string</span> </li> 
+				<li><i>NaN</i></li>
+				<li><i>null</i></li>
+				</ul>
+				<br />
+			
+			<p>
+			So why do we have <i>truthy</i> and <i>falsy</i> in Javascript?  
+			In JavaScript all values, no matter its type, will be considered either true or false when encountered in a Boolean context. In other words; A condition where one or more values are set in a boolean context will result in either a true or false outcome. The typical situation being an if statement where a block of code will be excecuted depending on if the condition will be considered true or false. The boolean context can consist of values of any type but they will always have an inherent boolean value as either <i>truthy</i> or <i>falsy</i>.  
+			</p>
+			
+			<div class="code-container">
+				<code>
+					if(1) {		<br />
+							<span class="example">console.log("Hello") <span class="comment-outcome">--> Hello</span> // 1 will be considered <i>truthy</i> </span><br />
+					}				<br />	
+					<br />
+					var a;		<br />
+					if(a) {		<br />
+					<span class="example">	console.log("I'm truthy");  </span>	 <br />
+					} else {	<br />
+					<span class="example">console.log("I'm falsy")</span> <span class="comment-outcome">--> I'm falsy </span>// a is 'undefined' considered as <i>falsy</i><br />
+					} <br />
+				</code>
+			</div>			
+			</div>
+			</article>
+
+        <article class="subject-article">
+          <h3 class="subject-title">Type Coercion</h3>
+          <div class="example">
+            <p>
+              Type coercion is an important concept in Javascript not least
+              considering that JavaScript is a loosely typed programming
+              language, sometimes also described as a dynamic language.
+              Javascript being loosely typed means that a variable can be
+              assigned and reassigned any value of an existing data type. It can
+              be a string to number, object to boolean, and so on. The process
+              of converting a value from one type to another is called 'type
+              coercion'.
+            </p>
+            
+            <h4>Implicit vs. explicit coercion</h4>
+            <p>
+              Type conversion can be done implicit and explicit. An example of
+              implicit(automatic) type conversion is when using the loose
+              equality operator. Since it only compares the values and not the
+              type Javascript will seek to make a type coercion so both values
+              also share the same type. As a developer such code should be
+              avoided since it's often the reason for bugs. Explicit coercion on
+              the other hand is done on purpose, for example by using
+              Number(value) that seeks to convert the value to the type
+              'number'.
+            </p>
+            <br />
+            <span class="link"
+              >See more:
+              <a
+                href="https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/"
+                >https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/</a
+              >
+            </span>
+          </div>
         </article>
 		
-        <article class="subject-article">
+		<article class="subject-article">
+          <h3 class="subject-title">Hoisting</h3>
+          <div class="example">
+            <p>
+              The definition of hoisting in Javascript is that declarations of
+              variables and functions are moved to the top of the code when
+              compiled. This means that a variable or function can be used even
+              before it has been initialized. It's important to remember that variables declared with <i>let</i> will not be hoisted. One of the benefits with hoisting is that functions are hoisted as well making it possible to use them anywhere in your code. The concept of Hoisting can be the source for confusion, not least since the written code is only moved in the memory, not physically. 
+            </p>
+            <br />
+            <p>
+              If we call a variable declared with <i>var</i> before it has been initialized it's value will be <i>undefined</i> and <i>undefined</i> being a valid value, even having its own type, will not result in an error. The same applies for function expressions being an expression assigned to a variable. It's important to remember that it's only the declaration that is hoisted not the value of the variable.           
+            </p>
+            <br />
+            <span class="link"
+              >See more;
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Glossary/Hoisting"
+                >https://developer.mozilla.org/en-US/docs/Glossary/Hoisting</a
+              >
+            </span>
+
+            <div class="code-container">
+              <div class="comment-oneline">
+                Variable declarations are hoisted inside functions as well
+              </div>
+              <code>
+                var testScope = function() { <br />
+                <span class="example">console.log(y);</span><br />
+                <span class="example">var y = 1; </span><br />
+                } <br />
+                testScope(); <span class="comment-outcome">--> undefined</span><br /> </code
+              ><br />
+
+              <div class="comment-oneline">
+                Anonymous function expressions are not hoisted
+              </div>
+              <code>
+                var y = 2; <br />
+                var testScope = function() { <br />
+                <span class="example">console.log(y); // we try to access y before it has been initialized</span><br />
+                <span class="example">var y = 1; </span><br />
+                } <br />
+                testScope(); <span class="comment-outcome">--> undefined </span><br />
+              </code>
+
+              <br />
+			  <div class="comment-oneline">
+                Here y is not redeclared inside the function
+              </div>
+              <code>			  
+                var y = 2; <br />
+                var testScope = function() { <br />
+                <span class="example"> console.log(y);</span><br />
+                } <br />
+                testScope(); <span class="comment-outcome">--> 2</span><br />
+              </code>			  
+            </div>
+          </div>
+        </article>
+		
+		<article class="subject-article">
+          <h3 class="subject-title">Variable Scope</h3>
+          <div class="example">
+            <p>
+              When talking about variable scope we are in essence referring to
+              which scope a variable is accessible. In other words where we can look/access variables or functions.
+              For a long time Javascript variable declarations were either
+              global or function scoped. The latter sometimes also called local
+              scope. A variable accessible anywhere in our code is said to exist
+              in the global scope while a variable accessible inside a function
+              exist in the local scope of the function where it was declared. With the ES6 update and the introduction of the keyword <i>let</i> for declaring variables we now also have <i>block scope</i>. A variable declared with <i>let</i> will only be accessible inside the block where it was declared. This can for example be inside the block restricted by a for loop that exist inside a function.
+			</p>            
+            <br />
+            <p>
+              When it comes to function scope it's also important to understand
+              the concept of lexical scope sometimes also called Static
+              scope. Lexical scope is the concept of a variable being accessible
+              inside nested blocks, typically function or block scopes inside an outer function. 
+              </p>
+			  <div class="code-container">
+			  
+			  <div class="comment-oneline">Global Scope</div>
+				<code>
+				let a = "Hello"	// we create a global variable		<br />
+				
+				function() {			<br />
+				<span class="example">	console.log(a)	<span class="comment-outcome">--> "Hello"</span> // a is accessible everywhere in our code </span><br />
+				}	<br />
+				</code>
+				
+				<div class="comment-oneline">Block Scope</div>
+				<code>
+				let numbers = [1,2,3,4,5]											<br />
+				for(let i = 0; i &lt; numbers.length; i++) {						<br />
+				<span class="example2">	console.log(numbers[i]) <span class="comment-outcome">--> 1,2,3,4,5		</span></span><br />	
+				}											<br />
+				console.log(i) <span class="comment-outcome">--> referenceError </span>// i does not exist outside its block scope <br />
+				</code>
+			  
+			  <div class="comment-oneline">Lexical Scope</div>
+			  <code>
+                function outerFunction() { 							<br />
+				<span class="example2">	var a = "I'm from outside";					</span><br />
+				<span class="example2">	function innerFunction() {					</span><br />
+				<span class="example3">		console.log(a)	<span class="comment-outcome">-->	I'm from outside	</span></span><br />
+				<span class="example2"> }</span><br />
+				}	
+				</code>	
+			</div>
+		  </div>
+        </article>       
+
+         <article class="subject-article">
           <h3 class="subject-title">Operators</h3>
           <div class="example">
             <p>
@@ -843,20 +1045,20 @@
 			<div class="code-container">			
 			<div class="comment-oneline">The <span class="expand-text">||</span> (or) operator will return true if either operand is true</div>
 			<code>
-				var a = true;	<br />
-				var b = false; 	<br />
+				let a = true;	<br />
+				let b = false; 	<br />
 				( a || b ) <span class="comment-outcome">--> true</span><br />   
 			</code>
 			<div class="comment-oneline">The <span class="expand-text">&&</span> (and) operator will return true if both operands are true</div>
 			<code>
-				var a = true;	<br />
-				var b = false; 	<br />
+				let a = true;	<br />
+				let b = false; 	<br />
 				( a && b ) <span class="comment-outcome">--> false</span><br />   
 			</code>
 			<div class="comment-oneline">Logical (&&) operator will return second operand if both operands are true</div>			
 			<code>
-				var age = 20;	<br />
-				var allowedAge = 15; <br />
+				let age = 20;	<br />
+				let allowedAge = 15; <br />
 				( (age > allowedAge) && "You can enter")<span class="comment-outcome">--> "You can enter."</span>
 			</code>
 			</div>
@@ -865,230 +1067,75 @@
 			<p>The ternary operator assigns a value to a variable based on some condition. If the condition is true the first value is assigned to the variable else the second one. Ternary operators can be seen as a leaner way to write code than the if/else conditionally approach.</p>
 			<div class="code-container">
 			<code>
-				var age = 12	<br />
-				var message = age > 15 ? "Horror movie." : "It's Disney for you." <br />
+				let age = 12	<br />
+				let message = age > 15 ? "Horror movie." : "It's Disney for you." <br />
 				message <span class="comment-outcome">--> "It's Disney for you."</span>
 			</code>		
 			<div class="comment-oneline">Ternary operator combined wth logical operator</div>
 			<code>
-			var age = 20;		<br />
-			var allowedAge = 15	<br />
-			var result = allowedAge ? ( age && "Welcome!" ) : null				<br />	
-			result	<span class="comment-outcome">--> "Welcome" </span><br />
+			let age = 20;												<br />
+			let allowedAge = 15											<br />
+			let result = allowedAge ? ( age && "Welcome!" ) : null		<br />	
+			result	<span class="comment-outcome">--> "Welcome" 		</span><br />
 			</code>			
 			</div>			
           </div>
         </article>
-		
-		 <article class="subject-article">
-          <h3 class="subject-title"><i>truthy</i> and <i>falsy</i></h3>
-          <div class="example">
-			<p>
-			All values in Javascript can be said to be either <i>truthy</i> or <i>falsy</i>. 			
-			This should not be confused with <i>false</i> or <i>true</i> that are of type Boolean.
-			<i>truthy</i> and <i>falsy</i> are no data type in its own, a value of type string for example is of type string no matter its inherent boolean value. 
-			To simplify there are six <i>falsy</i> values and all other values are considered to be <i>truthy</i>.
-			</p><br />
-				<p>The falsy values are:</p> 
-				<ul class="falsy-list">
-				<li><i>false</i></li>
-				<li><i>0</i></li>
-				<li><i>undefined</i></li>
-				<li><i>' '</i> or <i>" "</i><span class="list-comment">// empty string</span> </li> 
-				<li><i>NaN</i></li>
-				<li><i>null</i></li>
-				</ul>
-				<br />
-			
-			<p>
-			So why do we have <i>truthy</i> and <i>falsy</i> in Javascript?  
-			In JavaScript all values, no matter its type, will be considered either true or false when encountered in a Boolean context. In other words; A condition where one or more values are set in a boolean context will result in either a true or false outcome. The typical situation being an if statement where a block of code will be excecuted depending on if the condition will be considered true or false. The boolean context can consist of values of any type but they will always have an inherent boolean value as either <i>truthy</i> or <i>falsy</i>.  
-			</p>
-			
-			<div class="code-container">
-				<code>
-					if(1) {		<br />
-							<span class="example">console.log("Hello") <span class="comment-outcome">--> Hello</span> // 1 will be considered <i>truthy</i> </span><br />
-					}				<br />	
-					<br />
-					var a;		<br />
-					if(a) {		<br />
-					<span class="example">	console.log(a)</span> -->  // a is of type 'undefined' considered as <i>falsy</i><br />
-					}	<br />				
-				</code>
-			</div>
-			
-			
-			
-			</div>
-			</article>
 
         <article class="subject-article">
-          <h3 class="subject-title">Type Coercion</h3>
+          <h3 class="subject-title">Functions as Callbacks</h3>
           <div class="example">
-            <p>
-              Type coercion is an important concept in Javascript not least
-              considering that JavaScript is a loosely typed programming
-              language, sometimes also described as a dynamic language.
-              Javascript being loosely typed means that a variable can be
-              assigned and reassigned any value of an existing data type. It can
-              be a string to number, object to boolean, and so on. The process
-              of converting a value from one type to another is called 'type
-              coercion'.
-            </p>
-            
-            <h4>Implicit vs. explicit coercion</h4>
-            <p>
-              Type conversion can be done implicit and explicit. An example of
-              implicit(automatic) type conversion is when using the loose
-              equality operator. Since it only compares the values and not the
-              type Javascript will seek to make a type coercion so both values
-              also share the same type. As a developer such code should be
-              avoided since it's often the reason for bugs. Explicit coercion on
-              the other hand is done on purpose, for example by using
-              Number(value) that seeks to convert the value to the type
-              'number'.
-            </p>
-            <br />
-            <span class="link"
-              >See more:
-              <a
-                href="https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/"
-                >https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/</a
-              >
+		  <p>In Javascript functions are first class objects meaning that functions can be passed as arguments into other functions just as any other object. When a function receives another function as an argument that function is called a higher order function. And the function you pass in is called a callback. The callback can access the containing functions variables meaning that callbacks works as closures. Noteworthy; It's good praxis to check if the passed in callback is a function.   
+			  </p>
+			  <span class="note-comment">
+              <span class="first-word">Note: </span>to check if a callback indeed is a function; <i>typeof callBack === 'function'</i>.
             </span>
-          </div>
-        </article>
-		
-		<article class="subject-article">
-          <h3 class="subject-title">Variable Scope</h3>
-          <div class="example">
-            <p>
-              When talking about variable scope we are in essence referring to
-              which scope a variable is accessible. In other words where we can look/access variables or functions.
-              For a long time Javascript variable declarations were either
-              global or function scoped. The latter sometimes also called local
-              scope. A variable accessible anywhere in our code is said to exist
-              in the global scope while a variable accessible inside a function
-              exist in the local scope of the function where it was declared. With the ES6 update and the introduction of the keyword <i>let</i> for declaring variables we now also have <i>block scope</i>. A variable declared with <i>let</i> will only be accessible inside the block where it was declared. This can for example be inside the block restricted by a for loop that exist inside a function.
-			</p>            
-            <br />
-            <p>
-              When it comes to function scope it's also important to understand
-              the concept of lexical scope sometimes also called Static
-              scope. Lexical scope is the concept of a variable being accessible
-              inside nested blocks, typically function or block scopes inside an outer function. 
-              </p>
+			
 			  <div class="code-container">
-			  
-			  <div class="comment-oneline">Global Scope</div>
+			  <div class="comment-oneline">We pass a function into another function</div>
 				<code>
-				let a = "Hello"	// we create a global variable		<br />
-				
-				function() {			<br />
-				<span class="example">	console.log(a)	<span class="comment-outcome">--> "Hello"</span> // a is accessible everywhere in our code </span><br />
-				}	<br />
+					const greet = ()=> "Hello"								<br />
+																			<br />
+					const doSmth = (callback)=> {								<br />
+					<span class="example">if(typeof callback === 'function') {	</span><br />
+					<span class="example2">	console.log(`${callback()} World`)	</span><br />
+					<span class="example">} else {							</span><br />
+					<span class="example2">	return false;					</span><br />
+					<span class="example">}									</span><br />
+					}														<br />
+					doSmth(greet)		<span class="comment-outcome">--> "Hello World" </span><br />
 				</code>
-				
-				<div class="comment-oneline">Block Scope</div>
-				<code>
-				let numbers = [1,2,3,4,5]											<br />
-				for(let i = 0; i &lt; numbers.length; i++) {						<br />
-				<span class="example2">	console.log(numbers[i]) <span class="comment-outcome">--> 1,2,3,4,5		</span></span><br />	
-				}											<br />
-				console.log(i) <span class="comment-outcome">--> referenceError </span>// i does not exist outside its block scope <br />
-				</code>
-			  
-			  <div class="comment-oneline">Lexical Scope</div>
-			  <code>
-                function outerFunction() { 							<br />
-				<span class="example2">	var a = "I'm from outside";					</span><br />
-				<span class="example2">	function innerFunction() {					</span><br />
-				<span class="example3">		console.log(a)	<span class="comment-outcome">-->	I'm from outside	</span></span><br />
-				<span class="example2"> }</span><br />
-				}	
-				</code>	
-			</div>
+			  </div>		  
 		  </div>
-        </article>       
+		  </article>
 
-		<article class="subject-article">
-          <h3 class="subject-title">Hoisting</h3>
-          <div class="example">
-            <p>
-              The definition of hoisting in Javascript is that declarations of
-              variables and functions are moved to the top of the code when
-              compiled. This means that a variable or function can be used even
-              before it has been initialized. It's important to remember that variables declared with <i>let</i> will not be hoisted. One of the benefits with hoisting is that functions are hoisted as well making it possible to use them anywhere in your code. The concept of Hoisting can be the source for confusion, not least since the written code is only moved in the memory, not physically. 
-            </p>
-            <br />
-            <p>
-              If we call a variable declared with <i>var</i> before it has been initialized it's value will be <i>undefined</i> and <i>undefined</i> being a valid value, even having its own type, will not result in an error. The same applies for function expressions being an expression assigned to a variable. It's important to remember that it's only the declaration that is hoisted not the value of the variable.           
-            </p>
-            <br />
-            <span class="link"
-              >See more;
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Glossary/Hoisting"
-                >https://developer.mozilla.org/en-US/docs/Glossary/Hoisting</a
-              >
-            </span>
-
-            <div class="code-container">
-              <div class="comment-oneline">
-                Variable declarations are hoisted inside functions as well
-              </div>
-              <code>
-                var testScope = function() { <br />
-                <span class="example">console.log(y);</span><br />
-                <span class="example">var y = 1; </span><br />
-                } <br />
-                testScope(); <span class="comment-outcome">--> undefined</span><br /> </code
-              ><br />
-
-              <div class="comment-oneline">
-                Anonymous function expressions are not hoisted
-              </div>
-              <code>
-                var y = 2; <br />
-                var testScope = function() { <br />
-                <span class="example">console.log(y); // we try to access y before it has been initialized</span><br />
-                <span class="example">var y = 1; </span><br />
-                } <br />
-                testScope(); <span class="comment-outcome">--> undefined </span><br />
-              </code>
-
-              <br />
-			  <div class="comment-oneline">
-                Here y is not redeclared inside the function
-              </div>
-              <code>			  
-                var y = 2; <br />
-                var testScope = function() { <br />
-                <span class="example"> console.log(y);</span><br />
-                } <br />
-                testScope(); <span class="comment-outcome">--> 2</span><br />
-              </code>			  
-            </div>
-			<!--
-			<span class="note-comment">
-              <span class="first-word">Note: </span>Variables declared with the <i>let</i> keyword are not hoisted (see more under ES6 features).
-			  </span>-->
-          </div>
-        </article>
-
-         
 
         <article class="subject-article">
           <h3 class="subject-title">Closures</h3>
           <div class="example">
-            <p>
-			A closure is to use a few words a function enclosed in lexical scope. As such a closure gives the enclosed function access to an outer function’s scope. In JavaScript, closures are created every time a function is created, at function creation time.
-			</p>
-			<br />
-			<p>
-			Closures in practice are used for creating object data privacy. It's commonly used for event handlers and callback functions. When using closures the enclosed variables are only in scope within the containing function making them non-accessible from the outside.
-			</p>
+		     <p>
+			A closure is technical when a function is using a variable outside its own function scope. When variables in the outer scope are accessible from the isnide, usually a nested function this is what is called Lexical Scope. As such a closure gives the enclosed function access to an outer function’s scope. In JavaScript, closures are created every time a function is created, at function creation. Closures in practice are used for creating object data privacy. When using closures the enclosed variables are only in scope within the containing function making them non-accessible from the outside. As such they are 'enclosed' and made private. Closures can be seen as functions with preserved data.  
+			</p>		
+			
+			<div class="code-container">
+              <div class="comment-oneline">We create a closure</div>
+				<code>
+					let add = function(num) {							<br />
+					<span class="example">	let b = 2					</span><br />
+					<span class="example">	function addTo() {			</span><br />
+					<span class="example2">console.dir(addTo) // access the closure object	</span><br />					
+					<span class="example2">		return num + b			</span><br />		
+					}													<br />
+					<span class="example">return addTo()				</span><br />
+				}														<br />
+				add()	// we call <i>add</i> creating a closure for 'num' and 'b'	<br />
+				</code>
+			</div>
+			
+			<span class="note-comment">
+              <span class="first-word">Note: </span>To access the closure object; <i>console.dir(add)</i>.
+            </span>
+			
             <span class="link"
               >More about closures:
               <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures"> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures</a></span
@@ -1119,7 +1166,7 @@
 
             <div class="code-container">
               <code>
-                var myPromise = new Promise(function(resolve, reject) { <br />
+                const myPromise = new Promise(function(resolve, reject) { <br />
               </code>
               <div class="comment-oneline">The promise will be either resolved or rejected</div>
               <code>
@@ -1534,7 +1581,6 @@
             <div class="code-container">
               <code>
                 const myObj = { name: "John", surname: "Doe" } <br /><br />
-
                 for(let prop in myObj) {<br />
                 <span class="example">console.log(prop) <span class="comment-outcome">--> name, surname </span></span
                 ><br />
@@ -1552,7 +1598,7 @@
               </code>
 			  <div class="comment-oneline">for/in combined with forEach</div>
 			  <code>
-			  const employees = [
+			  const employees = [							<br />
 			  <span class="example">{name: "John", role: "Accountant", salary: 10000},</span><br />
 			  <span class="example">{name: "Lisa", role: "Adminstrator", salary: 8000},</span><br />
 			  <span class="example">{name: "Tom", role: "Janitor", salary: 7000},</span><br />
@@ -1622,27 +1668,22 @@
 		
 		<article class="subject-article">
           <h3 class="subject-title">Higher order functions</h3>
-          <div class="example">
-            <p>
-              When a function receives another function as an argument that
-              function is called a <b>higher order function</b>. And the
-              function you pass in is called a <b>callback</b>. With ES6 several
-              new higher order functions were introduced that are designed to be used with arrays. 
-			  With this the Javascript language got more versatile and developers got access to
-              some new powerful tools. Noteworthy; These methods do not
-              mutate/change the orignal array (in general a good thing!).
-			  
-			  A typical scenario where higerorder functions can be used are when handling JSON data from an external database. This data is not seldom in the form of an array consisting of objects. This is a common way of structuring data and with ES6 we now have a set of tools to handle such data effectively. 
-            </p>
-            <h4><i>map()</i></h4>
+          <div class="example">			  
+			  <p>
+			  When a function receives another function as an argument that function is called a higher order function. And the function you pass in is called a callback. 			  
+			  With ES6 several new higher order methods were added introducing new powerful tools for handling array-based data. A typical scenario where these methods can be used are when handling JSON data from a database. Noteworthy; These methods do not mutate/change the orignal array (in general a good thing!).
+			</p>
+            <h4>The <i>map</i> method</h4>
 			<p>
 			The map method will return a new array with the result of the callback function. The callback will be called for every element in the array and the returned value will be added to the new array. 
 			The callback function can take three parameters, the element, index and the array object. Only the element is required the others are optional.		
 			The map method should only be used if the intention is to create a new array, if the intention is to alter the elements in the existing array the forEach function should be used instead.	
 			</p>
 			
-            <h4><i>filter()</i></h4>
-			<p>...</p>
+            <h4>The <i>filter</i> method</h4>
+			<p>			
+			The filter method provides a callback that test each element in an array and creates a new array of all the values that passes the test. In other words returns as true as result of the test. provided by the callback function. Just as the map method it accepts three arguments. The element, the index and the array object.</p> Only the element is required the others are optional.
+			</p>	
             <h4><i>reduce()</i></h4>
 			<p>...</p>
             <h4><i>sort()</i></h4>
@@ -1667,29 +1708,34 @@
 				];																					<br />
 			</code>
 			<br />
-			<div class="comment-oneline">map()</div>
+			<div class="comment-oneline">The <i>map</i> method</div>			
+				
+				<code>
+					const employeeNames = employees.map(employee => {		<br />
+					<span class="example">	return employee.name 		</span><br />
+					})												<br />
+					console.log(employeeNames) <span class="comment-outcome">--> ['John', 'Lisa', ...]</span> // new array consisting of names					<br />
+			</code><br />
 			
-			<code></code>
 			
-			
-			<div class="comment-oneline">filter()</div>
+			<div class="comment-oneline"><i>filter()</i> method</div>
 			<code>
 				...
 			</code>
-			<div class="comment-oneline">reduce()</div>
+			<div class="comment-oneline"><i>reduce()</i> method</div>
 			<code>
 				...
 			</code>
-			<div class="comment-oneline">sort()</div>
+			<div class="comment-oneline"><i>sort()</i> method</div>
 			<code>
 				...			
 			</code>
-			<div class="comment-oneline">find()</div>
+			<div class="comment-oneline"><i>find()</i> method</div>
 			<code>
 				...
 			</code>
 			
-			<div class="comment-oneline">includes()</div>
+			<div class="comment-oneline"><i>includes()</i> method</div>
 			<code>
 				...
 			</code>
@@ -1817,10 +1863,7 @@
               arguments passed to a function.
             </p>
 
-            <h4>
-              Understanding the impact of the spread operator when copying an
-              object
-            </h4>
+            <h4>Copying an object</h4>
             <p>
               When using the spread operator to copy an objects properties to a
               new object we make a real copy of the original.<br />It's
@@ -1920,14 +1963,12 @@
           <h3 class="subject-title">Classes</h3>
           <div class="example">
             <p>
-              With ES6 we got classes in Javascript. In reality it is only
-              syntactical sugar or an alternative syntax to prototype-bases
-              inheritance or in other words; Javascript constructor functions. A
-              class is a special type of funtions that uses the keyword class.
-              As with constructor functions the name is capitalized by
-              convention. A constructor method for creating and initializing an object can
-              be specified. If this is not done a default constructor method -
-              basically an empty function - is used. This is an empty object for
+              With ES6 classes was introduced to Javascript. In reality it is only
+			syntactical sugar offering an alternative syntax to existing prototype-based
+              inheritance. Another word for it would be 'constructor functions' that we looked in to in the previous chapter. A class is a special type of funtions that uses the keyword class and as with constructor functions the name is capitalized by convention. 
+			  A constructor method for creating and initializing an object can
+              be specified in the class. If this is not done a default constructor method -
+              basically an empty function - is used functioning as an empty object for
               a base class.
             </p>
 
@@ -1942,9 +1983,9 @@
               default if not given one. While constructor functions are hoisted
               this is not the case with class declarations. Another important
               difference is that everything that is written inside a class is
-              typed in strict mode. With ES2019 we also got a few new important
+              typed in strict mode. With ECMAScript2019 we also got some new important
               features when it comes to classes. It is now possible to create
-              private properties and methods inside classes using the # prefix.
+              private properties and methods using the # prefix.
               There is also the possibility to initialize public properties at
               the top of a class before specifying a constructor. There are some
               important benefits to this that I will not go deeper in to here,
@@ -2036,8 +2077,8 @@
                   10 - "KYH" <br />
                   "0" == false <br />
 					</code>
-				<span class="comment-oneline">// "0" is converted to a 'falsy' value but what does it
-                    mean?</span><br />
+				<div class="comment-oneline">"0" is converted to a 'falsy' value but what does it
+                    mean?</div><br />
 				<code>
 					NaN == NaN <br />
                   isNaN("Hello World") <br />
@@ -2047,7 +2088,7 @@
                   (33 || false && true) <br />
                   (1 === 1 && "Hello") <br />
                 </code>
-                <span class="comment-oneline">// 33 and "Hello" are converted to 'truthy' values but what
+                <span class="comment-oneline">33 and "Hello" are converted to 'truthy' values but what
                     does it mean?</span>
               </div>
             </div>
@@ -2335,7 +2376,7 @@
 			}
 			return foo
 		}
-		
+	
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
   </body>
