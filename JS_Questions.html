@@ -200,15 +200,12 @@
       }
       .code-container {
         position: relative;
-        background-color: rgb(237, 237, 237);
+        background-color: rgb(238, 238, 238);
         padding: 20px 24px 24px 24px;
-        margin: 22px 0 24px 0;
+        margin: 20px 0 24px 0;
         overflow: auto;
       }
-      .code-container code,
-      .code-container code span {
-        color: rgb(19, 76, 105);
-      }
+	 
       .code-container i {
         color: rgb(37, 63, 110);
         line-height: 2.15rem;
@@ -224,6 +221,11 @@
 		margin-top: 0;
 	  }	  
 	  
+	  .code-container .code-comment {
+		color: rgb(107,107,110);		
+		padding-left: 18px;
+	  }
+	  
       .code-container-mod {
         background-color: rgb(9, 9, 9);
       }
@@ -231,11 +233,15 @@
       .code-container-mod code span {
         color: rgb(74, 249, 105);
 		color: rgb(240, 158, 255);
-		color: rgb(82, 231, 255);
+		color: rgb(84, 231, 255);
       }
       .code-container-mod .comment-oneline, .code-container-mod i, .code-container-mod .expand-text {
         color: rgb(237, 238, 237);
+		color: rgb(255, 175, 75);
       }
+	  .code-container-mod .code-comment {
+		color: rgb(228, 199, 63);
+	  }
 	  .code-container-mod span.comment-outcome {
 		color: #62ff2e;
 		color: rgb(212,200,80);
@@ -265,6 +271,7 @@
 		code span.comment-outcome {
 			font-weight: 600;
 			color: rgb(82,101,167);
+			padding-left: 6px;
 		}
 	    .note-comment {
 		    display: inline-block;
@@ -296,7 +303,7 @@
 			background-color: rgb(241,241,241);
 		}
 		.list-comment {
-			padding-left: 16px;
+			padding-left: 12px;
 		}
 
       /*** MEDIA QUERIES ***/
@@ -471,40 +478,39 @@
             </p>
 			  
             <div class="code-container">
-                <button class="btn-change-color">Change Theme</button>
-                
-				 <div class="comment-oneline">Values are passed by copying</div>
+                <button class="btn-change-color">Change Theme</button>                
+				<div class="comment-oneline">Values are passed by copying</div>
 			  <code>
 				var a = "Hello"								<br />
-				var b = a 	// we assign 'a' to 'b'			<br />
-				b = "World"	 // we give 'b' a new value		<br />
-				console.log(a) <span class="comment-outcome">--> Hello</span> // The value of 'a' doesn't  change	<br />			  
+				var b = a 	<span class="code-comment">// we assign 'a' to 'b'	</span><br />
+				b = "World"	 <span class="code-comment">// we give 'b' a new value	</span><br />
+				console.log(a) <span class="comment-outcome"> --> Hello </span><span class="code-comment">// The value of 'a' doesn't  change	</span><br />			  
               </code>
 				 <div class="comment-oneline">
                 We use the length property/element
                 </div>
                 <code>
                 var str = "Hello World"<br />
-                console.log(str.length) <span class="comment-outcome">--> 11</span>// We get the numbers of characters<br />
+                console.log(str.length) <span class="comment-outcome"> --> 11</span> <span class="code-comment">// We get the numbers of characters</span><br />
                  </code> 
                 <div class="comment-oneline">
                 Primitive values do not mutate
                 </div>
                 <code>
                 var foo = "Hello World" <br />
-                console.log(foo.toUpperCase()) <span class="comment-outcome">--> HELLO WORLD</span> // we use a method on foo<br />
-                console.log(foo) <span class="comment-outcome">--> Hello World</span> // the original value is
-                unchanged<br /> </code
+                console.log(foo.toUpperCase()) <span class="comment-outcome"> --> HELLO WORLD</span> <span class="code-comment">// we use a method on foo</span><br />
+                console.log(foo) <span class="comment-outcome"> --> Hello World</span> <span class="code-comment"> // the original value is
+                unchanged</span><br /> </code
               >				
               
   				<div class="comment-oneline">We can do this</div>
 				<code>
-               foo[0] <span class="comment-outcome">--> H</span> // we get the 1st character<br /> 
+               foo[0] <span class="comment-outcome"> --> H</span> <span class="code-comment">// we get the 1st character</span><br /> 
 			   </code>
               <div class="comment-oneline">But not this...</div>
               <code>
-                foo[0] = "T" // We try to assign foo[0] a new value<br />
-                console.log(foo) <span class="comment-outcome">--> Hello World</span> // value of 'foo' doesn't change <br />
+                foo[0] = "T" <span class="code-comment">// We try to assign foo[0] a new value</span><br />
+                console.log(foo) <span class="comment-outcome"> --> Hello World</span><span class="code-comment">// value of 'foo' doesn't change </span><br />
               </code>
             </div>
 						
@@ -525,11 +531,11 @@
 				<code>
                 var greet = "Hello World"		 				<br />                
 				greet.charAt(0) <span class="comment-outcome">--> H</span>	<br />
-				greet[0] <span class="comment-outcome">--> H </span>// we use bracket notation<br />
+				greet[0] <span class="comment-outcome">--> H </span><span class="code-comment">// we use bracket notation</span><br />
 				greet.indexOf("W")<span class="comment-outcome"> --> 6</span><br /><br />
 
-                var str = new String("KYH Frontend") // we use the string object constructor  				<br />
-                typeof str <span class="comment-outcome">--> 'object'</span> // we use the typeof operator<br />
+                var str = new String("KYH Frontend") <span class="code-comment">// we use the string object constructor  				</span><br />
+                typeof str <span class="comment-outcome">--> 'object'</span> <span class="code-comment">// we use the typeof operator</span><br />
             </code>
 			</div>
 			<span class="note-comment">
@@ -566,17 +572,15 @@
               used to perform mathematical tasks on numbers</div>
               <code>
                 var floatNumber = 1.55 <br />
-                Math.round(floatNumber) <span class="comment-outcome">--> 2</span> // will round to closest integer
+                Math.round(floatNumber) <span class="comment-outcome">--> 2</span> <span class="code-comment">// will round to closest integer</span>
                 <br /><br />
                 var num1 = 2.3 <br />
                 var num2 = 1.4 <br />
-                Math.floor(num1 + num2) <span class="comment-outcome">--> 3</span> // will round downwards to closest
-                integer <br /><br />
+                Math.floor(num1 + num2) <span class="comment-outcome">--> 3</span> <span class="code-comment">// will round downwards to closest integer </span><br /><br />
                 Math.max(4,7,9,11) <span class="comment-outcome">--> 11</span><br />
                 Math.min(4,7,9,11) <span class="comment-outcome">--> 4</span><br />
                 var numbers = [4,7,9,11]; <br />
-                Math.max(numbers) <span class="comment-outcome">--> NaN</span> // Math max/min do not work with
-                arrays.<br />
+                Math.max(numbers) <span class="comment-outcome">--> NaN</span> <span class="code-comment">// Math max/min do not work with arrays.</span><br />
               </code>
 
               <div class="comment-oneline">
@@ -585,8 +589,7 @@
               <code>
                 Math.max(...numbers) <span class="comment-outcome">--> 11</span><br /><br />
                 var rand; <br />
-                Math.random(rand) <span class="comment-outcome">--> ?</span> // returns a floating-point between 0
-                and 1.
+                Math.random(rand) <span class="comment-outcome">--> ?</span> <span class="code-comment">// returns a floating-point between 0 and 1.</span>
               </code>
             </div>
 
@@ -605,19 +608,19 @@
               <div class="comment-oneline">
                 If we try to use a variable before being declared
               </div>
-              <code> console.log(a); --> Gives a reference error <br /> 
+              <code> console.log(a); --> referenceError <br /> 
 			  </code>
               <div class="comment-oneline">
                 If we don't initialize a variable
               </div>
-              <code> var a; // This will give 'a' the value undefined. </code
+              <code> var a; <span class="code-comment">// This will give 'a' the value undefined. </span></code
               ><br />
               <div class="comment-oneline">But we can also do this</div>
               <code>
-                var a = undefined; // we assign the value 'undefined'<br />
+                var a = undefined; <span class="code-comment">// we assign the value 'undefined'</span><br />
                 typeof a <span class="comment-outcome">--> 'undefined'</span> <br />
-                if ( typeof a === 'undefined') <span class="comment-outcome">--> true</span> // We check for
-                <i>undefined</i>(note; the quotes!)</code
+                if ( typeof a === 'undefined') <span class="comment-outcome">--> true</span> <span class="code-comment">// We check for
+                <i>undefined</i>(note; the quotes!)</span></code
               >
 			  </div>
 			  
@@ -628,16 +631,15 @@
             <h4><i>null</i></h4>
             <p>
               <i>null</i> is a primitive value and a keyword in JavaScript that means
-              ‘no value’ or nonexistence of any value. <i>null</i> is also as the case with <i>undefined</i> a so called falsy value. The type of null tough is
-              object while <i>undefined</i> has its own type. The fact that <i>null</i> is considered a primitive value and its type is object (non-primitive) can be very confusing and more or less be seen as a bug inherited from the time Javascript was designed. The best way to understand <i>null</i> is to interpret it as something that does not exist. If the purpose is to give a variable an empty value it can be done by assign it the value null, representing no value. It could be said that <i>null</i> has the same purpose/meaning for objects as <i>undefined</i> for primitives with the difference that the latter has its own type while <i>null</i> hasn't.
+              ‘no value’ or nonexistence of any value. null is also considered a <i>falsy</i> value. The type of null tough is
+              object while <i>undefined</i> has its own type. The fact that null is considered a primitive value and its type is object (non-primitive) is a bug from the time Javascript was designed. The best way to understand null is to interpret it as something that does not exist. If the purpose is to give a variable an empty value it can be done by assign it the value null, representing no value. It could be said that null has the same purpose/functionality for objects as undefined for primitives with the difference that the latter has its own type while null hasn't.
             </p>
             
             <div class="code-container">
               <code>
                 var b = null; <br />
-                typeof b <span class="comment-outcome">--> object</span> // null basically means empty object
-                <br />
-                if (b === null) <span class="comment-outcome">--> true </span>// We check for null </code
+                typeof b <span class="comment-outcome">--> object</span> <span class="code-comment">// null basically means empty object </span><br />
+                if (b === null) <span class="comment-outcome">--> true </span><span class="code-comment">// We check for null </span></code
               >
             </div>
 			
@@ -745,8 +747,8 @@
               <code>
                 var a = "KYH" <br />
                 var b = a <br />
-                a = "Hello" // We assign a new value to a <br />
-                b <span class="comment-outcome">--> "KYH"</span> // We retain the copied value <br />
+                a = "Hello" <span class="code-comment">// We assign a new value to a </span><br />
+                console.log(b) <span class="comment-outcome">--> "KYH"</span> <span class="code-comment">// We retain the copied value </span><br />
               </code>
             </div>
 			
@@ -755,12 +757,12 @@
               <code>
                 var objectA = {name: "Kal", lastname: "Doe"} <br />
                 var objectB = objectA <br />
-                objectA.name = "Ada" // we change the value of prop name<br>
+                objectA.name = "Ada" <span class="code-comment">// we change the value of prop name</span><br>
 				</code>				
 				<div class="comment-oneline">objectB points to the location of the original object.
               It's not a copy of objectA.</div>
 			  <code>
-                objectB.name <span class="comment-outcome">--> "Ada"</span> // prop name has changed <br />
+                objectB.name <span class="comment-outcome">--> "Ada"</span> <span class="code-comment">// prop name has changed </span><br />
               </code>
             </div>
             <span class="note-comment">
@@ -812,14 +814,14 @@
 			<div class="code-container">
 				<code>
 					if(1) {		<br />
-							<span class="example">console.log("Hello") <span class="comment-outcome">--> Hello</span> // 1 will be considered <i>truthy</i> </span><br />
+							<span class="example">console.log("Hello") <span class="comment-outcome">--> Hello</span> <span class="code-comment">// 1 will be considered <i>truthy</i> </span></span><br />
 					}				<br />	
 					<br />
 					var a;		<br />
 					if(a) {		<br />
 					<span class="example">	console.log("I'm truthy");  </span>	 <br />
 					} else {	<br />
-					<span class="example">console.log("I'm falsy")</span> <span class="comment-outcome">--> I'm falsy </span>// a is 'undefined' considered as <i>falsy</i><br />
+					<span class="example">console.log("I'm falsy")</span> <span class="comment-outcome">--> I'm falsy </span><span class="code-comment">// a is 'undefined' considered as <i>falsy</i></span><br />
 					} <br />
 				</code>
 			</div>			
@@ -903,7 +905,7 @@
               <code>
                 var y = 2; <br />
                 var testScope = function() { <br />
-                <span class="example">console.log(y); // we try to access y before it has been initialized</span><br />
+                <span class="example">console.log(y); <span class="code-comment">// we try to access y before it has been initialized</span></span><br />
                 <span class="example">var y = 1; </span><br />
                 } <br />
                 testScope(); <span class="comment-outcome">--> undefined </span><br />
@@ -947,10 +949,10 @@
 			  
 			  <div class="comment-oneline">Global Scope</div>
 				<code>
-				let a = "Hello"	// we create a global variable		<br />
+				let a = "Hello"	<span class="code-comment">// we create a global variable	</span><br />
 				
 				function() {			<br />
-				<span class="example">	console.log(a)	<span class="comment-outcome">--> "Hello"</span> // a is accessible everywhere in our code </span><br />
+				<span class="example">	console.log(a)	<span class="comment-outcome">--> "Hello"</span> <span class="code-comment">// a is accessible everywhere in our code </span></span><br />
 				}	<br />
 				</code>
 				
@@ -960,7 +962,7 @@
 				for(let i = 0; i &lt; numbers.length; i++) {						<br />
 				<span class="example2">	console.log(numbers[i]) <span class="comment-outcome">--> 1,2,3,4,5		</span></span><br />	
 				}											<br />
-				console.log(i) <span class="comment-outcome">--> referenceError </span>// i does not exist outside its block scope <br />
+				console.log(i) <span class="comment-outcome">--> referenceError </span><span class="code-comment">// i does not exist outside its block scope </span><br />
 				</code>
 			  
 			  <div class="comment-oneline">Lexical Scope</div>
@@ -1006,12 +1008,12 @@
 
             <div class="code-container">
               <code>
-                if(1 == "1") <span class="comment-outcome">--> true</span> // will make a comparison after type
-                conversion of "1" to 1 <br />
+                if(1 == "1") <span class="comment-outcome">--> true</span> <span class="code-comment">// will make a comparison after type
+                conversion of "1" to 1 </span><br />
                 <br />
-                if(1 === "1") <span class="comment-outcome">--> false</span> // strict equality will check for both
+                if(1 === "1") <span class="comment-outcome">--> false</span> <span class="code-comment">// strict equality will check for both
                 value and type.
-                <br />
+                </span><br />
               </code>
             </div>
             
@@ -1123,12 +1125,12 @@
 					let add = function(num) {							<br />
 					<span class="example">	let b = 2					</span><br />
 					<span class="example">	function addTo() {			</span><br />
-					<span class="example2">console.dir(addTo) // access the closure object	</span><br />					
+					<span class="example2">console.dir(addTo) <span class="code-comment">// access the closure object	</span></span><br />					
 					<span class="example2">		return num + b			</span><br />		
 					}													<br />
 					<span class="example">return addTo()				</span><br />
 				}														<br />
-				add()	// we call <i>add</i> creating a closure for 'num' and 'b'	<br />
+				add()	<span class="code-comment">// we call <i>add</i> creating a closure for 'num' and 'b'	</span><br />
 				</code>
 			</div>
 			
@@ -1409,11 +1411,11 @@
               <code>
                 function checkScope() { <br />
                 <span class="example"
-                  >console.log(foo) <span class="comment-outcome">--> ReferenceError</span> // foo is not hoisted </span
+                  >console.log(foo) <span class="comment-outcome">--> ReferenceError</span> <span class="code-comment">// foo is not hoisted </span></span
                 ><br />
                 <span class="example"
-                  >console.log(bar) <span class="comment-outcome">--> undefined </span>// variable declaration is
-                  hoisted </span
+                  >console.log(bar) <span class="comment-outcome">--> undefined </span><span class="code-comment">// variable declaration is
+                  hoisted </span></span
                 ><br />
                 <span class="example">let foo = "Hello" </span><br />
                 <span class="example">var bar = "World" </span><br />
@@ -1433,8 +1435,8 @@
                   >console.log(i); <span class="comment-outcome">--> 5</span></span
                 ><br />
                 <span class="example"
-                  >console.log(j); <span class="comment-outcome">--> ReferenceError</span> //
-                  can not be accessed outside its scope</span
+                  >console.log(j); <span class="comment-outcome">--> ReferenceError</span> <span class="code-comment">//
+                  can not be accessed outside its scope</span></span
                 ><br />
                 } 
                 checkScope();
@@ -1510,18 +1512,18 @@
               <code>
                 let firstName = "John" <br />
                 let surName = "Doe" <br />
-                const fullName = "John" + " " + "Doe" <span class="comment-outcome">--> John Doe</span> // The pre ES6
-                way to do it.<br />
+                const fullName = "John" + " " + "Doe" <span class="comment-outcome">--> John Doe</span> <span class="code-comment">// The pre ES6
+                way to do it.</span><br />
                 <br />
                 let firstName = "Lisa" <br />
                 let surName = "Doe" <br />
-                const fullName = `${firstName} ${surName}` <span class="comment-outcome">--> Lisa Doe</span> // Using
-                template literals<br />
+                const fullName = `${firstName} ${surName}` <span class="comment-outcome">--> Lisa Doe</span> <span class="code-comment">// Using
+                template literals</span><br />
                 <br />
 
-                let divNumbers = `15 divided by 3 is ${15/3}` <span class="comment-outcome">--> 5</span> // We insert
+                let divNumbers = `15 divided by 3 is ${15/3}` <span class="comment-outcome">--> 5</span> <span class="code-comment">// We insert
                 an expression
-				</code>
+				</span></code>
 				<span class="comment-oneline">
                   Tagged templates allows for template literals to be parsed with functions.</span>
 				  <code>
@@ -1653,7 +1655,7 @@
               out the, item[index]. With forEach() and for/of on the other hand we get access to the element itself. -->
             <p>			
               There are many ways to iterate over arrays and loops and they all
-              have there strengths and tradeof:s. In general the most robust/safe way to loop through an array/object will be the <i>for/of</i> loop. If the intention is to manipulate every element in an array the <i>for/each</i> loop is the best choice. The <i>for/in</i> loop should only be used to iterate through the properties of an object and avoided for arrays where the index order is of importance. If the intention is to manipulate or filter data from an array consisting of objects a callback function will probably do the job most effectively. It might also be necessary with a combination of different tools and methods.<!-- It can For example a higher order function as the <i>filter()</i> method if the intention is to filter data that correspond to a certain condition or maybe the <i>map()</i> method to render data in a list on a webpage.--> With experience the choice of tool/s will come natural depending on the circumstances.
+              have there strengths and tradeof:s. In general the most robust/safe way to loop through an array/object will be the <i>for/of</i> loop. If the intention is to manipulate every element in an array the <i>for/each</i> loop is the best choice. The <i>for/in</i> loop should only be used to iterate through the properties of an object and avoided for arrays where the index order is of importance. If the intention is to manipulate or filter data from an array consisting of objects a callback function will probably do the job most effectively. It might also be necessary with a combination of different tools and methods. With experience the choice of tool/s will come more or less natural depending on the circumstances.
             </p>
             <br />
             <span class="link">
@@ -1679,10 +1681,26 @@
 			The callback function can take three parameters, the element, index and the array object. Only the element is required the others are optional.		
 			The map method should only be used if the intention is to create a new array, if the intention is to alter the elements in the existing array the forEach function should be used instead.	
 			</p>
+			<div class="code-container">
+					<div class="comment-oneline">We <i>map</i> the elements and double each value</div>	
+				<code>					
+					let numbers = [2,4,6,8,10]	<br />
+	
+					let numbersDoubled = numbers.map(number => {				<br />
+					<span class="example">return number * 2						</span><br />
+					})													<br />	
+				console.log(numbersDoubled)	<span class="comment-outcome"> --> [4,8,12,16,20] </span><span class="code-comment">// We get a new array with all numbers doubled.						</span><br />					
+				</code>
+				<div class="comment-oneline">Refactored short version</div>
+				<code>
+					let numbersDoubleShort = numbers.map(number => number * 2)	<br />
+					console.log(numbersDoubledShort)	<span class="comment-outcome"> --> [4,8,12,16,20]	</span><span class="code-comment">// We get the same result.	</span><br />
+				</code>
+			</div>
 			
             <h4>The <i>filter</i> method</h4>
 			<p>			
-			The filter method provides a callback that test each element in an array and creates a new array of all the values that passes the test. In other words returns as true as result of the test. provided by the callback function. Just as the map method it accepts three arguments. The element, the index and the array object.</p> Only the element is required the others are optional.
+			The filter method provides a callback that test each element in an array and creates a new array of all the values that passes the test. In other words returns as true as result of the test. provided by the callback function. Just as the map method it accepts three arguments. The element, the index and the array object. Only the element is required the others are optional.
 			</p>	
             <h4><i>reduce()</i></h4>
 			<p>...</p>
@@ -1693,6 +1711,7 @@
             <h4><i>includes()</i></h4>
             <p>...</p>
 			
+			<h4>Handling array-based data consisting of objects</h4>
 			<div class="code-container">
 			
 				<div class="comment-oneline">ARRAY CONSISTING OF OBJECTS</div>
@@ -1708,20 +1727,22 @@
 				];																					<br />
 			</code>
 			<br />
-			<div class="comment-oneline">The <i>map</i> method</div>			
-				
+			<div class="comment-oneline">We <i>map</i> the employees names</div>					
 				<code>
-					const employeeNames = employees.map(employee => {		<br />
-					<span class="example">	return employee.name 		</span><br />
-					})												<br />
-					console.log(employeeNames) <span class="comment-outcome">--> ['John', 'Lisa', ...]</span> // new array consisting of names					<br />
+					const employeeNames = employees.map(employee => employee.name)	<br />
+					console.log(employeeNames) <span class="comment-outcome">--> ['John', 'Lisa', ...]</span> <span class="code-comment">// new array consisting of names					</span><br />
 			</code><br />
 			
 			
-			<div class="comment-oneline"><i>filter()</i> method</div>
+			<div class="comment-oneline">We use <i>filter</i> to filter out those with high salaries and older age</div>
 			<code>
-				...
-			</code>
+				let happyEmployees = employees.filter( employee => employee.salary > 9000)	<br />	
+				console.log(happyEmployees)	<span class="comment-outcome"> --> [...]</span>	<span class="code-comment">// Will return an array with 3 employees(objects). 	</span><br /><br />
+				
+				let olderEmployees = employees.filter(employee => employee.age > 30)	<br />
+				console.log(olderEmployees)	<span class="comment-outcome">--> [...] </span> <span class="code-comment">// Will return an array with 4 employees(objects). 								</span><br />
+			</code><br />
+			
 			<div class="comment-oneline"><i>reduce()</i> method</div>
 			<code>
 				...
@@ -1880,12 +1901,12 @@
             <div class="code-container">
               <code>
                 const myArr = [1,2,3]; <br />
-                const newArr = [...myArr,4,5] // newArray will consist of
+                const newArr = [...myArr,4,5] <span class="code-comment">// newArray will consist of
                 [1,2,3,4,5]
-                <br /><br />
+                </span><br /><br />
                 myObj = { name: "John" } <br />
-                newObj = { ...myObj, surname: "Doe" } // We add props from myObj
-                to new Obj <br />
+                newObj = { ...myObj, surname: "Doe" } <span class="code-comment">// We add props from myObj
+                to new Obj </span><br />
                 <br />
                 const myFunc = (...args) => { <br />
                 <span class="example">return `All arguments ${args}`; </span
@@ -1913,11 +1934,11 @@
             <div class="code-container">
               <code>
                 const personArray = ["John", "Lisa"]<br />
-                const [a, b] = ["John", "Lisa"] // We assign the array items to
+                const [a, b] = ["John", "Lisa"] <span class="code-comment">// We assign the array items to
                 variables a and b
-                <br /><br />
+                </span><br /><br />
                 const person = { name: "John", age: 28 }<br />
-                const {name} = { name: "John", age: 28} // We destructure 'John' to name variable
+                const {name} = { name: "John", age: 28} <span class="code-comment">// We destructure 'John' to name variable</span>
               </code>
             </div>
           </div>
@@ -1952,8 +1973,7 @@
                 <span class="example">return sum; </span><br />
                 } <br />
 
-                addNumbers() <span class="comment-outcome">--> 0</span> // We get no error despite calling the
-                function with no arguments.
+                addNumbers() <span class="comment-outcome">--> 0</span> <span class="code-comment">// We get no error despite calling the function with no arguments.</span>
               </code>
             </div>
           </div>
@@ -2352,6 +2372,7 @@
 			rex:	{name: "Rex", role: "Guard", age: 3, salary: 'T-bone Steak'}
 		}
 	
+		// FILTER
 		let richKids = employees.filter( employee => employee.salary > 9000)		
 		let oldKids = employees.filter(employee => employee.age > 30)
 		
@@ -2376,7 +2397,14 @@
 			}
 			return foo
 		}
-	
+		
+		
+		// reduce
+		let numbers = [10, 11, 22, 33, 44]
+		let accNumbers = numbers.reduce( (accumulator, currentValue) => accumulator + currentValue) 
+		console.log(accNumbers)  // 120
+		
+		console.log( numbers.map(number => number * 2) )
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
   </body>
