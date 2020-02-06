@@ -269,6 +269,7 @@
       }	 
 	  	  
 		code span.comment-outcome {
+			white-space: nowrap;
 			font-weight: 600;
 			color: rgb(82,101,167);
 			padding-left: 6px;
@@ -355,10 +356,16 @@
         i {
           line-height: 1.6rem;
         }
+		.info-list {
+			margin-right: 6px;
+		}
 		.falsy-list {
 			width: 70%;
 			padding: 10px 2px;
 			margin: 0;
+		}
+		.code-container .code-comment {
+			padding-left: 8px;
 		}
       }
       @media only screen and (max-width: 600px) {
@@ -1438,7 +1445,7 @@
                   >console.log(j); <span class="comment-outcome">--> ReferenceError</span> <span class="code-comment">//
                   can not be accessed outside its scope</span></span
                 ><br />
-                } 
+                } 	<br />
                 checkScope();
               </code>
             </div>
@@ -1550,9 +1557,8 @@
               chainable. ForEach can take tree arguments, the value of the
               current elment, what is required as well as two optional
               arguments, the index for each element and the array object it
-              self. As with other high order methods it does not mutate the
-              array on which it is called.
-            </p>
+              self. The forEach method will always return undefined. It does not mutate the array on which it is called.
+            </p>		 
 
             <div class="code-container">
                 <span class="comment-oneline">Basic syntax </span>
@@ -1570,14 +1576,18 @@
                 })
               </code>
             </div>
+			
+			<span class="note-comment">
+              <span class="first-word">Note: </span>There is no way to break out from a forEach() loop, except throwing an exception.
+            </span>
 
             <h4><i>for/in</i></h4>
             <p>
-              The for/in statement iterates over all non-symbol properties of an object. The loop will iterate over all enumerable properties of the object itself and those the object inherits from its constructor's prototype as well. If the intention is to only
-              consider properties of the object itself and not its prototypes, use getOwnPropertyNames() or perform a hasOwnProperty() check.
+              The for/in statement iterates over all non-symbol properties of an object. The loop will iterate over all enumerable properties and those the object inherits from its constructor's prototype as well. If the intention is to only
+              consider properties of the object itself and not its prototypes, use <i>getOwnPropertyNames()</i> or make sure to perform a <i>hasOwnProperty()</i> check.
             </p><br />
 			<p>
-			The for/in statement can be used on arrays but this is not recommended. The reason is that there are no guarantee that a for/in loop will return the values in certain order. When it comes to arrays the order of access is important unlike objects where the value is assigned to a certain property. 
+			Tough the for/in statement can be used on arrays it's not  recommended. The reason is that there are no guarantee that a for/in loop will return the values in certain order. When it comes to arrays the order of access is important unlike objects where the value is assigned to a certain property. 
 			</p>
 			
             <div class="code-container">
@@ -1620,13 +1630,10 @@
 
             <h4><i>for/of</i></h4>
             <p>
-              The for/of statement loops over iterable objects. The loops
-              through data structures that are iterable such as Strings, Arrays
-              and array-like objects such NodeLists, Maps, Set etc. In every
+              The for/of statement loops over iterable objects. It loops
+              through data structures that are iterable such as Strings, Arrays and array-like objects such NodeLists, Maps, Set etc. In every
               iteration the value of the next property is assigned to the
-              variable. for/of is in general the preferred way to loop through
-              iterable objects. It is more concise than a conventional for loop
-              but can't be chained like forEach().
+              variable. for/of is in general the preferred way to loop through iterable objects. It is more concise than a conventional for loop but can't be chained like forEach().
             </p>
 
             <div class="code-container">
@@ -1650,12 +1657,13 @@
             </div>
 
             <h4>Summary; which loop to use and when</h4>
-			<!--The standard <i>for</i> and <i>for/in</i> loop constructs gives access to the index in the iterable object
-              but not the actual element. To access the element we have to print
-              out the, item[index]. With forEach() and for/of on the other hand we get access to the element itself. -->
+			  <p>
+			  There are many ways to iterate over arrays and loops and they all have there strengths and tradeof:s. 
+			  The standard <i>for</i> and <i>for/in</i> loop constructs gives access to the index in the iterable object but not the element. To access the element we have to print
+              out the, item[index]. With for/of and forEach() on the other hand we get access to the element itself and with the latter we can also invoke an optional index argument. Accessing the index with a for/of loop requires more effort but can be done by combining destructuring with the entries method. 	  
+			  </p><br />
             <p>			
-              There are many ways to iterate over arrays and loops and they all
-              have there strengths and tradeof:s. In general the most robust/safe way to loop through an array/object will be the <i>for/of</i> loop. If the intention is to manipulate every element in an array the <i>for/each</i> loop is the best choice. The <i>for/in</i> loop should only be used to iterate through the properties of an object and avoided for arrays where the index order is of importance. If the intention is to manipulate or filter data from an array consisting of objects a callback function will probably do the job most effectively. It might also be necessary with a combination of different tools and methods. With experience the choice of tool/s will come more or less natural depending on the circumstances.
+              In general tough the most safe way to loop through an array/object will be the <i>for/of</i> loop. If, on the other hand, the intention is to manipulate every element in an array the <i>for/each</i> loop is the best choice. The <i>for/in</i> loop should only be used to iterate through the properties of an object and avoided for arrays where the index order is of importance. If the intention is to manipulate or filter data from an array consisting of objects a built in callback function should do the job most effectively(see section; 'Higher order functions'). Many situations might require a combination of different tool/s to achieve the desired result. In the end it will very much depend on the level of experience as a coder to know what tool/s to choose for the job.	  
             </p>
             <br />
             <span class="link">
@@ -2397,14 +2405,12 @@
 			}
 			return foo
 		}
-		
-		
-		// reduce
+				
+		// REDUCE
 		let numbers = [10, 11, 22, 33, 44]
 		let accNumbers = numbers.reduce( (accumulator, currentValue) => accumulator + currentValue) 
-		console.log(accNumbers)  // 120
+		console.log(accNumbers)  // 120		
 		
-		console.log( numbers.map(number => number * 2) )
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
   </body>
