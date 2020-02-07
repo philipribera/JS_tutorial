@@ -708,7 +708,7 @@
 			<div class="code-container">
 				<div class="comment-oneline">We pass an object with a false value</div>
 				<code>					
-					const myObj = { number: 0 }	<br />
+					const myObj = new Object(false)	<br />
 					if(myObj) {													<br />
 					<span class="example">console.log("I'm true") <span class="comment-outcome">--> "I'm true"  </span></span><br />
 					}														<br />
@@ -1576,16 +1576,16 @@
               <code>
                 let firstName = "John" <br />
                 let surName = "Doe" <br />
-                const fullName = "John" + " " + "Doe" <span class="comment-outcome">--> John Doe</span> <span class="code-comment">// The pre ES6
-                way to do it.</span><br />
+                const fullName = "John" + " " + "Doe" <span class="comment-outcome">--> John Doe</span> <span class="code-comment">// the pre ES6
+                way to do it</span><br />
                 <br />
                 let firstName = "Lisa" <br />
                 let surName = "Doe" <br />
-                const fullName = `${firstName} ${surName}` <span class="comment-outcome">--> Lisa Doe</span> <span class="code-comment">// Using
+                const fullName = `${firstName} ${surName}` <span class="comment-outcome">--> Lisa Doe</span> <span class="code-comment">// using
                 template literals</span><br />
                 <br />
 
-                let divNumbers = `15 divided by 3 is ${15/3}` <span class="comment-outcome">--> 5</span> <span class="code-comment">// We insert
+                let divNumbers = `15 divided by 3 is ${15/3}` <span class="comment-outcome">--> 5</span> <span class="code-comment">// we insert
                 an expression
 				</span></code>
 				<span class="comment-oneline">
@@ -1751,12 +1751,12 @@
 					let numbersDoubled = numbers.map(number => {				<br />
 					<span class="example">return number * 2						</span><br />
 					})													<br />	
-				console.log(numbersDoubled)	<span class="comment-outcome"> --> [4,8,12,16,20] </span><span class="code-comment">// We get a new array with all numbers doubled.						</span><br />					
+				console.log(numbersDoubled)	<span class="comment-outcome"> --> [4,8,12,16,20] </span><span class="code-comment">// we get a new array with all numbers doubled						</span><br />					
 				</code>
 				<div class="comment-oneline">Refactored short-hand version</div>
 				<code>
 					let numbersDoubleShort = numbers.map(number => number * 2)	<br />
-					console.log(numbersDoubledShort)	<span class="comment-outcome"> --> [4,8,12,16,20]	</span><span class="code-comment">// We get the same result.	</span><br />
+					console.log(numbersDoubledShort)	<span class="comment-outcome"> --> [4,8,12,16,20]	</span><span class="code-comment">// we get the same result	</span><br />
 				</code>
 			</div>
 			
@@ -1785,7 +1785,7 @@
 				<code>
 				let numbers = [10, 11, 22, 33, 44]	<br />
 				let accNumbers = numbers.reduce( (accumulator, currentValue) =>  {	<br />
-				<span class="example">return accumulator + currentValuem, 0	<span class="code-comment">// We add initial value of 0	</span></span><br />
+				<span class="example">return accumulator + currentValuem, 0	<span class="code-comment">// we add initial value of 0	</span></span><br />
 				}) 														<br /><br />
 				console.log(accNumbers) <span class="comment-outcome">--> 120 </span><br />	
 				</code>
@@ -1831,10 +1831,10 @@
 			<div class="comment-oneline">We use <i>filter</i> to filter out those with high salaries and older age</div>
 			<code>
 				let happyEmployees = employees.filter( employee => employee.salary > 9000)	<br />	
-				console.log(happyEmployees)	<span class="comment-outcome"> --> [...]</span>	<span class="code-comment">// Will return an array with 3 employees(objects). 	</span><br /><br />
+				console.log(happyEmployees)	<span class="comment-outcome"> --> [...]</span>	<span class="code-comment">// will return an array with 3 employees(objects) 	</span><br /><br />
 				
 				let olderEmployees = employees.filter(employee => employee.age > 30)	<br />
-				console.log(olderEmployees)	<span class="comment-outcome">--> [...] </span> <span class="code-comment">// Will return an array with 4 employees(objects). 								</span><br />
+				console.log(olderEmployees)	<span class="comment-outcome">--> [...] </span> <span class="code-comment">// will return an array with 4 employees(objects) 								</span><br />
 			</code>
 			
 			<div class="comment-oneline">We chain <i>map</i> and <i>reduce</i> to get total salaries</div>
@@ -2531,7 +2531,7 @@
 		console.log(sortedLetters) 
 		
 		// BOOLEAN
-		const myObj = { number: 0 }
+		const myObj = new Object(false)
 		if(myObj) {
 			console.log("I evaluate to true")
 		}
