@@ -498,7 +498,7 @@
 			Javascript is the language of the web, it is an interpreted language that runs directly on the clients browser meaning that no compiler is needed. This is the core of Javascript; It was designed to be easy to use and easy to learn. It also explains some of its characteristics, strengths and drawbacks, that differentiate it from some of the most common programming languages. But Javascript has evolved a lot since its introduction and with the latest updates it has become a much more versatile language. Now days Javascript isn't limited to the browser either. With the help of <i>Node</i> it can be run on both the browser and on the server side.  
 			</p>
 			<p>
-			This tutorial will not focus on the rules for how to name variables or explain what an expression is. There are already good tutorials that explains the core basic in detail. With the exception of a few pointers on some basic facts, this tutorial will focus on key concepts of the language to get a better understanding on how Javascript works. There is also a chapter dedicated to the ECMAScript 2015 update(ES6) and how to use some of the new features that was introduced. The ES6 update was probably the most important development of Javascript since its introduction making Javascript more powerful and versatile.   
+			This tutorial will not focus on basic syntax rules or how to name variables. There are already good tutorials that explains the core basic in detail. This tutorial will focus on the key concepts of the language to get a better understanding on how Javascript works. There is also a chapter dedicated to the ECMAScript 2015 (ES6) update and how to use some of the new features that was introduced. The ES6 update was probably the most important development of Javascript since its introduction making Javascript significantly more powerful and versatile.    
 			</p>
 
 		  <h4>Dynamically typed</h4>
@@ -1191,7 +1191,7 @@
             </div>
 			
             <span class="link"
-              >More about closures:
+              >See more:
               <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures"> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures</a></span
             ><br />
           </div>
@@ -1399,7 +1399,6 @@
       <span id="es6"></span>
       <div class="tutorial-part">
         <h1 class="tutorial-title">ECMAScript 2015(ES6)</h1>
-        <br />
 
         <article class="subject-article">
           <h3 class="subject-title">Variable Declaration</h3>
@@ -1720,7 +1719,7 @@
           <div class="example">			  
 			  <p>
 			  When a function receives another function as an argument that function is called a higher order function. And the function you pass in is called a callback. 			  
-			  With ES6 several new higher order methods were added introducing new powerful tools for handling array-based data. A typical scenario where these methods can be used are when handling JSON data from a database. Noteworthy; These methods do not mutate/change the orignal array, this is the behaviour we in general desire. 
+			  With ES6 several new higher order methods were added introducing new powerful tools for handling array-based data. A typical scenario where these methods can be used are when handling JSON data from a database. We can also chain them making them even more versatile. Noteworthy; These methods do not mutate/change the orignal array, this is the behaviour we in general desire. 
 			  </p>
             <h4>The <i>map</i> method</h4>
 			<p>
@@ -1760,16 +1759,21 @@
 			</div>
             <h4><i>reduce()</i></h4>
 			<p>
-			The reduce method reduce the array to a single value. The callback will be executed for each element and add its value in an accumulator. The reduce method will in other words return a total based on the added value from each element in the array. 
+			The reduce method reduce the array to a single value. Reduce requires two arguments the accumulator and the current value. The accumulator is the total value accumulated from the elements in the array. The current value is the value for each element. When executed the current value for each element is added to the accumulator. The reduce method will in other words return a total from all the elements in the array. Reduce also have three optional arguments, index, array and initial value. If no initial value is added the callback starts its loop at index 1, in practice meaning that the accumulator starts with the value 0.    
 			</p>
+			
+			<div class="note-comment">
+              <span class="first-word">Note: </span>It's good praxis to provide an initial value, <i>even if its 0</i>, to avoid unexpected outcomes.
+            </div>
 			<div class="code-container">
 				<code>
 				let numbers = [10, 11, 22, 33, 44]	<br />
 				let accNumbers = numbers.reduce( (accumulator, currentValue) =>  {	<br />
-				<span class="example">return accumulator + currentValue		</span><br />
+				<span class="example">return accumulator + currentValuem, 0	<span class="code-comment">// We add initial value of 0	</span></span><br />
 				}) 														<br /><br />
 				console.log(accNumbers) <span class="comment-outcome">--> 120 </span><br />	
 				</code>
+				
 			</div>
             <h4><i>sort()</i></h4>
             <p>...</p>
@@ -1778,10 +1782,10 @@
             <h4><i>includes()</i></h4>
             <p>...</p>
 			
-			<h4>Handling array-based data consisting of objects</h4>
+			<h4>Handle array-based data containing objects</h4>
 			<div class="code-container">
 			
-				<div class="comment-oneline">ARRAY CONSISTING OF OBJECTS</div>
+				<div class="comment-oneline">ARRAY CONTAINING OBJECTS</div>
 				<code>
 				const employees = [																	<br />
 				<span class="example">  {name: "John", role: "Accountant", age: 44, salary: 10000},	</span><br />
@@ -1810,9 +1814,20 @@
 				console.log(olderEmployees)	<span class="comment-outcome">--> [...] </span> <span class="code-comment">// Will return an array with 4 employees(objects). 								</span><br />
 			</code><br />
 			
-			<div class="comment-oneline"><i>reduce()</i> method</div>
+			<div class="comment-oneline">We chain <i>map</i> and <i>reduce</i> to get total salaries</div>
+			<code>				
+				let allSalaries = 	employees	<br />
+							<span class="example">.map(employee => employee.salary) </span><br />
+							<span class="example">.reduce( (acc, cv) => !isNaN(cv) ? acc + cv : acc + 0, 0)	</span><br />								
+				console.log(allSalaries) <span class="comment-outcome">--> 48000	</span>				
+			</code>
+			<div class="comment-oneline">We add <i>filter</i> to remove the condition inside <i>reduce</i></div>
 			<code>
-				...
+				let salariesMapFilterReduce = employees	<br />
+							<span class="example">.map(employee => employee.salary) </span><br />
+							<span class="example">.filter(salary => !isNaN(salary))	</span><br />
+							<span class="example">.reduce((acc, cv) => acc + cv, 0)	</span><br />								
+				console.log(salariesMapFilterReduce) <span class="comment-outcome">--> 48000	</span>
 			</code>
 			<div class="comment-oneline"><i>sort()</i> method</div>
 			<code>
@@ -2439,6 +2454,18 @@
 			rex:	{name: "Rex", role: "Guard", age: 3, salary: 'T-bone Steak'}
 		}
 	
+		//	WE CREATE AN ARRAY WITN ALL SALARIES AND THEN USE REDUCE TO GET THE TOTAL
+		let allSalaries = employees
+			.map(employee => employee.salary)
+			.reduce( (acc, cv) => !isNaN(cv) ? acc + cv : acc + 0, 0)
+			console.log(allSalaries)
+			
+		let allSalariesMapFilterReduce = employees
+			.map(employee => employee.salary)
+			.filter(salary => !isNaN(salary))
+			.reduce((acc, cv) => acc + cv, 0)
+			console.log(allSalariesMapFilterReduce)	
+	
 		// FILTER
 		let richKids = employees.filter( employee => employee.salary > 9000)		
 		let oldKids = employees.filter(employee => employee.age > 30)
@@ -2466,9 +2493,10 @@
 		}
 				
 		// REDUCE
-		let numbers = [10, 11, 22, 33, 44]
-		let accNumbers = numbers.reduce( (accumulator, currentValue) => accumulator + currentValue) 
-		console.log(accNumbers)  // 120		
+		let numbers = [10, 11, 22, 33, 44];
+		let accNumbers = numbers.reduce( (accumulator, currentValue) => accumulator + currentValue, 33)
+
+console.log(accNumbers)
 		
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
