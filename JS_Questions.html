@@ -7,12 +7,14 @@
     <meta name="author" content="Philip R" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Javascript Questions</title>
+	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Merriweather+Sans|Montserrat&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <style>
 	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-	
+	<!-- END FONTS -->
+	<style>
       * {
         box-sizing: border-box;
         outline: none;
@@ -32,7 +34,7 @@
         top: 0;		
         background-color: rgb(232, 141, 82);
 		background-color: rgb(189,189,189);
-        box-shadow: 1px 1px 2px 1px rgb(122, 122, 122);
+        box-shadow: 1px 1px 1px 1px rgb(132, 132, 132);
         z-index: 9999;		
       }
 	  
@@ -44,18 +46,18 @@
       }
       .header-title {		
         margin-right: auto;
-		flex: 1 0 320px;
+		flex: 1 0 472px;
       }
       .header-title h3 {
         font-size: 1.4rem;
 		color: rgb(109,109,109);
         color: rgb(254, 254, 254);        
-		text-shadow: 1px 1px rgb(171,171,171);
+		text-shadow: 1px 1px rgb(155,155,155);
       }
 	  .header-menu {
 		display: flex;
 		justify-content: flex-end;
-		flex: 1 0 320px;
+		flex: 1 0 310px;
 		
 	  }
 	  .header-menu ul {
@@ -82,7 +84,7 @@
 		position: relative;
         display: block;		
         width: 100%;
-        max-width: 970px;
+        max-width: 968px;
         background-color: rgba(255, 255, 255, 1);
         color: rgb(35, 35, 35);
         padding: 24px;
@@ -126,7 +128,7 @@
         padding: 0 4px;
       }
       a {
-        color: rgb(132, 132, 132);
+        color: rgb(133, 133, 133);
         text-decoration: none;
       }
       p,
@@ -220,8 +222,10 @@
       .link {
         word-break: break-all;
         display: inline-block;
+		background-color: rgb(253,247,237);
         color: rgb(123, 123, 123);
         font-weight: 600;
+		padding: 2px;
         margin: 12px 0;
       }
       .code * {
@@ -336,11 +340,33 @@
 
       /*** MEDIA QUERIES ***/
       @media only screen and (max-width: 990px) {
+		header {
+			height: auto;
+		}
+		.header-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 12px;
+			margin: 0;
+		}		
+		header .header-menu, header .header-title {
+			flex: 1 0 100%;
+			margin: 0;
+			text-align: center;
+			justify-content: center;
+		}
+		.header-title h3 {
+			margin: 10px 8px;
+		}
+		.wrapper {	  
+			width: inherit;
+			margin: 92px 0 0 0;
+        }
         .tutorial-part {
           padding: 20px;
         }
         .code-container {
-          width: 99%;
           padding: 20px;
         }
         h1 {
@@ -350,23 +376,9 @@
           font-size: 1.45rem;
         }
       }
-      @media only screen and (max-width: 767px) {
-		header {
-			height: auto;
-		}
-		.header-container {
-			padding: 12px;
-			margin: 0;
-		}
-		header .header-title {
-			margin: 0;
-		}
-		.header-title h3 {
-			margin: 10px 8px;
-		}
+      @media only screen and (max-width: 767px) {	
         .wrapper {
           padding: 12px;
-          margin: 94px 0 0 0;
         }
         .tutorial-part {
           padding: 6px;
@@ -384,7 +396,6 @@
 			margin-left: 32px;
 		}
         .code-container {
-          width: 99%;
           padding: 20px 14px;
         }
         h1 {
@@ -411,6 +422,7 @@
       @media only screen and (max-width: 600px) {
 		.wrapper {
           padding: 10px;
+		  margin: 110px 0 0 0;
 		}
         .header-container {
           display: flex;
