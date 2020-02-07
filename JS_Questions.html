@@ -248,7 +248,7 @@
         color: rgb(41, 54, 103);
         opacity: 0.95;
         font-weight: 600;
-        margin: 20px 0 12px 0;
+        margin: 22px 0 12px 0;
       }
 	  .subject-article .code-container:first-child {
 		margin-top: 0;
@@ -1044,13 +1044,10 @@
               The rules for type conversions in Javascript can be confusing and give unexpected outcomes if not understood fully.               
               It's not least important to understand the difference between the
               double equality operator (<b>==</b>) and the tripple equality
-              operator (<b>===</b>) when comparing operands(values).               
-              Javascript have different rules for using the double equality operator often called
-              'loose' equality operator' versus the tripple one being the 'strict'
-              equivalent. The loose equality operator compares the value but not
+              operator (<b>===</b>) when comparing values. Javascript have different rules for using the double equality operator often called 'loose' equality operator' versus the tripple one being the 'strict' equivalent. The loose equality operator compares the value but not
               the data type vs. the latter that compares both. There are no formal rule for
-              which comparison to use in your code but to ensure strict comparison the
-              tripple equality operator is to be preferred. That said there can
+              which comparison to use but most safe is to use the tripple comparison. 
+			  That said there can
               be situations where a non-strict comparison operator can have it's
               benefits. No matter which one is used it's important to understand
               how they work and the implications of using one over the other.
@@ -1168,7 +1165,7 @@
           <h3 class="subject-title">Closures</h3>
           <div class="example">
 		     <p>
-			A closure is technical when a function is using a variable outside its own function scope. When variables in the outer scope are accessible from the inside, usually a nested function. This is what is called Lexical Scope. As such a closure gives the enclosed function access to an outer function’s scope. In JavaScript, closures are created every time a function is created, at function creation. Closures in practice are used for creating object data privacy. When using closures the enclosed variables are only in scope within the containing function making them non-accessible from the outside. As such they are 'enclosed' and made private. In a few words; Closures can be seen as functions with preserved data.  
+			A closure is technical when a function is using a variable outside its own function scope, Usually we refer to a nested function having access to variables in its parent scope. This is also what is called Lexical Scope. As such a closure gives the enclosed function access to an outer function’s scope. Closures in practice are used for creating object data privacy. When using closures the enclosed variables are only in scope within the containing function making them non-accessible from the outside. As such they are 'enclosed' and made private. In a few words; Closures can be seen as functions with preserved data.  
 			</p>		
 			
 			<div class="code-container">
@@ -1196,10 +1193,14 @@
             ><br />
           </div>
         </article>
-
-        <article class="subject-article">
+		
+		 <article class="subject-article">
           <h3 class="subject-title">Promises</h3>
-          <div class="example">
+			<div class="example">
+				<p>
+			Javascript is 'single threaded' meaning that only one thing/task can happen at a time.
+			This leads often to what is known as <i>blocking code</i> where the Javascript engine is processing some task while the main thread is blocked. The solution to blocking code is asynchronous code that can run on multiple threads at the same time. To write asynchronus code is getting easier and modern browsers will allow certain operations to be run asynchronously. One way of writing asynchronous code is to use <i>promises</i> that allow processing of another operation while waiting for the 'promise' to resolve.  
+			</p>			
             <p>
               A promise in Javascript is just as in real life; a promise/commitment to do something at some point in the future. The
               promise will then be resolved, or rejected. In programming context
@@ -1591,12 +1592,10 @@
           <div class="example">
             <h4><i>forEach</i></h4>
             <p>
-              forEach() executes a provided function once for each array
-              element. It will always returns the value undefined and is not
-              chainable. ForEach can take tree arguments, the value of the
+              forEach()is a higher order function that executes a callback for each element in an array. ForEach can take tree arguments, the value of the
               current elment, what is required as well as two optional
               arguments, the index for each element and the array object it
-              self. The forEach method will always return undefined. It does not mutate the array on which it is called.
+              self. The forEach method will always return undefined and is not chainable. It does not mutate the array on which it is called.
             </p>		 
 
             <div class="code-container">
@@ -1626,7 +1625,7 @@
               consider properties of the object itself and not its prototypes, use <i>getOwnPropertyNames()</i> or make sure to perform a <i>hasOwnProperty()</i> check.
             </p>
 			<p>
-			Tough the for/in statement can be used on arrays it's not  recommended. The reason is that there are no guarantee that a for/in loop will return the values in certain order. When it comes to arrays the order of access is important unlike objects where the value is assigned to a certain property. 
+			Tough the for/in statement can be used on arrays it's not recommended. The reason is that there is no guarantee that a for/in loop will return the values in certain order. When it comes to arrays the order of access is important unlike objects where the value is assigned to a certain property. 
 			</p>
 			
             <div class="code-container">
@@ -1647,12 +1646,12 @@
 				<span class="example">	}								</span><br />
 				}
               </code>
-			  <div class="comment-oneline">for/in combined with forEach</div>
+			  <div class="comment-oneline">forEach combined with for/in</div>
 			  <code>
-			  const employees = [							<br />
-			  <span class="example">{name: "John", role: "Accountant", salary: 10000},</span><br />
+			  const employees = [							<br />			  
 			  <span class="example">{name: "Lisa", role: "Adminstrator", salary: 8000},</span><br />
 			  <span class="example">{name: "Tom", role: "Janitor", salary: 7000},</span><br />
+			  <span class="example">{name: "John", role: "Accountant", salary: 10000},</span><br />
 			  <span class="example">{name: "Patty", role: "Manager", salary: 14000},</span><br />
 			  <span class="example">{name: "Sally", role: "Sale", salary: 9000}</span><br />
 			];	<br /><br />
@@ -1702,7 +1701,7 @@
               out the, item[index]. With for/of and forEach() on the other hand we get access to the element itself and with the latter we can also invoke an optional index argument. Accessing the index with a for/of loop requires more effort but can be done by combining destructuring with the entries method. 	  
 			  </p>
             <p>			
-              In general tough the most safe way to loop through an array/object will be the <i>for/of</i> loop. If, on the other hand, the intention is to manipulate every element in an array the <i>for/each</i> loop is the best choice. The <i>for/in</i> loop should only be used to iterate through the properties of an object and avoided for arrays where the index order is of importance. If the intention is to manipulate or filter data from an array consisting of objects a built in callback function should do the job most effectively(see section; 'Higher order functions'). Many situations might require a combination of different tool/s to achieve the desired result. In the end it will very much depend on the level of experience as a coder to know what tool/s to choose for the job.	  
+              In general tough the most safe way to loop through an array/object will be the <i>for/of</i> loop. If, on the other hand, the intention is to manipulate every element in an array the <i>for/each</i> loop is the best choice. The <i>for/in</i> loop should only be used to iterate through the properties of an object and avoided for arrays where the index order is of importance. If the intention is to manipulate or filter data from an array consisting of objects a built in callback function should do the job most effectively (see section; 'Higher order functions'). 
             </p>
             <span class="link">
               See more:
@@ -1719,7 +1718,7 @@
           <div class="example">			  
 			  <p>
 			  When a function receives another function as an argument that function is called a higher order function. And the function you pass in is called a callback. 			  
-			  With ES6 several new higher order methods were added introducing new powerful tools for handling array-based data. A typical scenario where these methods can be used are when handling JSON data from a database. We can also chain them making them even more versatile. Noteworthy; These methods do not mutate/change the orignal array, this is the behaviour we in general desire. 
+			  With ES6 several new higher order methods were added introducing new powerful tools for handling array-based data. A typical scenario where these methods can be used are when handling JSON data from a database. We can also chain them making them even more versatile. Noteworthy; These methods do not mutate/change the orignal array, this is the behaviour we in general desire. Many situations might require a combination of different methods to achieve the desired result. In the end, as with so much more, knowing what tool/s to use and how to use them will become easier with more experience.   
 			  </p>
             <h4>The <i>map</i> method</h4>
 			<p>
@@ -1759,7 +1758,7 @@
 			</div>
             <h4><i>reduce()</i></h4>
 			<p>
-			The reduce method reduce the array to a single value. Reduce requires two arguments the accumulator and the current value. The accumulator is the total value accumulated from the elements in the array. The current value is the value for each element. When executed the current value for each element is added to the accumulator. The reduce method will in other words return a total from all the elements in the array. Reduce also have three optional arguments, index, array and initial value. If no initial value is added the callback starts its loop at index 1, in practice meaning that the accumulator starts with the value 0.    
+			The reduce method reduce the array to a single value. Reduce requires two arguments the accumulator and the current value. The accumulator is the total value accumulated from the elements in the array and the current value is the value for each element when the callback is executed. The reduce method will in other words return the total value from all the elements in the array. Reduce also have three optional arguments, index, array and an initial value. If no initial value is added the callback starts its loop at index 1, in practice meaning that the accumulator starts with the value 0.    
 			</p>
 			
 			<div class="note-comment">
@@ -1775,8 +1774,16 @@
 				</code>
 				
 			</div>
-            <h4><i>sort()</i></h4>
-            <p>...</p>
+            <h4><i>Sort()</i></h4>
+				<p>The <i>sort</i> method will sort the elements in an array in a descending order.</p> 
+				<div class="code-container">
+					<code>
+						let letters = ['f','g','w','t','a']				<br />
+						let sortedLetters = letters.sort()				<br />
+						console.log(sortedLetters) --> [a,f,g,t,w]		<br />
+					</code>
+				</div>				
+			
             <h4><i>find()</i></h4>
             <p>...</p>
             <h4><i>includes()</i></h4>
@@ -1788,9 +1795,9 @@
 				<div class="comment-oneline">ARRAY CONTAINING OBJECTS</div>
 				<code>
 				const employees = [																	<br />
-				<span class="example">  {name: "John", role: "Accountant", age: 44, salary: 10000},	</span><br />
+				<span class="example">  {name: "Tom", role: "Accountant", age: 44, salary: 10000},	</span><br />
 				<span class="example">  {name: "Lisa", role: "Adminstrator", age: 22, salary: 8000},</span><br />
-				<span class="example">  {name: "Tom", role: "Janitor", age: 53, salary: 7000},		</span><br />
+				<span class="example">  {name: "John", role: "Janitor", age: 53, salary: 7000},		</span><br />
 				<span class="example">  {name: "Patty", role: "Manager", age: 37, salary: 14000},	</span><br />
 				<span class="example">  {name: "Sally", role: "Sale", age: 23, salary: 9000},		</span><br />
 				<span class="example">  {name: "Helen", role: "IT", age: 31, salary: 11000},		</span><br />
@@ -1802,8 +1809,7 @@
 				<code>
 					const employeeNames = employees.map(employee => employee.name)	<br />
 					console.log(employeeNames) <span class="comment-outcome">--> ['John', 'Lisa', ...]</span> <span class="code-comment">// new array consisting of names					</span><br />
-			</code><br />
-			
+			</code>			
 			
 			<div class="comment-oneline">We use <i>filter</i> to filter out those with high salaries and older age</div>
 			<code>
@@ -1812,7 +1818,7 @@
 				
 				let olderEmployees = employees.filter(employee => employee.age > 30)	<br />
 				console.log(olderEmployees)	<span class="comment-outcome">--> [...] </span> <span class="code-comment">// Will return an array with 4 employees(objects). 								</span><br />
-			</code><br />
+			</code>
 			
 			<div class="comment-oneline">We chain <i>map</i> and <i>reduce</i> to get total salaries</div>
 			<code>				
@@ -1821,18 +1827,21 @@
 							<span class="example">.reduce( (acc, cv) => !isNaN(cv) ? acc + cv : acc + 0, 0)	</span><br />								
 				console.log(allSalaries) <span class="comment-outcome">--> 48000	</span>				
 			</code>
+			
 			<div class="comment-oneline">We add <i>filter</i> to remove the condition inside <i>reduce</i></div>
 			<code>
 				let salariesMapFilterReduce = employees	<br />
 							<span class="example">.map(employee => employee.salary) </span><br />
 							<span class="example">.filter(salary => !isNaN(salary))	</span><br />
-							<span class="example">.reduce((acc, cv) => acc + cv, 0)	</span><br />								
-				console.log(salariesMapFilterReduce) <span class="comment-outcome">--> 48000	</span>
+							<span class="example">.reduce((acc, cv) => acc + cv, 0)	</span><br />			
+				console.log(salariesMapFilterReduce) <span class="comment-outcome">--> 48000</span>
 			</code>
-			<div class="comment-oneline"><i>sort()</i> method</div>
+			
+			<div class="comment-oneline">Here we use <i>sort</i> with a comparefunction to sort the employees in alphabetical order</div>	
 			<code>
-				...			
-			</code>
+				let sortedEmployees = employees.sort( employee => employee.name )	<br />
+				console.log(sortedEmployees) <span class="comment-outcome">--> [John, Lisa...]	</span><br />
+			</code>				
 			<div class="comment-oneline"><i>find()</i> method</div>
 			<code>
 				...
@@ -2495,8 +2504,14 @@
 		// REDUCE
 		let numbers = [10, 11, 22, 33, 44];
 		let accNumbers = numbers.reduce( (accumulator, currentValue) => accumulator + currentValue, 33)
-
-console.log(accNumbers)
+		console.log(accNumbers)
+		
+		let sortedEmployees = employees.sort( employee => employee.name )	
+		console.log(sortedEmployees)
+		
+		let letters = ['f','g','w','t','a']
+		let sortedLetters = letters.sort()
+		console.log(sortedLetters) 
 		
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
