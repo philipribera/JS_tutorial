@@ -11,6 +11,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Merriweather+Sans|Montserrat&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <style>
+	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+	
       * {
         box-sizing: border-box;
         outline: none;
@@ -79,6 +81,7 @@
       p {
   		font-family: 'Merriweather Sans', roboto, helvetica, sans-serif;
   		font-family: roboto, helvetica, sans-serif;
+  		font-family: 'Poppins', roboto, helvetica, sans-serif;
         color: rgb(33,33,33);
       }
       h1,
@@ -97,7 +100,7 @@
   		font-family: 'Merriweather Sans', 'Montserrat', roboto, helvetica, sans-serif;
 	  }
       h4 {
-		font-family: 'Merriweather Sans', 'Montserrat', roboto, helvetica, sans-serif;
+		font-family: 'Poppins', 'Merriweather Sans', 'Montserrat', roboto, helvetica, sans-serif;
         font-size: 1.15rem;
         color: rgb(44,44,44);
 		margin: 32px 0 12px 0;
@@ -188,7 +191,7 @@
       .subject-article {
         display: inline-block;
 		width: 100%;
-        margin: 24px 0;
+        margin: 18px 0 24px 0;
       }
       .subject-title {
         margin-bottom: 18px;
@@ -289,11 +292,9 @@
 			padding-left: 6px;
 		}
 	    .note-comment {
-		    display: inline-block;
-			width: 100%;
 		    background-color: rgb(255,226,168);
 		    padding: 16px 12px;
-		    margin: 20px 0;
+		    margin: 32px 0;
 	    }
 		.note-comment, .code-container {
 			border-radius: 3px;
@@ -457,7 +458,7 @@
           <div class="example">
 			<p>
 			Javascript is the language of the web, it is an interpreted language that runs directly on the clients browser meaning that no compiler is needed. This is the core of Javascript; It was designed to be easy to use and easy to learn. It also explains some of its characteristics, strengths and drawbacks, that differentiate it from some of the most common programming languages. But Javascript has evolved a lot since its introduction and with the latest updates it has become a much more versatile language. Now days Javascript isn't limited to the browser either. With the help of <i>Node</i> it can be run on both the browser and on the server side.  
-			</p><br />
+			</p>
 			<p>
 			This tutorial will not focus on the rules for how to name variables or explain what an expression is. There are already good tutorials that explains the core basic in detail. With the exception of a few pointers on some basic facts, this tutorial will focus on key concepts of the language to get a better understanding on how Javascript works. There is also a chapter dedicated to the ECMAScript 2015 update(ES6) and how to use some of the new features that was introduced. The ES6 update was probably the most important development of Javascript since its introduction making Javascript more powerful and versatile.   
 			</p>
@@ -475,13 +476,13 @@
               <i>symbol</i>. The fundamental difference between primitives and objects is that primitives can hold a single value while objects can hold a collection of data and values. Javascript being weakly typed means that we do not specify a certain type when declaring a variable (there are exceptions tough). But even if no type is implicitly given Javascript will give the variable a type depending on the value it was given when initialized. If the variable hasn't been initialized it will get a type as <i>undefined</i>. 
 			</p>
 			
-			<span class="note-comment">
+			<div class="note-comment">
               <span class="first-word">Note: </span>
-			  Javascript is case-sensitive; meaning that consistent capitalization of characters matters when it comes to keywords, variables- and function names.</span>
+			  Javascript is case-sensitive; meaning that consistent capitalization of characters matters when it comes to keywords, variables- and function names.</div>
 			
-			<span class="note-comment">
+			<div class="note-comment">
               <span class="first-word">Note: </span>
-			  The <i>var</i> keyword will be used in code examples until the section 'Variable Scope' where variable declarations are explained more in depth.</span>
+			  The <i>var</i> keyword will be used in code examples until the section 'Variable Scope' where variable declarations are explained more in depth.</div>
 			
 			</div>			
 		</article>
@@ -493,7 +494,6 @@
               Primitive values can not have properties and methods since they
               are not objects. But Javascript can, depending on the circumstances, treat primitives as objects. Javascript does this by wrapping the value in an object kind of entity making it possible to apply properties and methods. One example is the 'length' property that can be applied on strings.
 			</p>
-			<br />
 			<p>
 			But even if primitives can behave as objects there are some important differences when compared with objects. Apart from only being able to hold a single value they are also non-mutable. Meaning that assigning a value to a variable that already holds a value replaces this value with a new value it doesn't mutate/change the original value. This is the reason mutator methods - <i>methods that change the original value</i> - can not be applied on primitives. For example <i>push</i>, <i>reverse</i> and <i>sort</i>. Another difference is that primitive values are passed by <i>copying the value</i> unlike objects that <i>pass value by reference</i>. This means that if a primitive variable is assigned to a new variable its value is copied to the new variable and can be changed without affecting the value of the original variable.  
             </p>
@@ -559,9 +559,9 @@
                 typeof str <span class="comment-outcome">--> 'object'</span> <span class="code-comment">// we use the typeof operator</span><br />
             </code>
 			</div>
-			<span class="note-comment">
+			<div class="note-comment">
               <span class="first-word">Note: </span>Strings being primitives means we can't use mutator methods as push() and sort()
-			</span>
+			</div>
 			
             <h4><i>number</i></h4>         
             <p>
@@ -569,16 +569,14 @@
               distinction for integers, floats etc. 
 			  The number data type also consist of so called, special numeric values as <i>NaN</i>, <i>Infinity</i> and <i>-infinity</i>.  
 			</p>
-			<br />
-			
 			<p>			
 			   If a Math function can't convert an argument to a number it returns <i>NaN</i>.
 				To check for <i>NaN</i> do <b>not</b> compare; NaN === NaN, this returns false since type of <i>NaN</i> is number. Instead the <i>isNaN</i> function is used, isNaN === NaN.
 			</p>
-
-			<span class="note-comment">
+			<div class="note-comment">
               <span class="first-word">Note: </span>
-			  With ES6 we can use <i>Number.isNaN(value)</i> to check for <i>NaN</i>.</span>
+			  With ES6 we can use <i>Number.isNaN(value)</i> to check for <i>NaN</i>.
+			  </div>
 			  
             <span class="link"
               >See more;
@@ -645,9 +643,9 @@
               >
 			  </div>
 			  
-			<span class="note-comment">
+			<div class="note-comment">
               <span class="first-word">Note: </span><i>undefined</i> has its own type and is not to be considered an error, tough it's often the cause of bugs.
-			</span>	            
+			</div>	            
            
             <h4><i>null</i></h4>
             <p>
@@ -677,7 +675,7 @@
           <div class="example">
 		  <p>
 		  All values in Javascript, except primitives, are objects. The easiest way to understand objects are to see them as a collection of key value pairs. In Javascript the correct term for keys are properties. Properties being the 'key' in a key value pair can also be seen as variable names inside objects. If the property holds a function expression we would call it a <i>method</i>.		  	  
-		  </p><br />
+		  </p>
 		  <p>
 		  Javascript has for a long time used constructor functions to create an object data type, basically a 'blueprint' for creating objects. With constructors we can create an object type that can be the base for creating an unlimited quantity of instances without having to redefine the same object. 	
 		</p>
@@ -697,9 +695,9 @@
 				</code>
 			</div>
 			
-			<span class="note-comment">
+			<div class="note-comment">
         <span class="first-word">Note: </span>With the ES6 update classes was introduced to Javascript that performs basically the same operations as constructor functions. We will look more at classes in the next chapter.
-		</span>	
+		</div>	
 
 		<h4>Arrays</h4>
 			<p>Arrays are basically a variable consisting of a collection of values.
@@ -728,15 +726,14 @@
 				</code>				
             </div>
 			
-            <span class="note-comment"
+            <div class="note-comment"
               ><span class="first-word">Note: </span>push and sort are so called mutator methods since they
               change the original array. Push for example adds item/s to the end
               of the array while returning the new length of the array. 
-            </span>
-            <span class="note-comment"><span class="first-word">Note: </span>We can use console.dir() to get more info about the
-              constructor </span
-            ><br />
-            <br />
+            </div>
+            <div class="note-comment"><span class="first-word">Note: </span>We can use console.dir() to get more info about the
+              constructor </div
+            >
             <span class="link"
               >See more:
               <a
@@ -786,16 +783,15 @@
                 objectB.name <span class="comment-outcome">--> "Ada"</span> <span class="code-comment">// prop name has changed </span><br />
               </code>
             </div>
-            <span class="note-comment">
+            <div class="note-comment">
               <span class="first-word">Note: </span>Function arguments are always passed by value and are copied
               into the function.
-			  </span>
-            <br />
-			<span class="note-comment"><span class="first-word">Note: </span>
+			  </div>
+            
+			<div class="note-comment"><span class="first-word">Note: </span>
             To make a real copy of an object/array we
               can use the spread operator(see more under ES6 features).
-            </span>
-            <br />
+            </div>
 
             <span class="link"
               >See more:
@@ -815,7 +811,8 @@
 			This should not be confused with <i>false</i> or <i>true</i> that are of type Boolean.
 			<i>truthy</i> and <i>falsy</i> are no data type in its own, a value of type string for example is of type string no matter its inherent boolean value. 
 			To simplify there are six <i>falsy</i> values and all other values are considered to be <i>truthy</i>.
-			</p><br />
+			</p>
+			
 				<p class="log-list-title">Values considered falsy:</p> 
 				<ul class="falsy-list">
 				<li><i>false</i></li>
@@ -861,8 +858,7 @@
               be a string to number, object to boolean, and so on. The process
               of converting a value from one type to another is called 'type
               coercion'.
-            </p>
-            
+            </p>            
             <h4>Implicit vs. explicit coercion</h4>
             <p>
               Type conversion can be done implicit and explicit. An example of
@@ -875,7 +871,7 @@
               Number(value) that seeks to convert the value to the type
               'number'.
             </p>
-            <br />
+            
             <span class="link"
               >See more:
               <a
@@ -895,11 +891,9 @@
               compiled. This means that a variable or function can be used even
               before it has been initialized. It's important to remember that variables declared with <i>let</i> will not be hoisted. One of the benefits with hoisting is that functions are hoisted as well making it possible to use them anywhere in your code. The concept of Hoisting can be the source for confusion, not least since the written code is only moved in the memory, not physically. 
             </p>
-            <br />
             <p>
               If we call a variable declared with <i>var</i> before it has been initialized it's value will be <i>undefined</i> and <i>undefined</i> being a valid value, even having its own type, will not result in an error. The same applies for function expressions being an expression assigned to a variable. It's important to remember that it's only the declaration that is hoisted not the value of the variable.           
             </p>
-            <br />
             <span class="link"
               >See more;
               <a
@@ -959,7 +953,6 @@
               in the global scope while a variable accessible inside a function
               exist in the local scope of the function where it was declared. With the ES6 update and the introduction of the keyword <i>let</i> for declaring variables we now also have <i>block scope</i>. A variable declared with <i>let</i> will only be accessible inside the block where it was declared. This can for example be inside the block restricted by a for loop that exist inside a function.
 			</p>            
-            <br />
             <p>
               When it comes to function scope it's also important to understand
               the concept of lexical scope sometimes also called Static
@@ -1110,9 +1103,9 @@
           <div class="example">
 		  <p>In Javascript functions are first class objects meaning that functions can be passed as arguments into other functions just as any other object. When a function receives another function as an argument that function is called a higher order function. And the function you pass in is called a callback. The callback can access the containing functions variables meaning that callbacks works as closures. Noteworthy; It's good praxis to check if the passed in callback is a function.   
 			  </p>
-			  <span class="note-comment">
+			  <div class="note-comment">
               <span class="first-word">Note: </span>to check if a callback indeed is a function; <i>typeof callBack === 'function'</i>.
-            </span>
+            </div>
 			
 			  <div class="code-container">
 			  <div class="comment-oneline">We pass a function into another function</div>
@@ -1155,9 +1148,9 @@
 				</code>
 			</div>
 			
-			<span class="note-comment">
+			<div class="note-comment">
               <span class="first-word">Note: </span>To access the closure object; <i>console.dir(add)</i>.
-            </span>
+            </div>
 			
             <span class="link"
               >More about closures:
@@ -1177,7 +1170,6 @@
               Javascript is a way to avoid what often is called 'callback hell'
               where callbacks are nested in an ever growing code structure.
             </p>
-            <br />
             <p>
               A Promise consist of an resolved and rejected callback. Depending
               on if the promise is resolved or not the corresponding callback i
@@ -1240,7 +1232,6 @@
               an easy, logical way to fetch resources asynchronously across the
               network.
             </p>
-            <br />
             <p>
               The fetch() method takes one mandatory argument, the
               <b>path(url)</b> to the resource you want to fetch. By default it
@@ -1414,10 +1405,9 @@
               </code>
 			  </div>
 			
-            <span class="note-comment">
+            <div class="note-comment">
               <span class="first-word">Note: </span><i>var</i> will allow you to re-declare a variable in the same scope while a variable declared with <i>let</i> raises a SyntaxError.
-            </span>
-            <br />
+            </div>
             <p>
               <span class="link"
                 >See more:
@@ -1495,7 +1485,6 @@
 			If not using arrow functions the value of <i>this</i> will depend on how the function is called. 
 			To set the value of <i>this</i> and alter its default behavior inside a function, the bind() method has to be used.
             </p>
-            <br />
             <p>
               Arrow functions inherits <i>this</i> from the enclosing lexical scope. Meaning if <i>this</i> is not present in its current scope it will look for it in the enclosing scope. 			  
 			  If <i>this</i> is used in a nested function or for example in a method of a class it will look for the value of this
@@ -1506,7 +1495,6 @@
 			  With arrow functions the behaviour of <i>this</i> is consistent and do not change
               depending on where it is called.
             </p>
-            <br />
             <span class="link"
               >See more:
               <a
@@ -1591,15 +1579,15 @@
               </code>
             </div>
 			
-			<span class="note-comment">
+			<div class="note-comment">
               <span class="first-word">Note: </span>There is no way to break out from a forEach() loop, except throwing an exception.
-            </span>
+            </div>
 
             <h4><i>for/in</i></h4>
             <p>
               The for/in statement iterates over all non-symbol properties of an object. The loop will iterate over all enumerable properties and those the object inherits from its constructor's prototype as well. If the intention is to only
               consider properties of the object itself and not its prototypes, use <i>getOwnPropertyNames()</i> or make sure to perform a <i>hasOwnProperty()</i> check.
-            </p><br />
+            </p>
 			<p>
 			Tough the for/in statement can be used on arrays it's not  recommended. The reason is that there are no guarantee that a for/in loop will return the values in certain order. When it comes to arrays the order of access is important unlike objects where the value is assigned to a certain property. 
 			</p>
@@ -1675,11 +1663,10 @@
 			  There are many ways to iterate over arrays and loops and they all have there strengths and tradeof:s. 
 			  The standard <i>for</i> and <i>for/in</i> loop constructs gives access to the index in the iterable object but not the element. To access the element we have to print
               out the, item[index]. With for/of and forEach() on the other hand we get access to the element itself and with the latter we can also invoke an optional index argument. Accessing the index with a for/of loop requires more effort but can be done by combining destructuring with the entries method. 	  
-			  </p><br />
+			  </p>
             <p>			
               In general tough the most safe way to loop through an array/object will be the <i>for/of</i> loop. If, on the other hand, the intention is to manipulate every element in an array the <i>for/each</i> loop is the best choice. The <i>for/in</i> loop should only be used to iterate through the properties of an object and avoided for arrays where the index order is of importance. If the intention is to manipulate or filter data from an array consisting of objects a built in callback function should do the job most effectively(see section; 'Higher order functions'). Many situations might require a combination of different tool/s to achieve the desired result. In the end it will very much depend on the level of experience as a coder to know what tool/s to choose for the job.	  
             </p>
-            <br />
             <span class="link">
               See more:
               <a
