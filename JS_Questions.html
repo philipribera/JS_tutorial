@@ -23,7 +23,7 @@
       }
       body {
         font-family: helvetica, roboto, sans-serif;
-        background-color: rgb(215,215,215);
+        background-color: rgb(222,222,222);
 		z-index: -999;
 		margin: 0;
       }
@@ -84,7 +84,7 @@
 		position: relative;
         display: block;		
         width: 100%;
-        max-width: 968px;
+        max-width: 964px;
         background-color: rgba(255, 255, 255, 1);
         color: rgb(35, 35, 35);
         padding: 24px;
@@ -96,7 +96,7 @@
   		font-family: 'Merriweather Sans', roboto, helvetica, sans-serif;
   		font-family: roboto, helvetica, sans-serif;
   		font-family: 'Poppins', roboto, helvetica, sans-serif;
-        color: rgb(33,33,33);
+        color: rgb(15,15,15);
       }
       h1,
       h2,
@@ -116,7 +116,7 @@
       h4 {
 		font-family: 'Poppins', 'Merriweather Sans', 'Montserrat', roboto, helvetica, sans-serif;
         font-size: 1.15rem;
-        color: rgb(44,44,44);
+        color: rgb(27,27,27);
 		margin: 32px 0 12px 0;
       }
       ul {
@@ -543,14 +543,14 @@
 				var a = "Hello"								<br />
 				var b = a 	<span class="code-comment">// we assign 'a' to 'b'	</span><br />
 				b = "World"	 <span class="code-comment">// we give 'b' a new value	</span><br />
-				console.log(a) <span class="comment-outcome"> --> Hello </span><span class="code-comment">// The value of 'a' doesn't  change	</span><br />			  
+				console.log(a) <span class="comment-outcome"> --> Hello </span><span class="code-comment">// the value of 'a' doesn't  change	</span><br />			  
               </code>
 				 <div class="comment-oneline">
                 We use the length property/element
                 </div>
                 <code>
                 var str = "Hello World"<br />
-                console.log(str.length) <span class="comment-outcome"> --> 11</span> <span class="code-comment">// We get the numbers of characters</span><br />
+                console.log(str.length) <span class="comment-outcome"> --> 11</span> <span class="code-comment">// we get the numbers of characters</span><br />
                  </code> 
                 <div class="comment-oneline">
                 Primitive values do not mutate
@@ -568,7 +568,7 @@
 			   </code>
               <div class="comment-oneline">But not this...</div>
               <code>
-                foo[0] = "T" <span class="code-comment">// We try to assign foo[0] a new value</span><br />
+                foo[0] = "T" <span class="code-comment">// we try to assign foo[0] a new value</span><br />
                 console.log(foo) <span class="comment-outcome"> --> Hello World</span><span class="code-comment">// value of 'foo' doesn't change </span><br />
               </code>
             </div>
@@ -637,7 +637,7 @@
                 Math.max(4,7,9,11) <span class="comment-outcome">--> 11</span><br />
                 Math.min(4,7,9,11) <span class="comment-outcome">--> 4</span><br />
                 var numbers = [4,7,9,11]; <br />
-                Math.max(numbers) <span class="comment-outcome">--> NaN</span> <span class="code-comment">// Math max/min do not work with arrays.</span><br />
+                Math.max(numbers) <span class="comment-outcome">--> NaN</span> <span class="code-comment">// Math max/min do not work with arrays</span><br />
               </code>
 
               <div class="comment-oneline">
@@ -646,7 +646,7 @@
               <code>
                 Math.max(...numbers) <span class="comment-outcome">--> 11</span><br /><br />
                 var rand; <br />
-                Math.random(rand) <span class="comment-outcome">--> ?</span> <span class="code-comment">// returns a floating-point between 0 and 1.</span>
+                Math.random(rand) <span class="comment-outcome">--> ?</span> <span class="code-comment">// returns a floating-point between 0 and 1</span>
               </code>
             </div>
 
@@ -670,13 +670,13 @@
               <div class="comment-oneline">
                 If we don't initialize a variable
               </div>
-              <code> var a; <span class="code-comment">// This will give 'a' the value undefined. </span></code
+              <code> var a; <span class="code-comment">// assign the value 'undefined' </span></code
               ><br />
               <div class="comment-oneline">But we can also do this</div>
               <code>
                 var a = undefined; <span class="code-comment">// we assign the value 'undefined'</span><br />
                 typeof a <span class="comment-outcome">--> 'undefined'</span> <br />
-                if ( typeof a === 'undefined') <span class="comment-outcome">--> true</span> <span class="code-comment">// We check for
+                if ( typeof a === 'undefined') <span class="comment-outcome">--> true</span> <span class="code-comment">// we check for
                 <i>undefined</i>(note; the quotes!)</span></code
               >
 			  </div>
@@ -696,15 +696,35 @@
               <code>
                 var b = null; <br />
                 typeof b <span class="comment-outcome">--> object</span> <span class="code-comment">// null basically means empty object </span><br />
-                if (b === null) <span class="comment-outcome">--> true </span><span class="code-comment">// We check for null </span></code
+                if (b === null) <span class="comment-outcome">--> true </span><span class="code-comment">// we check for null </span></code
               >
             </div>
 			
 			<h4><i>Boolean</i></h4>
 			<p>
 			Boolean types are either true or false and denominated by <i>true</i> or <i>false</i>.
-			The major importance of boolean:s are as result of comparison. 
+			The major importance of boolean:s are as result of comparison. For this we use the Boolean() function. The shorthand version will just omit the boolean keyword. Any object that is not <i>undefined</i> or <i>null</i> will always evaluate to true. This is not the case for primitives where a false value will evaluate to false(see code examples). 			
 			</p>			
+			<div class="code-container">
+				<div class="comment-oneline">We pass an object with a false value</div>
+				<code>					
+					const myObj = { number: 0 }	<br />
+					if(myObj) {													<br />
+					<span class="example">console.log("I'm true") <span class="comment-outcome">--> "I'm true"  </span></span><br />
+					}														<br />
+				</code>
+				<div class="comment-oneline">We pass a primitive with a false value</div>
+				<code>
+					const foo = 0	<span class="code-comment">// we assign a <i>falsy</i> value to 'foo'</span><br />
+					if(foo) {						<br />
+					<span class="example">console.log("nothingHappens") 	<span class="code-comment">// will not execute	
+					</span></span><br />
+					} else {													<br />
+						<span class="example">console.log("I'm false")	<span class="comment-outcome">--> "I'm false"</span><span class="code-comment">// will execute</span></span><br />
+					}
+				
+				</code>				
+			</div>
           </div>
         </article>
 		
@@ -803,8 +823,8 @@
               <code>
                 var a = "KYH" <br />
                 var b = a <br />
-                a = "Hello" <span class="code-comment">// We assign a new value to a </span><br />
-                console.log(b) <span class="comment-outcome">--> "KYH"</span> <span class="code-comment">// We retain the copied value </span><br />
+                a = "Hello" <span class="code-comment">// we assign a new value to a </span><br />
+                console.log(b) <span class="comment-outcome">--> "KYH"</span> <span class="code-comment">// we retain the copied value </span><br />
               </code>
             </div>
 			
@@ -1057,11 +1077,9 @@
 
             <div class="code-container">
               <code>
-                if(1 == "1") <span class="comment-outcome">--> true</span> <span class="code-comment">// will make a comparison after type
-                conversion of "1" to 1 </span><br />
+                if(1 == "1") <span class="comment-outcome">--> true</span> <span class="code-comment">// will make a comparison after type conversion of "1" to 1 </span><br />
                 <br />
-                if(1 === "1") <span class="comment-outcome">--> false</span> <span class="code-comment">// strict equality will check for both
-                value and type.
+                if(1 === "1") <span class="comment-outcome">--> false</span> <span class="code-comment">// strict equality will check for both value and type
                 </span><br />
               </code>
             </div>
@@ -1070,7 +1088,6 @@
             <p>
               Logical operators are used to determine the logic between
               variables or values.
-              ....
             </p>
             <ul class="log-list">
               <li>
@@ -2505,13 +2522,20 @@
 		let numbers = [10, 11, 22, 33, 44];
 		let accNumbers = numbers.reduce( (accumulator, currentValue) => accumulator + currentValue, 33)
 		console.log(accNumbers)
-		
+
+		// SORT	
 		let sortedEmployees = employees.sort( employee => employee.name )	
-		console.log(sortedEmployees)
-		
+		console.log(sortedEmployees)		
 		let letters = ['f','g','w','t','a']
 		let sortedLetters = letters.sort()
 		console.log(sortedLetters) 
+		
+		// BOOLEAN
+		const myObj = { number: 0 }
+		if(myObj) {
+			console.log("I evaluate to true")
+		}
+		
 		
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
