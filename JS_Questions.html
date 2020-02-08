@@ -702,10 +702,15 @@
 			
 			<h4><i>Boolean</i></h4>
 			<p>
-			Boolean types are either true or false and denominated by <i>true</i> or <i>false</i>.
-			The major importance of boolean:s are as result of comparison. For this we use the Boolean() function. The shorthand version will just omit the boolean keyword. Any object that is not <i>undefined</i> or <i>null</i> will always evaluate to true. This is not the case for primitives where a false value will evaluate to false(see code examples). 			
+			Boolean type has only two values <i>true</i> or <i>false</i>. Its primary use is for controlling program flow using conditional statements. Noteworthy; Any object that is not <i>undefined</i> or <i>null</i> will always evaluate to true. 			
 			</p>			
 			<div class="code-container">
+			<div class="comment-oneline">A simple expression that evaluates to true</div>
+				<code>
+					if (10 > 5) {
+						console.log('This is true') // this will execute
+					}	
+				</code>
 				<div class="comment-oneline">We pass an object with a false value</div>
 				<code>					
 					const myObj = new Object(false)	<br />
@@ -721,13 +726,55 @@
 					</span></span><br />
 					} else {													<br />
 						<span class="example">console.log("I'm false")	<span class="comment-outcome">--> "I'm false"</span><span class="code-comment">// will execute</span></span><br />
-					}
-				
+					}				
 				</code>				
 			</div>
           </div>
         </article>
 		
+		<article class="subject-article">
+          <h3 class="subject-title"><i>truthy</i> and <i>falsy</i></h3>
+          <div class="example">
+			<p>
+			All values in Javascript can be said to be either <i>truthy</i> or <i>falsy</i>. 			
+			This should not be confused with <i>true</i> or <i>false</i> that are of type Boolean.
+			<i>truthy</i> and <i>falsy</i> are no data type in its own, a value of type string for example is of type string no matter its inherent boolean value. 
+			To simplify there are six <i>falsy</i> values and all other values are considered to be <i>truthy</i>.
+			</p>
+			
+				<p class="log-list-title">Values considered falsy:</p> 
+				<ul class="falsy-list">
+				<li><i>false</i></li>
+				<li><i>0</i></li>
+				<li><i>undefined</i></li>
+				<li><i>' '</i> or <i>" "</i><span class="list-comment">// empty string</span> </li> 
+				<li><i>NaN</i></li>
+				<li><i>null</i></li>
+				</ul>
+				<br />
+			
+			<p>
+			So why do we have <i>truthy</i> and <i>falsy</i> in Javascript?  
+			In JavaScript all values, no matter its type, will be considered either true or false when encountered in a Boolean context. In other words; A condition where one or more values are set in a boolean context will result in either a true or false outcome. The typical situation being an if statement where a block of code will be excecuted depending on if the condition will be considered true or false. The boolean context can consist of values of any type but they will always have an inherent boolean value as either <i>truthy</i> or <i>falsy</i>.  
+			</p>
+			
+			<div class="code-container">
+				<code>
+					if(1) {		<br />
+							<span class="example">console.log("Hello") <span class="comment-outcome">--> Hello</span> <span class="code-comment">// 1 will be considered <i>truthy</i> </span></span><br />
+					}				<br />	
+					<br />
+					var a;		<br />
+					if(a) {		<br />
+					<span class="example">	console.log("I'm truthy");  </span>	 <br />
+					} else {	<br />
+					<span class="example">console.log("I'm falsy")</span> <span class="comment-outcome">--> I'm falsy </span><span class="code-comment">// a is 'undefined' considered as <i>falsy</i></span><br />
+					} <br />
+				</code>
+			</div>			
+			</div>
+			</article>
+			
 		<article class="subject-article">
           <h3 class="subject-title">Objects</h3>
           <div class="example">
@@ -861,49 +908,6 @@
           </div>
         </article>        
 		
-		 <article class="subject-article">
-          <h3 class="subject-title"><i>truthy</i> and <i>falsy</i></h3>
-          <div class="example">
-			<p>
-			All values in Javascript can be said to be either <i>truthy</i> or <i>falsy</i>. 			
-			This should not be confused with <i>false</i> or <i>true</i> that are of type Boolean.
-			<i>truthy</i> and <i>falsy</i> are no data type in its own, a value of type string for example is of type string no matter its inherent boolean value. 
-			To simplify there are six <i>falsy</i> values and all other values are considered to be <i>truthy</i>.
-			</p>
-			
-				<p class="log-list-title">Values considered falsy:</p> 
-				<ul class="falsy-list">
-				<li><i>false</i></li>
-				<li><i>0</i></li>
-				<li><i>undefined</i></li>
-				<li><i>' '</i> or <i>" "</i><span class="list-comment">// empty string</span> </li> 
-				<li><i>NaN</i></li>
-				<li><i>null</i></li>
-				</ul>
-				<br />
-			
-			<p>
-			So why do we have <i>truthy</i> and <i>falsy</i> in Javascript?  
-			In JavaScript all values, no matter its type, will be considered either true or false when encountered in a Boolean context. In other words; A condition where one or more values are set in a boolean context will result in either a true or false outcome. The typical situation being an if statement where a block of code will be excecuted depending on if the condition will be considered true or false. The boolean context can consist of values of any type but they will always have an inherent boolean value as either <i>truthy</i> or <i>falsy</i>.  
-			</p>
-			
-			<div class="code-container">
-				<code>
-					if(1) {		<br />
-							<span class="example">console.log("Hello") <span class="comment-outcome">--> Hello</span> <span class="code-comment">// 1 will be considered <i>truthy</i> </span></span><br />
-					}				<br />	
-					<br />
-					var a;		<br />
-					if(a) {		<br />
-					<span class="example">	console.log("I'm truthy");  </span>	 <br />
-					} else {	<br />
-					<span class="example">console.log("I'm falsy")</span> <span class="comment-outcome">--> I'm falsy </span><span class="code-comment">// a is 'undefined' considered as <i>falsy</i></span><br />
-					} <br />
-				</code>
-			</div>			
-			</div>
-			</article>
-
         <article class="subject-article">
           <h3 class="subject-title">Type Coercion</h3>
           <div class="example">
@@ -2536,7 +2540,9 @@
 			console.log("I evaluate to true")
 		}
 		
-		
+		if (10 > 5) {
+						console.log('This is true')//--> true
+					}
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
   </body>
