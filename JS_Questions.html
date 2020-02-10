@@ -707,11 +707,11 @@
 			<div class="code-container">
 			<div class="comment-oneline">A simple expression that evaluates to true</div>
 				<code>
-					if (10 > 5) {
-						console.log('This is true') // this will execute
-					}	
+					if (10 > 5) {		<br />
+					<span class="example">console.log('This is true')</span> // code block will execute	<br />
+					}	<br />	
 				</code>
-				<div class="comment-oneline">We pass an object with a false value</div>
+				<div class="comment-oneline">We pass an object with a <i>falsy</i> value</div>
 				<code>					
 					const myObj = new Object(false)	<br />
 					if(myObj) {													<br />
@@ -736,10 +736,7 @@
           <h3 class="subject-title"><i>truthy</i> and <i>falsy</i></h3>
           <div class="example">
 			<p>
-			All values in Javascript can be said to be either <i>truthy</i> or <i>falsy</i>. 			
-			This should not be confused with <i>true</i> or <i>false</i> that are of type Boolean.
-			<i>truthy</i> and <i>falsy</i> are no data type in its own, a value of type string for example is of type string no matter its inherent boolean value. 
-			To simplify there are six <i>falsy</i> values and all other values are considered to be <i>truthy</i>.
+			All values in Javascript can be said to be either <i>truthy</i> or <i>falsy</i> i a Boolean context. This should not be confused with <i>true</i> or <i>false</i> that are of type Boolean. <i>truthy</i> and <i>falsy</i> have no data type in its own, a value of type string for example is of type string no matter its inherent boolean value being either truthy or falsy. To simplify there are six <i>falsy</i> values and all other values are considered to be <i>truthy</i>.
 			</p>
 			
 				<p class="log-list-title">Values considered falsy:</p> 
@@ -751,11 +748,10 @@
 				<li><i>NaN</i></li>
 				<li><i>null</i></li>
 				</ul>
-				<br />
-			
+				
 			<p>
 			So why do we have <i>truthy</i> and <i>falsy</i> in Javascript?  
-			In JavaScript all values, no matter its type, will be considered either true or false when encountered in a Boolean context. In other words; A condition where one or more values are set in a boolean context will result in either a true or false outcome. The typical situation being an if statement where a block of code will be excecuted depending on if the condition will be considered true or false. The boolean context can consist of values of any type but they will always have an inherent boolean value as either <i>truthy</i> or <i>falsy</i>.  
+			In JavaScript all values, no matter its type, will be considered either true or false when encountered in a Boolean context. In other words; A condition where one or more values are set in a boolean context will result in either a true or false outcome. The typical situation being an if statement where a block of code will be excecuted depending on if the condition will be considered true or false. The boolean context can consist of values of any type but they will always have an inherent boolean value as either <i>truthy</i> or <i>falsy</i> and the condition where they are set will evaluate to either true or false.  
 			</p>
 			
 			<div class="code-container">
@@ -764,11 +760,11 @@
 							<span class="example">console.log("Hello") <span class="comment-outcome">--> Hello</span> <span class="code-comment">// 1 will be considered <i>truthy</i> </span></span><br />
 					}				<br />	
 					<br />
-					var a;		<br />
+					var a;	<span class="code-comment">// 'a' is not initialized and will get the <i>falsy</i> value 'undefined'	<br />
 					if(a) {		<br />
-					<span class="example">	console.log("I'm truthy");  </span>	 <br />
+					<span class="example">	console.log("I'm true");  </span>	 <br />
 					} else {	<br />
-					<span class="example">console.log("I'm falsy")</span> <span class="comment-outcome">--> I'm falsy </span><span class="code-comment">// a is 'undefined' considered as <i>falsy</i></span><br />
+					<span class="example">console.log("I'm false")</span> <span class="comment-outcome">--> I'm false </span><span class="code-comment">// the condition evaluates to false</span><br />
 					} <br />
 				</code>
 			</div>			
@@ -779,7 +775,7 @@
           <h3 class="subject-title">Objects</h3>
           <div class="example">
 		  <p>
-		  All values in Javascript, except primitives, are objects. The easiest way to understand objects are to see them as a collection of key value pairs. In Javascript the correct term for keys are properties. Properties being the 'key' in a key value pair can also be seen as variable names inside objects. If the property holds a function expression we would call it a <i>method</i>.		  	  
+		  All values in Javascript, except primitives, are objects. Objects can store collection of values while primitives are restricted to hold a single value. The easiest way to understand objects are to see them as a collection of key value pairs. In Javascript the correct term for keys are properties. Properties being the 'key' in a key value pair can also be seen as variable names inside objects. If the property holds a function expression we would call it a <i>method</i>.		  	  
 		  </p>
 		  <p>
 		  Javascript has for a long time used constructor functions to create an object data type, basically a 'blueprint' for creating objects. With constructors we can create an object type that can be the base for creating an unlimited quantity of instances without having to redefine the same object. 	
@@ -806,7 +802,7 @@
 
 		<h4>Arrays</h4>
 			<p>Arrays are basically a variable consisting of a collection of values.
-			The values are accessed by referring to its index number unlike objects where a value is assigned to a named property. That said it's important to remember that arrays are also objects but with there own properties and methods.   
+			The values are accessed by referring to its index number unlike objects where a value is assigned to a named property. That said it's important to remember that arrays are a special kind of objects with there own properties and methods.   
 			</p>	          
 
             <div class="code-container">
@@ -862,7 +858,7 @@
               works in other words as a pointer to where the object is stored,
               it doesn't copy the value as is the case with primitive types.
               This means that if we change the value of a property/element it
-              impacts all variables with a reference to the same spot in memory.
+              will impact all variables with a reference to the same location in memory. In other words an object that is assigned to another variable will have its value changed if the value of the original object is changed. 
             </p>
 
             <div class="code-container">
@@ -1430,7 +1426,7 @@
               With the introduction of ES6 support was added for the key words <i>const</i> and <i>let</i> when declaring variables.
             </p>
 
-            <h4><i>const</i></h4>
+            <h4>const</h4>
             <p>
               const is used for declaring variables where the intention is to
               not change its value. It could be said that the value will be read
@@ -1442,7 +1438,7 @@
               value.
             </p>
             
-            <h4><i>let</i> vs. <i>var</i></h4>
+            <h4>let vs. var</h4>
             <p>
               The main difference between <i>var</i> and <i>let</i> is that
               <i>var</i> has function scope and <i>let</i> has block scope. 
@@ -1450,7 +1446,7 @@
             </p>
 			
 			<div class="code-container">
-              <div class="comment-oneline">The <i>iterator</i> is only accessible in its own scope while <i>b</i> is declared with var and accessible everywhere inside the function.</div>
+              <div class="comment-oneline">The <i>iterator</i> is only accessible in its own scope while <i>b</i> is accessible everywhere inside the function.</div>
 			  <code>
 			  function blockScope(num) {									<br />
 				<span class="example">for(let i = 1; i &lt; num; i++) {		</span><br /> 
