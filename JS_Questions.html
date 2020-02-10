@@ -520,8 +520,7 @@
 			
 			<div class="note-comment">
               <span class="first-word">Note: </span>
-			  The <i>var</i> keyword will be used in code examples until the section 'Variable Scope' where variable declarations are explained more in depth.</div>
-			
+			  The <i>var</i> keyword will be used in code examples until the section 'Variable Scope' where variable declarations are explained more in depth.</div>		
 			</div>			
 		</article>
         
@@ -608,8 +607,8 @@
 			  The number data type also consist of so called, special numeric values as <i>NaN</i>, <i>Infinity</i> and <i>-infinity</i>.  
 			</p>
 			<p>			
-			   If an arithmatic operation can't convert an argument to a number it returns <i>NaN</i>, meaning; not a number.
-				To check for <i>NaN</i> do <b>not</b> compare; NaN === NaN, this returns false since type of <i>NaN</i> is number. The <i>isNaN</i> function has to be used instead, isNaN === NaN.
+			   If an arithmetic operation can't convert an argument to a number it returns <i>NaN</i>, meaning; not a number.
+				To check for <i>NaN</i> do <b>not</b> compare; NaN === NaN, this returns false since type of <i>NaN</i> is number. The <i>isNaN</i> function has to be used instead, isNaN(argument) === NaN.
 			</p>
 			<div class="note-comment">
               <span class="first-word">Note: </span>
@@ -658,7 +657,7 @@
               automatically assign <i>undefined</i> to a variable that are not
               initialized. In other words a variable that has been declared but not given a value will always return undefined. 
               A function with no return statement will always return <i>undefined</i> as well. To check for <i>undefined</i> we use the
-              <i>typeof</i> operator.<br />              
+              <i>typeof</i> operator.<br />             
             </p>
 
             <div class="code-container">
@@ -1359,7 +1358,7 @@
               >See more:
               <a
                 href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
-                >API OPEN WEATHER DATA</a
+                >https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch</a
               >
             </span>
           </div>
@@ -1802,7 +1801,18 @@
 				</div>				
 			
             <h4><i>find()</i></h4>
-            <p>...</p>
+            <p>The find() method will return the value of the first element in an array that passes the condition set by the callback. If the intention is to find the index of the first value that passes the condition use <i>findIndex()</i> method. If no value satisfies the set condition undefined will be returned.
+			<div class="code-container">
+				<code>
+					const persons = ['John', 'Lisa', 'Patty', 'Tom']	<br />
+					let personFound = persons.find(person => {	<br />
+						<span class="example">return person === 'Lisa' // <span class="code-comment">returns the first name that passes the condition</span></span><br />
+					})							<br />
+					<br />					
+					console.log(personFound)	<br />					
+				</code>
+			</div>
+			
             <h4><i>includes()</i></h4>
             <p>...</p>
 			
@@ -2529,16 +2539,7 @@
 		let letters = ['f','g','w','t','a']
 		let sortedLetters = letters.sort()
 		console.log(sortedLetters) 
-		
-		// BOOLEAN
-		const myObj = new Object(false)
-		if(myObj) {
-			console.log("I evaluate to true")
-		}
-		
-		if (10 > 5) {
-						console.log('This is true')//--> true
-					}
+
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
   </body>
