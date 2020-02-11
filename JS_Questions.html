@@ -9,24 +9,20 @@
     <title>Javascript Questions</title>
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Merriweather+Sans|Montserrat&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <style>
 	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
 	<!-- END FONTS -->
 	<style>
       * {
         box-sizing: border-box;
         outline: none;
-        padding: 0;
-        margin: 0;
-      }
-      body {
-        font-family: helvetica, roboto, sans-serif;
-        background-color: rgb(222,222,222);
-		z-index: -999;
+		padding: 0;
 		margin: 0;
       }
+	  body {
+		font-family: helvetica, roboto, sans-serif;
+		background-color: rgb(222,221,221);
+	  } 
       header {
 		width: 100%;
         height: 68px;
@@ -84,10 +80,10 @@
 		position: relative;
         display: block;		
         width: 100%;
-        max-width: 964px;
+        max-width: 956px;
         background-color: rgba(255, 255, 255, 1);
         color: rgb(35, 35, 35);
-        padding: 24px;
+        padding: 26px;
         margin: 42px auto;
       }
 	  
@@ -96,7 +92,9 @@
   		font-family: 'Merriweather Sans', roboto, helvetica, sans-serif;
   		font-family: roboto, helvetica, sans-serif;
   		font-family: 'Poppins', roboto, helvetica, sans-serif;
+		font-family: "Montserrat", roboto, sans-serif;
         color: rgb(15,15,15);
+		margin: 2px 0;
       }
       h1,
       h2,
@@ -205,7 +203,7 @@
       .subject-article {
         display: inline-block;
 		width: 100%;
-        margin: 18px 0 24px 0;
+        margin: 18px 0 20px 0;
       }
       .subject-title {
         margin-bottom: 18px;
@@ -220,13 +218,14 @@
 		margin-left: 42px;
 	  }
       .link {
+		font-family: roboto, helvetica, sans-serif;
         word-break: break-all;
         display: inline-block;
 		background-color: rgb(253,247,237);
         color: rgb(123, 123, 123);
         font-weight: 600;
 		padding: 2px;
-        margin: 10px 0;
+        margin: 12px 0 10px 0;
       }
       .code * {
         word-break: break-all;
@@ -310,7 +309,7 @@
 	    .note-comment {
 		    background-color: rgb(255,226,168);
 		    padding: 16px 12px;
-		    margin: 32px 0;
+		    margin: 30px 0;
 	    }
 		.note-comment, .code-container {
 			border-radius: 3px;
@@ -398,6 +397,10 @@
         .code-container {
           padding: 20px 14px;
         }
+		.note-comment {
+		    padding: 12px;
+		    margin: 24px 0;
+	    }
         h1 {
           font-size: 1.95rem;
         }
@@ -471,8 +474,7 @@
   </head>
 
   <body>
-    <header >
-		<div class="header-container">
+    <header class="header-container">
       <div class="header-title">
         <h3>JAVASCRIPT FUNDAMENTALS WITH QUESTIONS</h3>
       </div>
@@ -483,7 +485,6 @@
           <li><a href="#questions-part">Questions</a></li>
         </ul>
       </div>
-	  </div>
     </header>
 
     <div class="wrapper">
@@ -493,10 +494,9 @@
 
 		<article class="subject-article">
           <h3 class="subject-title">Introduction</h3>
-          <div class="example">
 			<p>
 			Javascript is the language of the web, it is an interpreted language that runs directly on the clients browser meaning that no compiler is needed. This is the core of Javascript; It was designed to be easy to use and easy to learn. It also explains some of its characteristics, strengths and drawbacks, that differentiate it from some of the most common programming languages. But Javascript has evolved a lot since its introduction and with the latest updates it has become a much more versatile language. Now days Javascript isn't limited to the browser either. With the help of <i>Node</i> it can be run on both the browser and on the server side.  
-			</p>
+			</p><br />
 			<p>
 			This tutorial will not focus on basic syntax rules or how to name variables. There are already good tutorials that explains the core basic in detail. This tutorial will focus on the key concepts of the language to get a better understanding on how Javascript works. There is also a chapter dedicated to the ECMAScript 2015 (ES6) update and how to use some of the new features that was introduced. The ES6 update was probably the most important development of Javascript since its introduction making Javascript significantly more powerful and versatile.    
 			</p>
@@ -520,17 +520,16 @@
 			
 			<div class="note-comment">
               <span class="first-word">Note: </span>
-			  The <i>var</i> keyword will be used in code examples until the section 'Variable Scope' where variable declarations are explained more in depth.</div>		
-			</div>			
+			  The <i>var</i> keyword will be used in code examples until the section 'Variable Scope' where variable declarations are explained more in depth.
+			  </div>		
 		</article>
         
         <article class="subject-article">
           <h3 class="subject-title">Primitive Types</h3>
-          <div class="example">		  
             <p>
               Primitive values can not have properties and methods since they
               are not objects. But Javascript can, depending on the circumstances, treat primitives as objects. Javascript does this by wrapping the value in an object kind of entity making it possible to apply properties and methods. One example is the 'length' property that can be applied on strings.
-			</p>
+			</p><br />
 			<p>
 			But even if primitives can behave as objects there are some important differences when compared with objects. Apart from only being able to hold a single value they are also non-mutable. Meaning that assigning a value to a variable that already holds a value replaces this value with a new value it doesn't mutate/change the original value. This is the reason mutator methods - <i>methods that change the original value</i> - can not be applied on primitives. For example <i>push</i>, <i>reverse</i> and <i>sort</i>. Another difference is that primitive values are passed by <i>copying the value</i> unlike objects that <i>pass value by reference</i>. This means that if a primitive variable is assigned to a new variable its value is copied to the new variable and can be changed without affecting the value of the original variable.  
             </p>
@@ -728,15 +727,13 @@
 					}				
 				</code>				
 			</div>
-          </div>
         </article>
 		
 		<article class="subject-article">
           <h3 class="subject-title"><i>truthy</i> and <i>falsy</i></h3>
-          <div class="example">
 			<p>
 			All values in Javascript can be said to be either <i>truthy</i> or <i>falsy</i> i a Boolean context. This should not be confused with <i>true</i> or <i>false</i> that are of type Boolean. <i>truthy</i> and <i>falsy</i> have no data type in its own, a value of type string for example is of type string no matter its inherent boolean value being either truthy or falsy. To simplify there are six <i>falsy</i> values and all other values are considered to be <i>truthy</i>.
-			</p>
+			</p><br />
 			
 				<p class="log-list-title">Values considered falsy:</p> 
 				<ul class="falsy-list">
@@ -759,7 +756,7 @@
 							<span class="example">console.log("Hello") <span class="comment-outcome">--> Hello</span> <span class="code-comment">// 1 will be considered <i>truthy</i> </span></span><br />
 					}				<br />	
 					<br />
-					var a;	<span class="code-comment">// 'a' is not initialized and will get the <i>falsy</i> value 'undefined'	<br />
+					var a;	<span class="code-comment">// 'a' is not initialized and will get the <i>falsy</i> value 'undefined'</span><br />
 					if(a) {		<br />
 					<span class="example">	console.log("I'm true");  </span>	 <br />
 					} else {	<br />
@@ -767,15 +764,13 @@
 					} <br />
 				</code>
 			</div>			
-			</div>
-			</article>
+		</article>
 			
 		<article class="subject-article">
           <h3 class="subject-title">Objects</h3>
-          <div class="example">
 		  <p>
 		  All values in Javascript, except primitives, are objects. Objects can store collection of values while primitives are restricted to hold a single value. The easiest way to understand objects are to see them as a collection of key value pairs. In Javascript the correct term for keys are properties. Properties being the 'key' in a key value pair can also be seen as variable names inside objects. If the property holds a function expression we would call it a <i>method</i>.		  	  
-		  </p>
+		  </p><br />
 		  <p>
 		  Javascript has for a long time used constructor functions to create an object data type, basically a 'blueprint' for creating objects. With constructors we can create an object type that can be the base for creating an unlimited quantity of instances without having to redefine the same object. 	
 		</p>
@@ -845,15 +840,13 @@
                 >https://www.tutorialrepublic.com/javascript-reference/javascript-array-object.php</a
               ></span
             >		
-		  </div>
 	  </article>
 
 		<article class="subject-article">
           <h3 class="subject-title">Pass by Value vs. Reference</h3>
-          <div class="example">
             <p>
               When we assign an object to new variable we copy the reference to
-              where that object or array is stored in memory.<br />The reference
+              where that object or array is stored in memory. The reference
               works in other words as a pointer to where the object is stored,
               it doesn't copy the value as is the case with primitive types.
               This means that if we change the value of a property/element it
@@ -900,12 +893,10 @@
                 >https://stackoverflow.com/questions/16880418/javascript-pas</a
               ></span
             >
-          </div>
         </article>        
 		
         <article class="subject-article">
           <h3 class="subject-title">Type Coercion</h3>
-          <div class="example">
             <p>
               Type coercion is an important concept in Javascript not least since it's a dynamic language and weakly typed. 
               Javascript being weakly typed signifies that a variable can be
@@ -934,12 +925,10 @@
                 >https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/</a
               >
             </span>
-          </div>
         </article>
 		
 		<article class="subject-article">
           <h3 class="subject-title">Hoisting</h3>
-          <div class="example">
             <p>
               The definition of hoisting in Javascript is that declarations of
               variables and functions are moved to the top of the code when
@@ -993,12 +982,10 @@
                 testScope(); <span class="comment-outcome">--> 2</span><br />
               </code>			  
             </div>
-          </div>
         </article>
 		
 		<article class="subject-article">
           <h3 class="subject-title">Variable Scope</h3>
-          <div class="example">
             <p>
               When talking about variable scope we are in essence referring to
               which scope a variable is accessible. In other words where we can look/access variables or functions.
@@ -1007,7 +994,7 @@
               scope. A variable accessible anywhere in our code is said to exist
               in the global scope while a variable accessible inside a function
               exist in the local scope of the function where it was declared. With the ES6 update and the introduction of the keyword <i>let</i> for declaring variables we now also have <i>block scope</i>. A variable declared with <i>let</i> will only be accessible inside the block where it was declared. This can for example be inside the block restricted by a for loop that exist inside a function.
-			</p>            
+			</p><br />            
             <p>
               When it comes to function scope it's also important to understand
               the concept of lexical scope sometimes also called Static
@@ -1044,13 +1031,11 @@
 				}	
 				</code>	
 			</div>
-		  </div>
         </article>       
 
          <article class="subject-article">
           <h3 class="subject-title">Operators</h3>
-          <div class="example">
-            <p>
+		  <p>
               JavaScript has <i>operators</i> that perform some operation on a single or multiple <i>operands</i> (data value). 
               There are at least 10 different kinds of operators in Javascript, one being the assignment operator (=) which assign a value to a variable, another being arithmetic operators as (+,-,/), that performs arithmetic operations.
               In this tutorial we will look deeper into a few of these, among them <i>Comparison</i> operators due to their importance for understanding how Javascript handles <i>type coercion</i>.     
@@ -1144,12 +1129,10 @@
 			result	<span class="comment-outcome">--> "Welcome" 		</span><br />
 			</code>			
 			</div>			
-          </div>
         </article>
 
         <article class="subject-article">
           <h3 class="subject-title">Functions as Callbacks</h3>
-          <div class="example">
 		  <p>In Javascript functions are first class objects meaning that functions can be passed as arguments into other functions just as any other object. When a function receives another function as an argument that function is called a higher order function. And the function you pass in is called a callback. The callback can access the containing functions variables meaning that callbacks works as closures. Noteworthy; It's good praxis to check if the passed in callback is a function.   
 			  </p>
 			  <div class="note-comment">
@@ -1171,13 +1154,10 @@
 					doSmth(greet)		<span class="comment-outcome">--> "Hello World" </span><br />
 				</code>
 			  </div>		  
-		  </div>
 		  </article>
-
 
         <article class="subject-article">
           <h3 class="subject-title">Closures</h3>
-          <div class="example">
 		     <p>
 			A closure is technical when a function is using a variable outside its own function scope, Usually we refer to a nested function having access to variables in its parent scope. This is also what is called Lexical Scope. As such a closure gives the enclosed function access to an outer function’s scope. Closures in practice are used for creating object data privacy. When using closures the enclosed variables are only in scope within the containing function making them non-accessible from the outside. As such they are 'enclosed' and made private. In a few words; Closures can be seen as functions with preserved data.  
 			</p>		
@@ -1205,16 +1185,14 @@
               >See more:
               <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures"> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures</a></span
             ><br />
-          </div>
         </article>
 		
 		 <article class="subject-article">
           <h3 class="subject-title">Promises</h3>
-			<div class="example">
 				<p>
 			Javascript is 'single threaded' meaning that only one thing/task can happen at a time.
 			This leads often to what is known as <i>blocking code</i> where the Javascript engine is processing some task while the main thread is blocked. The solution to blocking code is asynchronous code that can run on multiple threads at the same time. To write asynchronus code is getting easier and modern browsers will allow certain operations to be run asynchronously. One way of writing asynchronous code is to use <i>promises</i> that allow processing of another operation while waiting for the 'promise' to resolve.  
-			</p>			
+			</p><br />			
             <p>
               A promise in Javascript is just as in real life; a promise/commitment to do something at some point in the future. The
               promise will then be resolved, or rejected. In programming context
@@ -1222,7 +1200,7 @@
               of an asynchronous operation and its resulting value. Promises in
               Javascript is a way to avoid what often is called 'callback hell'
               where callbacks are nested in an ever growing code structure.
-            </p>
+            </p><br />
             <p>
               A Promise consist of an resolved and rejected callback. Depending
               on if the promise is resolved or not the corresponding callback i
@@ -1271,12 +1249,10 @@
               <a  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">
                 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises</a>
                 </span>
-          </div>
         </article>
 
         <article class="subject-article">
           <h3 class="subject-title">fetch API</h3>
-          <div class="example">
             <p>
               The Fetch API is a Javascript built in new standard for making
               server requests. It provides a JavaScript interface for accessing
@@ -1284,7 +1260,7 @@
               responses. It also provides a global fetch() method that provides
               an easy, logical way to fetch resources asynchronously across the
               network.
-            </p>
+            </p><br />
             <p>
               The fetch() method takes one mandatory argument, the
               <b>path(url)</b> to the resource you want to fetch. By default it
@@ -1359,12 +1335,10 @@
                 >https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch</a
               >
             </span>
-          </div>
         </article>
 
         <article class="subject-article">
           <h3 class="subject-title">async/await</h3>
-          <div class="example">
             <p>
               A special syntax is required to work with promises called
               “async/await”. It can be seen as a more easy to understand syntax
@@ -1405,7 +1379,6 @@
                 >https://javascript.info/async-await</a
               ></span
             ><br />
-          </div>
         </article>
       </div>
 
@@ -1417,7 +1390,6 @@
 
         <article class="subject-article">
           <h3 class="subject-title">Variable Declaration</h3>
-          <div class="example">
             <br />
             <p>
               With the introduction of ES6 support was added for the key words <i>const</i> and <i>let</i> when declaring variables.
@@ -1505,12 +1477,10 @@
                 checkScope();
               </code>
             </div>
-          </div>
         </article>
 
         <article class="subject-article">
           <h3 class="subject-title">Arrow Functions</h3>
-          <div class="example">
             <p>
               Arrow functions are anonymous functions that allows us to write
               shorter more leaner code. An arrow function can omit the
@@ -1554,12 +1524,10 @@
                 >https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work</a
               ></span
             >
-          </div>
         </article>
 
 		<article class="subject-article">
           <h3 class="subject-title">Template Literals</h3>
-          <div class="example">
             <p>
               Template Literals allows us to work with strings in a more agile
               and less ugly way. Not least the ability to use expressions gives
@@ -1598,12 +1566,10 @@
                 href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals"
                 >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals</a
               ></span>
-          </div>
         </article>
 
         <article class="subject-article">
           <h3 class="subject-title">Loops & Iteration</h3>
-          <div class="example">
             <h4><i>forEach</i></h4>
             <p>
               forEach()is a higher order function that executes a callback for each element in an array. ForEach can take tree arguments, the value of the
@@ -1713,7 +1679,7 @@
 			  There are many ways to iterate over arrays and loops and they all have there strengths and tradeof:s. 
 			  The standard <i>for</i> and <i>for/in</i> loop constructs gives access to the index in the iterable object but not the element. To access the element we have to print
               out the, item[index]. With for/of and forEach() on the other hand we get access to the element itself and with the latter we can also invoke an optional index argument. Accessing the index with a for/of loop requires more effort but can be done by combining destructuring with the entries method. 	  
-			  </p>
+			  </p><br />
             <p>			
               In general tough the most safe way to loop through an array/object will be the <i>for/of</i> loop. If, on the other hand, the intention is to manipulate every element in an array the <i>for/each</i> loop is the best choice. The <i>for/in</i> loop should only be used to iterate through the properties of an object and avoided for arrays where the index order is of importance. If the intention is to manipulate or filter data from an array consisting of objects a built in callback function should do the job most effectively (see section; 'Higher order functions'). 
             </p>
@@ -1724,12 +1690,10 @@
                 >https://thecodebarbarian.com/for-vs-for-each-vs-for-in-vs-for-of-in-javascript</a
               >
             </span>
-          </div>
         </article>
 		
 		<article class="subject-article">
           <h3 class="subject-title">Higher Order Functions</h3>
-          <div class="example">			  
 			  <p>
 			  When a function receives another function as an argument that function is called a higher order function. And the function you pass in is called a callback. 			  
 			  With ES6 several new higher order methods were added introducing new powerful tools for handling array-based data. A typical scenario where these methods can be used are when handling JSON data from a database. We can also chain them making them even more versatile. Noteworthy; These methods do not mutate/change the orignal array, this is the behaviour we in general desire. Many situations might require a combination of different methods to achieve the desired result. In the end, as with so much more, knowing what tool/s to use and how to use them will become easier with more experience.   
@@ -1875,8 +1839,7 @@
 			<div class="comment-oneline"><i>includes()</i> method</div>
 			<code>
 				...
-			</code>
-			
+			</code>			
 			</div>
 			
             <span class="link"
@@ -1889,12 +1852,10 @@
 			<span class="link">
 			See more: <a href="https://www.youtube.com/watch?v=rRgD1yVwIvE">JavaScript Higher Order Functions & Arrays (Youtube: Traversy Media)</a>
 			</span>
-		  </div>
         </article>
 		
 		<article class="subject-article">
           <h3 class="subject-title">Object Constructor Methods</h3>
-          <div class="example">
 		  <p>
 			We already now that to create an instance of an object we have to use an object constructor function. This is done by calling the constructor function with the <i>new</i> keyword. 
 			This will at the same time create a constructor property for the Object. Referencing this property will return the Object constructor that created the instance object. 
@@ -1963,12 +1924,10 @@
                 >https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in</a
               >
             </span>
-          </div>
         </article>
 		
 		<article class="subject-article">
           <h3 class="subject-title">Array Constructor Methods</h3>
-          <div class="example">
             <br />
             <h4>Array.from()</h4>
             <p>
@@ -1985,12 +1944,10 @@
                 >https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/</a
               ></span
             >
-          </div>
         </article>        
 
         <article class="subject-article">
           <h3 class="subject-title">Spread & Rest Operator</h3>
-          <div class="example">
             <p>
               The spread operator will essentially take either an array or an
               object and expands it into its set of items.<br />
@@ -2003,11 +1960,11 @@
             <h4>Copying an object</h4>
             <p>
               When using the spread operator to copy an objects properties to a
-              new object we make a real copy of the original.<br />It's
+              new object we make a real copy of the original. It's
               important to understand the same goes for arrays, in other words
               spread can be used to make a real copy of an array. We do not copy
               the pointer/reference as is the case when we assign an object or
-              array to a new variable.<br />With spread we can avoid the issue
+              array to a new variable. With spread we can avoid the issue
               of an object that is manipulated affecting another object stored
               in a variable with the same pointer/reference. In other words;
               with the spread operator we copy an object in a immutable way and
@@ -2032,12 +1989,10 @@
                 console.log(myFunc(1,2,3,4)) <span class="comment-outcome">--> All arguments 1,2,3,4</span>
               </code>
             </div>
-          </div>
         </article>
 
         <article class="subject-article">
           <h3 class="subject-title">Destructuring</h3>
-          <div class="example">
             <p>
               When using destructuring we can pull out elements from arrays or
               properties from objects and assign them to variables.
@@ -2057,12 +2012,10 @@
                 const {name} = { name: "John", age: 28} <span class="code-comment">// We destructure 'John' to name variable</span>
               </code>
             </div>
-          </div>
         </article>
 
         <article class="subject-article">
           <h3 class="subject-title">Default Values</h3>
-          <div class="example">
             <p>
               With ES6 support was added for the use of default values. To assign a default value we just assign a value to a function
               parameter. If no argument/s is given when calling the function it will be given its default value.
@@ -2092,12 +2045,10 @@
                 addNumbers() <span class="comment-outcome">--> 0</span> <span class="code-comment">// We get no error despite calling the function with no arguments.</span>
               </code>
             </div>
-          </div>
         </article>
 
         <article class="subject-article">
           <h3 class="subject-title">Classes</h3>
-          <div class="example">
             <p>
               With ES6 classes was introduced to Javascript. In reality it is only
 			syntactical sugar offering an alternative syntax to existing prototype-based
@@ -2155,7 +2106,6 @@
                 }; <br />
               </code>
             </div>
-          </div>
         </article>
         
       </div>
@@ -2168,8 +2118,6 @@
 
         <div class="question">
           <h3>Fundamentals</h3>
-          <br />
-          <div class="example">
             <h4>Explain:</h4>
             <div class="example">
               <p>primitive datatypes</p>
@@ -2189,10 +2137,8 @@
 				<p>difference of 'let' vs. 'var'</p>
              <p>When do we use 'const'?</p>            
             </div>
-            <br />
-
-			</div>
-            <br /><br />
+            </div>
+           
 
             <h4>Type coercion and comparison</h4>
             <br />
@@ -2226,22 +2172,18 @@
                     does it mean?</span>
               </div>
             </div>
-          </div>
           <br />
 
           <article class="subject-article">
             <h3 class="subject-title">'use strict'</h3>
-            <div class="example">
               <p>
                 Why would we use 'use strict' statement in a Javascript file and
                 what are the consequences/benefits?
               </p>
-            </div>
           </article>
 
           <article class="subject-article">
             <h3 class="subject-title">Reverse a String</h3>
-            <div class="example">
               <i
                 >Return the following string in reverse "Frontend Developer".</i
               >
@@ -2253,12 +2195,10 @@
               <i>Extra: Reverse a collection of type number.</i>
               <br />
               <span>Tip: reverse method only works with arrays.</span><br />
-            </div>
           </article>
 
           <article class="subject-article">
             <h3 class="subject-title">Arrow functions</h3>
-            <div class="example">
               <p>Explain arrow functions</p>
               <i
                 >Convert the function to an arrow function and display the
@@ -2271,12 +2211,10 @@
                   } <br />
                 </code>
               </div>
-            </div>
           </article>
 
           <article class="subject-article">
             <h3 class="subject-title">Remove Duplicates from an Array</h3>
-            <div class="example">
               <i
                 >Show if possible two ways to remove duplicates from an
                 array.</i
@@ -2289,12 +2227,10 @@
               ><br /><br />
               <span>Tip: ES6 datatype 'Set' can only hold unique values.</span
               ><br />
-            </div>
           </article>
 
           <article class="subject-article">
             <h3 class="subject-title">Sort an Array</h3>
-            <div class="example">
               <p>
                 Sort the array so the lowest number comes first and the highest
                 last.
@@ -2303,12 +2239,10 @@
               <div class="code-container">
                 <code> let numbers = [114,22,4,5,11,41]<br /> </code>
               </div>
-            </div>
           </article>
 
           <article class="subject-article">
             <h3 class="subject-title">Duplicate an Array</h3>
-            <div class="example">
               <i>Duplicate the array, both in pre ES6 as well as ES6.</i>
               <div class="code-container">
                 <code> const numbers = [2,4,6,8] <br /> </code>
@@ -2318,24 +2252,20 @@
                 to copy the props of an object -or the elements in an array- vs
                 just assigning the object to a new variable?</i
               ><br />
-            </div>
           </article>
 
           <article class="subject-article">
             <h3 class="subject-title">Keyword this</h3>
-            <div class="example">
               <i
                 >Explain how 'this' work when used in a stand-alone function
                 (not; obj.method).</i
               >
               <i>How does 'this' work when used inside an arrow function?</i
               ><br />
-            </div>
           </article>
 
           <article class="subject-article">
             <h3 class="subject-title">Destructuring</h3>
-            <div class="example">
               <i><b>Destructure (solely) the last item from the array</b></i>
               
 			  <div class="code-container">
@@ -2367,12 +2297,10 @@
                   console.log(a,b) // unexpected token... <br />
                 </code>
               </div>
-            </div>
           </article>
 
           <article class="subject-article">
             <h3 class="subject-title">Objects and Object Constructor</h3>
-            <div class="example">
               <p>Array.from() ...</p>
               <i
                 >Extra 1: Use the Array.from() callback/mapfunction to
@@ -2412,12 +2340,10 @@
                   console.log(showCar(???)); // Display car features/values
                 </code>
               </div>
-            </div>
           </article>
 
           <article class="subject-article">
             <h3 class="subject-title">FizzBuzz</h3>
-            <div class="example">
               <i
                 >Pretty common question(worth to google it...) present if
                 possible 2 solutions</i
@@ -2428,10 +2354,8 @@
                 return Fizz.<br />
                 If both modulus 3 and 5 return FizzBuzz.
               </p>
-            </div>
           </article>
         </div>
-      </div>
       <div class="go-top"><a href="#top">To the Top</a><br /></div>
     </div>
     <script>
