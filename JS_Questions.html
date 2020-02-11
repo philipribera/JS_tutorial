@@ -252,7 +252,12 @@
 	  .subject-article .code-container:first-child {
 		margin-top: 0;
 	  }	  
-	  
+	  .emphasize-gray {
+		background-color: rgb(220,220,220);
+		font-weight: 600;
+		letter-spacing: 0.25em;
+		padding: 0 2px;
+	  }
 	  .code-container .code-comment {
 		color: rgb(109,109,112);		
 		padding-left: 18px;
@@ -1948,47 +1953,107 @@
 
         <article class="subject-article">
           <h3 class="subject-title">Spread & Rest Operator</h3>
-            <p>
-              The spread operator will essentially take either an array or an
-              object and expands it into its set of items.<br />
-              The rest operator is used to create an array from a collection of
-              arguments passed to a function.<br />
-              It works similar to the built in arguments object used to get all
-              arguments passed to a function.
-            </p>
+		  
+			<h4>Spread operator</h4>
+            <p> 
+              The spread operator will take an array/object or any iterable and expand its containing elements into a collection of the containing items. The spread operator will work with any iterable including strings. So what does this really mean? When merging iterables, usually arrays or objects, the spread operator allows us to expand all the values of one iterable into a new iterable by simply applying the three dots <span class="emphasize-gray">...</span> syntax. The key word here is 'merge'. If we simply copied an array into an exisitng array we would end up with a multidimensional array(nested array). Using spread on the other hand will expand the items in to another array resulting in one single dimensional array.
+			</p>
+			<div class="code-container">
+				<code>
+					const persons = ['John', 'Doe']		<br />
+					console.log(...persons) <span class="comment-outcome">--> John Doe </span><span class="code-comment">// we use the spread operator </span><br />
+				</code>
+			</div>
 
-            <h4>Copying an object</h4>
-            <p>
-              When using the spread operator to copy an objects properties to a
-              new object we make a real copy of the original. It's
-              important to understand the same goes for arrays, in other words
-              spread can be used to make a real copy of an array. We do not copy
-              the pointer/reference as is the case when we assign an object or
-              array to a new variable. With spread we can avoid the issue
-              of an object that is manipulated affecting another object stored
-              in a variable with the same pointer/reference. In other words;
-              with the spread operator we copy an object in a immutable way and
-              not just the pointer/reference to the same.
-            </p>
-
+			<p>			  
+			  spread will take all the elements of an array or object and expand them into the new merged entity. Using the spread operator to expand an existing empty array/object will also create a real copy of the original entity. 
+			</p><br />
+			
+			<p>There are three places where to use spread:</p>
+				<ul class="falsy-list">	
+					<li>when calling a function</li>
+					<li>in array literals</li>
+					<li>in object literals</li>
+				</ul>
+				<br />	 
+				
             <div class="code-container">
-              <code>
-                const myArr = [1,2,3]; <br />
-                const newArr = [...myArr,4,5] <span class="code-comment">// newArray will consist of
-                [1,2,3,4,5]
-                </span><br /><br />
-                myObj = { name: "John" } <br />
-                newObj = { ...myObj, surname: "Doe" } <span class="code-comment">// We add props from myObj
-                to new Obj </span><br />
-                <br />
+				<div class="comment-oneline">We use spread in a function call</div>
+				<code>
+				let numbers = [11,22,33,44,55]	<br />
+				Math.max(...numbers) <span class="comment-outcome">--> 55	</span><br />					
+				</code>
+					
+					<div class="comment-oneline">We use spread to concatenate two arrays</div>
+				<code>
+					const arr1 = ["Hello"]							<br />
+					const arr2 = ["World"]							<br />
+					const nestedArrays = [arr1, ...arr2]			<br />
+					console.log(nestedArrays) <br />
+					<!--let numbers = [33,44,55]					<br />
+					let moreNumbers = [11,22, ...numbers]			<br />
+					console.log(moreNumbers) [11,22,33,44,55]	<br />-->
+				</code>	
+				
+				<div class="comment-oneline">We concat two objects</div>
+				<code>
+                myObj = { name: "John" } 							<br />
+                newObj = { ...myObj, surname: "Doe" } <span class="code-comment">// We add props from myObj to new Obj </span><br />
                 const myFunc = (...args) => { <br />
                 <span class="example">return `All arguments ${args}`; </span
                 ><br />
-                } <br />
-                <br />
+                } <br />                
                 console.log(myFunc(1,2,3,4)) <span class="comment-outcome">--> All arguments 1,2,3,4</span>
               </code>
+				
+				<div class="comment-oneline">We use spread on a string</div>
+				<code>
+					let str = "World"								<br />
+					let strToArr = [...str]							<br />
+					console.log(strToArr) <span class="comment-outcome">--> ['W','o','r','l','d']	</span><br />		
+				</code>						
+			    
+			  </div>
+			  
+			  <b>Spread to make a real copy</b><br />
+            <p>
+              When using the spread operator to copy an objects properties to a
+              new object we make a real copy of the original. It's
+              important to understand the same goes for arrays, in other words we do not copy the pointer/reference as is the case when we assign an object or
+              array to a new variable. With spread we can avoid the issue
+              of an object that is manipulated affecting another object with the same pointer/reference. As such the spread operator allows us to copy an object in a immutable way. 
+            </p>
+			
+			<div class="code-container">
+				<div class="comment-oneline">We make a real copy of array 'greet'</div>
+				<code>
+					const greet = ['Hello world']				<br />
+					const copy_greet = [...greet']				<br />
+					const greet = [Bye world!]					<br />
+					console.log(copy_greet) <span class="comment-outcome">--> 'Hello world'	</span><br />					
+				</code>
+			</div>
+			
+			 <div class="note-comment">
+              <span class="first-word">Note: </span>spread will only make a shallow copy of an array.
             </div>
+			
+			  			
+			<h4>rest operator</h4>
+			<p>
+			 The rest operator is used to create an array from a collection of arguments passed to a function. It works similar to the built in arguments object used to get all arguments passed to a function. Unlike the arguments object, the rest operator will return a real array allowing for the use of higher-order-functions as forEach() and map() among others. 
+			 </p>
+			<div class="code-container">
+				<code>
+					let allNumbers = [11,22,33,44,55]			<br />
+					function timesTwo(...arguments) {			<br />	
+					<span class="example">let sum = arguments.reduce( (acc,cv)=> acc + cv, 0)	</span><br />
+					<span class="example">return sum	</span><br />
+				}	<br />	
+				console.log( timesTwo(...allNumbers) )	<br />				
+				</code>
+			</div>
+			
         </article>
 
         <article class="subject-article">
@@ -2460,6 +2525,18 @@
 		let sortedLetters = letters.sort()
 		console.log(sortedLetters) 
 
+		// REST
+		let allNumbers = [11,22,33,44,55]
+		// we dont know how many arguments will be entered
+		function timesTwo(...arguments) {
+			let sum = arguments.reduce( (acc,cv)=> acc + cv, 0)
+			return sum
+		}
+		console.log( timesTwo(...allNumbers) )
+		
+		
+		const persons = ['John', 'Doe']
+console.log(...persons)
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
   </body>
