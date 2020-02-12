@@ -790,18 +790,31 @@
 		</p>
 						  
 		  <h4>Constructor functions</h4>		  
-			<p>In general the properties and values have something in common as for example all car objects can be expected to have the properties color and model. IT therefore makes sense to create a function that can be used to create an unlimited quantity of instances of a certain object type. For example a constructor function for a <i>car</i> object.  			
+			<p>In general the properties and values have something in common as for example all car objects can be expected to have the properties color and model. It therefore makes sense to create a function that can be used to create an unlimited quantity of instances of a certain object type. Using the <em>new</em> operator we can create new instances of the base constructor. 	
 			</p>
 			<div class="code-container">
-				<div class="comment-oneline">We create a 'car' constructor</div>
+				<div class="comment-oneline">We create a <em>car</em> constructor</div>
 				<code>
 					function Car(model, color, year, doors) {		<br />	
 						<span class="example">this.model = model	</span><br />
 						<span class="example">this.color = color	</span><br />
 						<span class="example">this.year = year		</span><br />
 						<span class="example">this.doors = doors	</span><br />
-					}												<br />	
-				</code>
+					}	<br />
+					</code>
+					<div class="comment-oneline">We add a method to the constructor prototype</div>
+					<code>
+					Car.prototype.allData = function() {	<br />
+						<span class="example">car_data = "The car model is " + this.model + " and was built " + this.year + " and has the color " + this.color;	</span><br />
+						return car_data		<br />				
+					}						<br />						
+					</code>
+					<div class="comment-oneline">We use the <em>new</em> operator to create a car object</div>
+					<code>
+						var coolCar = new Car('Super', 'black', 2020, 2) 	<br />						
+						console.log(coolCar.allData()) <span class="comment-outcome">--> The car model is Super... 	</span><br />
+					
+					</code>
 			</div>
 			
 			<div class="note-comment">
@@ -2068,7 +2081,7 @@
 			 </p>
 			<div class="code-container">
 				<code>
-					let allNumbers = [11,22,33,44,55]			<br />
+					let allNumbers = [11,22,33,44,55]			<br /><br />
 					function timesTwo(...arguments) {			<br />	
 					<span class="example">let sum = arguments.reduce( (acc,cv)=> acc + cv, 0)	</span><br />
 					<span class="example">return sum	</span><br />
@@ -2093,11 +2106,10 @@
             <div class="code-container">
               <code>
                 const personArray = ["John", "Lisa"]<br />
-                const [a, b] = ["John", "Lisa"] <span class="code-comment">// We assign the array items to
-                variables a and b
+                const [a, b] = ["John", "Lisa"] <span class="code-comment">// We assign the items to variables a and b
                 </span><br /><br />
                 const person = { name: "John", age: 28 }<br />
-                const {name} = { name: "John", age: 28} <span class="code-comment">// We destructure 'John' to name variable</span>
+                const {name} = { name: "John", age: 28} <span class="code-comment">// We assign 'John' to name variable</span>
               </code>
             </div>
         </article>
@@ -2147,7 +2159,7 @@
               a base class.
             </p>
 
-            <h4>'constructor functions' vs classes</h4>
+            <h4><em>constructor functions</em> vs. <em>classes</em></h4>
             <p>
               In most cases they are quite similar and they do the same thing
               but there are a some things that differs. A constructor requires
@@ -2186,13 +2198,37 @@
 
             <div class="code-container">
               <code>
-                let Person = function(name,gender,age) { <br />
+                var Person = function(name,gender,age) { <br />
                 <span class="example">this.name = name; </span><br />
                 <span class="example">this.gender = gender; </span><br />
                 <span class="example">this.age = age; </span><br />
-				<span class="example">this.getName = function() { return this.name }; </span><br />
-                }; <br />
-              </code>
+				}					<br />
+			
+				Person.prototype.getName = function() {		<br />
+				<span class="example">return this.name</span><br />
+				}					<br />
+				</code>
+				
+              <div class="comment-oneline">We use the <em>class</em> syntax to rewrite the Person constructor function</div>
+			  <code>
+				class Person {												<br />
+					<span class="example">constructor(name,gender,age) {	</span><br />
+					<span class="example2">this.name = name; 				</span><br />
+					<span class="example2">this.gender = gender; 			</span><br />
+					<span class="example2">this.age = age; 					</span><br />
+					<span class="example">}									</span><br />
+					<span class="example2">getName() {						</span><br />
+						<span class="example3">return this.name				</span><br />
+					<span class="example">}									</span><br />		
+				}															<br />
+			  </code>			  
+			  
+			  <div class="comment-oneline">We extend the Person class</div>
+			  <code>
+				OldPerson.extends Person {					<br />
+					<span class="example">...				</span><br />
+				}											<br />
+			  </code>		
             </div>
         </article>
         
@@ -2558,6 +2594,22 @@
 			return sum
 		}
 		console.log( timesTwo(...allNumbers) )
+
+		
+		function Car(model, color, year, doors) {
+			this.model = model
+			this.color = color
+			this.year = year
+			this.doors = doors
+		}
+		//We add a method to the constructor prototype
+		Car.prototype.allData = function() {
+		car_data = "The car model is " + this.model + " and was built " + this.year + " and has the color " + this.color;
+		return car_data
+		}
+
+		var coolCar = new Car('Super', 'black', 2020, 2)
+		console.log(coolCar.allData())
 
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
