@@ -80,10 +80,10 @@
 		position: relative;
         display: block;		
         width: 100%;
-        max-width: 956px;
+        max-width: 948px;
         background-color: rgba(255, 255, 255, 1);
         color: rgb(35, 35, 35);
-        padding: 26px;
+        padding: 28px;
         margin: 42px auto;
       }
 	  
@@ -498,25 +498,45 @@
         <h1 class="tutorial-title">Javascript Fundamentals</h1>
 
 		<article class="subject-article">
-          <h3 class="subject-title">Introduction</h3>
+          <h3 class="subject-title">About this Tutorial(WIP)</h3>
 			<p>
 			Javascript is the language of the web, it is an interpreted language that runs directly on the clients browser meaning that no compiler is needed. This is the core of Javascript; It was designed to be easy to use and easy to learn. It also explains some of its characteristics, strengths and drawbacks, that differentiate it from some of the most common programming languages. But Javascript has evolved a lot since its introduction and with the latest updates it has become a much more versatile language. Now days Javascript isn't limited to the browser either. With the help of <i>Node</i> it can be run on both the browser and on the server side.  
 			</p><br />
 			<p>
 			This tutorial will not focus on basic syntax rules or how to name variables. There are already good tutorials that explains the core basic in detail. This tutorial will focus on the key concepts of the language to get a better understanding on how Javascript works. There is also a chapter dedicated to the ECMAScript 2015 (ES6) update and how to use some of the new features that was introduced. The ES6 update was probably the most important development of Javascript since its introduction making Javascript significantly more powerful and versatile.    
 			</p>
+		</article>
 
-		  <h4>Dynamically typed</h4>
+		<article class="subject-article">
+          <h3 class="subject-title">Introduction</h3>
+	  
+			<h4>Dynamically typed</h4>
             <p>
-			 Javascript is what we call <i>dynamically typed</i> meaning the type of an variable is interpreted by the compiler. Javascript is also said to be <i>weakly typed</i> in contrast to languages that are <i>strongly</i> or <i>static</i> typed where a variable has to be given a type when it's declared. 
-			 Javascript being dynamically typed means that variable types will be interpreted and if necessary even change implicitly at runtime. With runtime meaning when the program executes the commands. The type and value can be changed at any time both explicit in the code or implicitly by the Javascript engine. This behaviour can be confusing and give unexpected outcomes if not understood fully. Before looking deeper into this tough we need to get a better understanding on different data types and their behaviour in Javascript.      
+			 Javascript is what we call <i>dynamically typed</i> meaning the type of an variable is interpreted by the compiler. 
+			 
+			 Javascript is weakly typed meaning that we do not specify a certain type when declaring a variable (there are exceptions tough). The contrary are languages that are <i>strongly</i> or <i>static</i> typed where a variable has to be given a type when it's declared.
+			 
+			 Javascript being dynamically typed means that variable types will be interpreted and if necessary even change implicitly at runtime. With runtime meaning when the program executes the commands. The type and value can be changed at any time both explicit in the code or implicitly by the Javascript engine. 
+			 			 
+			 This behaviour can be confusing and give unexpected outcomes if not understood fully. Before looking deeper into this tough we need to get a better understanding on different data types and their behaviour in Javascript.      
 			</p>
 			
-		<h4>Data Types</h4>
+			<h4>The Callstack</h4>
 			<p>
-			  Data types specify what kind of data can be stored and manipulated in the Javascript memory. Data types in Javascript are either objects or primitives. While there is only one <i>object</i> data type there are 7 primitive data types:
-              <i>string, number, boolean, null, undefined, bigInt</i> and
-              <i>symbol</i>. The fundamental difference between primitives and objects is that primitives can hold a single value while objects can hold a collection of data and values. Javascript being weakly typed means that we do not specify a certain type when declaring a variable (there are exceptions tough). But even if no type is implicitly given Javascript will give the variable a type depending on the value it was given when initialized. If the variable hasn't been initialized it will get a type as <i>undefined</i>. 
+			.....
+			</p>	
+				
+			<h4>Most things in Javascript are objects</h4>
+			<p>
+				When learning JavaScript you will probably hear that everything are objects. ... Functions for example are said to be first class objects due to how they can be used in Javascript. A function can be stored in a variable, passed as an argument, almost anything is possible. 
+				Albeit most things in Javascript can be said to be objects there are primitive types that are not. That said primitives can be treated as objects by the Javascript engine so the saying still has some truth to it.
+			</p>
+			<h4>Data Types</h4>
+			<p>		
+			Data types specify what kind of data can be stored and manipulated in the Javascript memory. 			
+			In Javascript types are either objects or primitives. While there is only one <em>object</em> data type there are 7 primitive data types:
+              <em>string, number, boolean, null, undefined, bigInt</em> and <em>symbol</em>. 
+			  The fundamental difference between primitives and objects is that primitives can hold a single value while objects can hold a collection of data and values. <!--The concept of data types and how they work in a boolean context and Type Coercion is central to understand how Javascript works.-->    
 			</p>
 			
 			<div class="note-comment">
@@ -526,7 +546,9 @@
 			<div class="note-comment">
               <span class="first-word">Note: </span>
 			  The <i>var</i> keyword will be used in code examples until the section 'Variable Scope' where variable declarations are explained more in depth.
-			  </div>		
+			  </div>
+		
+		
 		</article>
         
         <article class="subject-article">
@@ -638,9 +660,9 @@
 			  
 			  <em>NaN</em>
 				<p>
-			   If a Math function can't convert an argument to a number and/or a required type coercion to number fails the return value is <i>NaN</i>, meaning; not a number.
-				To check for <i>NaN</i> do <b>not</b> compare; NaN === NaN, this returns false since type of <i>NaN</i> is number. The <i>isNaN</i> function has to be used instead, isNaN(argument) === NaN.
-				 With ES6 we can use <i>Number.isNaN(value)</i> to check if a value is <i>NaN</i>. Be aware that this will only return true if the value already is NaN unlike isNaN that will return true if the value can't be type coerced to a number.   
+			   If a Math function can't convert an argument to a number and/or a required type coercion to number fails the return value is <em>NaN</em>, meaning; not a number.
+				To check for <em>NaN</em> do <strong>not</strong> compare; NaN === NaN, this returns false since type of <em>NaN</em> is number. The <em>isNaN</em> function has to be used instead, isNaN(argument) === NaN.
+				 With ES6 we can use <em>Number.isNaN(value)</em> to check if a value is <em>NaN</em>. Be aware that this will only return true if the value already is NaN unlike isNaN that will return true if the value can't be type coerced to a number.   
 			</p>
 				<div class="link"
               >See more;
@@ -654,7 +676,9 @@
 					var number = 12			<br />
 					var str = "Hello"		<br />
 					console.log(number * str) <span class="comment-outcome">--></span> NaN <span class="code-comment">// str can't be coerced to type number	</span><br />
+					</code>
 					<div class="comment-oneline">We check for NaN</div>
+					<code>
 					if( isNaN(str) ) {					<br />
 					<span class="example">	str = 4		<span class="code-comment">// if NaN we assign the value 4 to str</span></span><br />
 					}									<br />
@@ -664,20 +688,20 @@
 
             <h4>undefined</h4>
             <p>
-              <i>undefined</i> is a primitive datatype and a so
-              called <i>falsy</i> value. It's important to not confuse <i>falsy</i> as
+              <em>undefined</em> is a primitive datatype and a so
+              called <em>falsy</em> value. It's important to not confuse <em>falsy</em> as
               'false', the latter being of type Boolean. Javascript will
-              automatically assign <i>undefined</i> to a variable that are not
+              automatically assign <em>undefined</em> to a variable that are not
               initialized. In other words a variable that has been declared but not given a value will always return undefined. 
-              A function with no return statement will always return <i>undefined</i> as well. To check for <i>undefined</i> we use the
-              <i>typeof</i> operator.<br />             
+              A function with no return statement will always return <em>undefined</em> as well. To check for <em>undefined</em> we use the
+              <em>typeof</em> operator.
             </p>
 
             <div class="code-container">
               <div class="comment-oneline">
                 If we try to use a variable before being declared
               </div>
-              <code> console.log(a); --> referenceError <br /> 
+              <code> console.log(a); <span class="comment-outcome">--> referenceError </span><br /> 
 			  </code>
               <div class="comment-oneline">
                 If we don't initialize a variable
@@ -689,19 +713,19 @@
                 var a = undefined; <span class="code-comment">// we assign the value 'undefined'</span><br />
                 typeof a <span class="comment-outcome">--> 'undefined'</span> <br />
                 if ( typeof a === 'undefined') <span class="comment-outcome">--> true</span> <span class="code-comment">// we check for
-                <i>undefined</i>(note; the quotes!)</span></code
+                <em>undefined</em>(note; the quotes!)</span></code
               >
 			  </div>
 			  
 			<div class="note-comment">
-              <span class="first-word">Note: </span><i>undefined</i> has its own type and is not to be considered an error, tough it's often the cause of bugs.
+              <span class="first-word">Note: </span><em>undefined</em> has its own type and is not to be considered an error, tough it's often the cause of bugs.
 			</div>	            
            
             <h4>null</h4>
             <p>
-              <i>null</i> is a primitive value and a keyword in JavaScript that means
-              ‘no value’ or nonexistence of any value. null is also considered a <i>falsy</i> value. The type of null tough is
-              object while <i>undefined</i> has its own type. The fact that null is considered a primitive value and its type is object (non-primitive) is a bug from the time Javascript was designed. The best way to understand null is to interpret it as something that does not exist. If the purpose is to give a variable an empty value it can be done by assign it the value null, representing no value. It could be said that null has the same purpose/functionality for objects as undefined for primitives with the difference that the latter has its own type while null hasn't.
+              <em>null</em> is a primitive value and a keyword in JavaScript that means
+              ‘no value’ or nonexistence of any value. null is also considered a <em>falsy</em> value. The type of null tough is
+              object while <em>undefined</em> has its own type. The fact that null is considered a primitive value and its type is object (non-primitive) is a bug from the time Javascript was designed. The best way to understand null is to interpret it as something that does not exist. If the purpose is to give a variable an empty value it can be done by assign it the value null, representing no value. It could be said that null has the same purpose/functionality for objects as undefined for primitives with the difference that the latter has its own type while null hasn't.
             </p>
             
             <div class="code-container">
@@ -714,7 +738,7 @@
 			
 			<h4>Boolean</h4>
 			<p>
-			Boolean type has only two values <i>true</i> or <i>false</i>. Its primary use is for controlling program flow using conditional statements. Noteworthy; Any object that is not <i>undefined</i> or <i>null</i> will always evaluate to true. 			
+			Boolean type has only two values <em>true</em> or <em>false</em>. Its primary use is for controlling program flow using conditional statements. Noteworthy; Any object that is not <em>undefined</em> or <em>null</em> will always evaluate to true. 			
 			</p>			
 			<div class="code-container">
 			<div class="comment-oneline">A simple expression that evaluates to true</div>
@@ -723,7 +747,7 @@
 					<span class="example">console.log('This is true')</span> // code block will execute	<br />
 					}	<br />	
 				</code>
-				<div class="comment-oneline">We pass an object with a <i>falsy</i> value</div>
+				<div class="comment-oneline">We pass an object with a <em>falsy</em> value</div>
 				<code>					
 					const myObj = new Object(false)	<br />
 					if(myObj) {													<br />
@@ -744,9 +768,9 @@
         </article>
 		
 		<article class="subject-article">
-          <h3 class="subject-title"><i>truthy</i> and <i>falsy</i></h3>
+          <h3 class="subject-title"><em>truthy</em> and <em>falsy</em></h3>
 			<p>
-			All values in Javascript can be said to be either <i>truthy</i> or <i>falsy</i> i a Boolean context. This should not be confused with <i>true</i> or <i>false</i> that are of type Boolean. <i>truthy</i> and <i>falsy</i> have no data type in its own, a value of type string for example is of type string no matter its inherent boolean value being either truthy or falsy. To simplify there are six <i>falsy</i> values and all other values are considered to be <i>truthy</i>.
+			All values in Javascript can be said to be either <em>truthy</em> or <em>falsy</em> i a Boolean context. This should not be confused with <em>true</em> or <em>false</em> that are of type Boolean. <em>truthy</em> and <em>falsy</em> have no data type in its own, a value of type string for example is of type string no matter its inherent boolean value being either truthy or falsy. To simplify there are six <em>falsy</em> values and all other values are considered to be <em>truthy</em>.
 			</p><br />
 			
 				<p class="log-list-title">Values considered falsy:</p> 
@@ -760,8 +784,8 @@
 				</ul>
 				
 			<p>
-			So why do we have <i>truthy</i> and <i>falsy</i> in Javascript?  
-			In JavaScript all values, no matter its type, will be considered either true or false when encountered in a Boolean context. In other words; A condition where one or more values are set in a boolean context will result in either a true or false outcome. The typical situation being an if statement where a block of code will be excecuted depending on if the condition will be considered true or false. The boolean context can consist of values of any type but they will always have an inherent boolean value as either <i>truthy</i> or <i>falsy</i> and the condition where they are set will evaluate to either true or false.  
+			So why do we have <em>truthy</em> and <em>falsy</em> in Javascript?  
+			In JavaScript all values, no matter its type, will be considered either true or false when encountered in a Boolean context. In other words; A condition where one or more values are set in a boolean context will result in either a true or false outcome. The typical situation being an if statement where a block of code will be excecuted depending on if the condition will be considered true or false. The boolean context can consist of values of any type but they will always have an inherent boolean value as either <em>truthy</em> or <em>falsy</em> and the condition where they are set will evaluate to either true or false.  
 			</p>
 			
 			<div class="code-container">
@@ -783,7 +807,7 @@
 		<article class="subject-article">
           <h3 class="subject-title">Objects</h3>
 		  <p>
-		  All values in Javascript, except primitives, are objects. Objects can store collection of values while primitives are restricted to hold a single value. The easiest way to understand objects are to see them as a collection of key value pairs. In Javascript the correct term for keys are properties. Properties being the 'key' in a key value pair can also be seen as variable names inside objects. If the property holds a function expression we would call it a <i>method</i>.		  	  
+		  All values in Javascript, except primitives, are objects. Objects can store collection of values while primitives are restricted to hold a single value. The easiest way to understand objects are to see them as a collection of key value pairs. In Javascript the correct term for keys are properties. Properties being the 'key' in a key value pair can also be seen as variable names inside objects. If the property holds a function expression we would call it a <em>method</em>.		  	  
 		  </p><br />
 		  <p>
 		  Javascript has for a long time used constructor functions to create an object data type, basically a 'blueprint' for creating objects. With constructors we can create an object type that can be the base for creating an unlimited quantity of instances without having to redefine the same object. 	
@@ -954,13 +978,14 @@
 		<article class="subject-article">
           <h3 class="subject-title">Hoisting</h3>
             <p>
-              The definition of hoisting in Javascript is that declarations of
-              variables and functions are moved to the top of the code when
-              compiled. This means that a variable or function can be used even
-              before it has been initialized. It's important to remember that variables declared with <i>let</i> will not be hoisted. One of the benefits with hoisting is that functions are hoisted as well making it possible to use them anywhere in your code. The concept of Hoisting can be the source for confusion, not least since the written code is only moved in the memory, not physically. 
-            </p>
+              The definition of hoisting in Javascript is basically that functions and declarations of
+              variables are moved to the top of the code when
+              compiled. This means that a variable can be used  even before it has been initialized. It's important to remember that variables declared with <em>let</em> will not be hoisted.
+			One of the benefits with hoisting is that functions being hoisted as well makes it possible to use them anywhere in your code. 			  
+			  The concept of Hoisting can be the source for confusion, not least since the written code is only moved in the memory not physically. 
+            </p><br />
             <p>
-              If we call a variable declared with <i>var</i> before it has been initialized it's value will be <i>undefined</i> and <i>undefined</i> being a valid value, even having its own type, will not result in an error. The same applies for function expressions being an expression assigned to a variable. It's important to remember that it's only the declaration that is hoisted not the value of the variable.           
+              If we call a variable declared with <i>var</i> before it has been initialized it's value will be <em>undefined</em> and <em>undefined</em> being a valid value, even having its own type, will not result in an error. The same applies for function expressions being an expression assigned to a variable since it's only the declaration that is hoisted.           
             </p>
             <div class="link"
               >See more;
@@ -1137,7 +1162,7 @@
 			</code>
 			</div>
 			
-			<h4>Conditional Operator, <i>Ternary</i></h4>			
+			<h4>Conditional Operator, <em>Ternary</em></h4>			
 			<p>The ternary operator assigns a value to a variable based on some condition. If the condition is true the first value is assigned to the variable else the second one. Ternary operators can be seen as a leaner way to write code than the if/else conditionally approach.</p>
 			<div class="code-container">
 			<code>
@@ -1160,7 +1185,7 @@
 		  <p>In Javascript functions are first class objects meaning that functions can be passed as arguments into other functions just as any other object. When a function receives another function as an argument that function is called a higher order function. And the function you pass in is called a callback. The callback can access the containing functions variables meaning that callbacks works as closures. Noteworthy; It's good praxis to check if the passed in callback is a function.   
 			  </p>
 			  <div class="note-comment">
-              <span class="first-word">Note: </span>to check if a callback indeed is a function; <i>typeof callBack === 'function'</i>.
+              <span class="first-word">Note: </span>to check if a callback indeed is a function; (typeof callBack === 'function')
             </div>
 			
 			  <div class="code-container">
@@ -1202,7 +1227,7 @@
 			</div>
 			
 			<div class="note-comment">
-              <span class="first-word">Note: </span>To access the closure object; <i>console.dir(add)</i>.
+              <span class="first-word">Note: </span>To access the closure object, use; console.dir(add)
             </div>
 			
             <div class="link"
@@ -1445,7 +1470,7 @@
 					</code>
 			</div>
 			<div class="note-comment">
-              <span class="first-word">Note: </span>By convention, const identifiers are capitalized. 
+              <span class="first-word">Note: </span>By convention, <em>const</em> identifiers are capitalized. 
             </div>
             
             <h4>let vs. var</h4>
@@ -1471,7 +1496,7 @@
 			  </div>
 			
             <div class="note-comment">
-              <span class="first-word">Note: </span><i>var</i> will allow you to re-declare a variable in the same scope while a variable declared with <i>let</i> raises a SyntaxError.
+              <span class="first-word">Note: </span><i>var</i> will allow you to re-declare a variable in the same scope while doing the same with a <em>let</em> declaration raises a SyntaxError.
             </div>
             <p>
               <span class="link"
@@ -2607,10 +2632,6 @@
 		car_data = "The car model is " + this.model + " and was built " + this.year + " and has the color " + this.color;
 		return car_data
 		}
-
-		var coolCar = new Car('Super', 'black', 2020, 2)
-		console.log(coolCar.allData())
-
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
   </body>
