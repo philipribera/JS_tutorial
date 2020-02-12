@@ -113,7 +113,7 @@
 	  }
       h4 {
 		font-family: 'Poppins', 'Merriweather Sans', 'Montserrat', roboto, helvetica, sans-serif;
-        font-size: 1.15rem;
+        font-size: 1.2rem;
         color: rgb(27,27,27);
 		margin: 32px 0 12px 0;
       }
@@ -412,6 +412,9 @@
         h3 {
           font-size: 1.4rem;
         }
+		h4 {
+			font-size: 1.15rem;
+		}
         i {
           line-height: 1.6rem;
         }
@@ -453,7 +456,7 @@
         }
         .header-menu ul,
         .header-menu li {
-          padding: 12px 8px 4px 8px;
+          padding: 12px 7px 4px 7px;
         }
 
         .collapsed-menu {
@@ -576,15 +579,14 @@
               </code>
             </div>
 						
-            <i class="link"
+            <div class="link"
               >See more;
               <a
                 href="https://developer.mozilla.org/en-US/docs/Glossary/Primitive"
                 >https://developer.mozilla.org/en-US/docs/Glossary/Primitive</a
-              ></i
-            ><br />
+              ></div><br />
             
-            <h4><i>string</i></h4>
+            <h4>string</h4>
             <p>The string type holds data that can be represented as text. String values consists of normal characters, special characters can be encoded using the escape character '\'. In Javascript strings can be denominated with both single and double quotes. With ES6 support was also added for 'template literals'. Template literals adds versatility and allows for variables and expressions to be embedded with string literals. (we will cover template literals further in the next chapter). 
 			</p>
 			
@@ -604,29 +606,13 @@
               <span class="first-word">Note: </span>Strings being primitives means we can't use mutator methods as push() and sort().
 			</div>
 			
-            <h4><i>number</i></h4>         
+            <h4>number</h4>         
             <p>
               In Javascript we only have one type for numbers. There is no
               distinction for integers, floats etc. 
 			  The number data type also consist of so called, special numeric values as <i>NaN</i>, <i>Infinity</i> and <i>-infinity</i>.  
-			</p>
-			<p>			
-			   If an arithmetic operation can't convert an argument to a number it returns <i>NaN</i>, meaning; not a number.
-				To check for <i>NaN</i> do <b>not</b> compare; NaN === NaN, this returns false since type of <i>NaN</i> is number. The <i>isNaN</i> function has to be used instead, isNaN(argument) === NaN.
-			</p>
-			<div class="note-comment">
-              <span class="first-word">Note: </span>
-			  With ES6 we can use <i>Number.isNaN(value)</i> to check for <i>NaN</i>.
-			  </div>
-			  
-            <span class="link"
-              >See more;
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN"
-                >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN</a
-              ></span
-            >
-			
+			</p>			
+	          		
             <div class="code-container">
 			<div class="comment-oneline">The Math object in Javascript is
               used to perform mathematical tasks on numbers</div>
@@ -651,9 +637,35 @@
                 var rand; <br />
                 Math.random(rand) <span class="comment-outcome">--> ?</span> <span class="code-comment">// returns a floating-point between 0 and 1</span>
               </code>
-            </div>
+			  </div>
+			  
+			  <em>NaN</em>
+				<p>
+			   If a Math function can't convert an argument to a number and/or a required type coercion to number fails the return value is <i>NaN</i>, meaning; not a number.
+				To check for <i>NaN</i> do <b>not</b> compare; NaN === NaN, this returns false since type of <i>NaN</i> is number. The <i>isNaN</i> function has to be used instead, isNaN(argument) === NaN.
+				 With ES6 we can use <i>Number.isNaN(value)</i> to check if a value is <i>NaN</i>. Be aware that this will only return true if the value already is NaN unlike isNaN that will return true if the value can't be type coerced to a number.   
+			</p>
+				<div class="link"
+              >See more;
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN"
+                >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN</a
+              ></div>
+			
+			<div class="code-container">
+				<code>
+					var number = 12			<br />
+					var str = "Hello"		<br />
+					console.log(number * str) <span class="comment-outcome">--></span> NaN <span class="code-comment">// str can't be coerced to type number	</span><br />
+					<div class="comment-oneline">We check for NaN</div>
+					if( isNaN(str) ) {					<br />
+					<span class="example">	str = 4		<span class="code-comment">// if NaN we assign the value 4 to str</span></span><br />
+					}									<br />
+					console.log(number * str) <span class="comment-outcome">--> 48</span><br />
+				</code>			
+			</div>            
 
-            <h4><i>undefined</i></h4>
+            <h4>undefined</h4>
             <p>
               <i>undefined</i> is a primitive datatype and a so
               called <i>falsy</i> value. It's important to not confuse <i>falsy</i> as
@@ -688,7 +700,7 @@
               <span class="first-word">Note: </span><i>undefined</i> has its own type and is not to be considered an error, tough it's often the cause of bugs.
 			</div>	            
            
-            <h4><i>null</i></h4>
+            <h4>null</h4>
             <p>
               <i>null</i> is a primitive value and a keyword in JavaScript that means
               ‘no value’ or nonexistence of any value. null is also considered a <i>falsy</i> value. The type of null tough is
@@ -703,7 +715,7 @@
               >
             </div>
 			
-			<h4><i>Boolean</i></h4>
+			<h4>Boolean</h4>
 			<p>
 			Boolean type has only two values <i>true</i> or <i>false</i>. Its primary use is for controlling program flow using conditional statements. Noteworthy; Any object that is not <i>undefined</i> or <i>null</i> will always evaluate to true. 			
 			</p>			
@@ -865,10 +877,7 @@
                 var b = a <br />
                 a = "Hello" <span class="code-comment">// we assign a new value to a </span><br />
                 console.log(b) <span class="comment-outcome">--> "KYH"</span> <span class="code-comment">// we retain the copied value </span><br />
-              </code>
-            </div>
-			
-            <div class="code-container">
+              </code>           
 			<div class="comment-oneline">Objects, pass value by reference</div>
               <code>
                 var objectA = {name: "Kal", lastname: "Doe"} <br />
@@ -891,12 +900,12 @@
               can use the spread operator(see more under ES6 features).
             </div>
 
-            <span class="link"
+            <div class="link"
               >See more:
               <a
                 href="https://stackoverflow.com/questions/16880418/javascript-pas"
                 >https://stackoverflow.com/questions/16880418/javascript-pas</a
-              ></span
+              ></div
             >
         </article>        
 		
@@ -923,13 +932,13 @@
               'number'.
             </p>
             
-            <span class="link"
+            <div class="link"
               >See more:
               <a
                 href="https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/"
                 >https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/</a
               >
-            </span>
+            </div>
         </article>
 		
 		<article class="subject-article">
@@ -943,13 +952,13 @@
             <p>
               If we call a variable declared with <i>var</i> before it has been initialized it's value will be <i>undefined</i> and <i>undefined</i> being a valid value, even having its own type, will not result in an error. The same applies for function expressions being an expression assigned to a variable. It's important to remember that it's only the declaration that is hoisted not the value of the variable.           
             </p>
-            <span class="link"
+            <div class="link"
               >See more;
               <a
                 href="https://developer.mozilla.org/en-US/docs/Glossary/Hoisting"
                 >https://developer.mozilla.org/en-US/docs/Glossary/Hoisting</a
               >
-            </span>
+            </div>
 
             <div class="code-container">
               <div class="comment-oneline">
@@ -1186,9 +1195,9 @@
               <span class="first-word">Note: </span>To access the closure object; <i>console.dir(add)</i>.
             </div>
 			
-            <span class="link"
+            <div class="link"
               >See more:
-              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures"> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures</a></span
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures"> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures</a></div
             ><br />
         </article>
 		
@@ -1249,11 +1258,11 @@
               </code>
             </div>
             
-            <span class="link">
+            <div class="link">
               See more:
               <a  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">
                 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises</a>
-                </span>
+                </div>
         </article>
 
         <article class="subject-article">
@@ -1268,8 +1277,8 @@
             </p><br />
             <p>
               The fetch() method takes one mandatory argument, the
-              <b>path(url)</b> to the resource you want to fetch. By default it
-              will make a 'get request' and return a <b>Promise</b> containing a
+              <em>path(url)</em> to the resource you want to fetch. By default it
+              will make a 'get request' and return a <em>promise</em> containing a
               response object. We then have to extract the actual body content,
               can for example be the json() method to extract JSON body content.
               The fetch() method can optionally accept a second parameter
@@ -1333,13 +1342,13 @@
                 <span class="example">}); </span><br />
               </code>
             </div>
-            <span class="link"
+            <div class="link"
               >See more:
               <a
                 href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
                 >https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch</a
               >
-            </span>
+            </div>
         </article>
 
         <article class="subject-article">
@@ -1378,11 +1387,11 @@
                 }) <br />
               </code>
             </div>
-            <span class="link"
+            <div class="link"
               >See more:
               <a href="https://javascript.info/async-await"
                 >https://javascript.info/async-await</a
-              ></span
+              ></div
             ><br />
         </article>
       </div>
@@ -1522,12 +1531,12 @@
 			  With arrow functions the behaviour of <i>this</i> is consistent and do not change
               depending on where it is called.
             </p>
-            <span class="link"
+            <div class="link"
               >See more:
               <a
                 href="https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work"
                 >https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work</a
-              ></span
+              ></div
             >
         </article>
 
@@ -1565,12 +1574,12 @@
               </code>
             </div>
 			
-            <span class="link"
+            <div class="link"
               >See more:
               <a
                 href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals"
                 >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals</a
-              ></span>
+              ></div>
         </article>
 
         <article class="subject-article">
@@ -1688,13 +1697,13 @@
             <p>			
               In general tough the most safe way to loop through an array/object will be the <i>for/of</i> loop. If, on the other hand, the intention is to manipulate every element in an array the <i>for/each</i> loop is the best choice. The <i>for/in</i> loop should only be used to iterate through the properties of an object and avoided for arrays where the index order is of importance. If the intention is to manipulate or filter data from an array consisting of objects a built in callback function should do the job most effectively (see section; 'Higher order functions'). 
             </p>
-            <span class="link">
+            <div class="link">
               See more:
               <a
                 href="https://thecodebarbarian.com/for-vs-for-each-vs-for-in-vs-for-of-in-javascript"
                 >https://thecodebarbarian.com/for-vs-for-each-vs-for-in-vs-for-of-in-javascript</a
               >
-            </span>
+            </div>
         </article>
 		
 		<article class="subject-article">
@@ -1847,16 +1856,16 @@
 			</code>			
 			</div>
 			
-            <span class="link"
+            <div class="link"
               >See more:
               <a
                 href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#"
                 >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#</a
-              ></span
+              ></div
             >
-			<span class="link">
+			<div class="link">
 			See more: <a href="https://www.youtube.com/watch?v=rRgD1yVwIvE">JavaScript Higher Order Functions & Arrays (Youtube: Traversy Media)</a>
-			</span>
+			</div>
         </article>
 		
 		<article class="subject-article">
@@ -1917,7 +1926,7 @@
               >Note: 3) It will return(true) for all declared properties even
               those with no value.</span
             >-->
-            <span class="link"
+            <div class="link"
               >See more:
               <a
                 href="https://stackoverflow.com/questions/7757337/defining-read-only-properties-in-javascript"
@@ -1928,7 +1937,7 @@
                 href="https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in"
                 >https://stackoverflow.com/questions/5515310/is-there-a-standard-function-to-check-for-null-undefined-or-blank-variables-in</a
               >
-            </span>
+            </div>
         </article>
 		
 		<article class="subject-article">
@@ -1942,12 +1951,12 @@
             <br />
 
             <h4>Array.isArray()</h4>
-            <span class="link"
+            <div class="link"
               >More about <b>shallow</b> vs <b>deep</b> copy:
               <a
                 href="https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/"
                 >https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/</a
-              ></span
+              ></div
             >
         </article>        
 
@@ -2146,7 +2155,7 @@
               more in depth.
             </p>
             
-            <span class="link"
+            <div class="link"
               >See more:
               <a
                 href="https://www.sitepoint.com/javascript-private-class-fields/"
@@ -2158,7 +2167,7 @@
                 href="https://dmitripavlutin.com/javascript-classes-complete-guide/"
               >
                 https://dmitripavlutin.com/javascript-classes-complete-guide/ </a
-              ><br /> </span
+              ><br /></div
             ><br />
 
             <div class="code-container">
@@ -2537,6 +2546,15 @@
 		
 		const persons = ['John', 'Doe']
 console.log(...persons)
+
+var number = 12
+var str = "Hello"
+var failed = number * str
+console.log(failed)
+if( isNaN(str) ) {
+str = 4
+}
+console.log(number * str) 
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
   </body>
