@@ -470,10 +470,7 @@
         }
         h1 {
           font-size: 1.8rem;
-        }
-        h3 {
-          font-size: 1.37rem;
-        }
+        }        
         .example {
           margin-left: 0;
         }
@@ -1205,21 +1202,21 @@
           <h3 class="subject-title">Promises</h3>
 				<p>
 			Javascript is 'single threaded' meaning that only one thing/task can happen at a time.
-			This leads often to what is known as <i>blocking code</i> where the Javascript engine is processing some task while the main thread is blocked. The solution to blocking code is asynchronous code that can run on multiple threads at the same time. To write asynchronus code is getting easier and modern browsers will allow certain operations to be run asynchronously. One way of writing asynchronous code is to use <i>promises</i> that allow processing of another operation while waiting for the 'promise' to resolve.  
+			This leads often to what is known as <i>blocking code</i> where the Javascript engine is processing some task while the main thread is blocked. The solution to blocking code is asynchronous code that can run on multiple threads at the same time. To write asynchronus code is getting easier and modern browsers will allow certain operations to be run asynchronously. One way of writing asynchronous code is to use <i>promises</i> that allow processing of another operation while waiting for the <em>promise</em> to resolve.  
 			</p><br />			
             <p>
-              A promise in Javascript is just as in real life; a promise/commitment to do something at some point in the future. The
+              A <em>promise</em> in Javascript is just as in real life; a promise/commitment to do something at some point in the future. The
               promise will then be resolved, or rejected. In programming context
-              the Promise object represents the eventual completion (or failure)
+              the <em>promise object</em> represents the eventual completion (or failure)
               of an asynchronous operation and its resulting value. Promises in
               Javascript is a way to avoid what often is called 'callback hell'
               where callbacks are nested in an ever growing code structure.
             </p><br />
             <p>
-              A Promise consist of an resolved and rejected callback. Depending
+              A <em>promise</em> consist of an resolved and rejected callback. Depending
               on if the promise is resolved or not the corresponding callback i
               executed. The resolve and reject functions, when called, resolve
-              or reject the promise. With Promises we can organize our code with
+              or reject the promise. With <em>promises</em> we can organize our code with
               chained then() and catch() methods depending on if the promise is
               resolved or rejected.
             </p>
@@ -1413,13 +1410,30 @@
             <p>
               const is used for declaring variables where the intention is to
               not change its value. It could be said that the value will be read
-              only. It's important tough to understand that it works different
+              only. 
+			  A const variable must be initialized when declared. 	  
+			  It's important tough to understand that it works different
               depending on the data type. For primitive types the value is set
               once and becomes read only. For objects it works differently since
               for example an array stored with const can still receive new
-              elements tough it is impossible to change the data type of the
-              value.
+              elements, or have them removed, tough it is impossible to redeclare it or change its type. 
             </p>
+			<div class="code-container">
+				<div class="comment-oneline">We try to re-assign a const variable</div>
+				<code>
+					const PI = 3.14				<br />
+					PI = 2.12 <span class="comment-outcome">--> TypeError 		</span><br />
+				</code>
+				<div class="comment-oneline">We can manipulate objects</div>
+				<code>
+					const persons = ['John', 'Lisa']		<br />
+					persons.push('Tom')						<br />
+					console.log(persons) <span class="comment-outcome">--> ['John', 'Lisa', 'Tom']	</span><br />
+					</code>
+			</div>
+			<div class="note-comment">
+              <span class="first-word">Note: </span>By convention, const identifiers are capitalized. 
+            </div>
             
             <h4>let vs. var</h4>
             <p>
@@ -1437,7 +1451,7 @@
 				<span class="example2">var b = "I exist in function scope"	</span><br />
 				<span class="example">	}									</span><br />
 				<span class="example">console.log(b) <span class="comment-outcome">--> 	I exist in function scope		</span></span><br />
-				<span class="example">console.log(i) <span class="comment-outcome">--> 	ReferenceError, i is not defined</span></span><br />
+				<span class="example">console.log(i) <span class="comment-outcome">--> 	ReferenceError	</span></span><br />
 				}	<br />
 				blockScope(5);	<br />
               </code>
@@ -1463,7 +1477,7 @@
                   >console.log(foo) <span class="comment-outcome">--> ReferenceError</span> <span class="code-comment">// foo is not hoisted </span></span
                 ><br />
                 <span class="example"
-                  >console.log(bar) <span class="comment-outcome">--> undefined </span><span class="code-comment">// variable declaration is
+                  >console.log(bar) <span class="comment-outcome">--> undefined </span><span class="code-comment">// var declarations are
                   hoisted </span></span
                 ><br />
                 <span class="example">let foo = "Hello" </span><br />
@@ -2446,7 +2460,9 @@
 		// END TOGGLE
 		
 		
-		// EXCERCISES 					
+		/*** EXCERCISES ***/
+
+		// CLASSES		
 		class Area {
 		  constructor(width, height) {
 			this.width = width;
@@ -2472,7 +2488,7 @@
 		
 		// Lets suppose that the data above is returned as an object consisting of objects.
 		// How would we proceed to get the same data and filter as above?
-		// for that we need Object constructor methods.  
+		// ... we need Object constructor methods.  
 		
 		// OBJECT OF OBJECTS		
 		const objectArray = {
@@ -2484,7 +2500,7 @@
 			rex:	{name: "Rex", role: "Guard", age: 3, salary: 'T-bone Steak'}
 		}
 	
-		//	WE CREATE AN ARRAY WITN ALL SALARIES AND THEN USE REDUCE TO GET THE TOTAL
+		//	WE CREATE AN ARRAY WITH ALL SALARIES AND USE REDUCE TO GET TOTAL
 		let allSalaries = employees
 			.map(employee => employee.salary)
 			.reduce( (acc, cv) => !isNaN(cv) ? acc + cv : acc + 0, 0)
@@ -2497,12 +2513,12 @@
 			console.log(allSalariesMapFilterReduce)	
 	
 		// FILTER
-		let richKids = employees.filter( employee => employee.salary > 9000)		
+		let richKids = employees.filter( employee => employee.salary > 9000)	
 		let oldKids = employees.filter(employee => employee.age > 30)
 		
 		// THE OBJECT CONSTRUCTOR
 		// we use object constructor to get values before filter  		
-		let arrValues = Object.values(objectArray).filter(obj => obj.age > 32)			
+		let arrValues = Object.values(objectArray).filter(obj => obj.age > 32)	
 		console.log("Test: ", arrValues)
 		
 		// more verbose solutions...
@@ -2542,19 +2558,7 @@
 			return sum
 		}
 		console.log( timesTwo(...allNumbers) )
-		
-		
-		const persons = ['John', 'Doe']
-console.log(...persons)
 
-var number = 12
-var str = "Hello"
-var failed = number * str
-console.log(failed)
-if( isNaN(str) ) {
-str = 4
-}
-console.log(number * str) 
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
   </body>
