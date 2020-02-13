@@ -80,10 +80,10 @@
 		position: relative;
         display: block;		
         width: 100%;
-        max-width: 948px;
+        max-width: 950px;
         background-color: rgba(255, 255, 255, 1);
         color: rgb(35, 35, 35);
-        padding: 28px;
+        padding: 30px 3.5rem;
         margin: 42px auto;
       }
 	  
@@ -312,6 +312,7 @@
 			padding-left: 6px;
 		}
 	    .note-comment {
+			line-height: 1.3em;
 		    background-color: rgb(255,226,168);
 		    padding: 16px 12px;
 		    margin: 30px 0;
@@ -324,19 +325,19 @@
 		    font-weight: 600;
 	    }
 		
-		.falsy-list {
+		.standard-list {
 			width: 30%;
 			padding: 12px 4px;
 			margin: 4px 0;
 		}
-		.falsy-list li {
-			background-color: rgb(249,249,249);
-			padding: 5px 8px;
+		.standard-list li {
+			background-color: rgb(250,250,250);
+			padding: 8px;
 			border-left: 1px solid rgb(222,222,222);
 			border-bottom: 1px solid rgb(241,241,241);
 		}
-		.falsy-list li:nth-child(odd), .log-list li:nth-child(even) {
-			background-color: rgb(241,241,241);
+		.standard-list li:nth-child(odd), .log-list li:nth-child(even) {
+			background-color: rgb(240,240,240);
 		}
 		.list-comment {
 			padding-left: 12px;
@@ -365,6 +366,7 @@
 		}
 		.wrapper {	  
 			width: inherit;
+			padding: 30px 2.5rem;
 			margin: 92px 0 0 0;
         }
         .tutorial-part {
@@ -382,7 +384,7 @@
       }
       @media only screen and (max-width: 767px) {	
         .wrapper {
-          padding: 12px;
+          padding: 16px;
         }
         .tutorial-part {
           padding: 6px;
@@ -481,7 +483,7 @@
   <body>
     <header class="header-container">
       <div class="header-title">
-        <h3>JAVASCRIPT FUNDAMENTALS WITH QUESTIONS</h3>
+        <h3>JAVASCRIPT FUNDAMENTALS WITH QUESTIONS(WIP)</h3>
       </div>
       <div class="header-menu">
         <ul>
@@ -498,7 +500,7 @@
         <h1 class="tutorial-title">Javascript Fundamentals</h1>
 
 		<article class="subject-article">
-          <h3 class="subject-title">About this Tutorial(WIP)</h3>
+          <h3 class="subject-title">About this Tutorial</h3>
 			<p>
 			Javascript is the language of the web, it is an interpreted language that runs directly on the clients browser meaning that no compiler is needed. This is the core of Javascript; It was designed to be easy to use and easy to learn. It also explains some of its characteristics, strengths and drawbacks, that differentiate it from some of the most common programming languages. But Javascript has evolved a lot since its introduction and with the latest updates it has become a much more versatile language. Now days Javascript isn't limited to the browser either. With the help of <i>Node</i> it can be run on both the browser and on the server side.  
 			</p><br />
@@ -522,8 +524,7 @@
 			</p>
 			
 			<h4>The Callstack</h4>
-			<p>
-			.....
+			<p>...event driven, synchronous and asynchronous...
 			</p>	
 				
 			<h4>Most things in Javascript are objects</h4>
@@ -774,7 +775,7 @@
 			</p><br />
 			
 				<p class="log-list-title">Values considered falsy:</p> 
-				<ul class="falsy-list">
+				<ul class="standard-list">
 				<li><i>false</i></li>
 				<li><i>0</i></li>
 				<li><i>undefined</i></li>
@@ -1182,7 +1183,7 @@
 
         <article class="subject-article">
           <h3 class="subject-title">Functions as Callbacks</h3>
-		  <p>In Javascript functions are first class objects meaning that functions can be passed as arguments into other functions just as any other object. When a function receives another function as an argument that function is called a higher order function. And the function you pass in is called a callback. The callback can access the containing functions variables meaning that callbacks works as closures. Noteworthy; It's good praxis to check if the passed in callback is a function.   
+		  <p>In Javascript functions are first class objects meaning that functions can be passed as arguments into other functions just as any other object. When a function receives another function as an argument that function is called a higher order function. And the function you pass in is called a callback. The callback will execute after that the function from where it's called has finished its execution. The callback can access the containing functions variables meaning that callbacks works as closures. Javascript being <em>event driven</em> is one reason to use callbacks. With the help of callbacks it can be ensured that functions are executed at certain order. Noteworthy; It's good praxis to check if the passed in callback is a function.   
 			  </p>
 			  <div class="note-comment">
               <span class="first-word">Note: </span>to check if a callback indeed is a function; (typeof callBack === 'function')
@@ -1235,6 +1236,98 @@
               <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures"> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures</a></div
             ><br />
         </article>
+				
+		 <article class="subject-article">
+          <h3 class="subject-title">The Document Object Model (DOM)</h3>
+			<p>
+			The DOM is a hierarchic map/model for a HTML document. It's created by the browser when the page is loaded and only exist for as long the page is up. The DOM could also be explained as a programming interface for HTML. The DOM can be used to access and manipulate any part or element in a HTML page. It is important to remember that any changes to the DOM will only exist for as long the page is up and running, there are no persistent changes to the code or markup. If there is the need to make dynamic data persistent there are options as cookies that allows data to be stored on a server. But that's a topic we will not touch in this tutorial.  
+			</p>
+			
+			<div class="note-comment">
+              <span class="first-word">Note: </span>The DOM has evolved from being closely related to Javascript to be programmatically independent and available for any language.
+			</div>	  			
+
+			<h4>Why do we need the DOM?</h4>
+			<p>
+			Being able to access any element on a HTML document and manipulate the same is what the DOM makes possible. As such the DOM is essential for creating dynamic content and add interactivity. To acchieve this we have a rich set of methods and properties to our disposal. 
+			</p>
+			
+			<h4>Events</h4>
+			<p>
+			Any interaction with the DOM is related or caused to some kind of <em>event</em>. There are lots of different kind of events, it can for example be a user clicking on a button or submitting a form. Events can be triggered by a number of reasons not only user action but also programmatically or some asynchronous process. We use the DOM to 'listen' for events allowing the handling of some kind of action related to it. To be able to do this we will look at different ways on how to access elements in the DOM hierarchy. 			   
+			</p>
+			
+			<div class="link">
+              See more:
+              <a  href="https://developer.mozilla.org/en-US/docs/Web/Events">
+                https://developer.mozilla.org/en-US/docs/Web/Events</a>
+                </div>
+			
+			<h4>Accessing the DOM</h4>			
+			<p>
+			All the elements in the DOM are represented as <em>nodes</em>. There are <em>element nodes</em>, <em>text nodes</em> and <em>attribute nodes</em>. There are different methods to access and manipulate an element depending on what kind on node it is.  
+			</p><br />
+			
+			<p class="log-list-title">Methods for acccessing the DOM</p>
+			<ul class="standard-list">
+				<li>getElementById()</li>
+				<li>getElementsByTagName()</li>
+				<li>getElementsByClassName()</li>				
+				<li>querySelector()</li>
+				<li>querySelectorAll()</li>				
+			</ul><br />
+			
+			<ul class="standard-list">
+				<li>parentElement()</li>
+				<li>childElement()<li>
+			</ul>
+			
+			<p>									
+			<div class="code-container">
+				<code>
+				
+				</code>
+			</div>		
+
+			<h4>Event-handling</h4>
+			
+			<p>
+			The key reason for using the DOM is to handle events. We know how to access different elements in the DOM the next step is to know how to handle an event. But to handle an event we must first know when an event happens. Javascript uses 'listeners' for this. For many years the old HTML event handler attributes was the only way to attach listeners. 
+			This means that listeners are embedded directly in the mark-up (HTML code). Apart from deviating from the principles of <em>separation of concerns</em> this also limits the numbers of listeners to max one for any element.			
+			</p><br />
+			
+			<em>AddEventListener()</em>
+			<p>
+			With the introduction of the <em>AddEventListener</em> method there is no need for inline code. As such it allows for <em>separation of concerns</em>. Secondly there isn't either any limit for the numbers of listeners for any element. The listener is attached/connected to the element using one of the standard access methods. Not having to use HTML attributes to create listeners also allows for listners to be attached to a collection of elements, for example all elements with a certain class.
+			With the introduction of addEventListener we also got a method for removing listeners; the <em>removeAddEventListener()</em> that simply removes the listener.
+			</p><br />
+			
+			<em>Bubbling and Capturing</em>
+			<p>...</p><br />
+				
+			<em>Event Propagation</em>
+			<p>...</p><br />
+			
+			<em>The Event Object</em>	
+			<p>...</p><br />
+			
+			<br />
+			<p class="log-list-title">Methods for DOM manipulation</p>
+			<ul class="standard-list">
+				<li>setAttribute()</li>
+				<li>getAttribute()</li>
+				<li>createElement()</li>
+				<li>appendChild()</li>
+				<li>createElement()</li>				
+			</ul><br />
+					
+			<div class="code-container">
+				<code>
+				
+				</code>
+			</div>
+			
+		</article>
 		
 		 <article class="subject-article">
           <h3 class="subject-title">Promises</h3>
