@@ -2161,7 +2161,8 @@
 		  
 			<h4>Spread operator</h4>
             <p> 
-              The spread operator will take an array/object or any iterable and expand its containing elements into a collection of the containing items. The spread operator will work with any iterable including strings. So what does this really mean? When merging iterables, usually arrays or objects, the spread operator allows us to expand all the values of one iterable into a new iterable by simply applying the three dots <span class="emphasize-gray-wide">...</span> syntax. The key word here is 'merge'. If we simply copied an array into an exisitng array we would end up with a multidimensional array(nested array). Using spread on the other hand will expand the items in to another array resulting in one single dimensional array.
+              The spread operator will take an array/object or any iterable and expand its containing elements into a collection of the containing items. The spread operator will work with any iterable including strings. So what does this really mean? 
+			  The spread operator allows us to expand all the values in an iterable collection into a new iterable by simply applying the three dots <span class="emphasize-gray-wide">...</span> operator. If we simply copied an array into an existing array we would end up with a multidimensional array(nested array). Using spread on the other hand will expand the items in to another array resulting in one single dimensional array. Basically merging both collections into one single collection.  
 			</p>
 			<div class="code-container">
 				<code>
@@ -2171,16 +2172,8 @@
 			</div>
 
 			<p>			  
-			  spread will take all the elements of an array or object and expand them into the new merged entity. Using the spread operator to expand an existing empty array/object will also create a real copy of the original entity. 
-			</p><br />
-			
-			<p>There are three places where to use spread:</p>
-				<ul class="falsy-list">	
-					<li>when calling a function</li>
-					<li>in array literals</li>
-					<li>in object literals</li>
-				</ul>
-				<br />	 
+			  spread will take all the elements of an array or object and expand them into the new merged entity. Using the spread operator to expand an existing empty array/object will also create a real copy of the original entity. The spread operator can be used when calling a function as well in an array- or object literal. 
+			</p>
 				
             <div class="code-container">
 				<div class="comment-oneline">We use spread in a function call</div>
@@ -2319,9 +2312,7 @@
         <article class="subject-article">
           <h3 class="subject-title">Classes</h3>
             <p>
-              With ES6 classes was introduced to Javascript. In reality it is only
-			syntactical sugar offering an alternative syntax to existing prototype-based
-              inheritance. Another word for it would be 'constructor functions' that we looked in to in the previous chapter. A class is a special type of funtions that uses the keyword class and as with constructor functions the name is capitalized by convention. 
+              With ES6, classes was introduced to Javascript. Classes in Javascript are in reality only syntactical sugar offering an alternative syntax to existing prototype-based inheritance. Or in other words <em>constructor functions</em> that we looked at in the previous chapter. A class is a special type of funtion that uses the keyword class and as with constructor functions the name is capitalized by convention. 
 			  A constructor method for creating and initializing an object can
               be specified in the class. If this is not done a default constructor method -
               basically an empty function - is used functioning as an empty object for
@@ -2366,6 +2357,7 @@
             ><br />
 
             <div class="code-container">
+			<div class="comment-oneline">A standard <em>constructor function</em></div>
               <code>
                 var Person = function(name,gender,age) { <br />
                 <span class="example">this.name = name; </span><br />
