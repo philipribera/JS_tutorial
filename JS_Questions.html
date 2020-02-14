@@ -257,7 +257,7 @@
 		background-color: rgb(228,228,228);
 		background-color: rgb(241,241,229);
 		font-weight: 500;
-		padding: 1px 4px;
+		padding: 0 4px;
 	  }
 	  .emphasize-gray-wide {
 		background-color: rgb(224,224,224);
@@ -1699,17 +1699,17 @@
               <code> const doSmth = a => a * 2 <br /> </code>
             </div>
 
-            <h4>Arrow functions and the keyword <i>this</i></h4>
+            <h4>Arrow functions and the keyword <em>this</em></h4>
             <p>
-             One of the reasons for introducing arrow functions was the behaviour of the keyword <i>this</i>. 
-			If not using arrow functions the value of <i>this</i> will depend on how the function is called. 
-			To set the value of <i>this</i> and alter its default behavior inside a function, the bind() method has to be used.
+             One of the reasons for introducing arrow functions was the behaviour of the keyword <em>this</em>. 
+			If not using arrow functions the value of <em>this</em> will depend on how the function is called. 
+			To set the value of <em>this</em> and alter its default behavior inside a function, the bind() method has to be used.
             </p>
             <p>
-              Arrow functions inherits <i>this</i> from the enclosing lexical scope. Meaning if <i>this</i> is not present in its current scope it will look for it in the enclosing scope. 			  
-			  If <i>this</i> is used in a nested function or for example in a method of a class it will look for the value of this
+              Arrow functions inherits <em>this</em> from the enclosing lexical scope. Meaning if <em>this</em> is not present in its current scope it will look for it in the enclosing scope. 			  
+			  If <em>this</em> is used in a nested function or for example in a method of a class it will look for the value of this
               in the parent scope meaning the parent function or the class where the method was defined. 
-			  In other words <i>this</i> will always represent the object that defined the
+			  In other words <em>this</em> will always represent the object that defined the
               arrow function. 
 			  
 			  With arrow functions the behaviour of <i>this</i> is consistent and do not change
@@ -1727,35 +1727,46 @@
 		<article class="subject-article">
           <h3 class="subject-title">Template Literals</h3>
             <p>
-              Template Literals allows us to work with strings in a more agile
-              and less ugly way. Not least the ability to use expressions gives
-              lot of room for creating more dynamic code. Instead of quotes we
-              use `backticks` to write string within it. We use ${variable or
-              expression} instead of concatenation. Among the new features we
-              also get a more agile syntax to define multiline strings.
+              Template Literals allows us to work with strings in a more agile and leaner way. Among other things we got a more agile way to write multiline strings. But its main features lies in the ability to embed variables and expressions directly in the template. This gives a lot of room for creating more dynamic code. 
+			  </p><br />
+			  <p>
+			  For the template syntax we replace the quotes with <em>backticks</em>; <span class="emphasize-gray">`Hello World!`</span>. Variables are embedded with a dollar sign and curly braces; <span class="emphasize-gray">`Hello ${variableName)`</span>. Template literals also allows us to embed expressions inside the curly braces; <span class="emphasize-gray">`I'm ${24 + 2} years old.`</span>.  
+			  
 			  <!-- If either value is not a string, it’ll be converted to a string using the usual rules. For example, if action is an object, its .toString() method will be called. -->
+			  Another feature we got with template literals are <em>tagged templates</em>. The syntax consist simply of the tag-name before the opening backtick; <span class="emphasize-gray">taggedName`templateContent`</span>. This allows us to execute a template literal with the help of a function. The tag-name has to be the same as the function. 
             </p>
 
             <div class="code-container">
+			<div class="comment-oneline">
+                  The pre ES6 way</div>
               <code>
                 let firstName = "John" <br />
                 let surName = "Doe" <br />
-                const fullName = "John" + " " + "Doe" <span class="comment-outcome">--> John Doe</span> <span class="code-comment">// the pre ES6
-                way to do it</span><br />
-                <br />
-                let firstName = "Lisa" <br />
+                const fullName = "John" + " " + "Doe" <span class="comment-outcome">--> John Doe</span> <span class="code-comment">// we use concatenation</span><br />
+				</code>
+				<br />
+				<div class="comment-oneline">Here we use <em>template literals</em></div>
+                <code>
+				let firstName = "Lisa" <br />
                 let surName = "Doe" <br />
-                const fullName = `${firstName} ${surName}` <span class="comment-outcome">--> Lisa Doe</span> <span class="code-comment">// using
-                template literals</span><br />
-                <br />
-
-                let divNumbers = `15 divided by 3 is ${15/3}` <span class="comment-outcome">--> 5</span> <span class="code-comment">// we insert
-                an expression
-				</span></code>
-				<span class="comment-oneline">
-                  Tagged templates allows for template literals to be parsed with functions.</span>
+                const fullName = `${firstName} ${surName}` <span class="comment-outcome">--> Lisa Doe</span><br />
+				</code>	
+				<br />
+				
+				<div class="comment-oneline">We embed an expression</div>
+				<code>
+                let divNumbers = `15 divided by 3 is ${15/3}` <span class="comment-outcome">--> 5</span><br />
+				</code>
+				<br />
+				
+				<div class="comment-oneline">
+                  We parse a tagged template to a function</div>
 				  <code>
-				  ...
+				  function doSmth(arg) {			<br />
+				  <span class="example">return arg </span><br />
+				}			<br />
+					let taggedTemplate = doSmth`This is a tagged template ${2+2}`	<br />
+					taggedTemplate()					<br />
               </code>
             </div>
 			
@@ -1771,7 +1782,7 @@
           <h3 class="subject-title">Loops & Iteration</h3>
             <h4><i>forEach</i></h4>
             <p>
-              forEach()is a higher order function that executes a callback for each element in an array. ForEach can take tree arguments, the value of the
+              <span class="emphasize-gray">forEach()</span> is a higher order function that executes a callback for each element in an array. ForEach can take tree arguments, the value of the
               current elment, what is required as well as two optional
               arguments, the index for each element and the array object it
               self. The forEach method will always return undefined and is not chainable. It does not mutate the array on which it is called.
@@ -2765,6 +2776,12 @@
 		car_data = "The car model is " + this.model + " and was built " + this.year + " and has the color " + this.color;
 		return car_data
 		}
+		
+		let cool = "Olle"
+		let myLit = doSmth`Here I insert ${cool}`
+		
+		function doSmth(arg) { return arg }
+		console.log(myLit)
 		
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
