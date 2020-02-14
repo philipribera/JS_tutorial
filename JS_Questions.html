@@ -530,7 +530,7 @@
 			</p>
 			
 			<h4>The Callstack</h4>
-			<p>...event driven, synchronous and asynchronous...
+			<p>...event driven...
 			</p>	
 				
 			<h4>Most things in Javascript are objects</h4>
@@ -541,9 +541,8 @@
 			<h4>Data Types</h4>
 			<p>		
 			Data types specify what kind of data can be stored and manipulated in the Javascript memory. 			
-			In Javascript types are either objects or primitives. While there is only one <em>object</em> data type there are 7 primitive data types:
-              <em>string, number, boolean, null, undefined, bigInt</em> and <em>symbol</em>. 
-			  The fundamental difference between primitives and objects is that primitives can hold a single value while objects can hold a collection of data and values. <!--The concept of data types and how they work in a boolean context and Type Coercion is central to understand how Javascript works.-->    
+			In Javascript types are either objects or primitives. While there is only one <em>object</em> data type there are 7 primitive data types.
+			  The fundamental difference between primitives and objects is that primitives can hold a single value while objects can hold a collection of values. <!--The concept of data types and how they work in a boolean context and Type Coercion is central to understand how Javascript works.-->    
 			</p>
 			
 			<div class="note-comment">
@@ -561,11 +560,8 @@
         <article class="subject-article">
           <h3 class="subject-title">Primitive Types</h3>
             <p>
-              Primitive values can not have properties and methods since they
-              are not objects. But Javascript can, depending on the circumstances, treat primitives as objects. Javascript does this by wrapping the value in an object kind of entity making it possible to apply properties and methods. One example is the 'length' property that can be applied on strings.
-			</p><br />
-			<p>
-			But even if primitives can behave as objects there are some important differences when compared with objects. Apart from only being able to hold a single value they are also non-mutable. Meaning that assigning a value to a variable that already holds a value replaces this value with a new value it doesn't mutate/change the original value. This is the reason mutator methods - <i>methods that change the original value</i> - can not be applied on primitives. For example <i>push</i>, <i>reverse</i> and <i>sort</i>. Another difference is that primitive values are passed by <i>copying the value</i> unlike objects that <i>pass value by reference</i>. This means that if a primitive variable is assigned to a new variable its value is copied to the new variable and can be changed without affecting the value of the original variable.  
+			Almost everything in Javascript is an object, the exception being primitive types. In Javascript we have 7 primitive types: <em>string, number, boolean, null, undefined, bigInt</em> and <em>symbol</em>. 
+			Primitives can only hold a single value unlike objects that can hold a collection of data and values. Neither can't they have properties and methods. But Javascript can treat primitives as objects, making it possible to apply properties and methods on primitive values. Javascript does this by wrapping the primitive value in an object kind of entity. One example is the 'length' property that can be applied on strings. But even if primitives can behave as objects there are some important differences. Apart from only being able to hold a single value they are also non-mutable. Meaning that assigning a value to a variable that already holds a value replaces this value with a new value, it doesn't mutate/change the original value. This is the reason mutator methods - <em>methods that change the original value</em> - can not be applied on primitives. Another important distinction is that primitive values are passed by <em>copying the value</em> unlike objects that <em>pass value by reference</em>. Meaning that if a primitive variable is assigned to a new variable its value is copied to the new variable and can be changed without affecting the value of the original variable.  
             </p>
 			  
             <div class="code-container">
@@ -613,7 +609,7 @@
               ></div><br />
             
             <h4>string</h4>
-            <p>The string type holds data that can be represented as text. String values consists of normal characters, special characters can be encoded using the escape character '\'. In Javascript strings can be denominated with both single and double quotes. With ES6 support was also added for 'template literals'. Template literals adds versatility and allows for variables and expressions to be embedded with string literals. (we will cover template literals further in the next chapter). 
+            <p>The string type holds data that can be represented as text. String values consists of normal characters, special characters can be encoded using the escape character <span class="emphasize-gray-wide">' \'</span>. In Javascript strings can be denominated with both single and double quotes. With ES6 support was also added for 'template literals'. Template literals adds versatility and allows for variables and expressions to be embedded with string literals. (we will cover template literals further in the next chapter). 
 			</p>
 			
 			<div class="code-container">			
@@ -2591,13 +2587,13 @@
               <p>Array.from() ...</p>
               <i
                 >Extra 1: Use the Array.from() callback/mapfunction to
-                manipulate each item.</i
-              >
-              <i>Extra 2: How can you check if a passed value is an array?</i>
+                manipulate each item.</i>
+              <br />
+              <i>Extra 2: How can you check if a passed value is an array?</i><br />
               <i
                 >Extra 3: What does it mean when you do a 'shallow copy' of an
                 existing array or object?</i
-              ><br />
+              ><br /><br />
 
               <p>
                 <b
