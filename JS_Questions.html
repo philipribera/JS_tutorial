@@ -254,12 +254,13 @@
 		margin-top: 0;
 	  }	  
 	  .emphasize-gray {
-		background-color: rgb(222,222,222);
-		font-weight: 600;
-		padding: 0 4px;
+		background-color: rgb(228,228,228);
+		background-color: rgb(241,241,229);
+		font-weight: 500;
+		padding: 1px 4px;
 	  }
 	  .emphasize-gray-wide {
-		background-color: rgb(222,222,222);
+		background-color: rgb(224,224,224);
 		font-weight: 600;
 		letter-spacing: 0.25em;
 		padding: 0 2px;
@@ -508,7 +509,7 @@
 		<article class="subject-article">
           <h3 class="subject-title">About this Tutorial</h3>
 			<p>
-			Javascript is the language of the web, it is an interpreted language that runs directly on the clients browser meaning that no compiler is needed. This is the core of Javascript; It was designed to be easy to use and easy to learn. It also explains some of its characteristics, strengths and drawbacks, that differentiate it from some of the most common programming languages. But Javascript has evolved a lot since its introduction and with the latest updates it has become a much more versatile language. Now days Javascript isn't limited to the browser either. With the help of <i>Node</i> it can be run on both the browser and on the server side.  
+			Javascript is the language of the web, it is an interpreted language that runs directly on the clients browser meaning that no compiler is needed. This is the core of Javascript; It was designed to be easy to use and easy to learn. It also explains some of its characteristics, strengths and drawbacks, that differentiate it from some of the most common programming languages. But Javascript has evolved a lot since its introduction and with the latest updates it has become a much more versatile language. Now days Javascript isn't limited to the browser either. With the help of <em>Node</em> it can be run on both the browser and on the server side.  
 			</p><br />
 			<p>
 			This tutorial will not focus on basic syntax rules or how to name variables. There are already good tutorials that explains the core basic in detail. This tutorial will focus on the key concepts of the language to get a better understanding on how Javascript works. There is also a chapter dedicated to the ECMAScript 2015 (ES6) update and how to use some of the new features that was introduced. The ES6 update was probably the most important development of Javascript since its introduction making Javascript significantly more powerful and versatile.    
@@ -520,9 +521,9 @@
 	  
 			<h4>Dynamically typed</h4>
             <p>
-			 Javascript is what we call <i>dynamically typed</i> meaning the type of an variable is interpreted by the compiler. 
+			 Javascript is what we call <em>dynamically typed</em> meaning the type of an variable is interpreted by the compiler. 
 			 
-			 Javascript is weakly typed meaning that we do not specify a certain type when declaring a variable (there are exceptions tough). The contrary are languages that are <i>strongly</i> or <i>static</i> typed where a variable has to be given a type when it's declared.
+			 Javascript is weakly typed meaning that we do not specify a certain type when declaring a variable (there are exceptions tough). The contrary are languages that are <em>strongly</em> or <em>static</em> typed where a variable has to be given a type when it's declared.
 			 
 			 Javascript being dynamically typed means that variable types will be interpreted and if necessary even change implicitly at runtime. With runtime meaning when the program executes the commands. The type and value can be changed at any time both explicit in the code or implicitly by the Javascript engine. 
 			 			 
@@ -552,9 +553,7 @@
 			<div class="note-comment">
               <span class="first-word">Note: </span>
 			  The <i>var</i> keyword will be used in code examples until the section 'Variable Scope' where variable declarations are explained more in depth.
-			  </div>
-		
-		
+			  </div>		
 		</article>
         
         <article class="subject-article">
@@ -609,7 +608,7 @@
               ></div><br />
             
             <h4>string</h4>
-            <p>The string type holds data that can be represented as text. String values consists of normal characters, special characters can be encoded using the escape character <span class="emphasize-gray-wide">' \'</span>. In Javascript strings can be denominated with both single and double quotes. With ES6 support was also added for 'template literals'. Template literals adds versatility and allows for variables and expressions to be embedded with string literals. (we will cover template literals further in the next chapter). 
+            <p>The string type holds data that can be represented as text. String values consists of normal characters, special characters can be encoded using the escape character '<span class="emphasize-gray-wide"> \</span>'. In Javascript strings can be denominated with both single and double quotes. With ES6 support was also added for 'template literals'. Template literals adds versatility and allows for variables and expressions to be embedded with string literals. (we will cover template literals further in the next chapter). 
 			</p>
 			
 			<div class="code-container">			
@@ -664,8 +663,8 @@
 			  <em>NaN</em>
 				<p>
 			   If a Math function can't convert an argument to a number and/or a required type coercion to number fails the return value is <em>NaN</em>, meaning; not a number.
-				To check for <em>NaN</em> do <strong>not</strong> compare; NaN === NaN, this returns false since type of <em>NaN</em> is number. The <em>isNaN</em> function has to be used instead, isNaN(argument) === NaN.
-				 With ES6 we can use <em>Number.isNaN(value)</em> to check if a value is <em>NaN</em>. Be aware that this will only return true if the value already is NaN unlike isNaN that will return true if the value can't be type coerced to a number.   
+				To check for NaN do <strong>not</strong> compare; <span class="emphasize-gray">NaN === NaN</span>, this returns false since type of NaN is number. The <em>isNaN</em> function has to be used instead, <span class="emphasize-gray">isNaN(argument) === NaN</span>.
+				 With ES6 we can use <span class="emphasize-gray">Number.isNaN(value)</span> to check if a value is NaN. Be aware that this will only return true if the value already is NaN, unlike isNaN that will return true if the value can't be type coerced to a number.   
 			</p>
 				<div class="link"
               >See more;
@@ -950,11 +949,10 @@
           <h3 class="subject-title">Type Coercion</h3>
             <p>
               Type coercion is an important concept in Javascript not least since it's a dynamic language and weakly typed. 
-              Javascript being weakly typed signifies that a variable can be
+				Being weakly typed signifies that a variable can be
               assigned and reassigned any value of an existing data type. It can
               be a string to number, object to boolean, and so on. The process
-              of converting a value from one type to another is called 'type
-              coercion'.
+              of converting a value from one type to another is what is called 'type coercion'.
             </p>            
             <h4>Implicit vs. explicit coercion</h4>
             <p>
@@ -1088,9 +1086,9 @@
          <article class="subject-article">
           <h3 class="subject-title">Operators</h3>
 		  <p>
-              JavaScript has <i>operators</i> that perform some operation on a single or multiple <i>operands</i> (data value). 
-              There are at least 10 different kinds of operators in Javascript, one being the assignment operator (=) which assign a value to a variable, another being arithmetic operators as (+,-,/), that performs arithmetic operations.
-              In this tutorial we will look deeper into a few of these, among them <i>Comparison</i> operators due to their importance for understanding how Javascript handles <i>type coercion</i>.     
+              JavaScript has <em>operators</em> that perform some operation on a single or multiple <em>operands</em> (data value). 
+              There are at least 10 different kinds of operators in Javascript, one being the assignment operator <span class="emphasize-gray">=</span> which assign a value to a variable, another being arithmetic operators as <span class="emphasize-gray">+</span><span class="emphasize-gray">-</span><span class="emphasize-gray">/</span> that performs arithmetic operations.
+              In this tutorial we will look deeper into a few of these, among them <em>Comparison</em> operators due to their importance for understanding how Javascript handles <em>type coercion</em>.     
             </p>
             
             <h4>Comparison Operators</h4>
@@ -1339,8 +1337,8 @@
 			
 			<em>AddEventListener()</em>
 			<p>
-			With the introduction of the <em>AddEventListener</em> method there is no need for inline code. As such it allows for <em>separation of concerns</em>. Secondly there isn't either any limit for the numbers of listeners for any element. The listener is attached/connected to the element using one of the standard access methods. Not having to use HTML attributes to create listeners also allows for listners to be attached to a collection of elements, for example all elements with a certain class.
-			With the introduction of addEventListener we also got a method for removing listeners; the <em>removeAddEventListener()</em> that simply removes the listener.
+			With the introduction of the <span class="emphasize-gray">AddEventListener</span> method there is no need for inline listeners. As such we can stay true to the principles of; <em>separation of concerns</em>. There isn't either a limit for the numbers of listeners on a single element. The listener is attached/connected to the element using the standard access methods. Not having to use HTML attributes to create listeners also allows for a single listener to be attached to a collection of elements, for example all elements with a certain class.
+			With the introduction of addEventListener we also got a method for removing them; <span class="emphasize-gray">removeAddEventListener()</span> that simply removes the listener.
 			</p><br />
 			
 			<em>Bubbling and Capturing</em>
@@ -1735,6 +1733,7 @@
               use `backticks` to write string within it. We use ${variable or
               expression} instead of concatenation. Among the new features we
               also get a more agile syntax to define multiline strings.
+			  <!-- If either value is not a string, it’ll be converted to a string using the usual rules. For example, if action is an object, its .toString() method will be called. -->
             </p>
 
             <div class="code-container">
@@ -1802,7 +1801,7 @@
             <h4><i>for/in</i></h4>
             <p>
               The for/in statement iterates over all non-symbol properties of an object. The loop will iterate over all enumerable properties and those the object inherits from its constructor's prototype as well. If the intention is to only
-              consider properties of the object itself and not its prototypes, use <i>getOwnPropertyNames()</i> or make sure to perform a <i>hasOwnProperty()</i> check.
+              consider properties of the object itself and not its prototypes, use <span class="emphasize-gray">getOwnPropertyNames()</span> or make sure to perform a <span class="emphasize-gray">hasOwnProperty()</span> check.
             </p>
 			<p>
 			Tough the for/in statement can be used on arrays it's not recommended. The reason is that there is no guarantee that a for/in loop will return the values in certain order. When it comes to arrays the order of access is important unlike objects where the value is assigned to a certain property. 
@@ -1851,7 +1850,7 @@
               The for/of statement loops over iterable objects. It loops
               through data structures that are iterable such as Strings, Arrays and array-like objects such NodeLists, Maps, Set etc. In every
               iteration the value of the next property is assigned to the
-              variable. for/of is in general the preferred way to loop through iterable objects. It is more concise than a conventional for loop but can't be chained like forEach().
+              variable. for/of is in general the preferred way to loop through iterable objects. It is more concise than a conventional for loop but can't be chained like <span class="emphasize-gray">forEach()</span>.
             </p>
 
             <div class="code-container">
@@ -1878,7 +1877,7 @@
 			  <p>
 			  There are many ways to iterate over arrays and loops and they all have there strengths and tradeof:s. 
 			  The standard <em>for</em> and <em>for/in</em> loop constructs gives access to the index in the iterable object but not the element. To access the element we have to print
-              out the, item[index]. With for/of and forEach() on the other hand we get access to the element itself and with the latter we can also invoke an optional index argument. Accessing the index with a for/of loop requires more effort but can be done by combining destructuring with the entries method. 	  
+              out the, item[index]. With for/of and <span class="emphasize-gray">forEach()</span> on the other hand we get access to the element itself and with the latter we can also invoke an optional index argument. Accessing the index with a for/of loop requires more effort but can be done by combining destructuring with the entries method. 	  
 			  </p><br />
             <p>			
               In general tough the most safe way to loop through an array/object will be the <em>for/of</em> loop. If, on the other hand, the intention is to manipulate every element in an array the <em>for/each</em> loop is the best choice. The <em>for/in</em> loop should only be used to iterate through the properties of an object and avoided for arrays where the index order is of importance. If the intention is to manipulate or filter data from an array consisting of objects a built in callback function should do the job most effectively (see section; 'Higher order functions'). 
@@ -1936,7 +1935,7 @@
 			</div>
             <h4><em>reduce()</em></h4>
 			<p>
-			The reduce method reduce the array to a single value. Reduce requires two arguments the accumulator and the current value. The accumulator is the total value accumulated from the elements in the array and the current value is the value for each element when the callback is executed. The reduce method will in other words return the total value from all the elements in the array. Reduce also have three optional arguments, index, array and an initial value. If no initial value is added the callback starts its loop at index 1, in practice meaning that the accumulator starts with the value 0.    
+			The reduce method reduce the array to a single value. Reduce requires two arguments the accumulator and the current value. The accumulator is the total value accumulated from the elements in the array and the current value is the value for each element when the callback is executed. The reduce method will in other words return the total value from all the elements in the array. Reduce also have three optional arguments, index, array and an initial value. If no initial value is added the callback starts its loop at <span class="emphasize-gray">index 1</span>, in practice meaning that the accumulator starts with the value 0.    
 			</p>
 			
 			<div class="note-comment">
@@ -1963,7 +1962,7 @@
 				</div>				
 			
             <h4><em>find()</em></h4>
-            <p>The find() method will return the value of the first element in an array that passes the condition set by the callback. If the intention is to find the index of the first value that passes the condition use <em>findIndex()</em> method. If no value satisfies the set condition undefined will be returned.
+            <p>The <span class="emphasize-gray">find()</span> method will return the value of the first element in an array that passes the condition set by the callback. If the intention is to find the index of the first value that passes the condition use <span class="emphasize-gray">findIndex()</span> method. If no value satisfies the set condition undefined will be returned.
 			<div class="code-container">
 				<code>
 					const persons = ['John', 'Lisa', 'Patty', 'Tom']	<br />
@@ -2236,7 +2235,7 @@
 			  			
 			<h4>rest operator</h4>
 			<p>
-			 The rest operator is used to create an array from a collection of arguments passed to a function. It works similar to the built in arguments object used to get all arguments passed to a function. Unlike the arguments object, the rest operator will return a real array allowing for the use of higher-order-functions as forEach() and map() among others. 
+			 The rest operator is used to create an array from a collection of arguments passed to a function. It works similar to the built in arguments object used to get all arguments passed to a function. Unlike the arguments object, the rest operator will return a real array allowing for the use of higher-order-functions as <span class="emphasize-gray">forEach()</span> and <span class="emphasize-gray">map()</span> among others. 
 			 </p>
 			<div class="code-container">
 				<code>
@@ -2331,7 +2330,7 @@
               difference is that everything that is written inside a class is
               typed in strict mode. With ECMAScript2019 we also got some new important
               features when it comes to classes. It is now possible to create
-              private properties and methods using the # prefix.
+              private properties and methods using the <span class="emphasize-gray-wide">#</span> prefix.
               There is also the possibility to initialize public properties at
               the top of a class before specifying a constructor. There are some
               important benefits to this that I will not go deeper in to here,
@@ -2766,6 +2765,7 @@
 		car_data = "The car model is " + this.model + " and was built " + this.year + " and has the color " + this.color;
 		return car_data
 		}
+		
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
   </body>
