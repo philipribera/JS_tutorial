@@ -155,7 +155,7 @@
 		font-weight: 600;
 	  }
 	  .log-list {
-		margin: 24px 0;
+		margin: 22px 0 30px 0;
 	  }
       .log-list li {
 		display: flex;        
@@ -163,6 +163,7 @@
       }
       .log-list li:first-child {
         font-weight: 600;
+		padding-bottom: 6px;
       }
 	  .log-list li:last-child {
 		flex: 1;
@@ -253,7 +254,12 @@
 		margin-top: 0;
 	  }	  
 	  .emphasize-gray {
-		background-color: rgb(220,220,220);
+		background-color: rgb(222,222,222);
+		font-weight: 600;
+		padding: 0 4px;
+	  }
+	  .emphasize-gray-wide {
+		background-color: rgb(222,222,222);
 		font-weight: 600;
 		letter-spacing: 0.25em;
 		padding: 0 2px;
@@ -719,7 +725,7 @@
 			  </div>
 			  
 			<div class="note-comment">
-              <span class="first-word">Note: </span><em>undefined</em> has its own type and is not to be considered an error, tough it's often the cause of bugs.
+              <span class="first-word">Note: </span><em>undefined</em> is not an error in it self but it's often the cause of bugs in the code.
 			</div>	            
            
             <h4>null</h4>
@@ -771,7 +777,7 @@
 		<article class="subject-article">
           <h3 class="subject-title"><em>truthy</em> and <em>falsy</em></h3>
 			<p>
-			All values in Javascript can be said to be either <em>truthy</em> or <em>falsy</em> i a Boolean context. This should not be confused with <em>true</em> or <em>false</em> that are of type Boolean. <em>truthy</em> and <em>falsy</em> have no data type in its own, a value of type string for example is of type string no matter its inherent boolean value being either truthy or falsy. To simplify there are six <em>falsy</em> values and all other values are considered to be <em>truthy</em>.
+			All values in Javascript can be said to be either <em>truthy</em> or <em>falsy</em> i a Boolean context. This should not be confused with <em>true</em> or <em>false</em> that are of type Boolean. <em>truthy</em> and <em>falsy</em> have no data type in its own, a string for example is of type string no matter its inherent boolean value. To simplify there are six falsy values and all other values are considered to be truthy.
 			</p><br />
 			
 				<p class="log-list-title">Values considered falsy:</p> 
@@ -986,7 +992,7 @@
 			  The concept of Hoisting can be the source for confusion, not least since the written code is only moved in the memory not physically. 
             </p><br />
             <p>
-              If we call a variable declared with <i>var</i> before it has been initialized it's value will be <em>undefined</em> and <em>undefined</em> being a valid value, even having its own type, will not result in an error. The same applies for function expressions being an expression assigned to a variable since it's only the declaration that is hoisted.           
+              If we call a variable declared with <em>var</em> before it has been initialized it's value will be <em>undefined</em> and <em>undefined</em> being a valid value, even having its own type, will not result in an error. The same applies for function expressions being an expression assigned to a variable since it's only the declaration that is hoisted.           
             </p>
             <div class="link"
               >See more;
@@ -1043,7 +1049,7 @@
               global or function scoped. The latter sometimes also called local
               scope. A variable accessible anywhere in our code is said to exist
               in the global scope while a variable accessible inside a function
-              exist in the local scope of the function where it was declared. With the ES6 update and the introduction of the keyword <i>let</i> for declaring variables we now also have <i>block scope</i>. A variable declared with <i>let</i> will only be accessible inside the block where it was declared. This can for example be inside the block restricted by a for loop that exist inside a function.
+              exist in the local scope of the function where it was declared. With the ES6 update and the introduction of the keyword <em>let</em> for declaring variables we now also have <em>block scope</em>. A variable declared with <em>let</em> will only be accessible inside the block where it was declared. This can for example be inside the block restricted by a for loop that exist inside a function.
 			</p><br />            
             <p>
               When it comes to function scope it's also important to understand
@@ -1095,21 +1101,60 @@
             <p>
               The rules for type conversions in Javascript can be confusing and give unexpected outcomes if not understood fully.               
               It's not least important to understand the difference between the
-              double equality operator (<b>==</b>) and the tripple equality
-              operator (<b>===</b>) when comparing values. Javascript have different rules for using the double equality operator often called 'loose' equality operator' versus the tripple one being the 'strict' equivalent. The loose equality operator compares the value but not
+              double equality operator <span class="emphasize-gray">==</span> and the tripple equality
+              operator <span class="emphasize-gray">===</span> when comparing values. Javascript have different rules for using the double equality operator often called 'loose' equality operator' versus the tripple one being the 'strict' equivalent. The loose equality operator compares the value but not
               the data type vs. the latter that compares both. There are no formal rule for
               which comparison to use but most safe is to use the tripple comparison. 
 			  That said there can
               be situations where a non-strict comparison operator can have it's
               benefits. No matter which one is used it's important to understand
               how they work and the implications of using one over the other.
-              The already mentioned operators can also be combined as follows; not equal to <b>!= !==</b>,
-              greater or less than <b> &gt; &lt;, &gt;= &lt;=.</b>
-            </p>
+            </p><br />
+			
+			<p class="log-list-title">All Comparison Operators</p>
+			<ul class="log-list">
+				<li>
+					<span class="info-list">Operator</span>
+					<span class="info-list">Description</span>
+				</li>
+				<li>
+					<span class="info-list">==</span>
+					<span class="info-list">Loose Equality</span>
+				</li>
+				<li>
+					<span class="info-list">===</span>
+					<span class="info-list">Strict Equality</span>	
+				</li>
+				<li>
+					<span class="info-list">!=</span>
+					<span class="info-list">Not Equal</span>
+				</li>
+				<li>
+					<span class="info-list">!==</span>
+					<span class="info-list">Strict not Equal</span>
+				</li>
+				<li>
+					<span class="info-list">&gt;</span>
+					<span class="info-list">Greater than</span>
+				</li>
+								<li>
+					<span class="info-list">&lt;</span>
+					<span class="info-list">Less than</span>
+				</li>
+
+				<li>
+					<span class="info-list">&gt;=</span>
+					<span class="info-list">Greater or equal to</span>
+				</li>
+				<li>
+					<span class="info-list">&lt;=</span>
+					<span class="info-list">Less or equal to</span>
+				</li>				
+			</ul>
 
             <div class="code-container">
               <code>
-                if(1 == "1") <span class="comment-outcome">--> true</span> <span class="code-comment">// will make a comparison after type conversion of "1" to 1 </span><br />
+                if(1 == "1") <span class="comment-outcome">--> true</span> <span class="code-comment">// will first type coerce from type string to type number and then makes the comparison</span><br />
                 <br />
                 if(1 === "1") <span class="comment-outcome">--> false</span> <span class="code-comment">// strict equality will check for both value and type
                 </span><br />
@@ -1223,7 +1268,7 @@
 					}													<br />
 					<span class="example">return addTo()				</span><br />
 				}														<br />
-				add()	<span class="code-comment">// we call <i>add</i> creating a closure for 'num' and 'b'	</span><br />
+				add()	<span class="code-comment">// we call 'add' creating a closure for 'num' and 'b'	</span><br />
 				</code>
 			</div>
 			
@@ -1836,11 +1881,11 @@
             <h4>Summary; which loop to use and when</h4>
 			  <p>
 			  There are many ways to iterate over arrays and loops and they all have there strengths and tradeof:s. 
-			  The standard <i>for</i> and <i>for/in</i> loop constructs gives access to the index in the iterable object but not the element. To access the element we have to print
+			  The standard <em>for</em> and <em>for/in</em> loop constructs gives access to the index in the iterable object but not the element. To access the element we have to print
               out the, item[index]. With for/of and forEach() on the other hand we get access to the element itself and with the latter we can also invoke an optional index argument. Accessing the index with a for/of loop requires more effort but can be done by combining destructuring with the entries method. 	  
 			  </p><br />
             <p>			
-              In general tough the most safe way to loop through an array/object will be the <i>for/of</i> loop. If, on the other hand, the intention is to manipulate every element in an array the <i>for/each</i> loop is the best choice. The <i>for/in</i> loop should only be used to iterate through the properties of an object and avoided for arrays where the index order is of importance. If the intention is to manipulate or filter data from an array consisting of objects a built in callback function should do the job most effectively (see section; 'Higher order functions'). 
+              In general tough the most safe way to loop through an array/object will be the <em>for/of</em> loop. If, on the other hand, the intention is to manipulate every element in an array the <em>for/each</em> loop is the best choice. The <em>for/in</em> loop should only be used to iterate through the properties of an object and avoided for arrays where the index order is of importance. If the intention is to manipulate or filter data from an array consisting of objects a built in callback function should do the job most effectively (see section; 'Higher order functions'). 
             </p>
             <div class="link">
               See more:
@@ -1857,14 +1902,14 @@
 			  When a function receives another function as an argument that function is called a higher order function. And the function you pass in is called a callback. 			  
 			  With ES6 several new higher order methods were added introducing new powerful tools for handling array-based data. A typical scenario where these methods can be used are when handling JSON data from a database. We can also chain them making them even more versatile. Noteworthy; These methods do not mutate/change the orignal array, this is the behaviour we in general desire. Many situations might require a combination of different methods to achieve the desired result. In the end, as with so much more, knowing what tool/s to use and how to use them will become easier with more experience.   
 			  </p>
-            <h4>The <i>map</i> method</h4>
+            <h4>The <em>map</em> method</h4>
 			<p>
 			The map method will return a new array with the result of the callback function. The callback will be called for every element in the array and the returned value will be added to the new array. 
 			The callback function can take three parameters, the element, index and the array object. Only the element is required the others are optional.		
 			The map method should only be used if the intention is to create a new array, if the intention is to alter the elements in the existing array the forEach function should be used instead.	
 			</p>
 			<div class="code-container">
-					<div class="comment-oneline">We <i>map</i> the elements and double each value</div>	
+					<div class="comment-oneline">We <em>map</em> the elements and double each value</div>	
 				<code>					
 					let numbers = [2,4,6,8,10]	<br />
 	
@@ -1893,7 +1938,7 @@
 					console.log(filteredNumbers) <span class="comment-outcome">--> [33,44,55]</span>
 				</code>
 			</div>
-            <h4><i>reduce()</i></h4>
+            <h4><em>reduce()</em></h4>
 			<p>
 			The reduce method reduce the array to a single value. Reduce requires two arguments the accumulator and the current value. The accumulator is the total value accumulated from the elements in the array and the current value is the value for each element when the callback is executed. The reduce method will in other words return the total value from all the elements in the array. Reduce also have three optional arguments, index, array and an initial value. If no initial value is added the callback starts its loop at index 1, in practice meaning that the accumulator starts with the value 0.    
 			</p>
@@ -1911,8 +1956,8 @@
 				</code>
 				
 			</div>
-            <h4><i>Sort()</i></h4>
-				<p>The <i>sort</i> method will sort the elements in an array in a descending order.</p> 
+            <h4><em>Sort()</em></h4>
+				<p>The <em>sort</em> method will sort the elements in an array in a descending order.</p> 
 				<div class="code-container">
 					<code>
 						let letters = ['f','g','w','t','a']				<br />
@@ -1921,8 +1966,8 @@
 					</code>
 				</div>				
 			
-            <h4><i>find()</i></h4>
-            <p>The find() method will return the value of the first element in an array that passes the condition set by the callback. If the intention is to find the index of the first value that passes the condition use <i>findIndex()</i> method. If no value satisfies the set condition undefined will be returned.
+            <h4><em>find()</em></h4>
+            <p>The find() method will return the value of the first element in an array that passes the condition set by the callback. If the intention is to find the index of the first value that passes the condition use <em>findIndex()</em> method. If no value satisfies the set condition undefined will be returned.
 			<div class="code-container">
 				<code>
 					const persons = ['John', 'Lisa', 'Patty', 'Tom']	<br />
@@ -1985,17 +2030,17 @@
 				console.log(salariesMapFilterReduce) <span class="comment-outcome">--> 48000</span>
 			</code>
 			
-			<div class="comment-oneline">Here we use <i>sort</i> with a comparefunction to sort the employees in alphabetical order</div>	
+			<div class="comment-oneline">Here we use <em>sort</em> with a comparefunction to sort the employees in alphabetical order</div>	
 			<code>
 				let sortedEmployees = employees.sort( employee => employee.name )	<br />
 				console.log(sortedEmployees) <span class="comment-outcome">--> [John, Lisa...]	</span><br />
 			</code>				
-			<div class="comment-oneline"><i>find()</i> method</div>
+			<div class="comment-oneline"><em>find()</em> method</div>
 			<code>
 				...
 			</code>
 			
-			<div class="comment-oneline"><i>includes()</i> method</div>
+			<div class="comment-oneline"><em>includes()</em> method</div>
 			<code>
 				...
 			</code>			
@@ -2016,7 +2061,7 @@
 		<article class="subject-article">
           <h3 class="subject-title">Object Constructor Methods</h3>
 		  <p>
-			We already now that to create an instance of an object we have to use an object constructor function. This is done by calling the constructor function with the <i>new</i> keyword. 
+			We already now that to create an instance of an object we have to use an object constructor function. This is done by calling the constructor function with the <em>new</em> keyword. 
 			This will at the same time create a constructor property for the Object. Referencing this property will return the Object constructor that created the instance object. 
 		  <div class="code-container">
 			<code>
@@ -2026,7 +2071,7 @@
 		  
 		  <h4>Built in Object constructor methods</h4>
 
-			<p><i>Object.keys()</i> and <i>Object.values()</i></p>
+			<p><em>Object.keys()</em> and <em>Object.values()</em></p>
 				<p>....</p>
 				
 			<h5>Object.entries()</h5>
@@ -2110,7 +2155,7 @@
 		  
 			<h4>Spread operator</h4>
             <p> 
-              The spread operator will take an array/object or any iterable and expand its containing elements into a collection of the containing items. The spread operator will work with any iterable including strings. So what does this really mean? When merging iterables, usually arrays or objects, the spread operator allows us to expand all the values of one iterable into a new iterable by simply applying the three dots <span class="emphasize-gray">...</span> syntax. The key word here is 'merge'. If we simply copied an array into an exisitng array we would end up with a multidimensional array(nested array). Using spread on the other hand will expand the items in to another array resulting in one single dimensional array.
+              The spread operator will take an array/object or any iterable and expand its containing elements into a collection of the containing items. The spread operator will work with any iterable including strings. So what does this really mean? When merging iterables, usually arrays or objects, the spread operator allows us to expand all the values of one iterable into a new iterable by simply applying the three dots <span class="emphasize-gray-wide">...</span> syntax. The key word here is 'merge'. If we simply copied an array into an exisitng array we would end up with a multidimensional array(nested array). Using spread on the other hand will expand the items in to another array resulting in one single dimensional array.
 			</p>
 			<div class="code-container">
 				<code>
