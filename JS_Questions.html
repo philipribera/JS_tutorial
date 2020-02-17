@@ -2154,8 +2154,10 @@
 		  
 			<h4>Spread operator</h4>
             <p> 
-              The spread operator will take an array/object or any iterable and expand its containing elements into a collection of the containing items. The spread operator will work with any iterable including strings. So what does this really mean? 
-			  The spread operator allows us to expand all the values in an iterable collection into a new iterable by simply applying the three dots <span class="emphasize-gray-wide">...</span> operator. If we simply copied an array into an existing array we would end up with a multidimensional array(nested array). Using spread on the other hand will expand the items in to another array resulting in one single dimensional array. Basically merging both collections into one single collection.  
+              The spread operator will take an array/object or any iterable and expand its containing elements into a collection of the containing items. The spread operator will work with any iterable including strings. If using spread with a string or a collection of numbers it will create an array of the characters and elements.   
+			</p><br />
+			<p>
+			  The spread operator allows us to expand all the values in an iterable collection into a new iterable by simply applying the three dots <span class="emphasize-gray-wide">...</span> operator. If we simply copied an array into an existing array we would end up with a multidimensional array(nested array). Using spread on the other hand will expand the items in to another array resulting in one single dimensional array. Basically merging both collections into one single collection. 
 			</p>
 			<div class="code-container">
 				<code>
@@ -2390,7 +2392,7 @@
 		
 		<h4>The <em>Set</em> Data Type</h4>
 		<p>
-		Set data type is of type object consisting of collections of data that are iterable. The main difference with an array is that the Set type only can hold unique values. This allows for a simple and lean syntax for removing duplicates in arrays. The Set type has its own methods and property as <em>size</em>. The former adds values to a Set collection and the latter returns the length of the same. We can also use the spread operator to spread out the resulting Set collection (see code example).
+		Set data type is of type object consisting of collections of data that are iterable. The main difference with an array is that the Set type only can hold unique values. This allows for a simple and lean syntax for removing duplicates in arrays. The Set type has its own methods and property as <em>size</em>. The former adds values to a Set collection and the latter returns the length of the same. We can also use the spread operator to create an array consisting of the elements in the Set collection (see code example).
 		</p>		
 
 		<div class="code-container">
@@ -2806,6 +2808,11 @@
 		const fixedArray = [... new Set(messyArray)]
 		console.log(fixedArray)	
 		console.log(fixedArray.size) //--> undefined // fixedArray is not of type Set
+		
+		const persons = ['John', 'Doe']
+		console.log(...persons)
+		const fooSpread = [...persons]
+		console.log(fooSpread)
 		
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
