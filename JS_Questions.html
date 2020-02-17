@@ -32,8 +32,7 @@
 		background-color: rgb(189,189,189);
         box-shadow: 1px 1px 1px 1px rgb(132, 132, 132);
         z-index: 9999;		
-      }
-	  
+      }	  
       .header-container {
 		display: flex;
         flex-wrap: wrap;
@@ -53,8 +52,7 @@
 	  .header-menu {
 		display: flex;
 		justify-content: flex-end;
-		flex: 1 0 310px;
-		
+		flex: 1 0 310px;		
 	  }
 	  .header-menu ul {
 		margin: 0;
@@ -105,11 +103,9 @@
       h1 {
         font-size: 2rem;
       }
-      h3 {
-        font-size: 1.5rem;
-      }
 	  h3 {
   		font-family: 'Merriweather Sans', 'Montserrat', roboto, helvetica, sans-serif;
+		font-size: 1.5rem;
 	  }
       h4 {
 		font-family: 'Poppins', 'Merriweather Sans', 'Montserrat', roboto, helvetica, sans-serif;
@@ -268,8 +264,7 @@
 	  .code-container .code-comment {
 		color: rgb(109,109,112);		
 		padding-left: 18px;
-	  }
-	  
+	  }	  
       .code-container-mod {
         background-color: rgb(9, 9, 9);
       }
@@ -2248,10 +2243,9 @@
 				}	<br />	
 				console.log( timesTwo(...allNumbers) )	<br />				
 				</code>
-			</div>
-			
+			</div>			
         </article>
-
+		
         <article class="subject-article">
           <h3 class="subject-title">Destructuring</h3>
             <p>
@@ -2390,6 +2384,34 @@
 			  </code>		
             </div>
         </article>
+		
+		<article class="subject-article">
+          <h3 class="subject-title">More Features</h3>
+		
+		<h4>The <em>Set</em> Data Type</h4>
+		<p>
+		Set data type is of type object consisting of collections of data that are iterable. The main difference with an array is that the Set type only can hold unique values. This allows for a simple and lean syntax for removing duplicates in arrays. The Set type has its own methods and property as <em>size</em>. The former adds values to a Set collection and the latter returns the length of the same. We can also use the spread operator to spread out the resulting Set collection (see code example).
+		</p>		
+
+		<div class="code-container">
+		<div class="comment-oneline">We remove duplicates from an array</div>
+			<code>
+				const messyArray = [33,11,22,11,44,33]		<br />
+				const fixedSet = new Set(messyArray)		<br />
+				console.log(fixedSet.size) <span class="comment-outcome">--> 4			</span><br />
+		</code>
+	<div class="comment-oneline">We use Array.from() to convert our collection to an array</div>
+		<code>
+				const fixedArray = Array.from(fixedSet)					<br />	
+				console.log(fixedArray) <span class="comment-outcome">--> [33,11,22,44]	 				</span><br />
+			</code>	
+		<div class="comment-oneline">We use Set and the <em>spread</em> operator to do the same</div>
+			<code>
+				const fixedArray = [... new Set(messyArray)]	<br />
+				console.log(fixedArray)	<span class="comment-outcome">--> [33,11,22,44]					</span><br />
+			</code>
+		</div>
+		</article>
         
       </div>
       <!-- End Tutorial part 2 -->
@@ -2754,7 +2776,7 @@
 		}
 		console.log( timesTwo(...allNumbers) )
 
-		
+		// CONSTRUCTOR FUNCTION
 		function Car(model, color, year, doors) {
 			this.model = model
 			this.color = color
@@ -2772,6 +2794,18 @@
 		
 		function doSmth(arg) { return arg }
 		console.log(myLit)
+		
+	
+		// REMOVE DUPLICATES IN AN ARRAY 
+		// And display new array with unique values
+		const messyArray = [33,11,22,11,44,33]
+		const setCollection = new Set(messyArray)
+		
+		let foo = Array.from(setCollection)
+		console.log(foo)
+		const fixedArray = [... new Set(messyArray)]
+		console.log(fixedArray)	
+		console.log(fixedArray.size) //--> undefined // fixedArray is not of type Set
 		
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
