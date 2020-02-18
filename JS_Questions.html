@@ -2131,13 +2131,12 @@
 		
 		<article class="subject-article">
           <h3 class="subject-title">Array Constructor Methods</h3>
-            <br />
+            
             <h4>Array.from()</h4>
             <p>
               The Array.from() method returns an Array object from any object
               with a length property or an iterable object.
             </p>
-            <br />
 
             <h4>Array.isArray()</h4>
             <div class="link"
@@ -2154,16 +2153,31 @@
 		  
 			<h4>Spread operator</h4>
             <p> 
-              The spread operator will take an array/object or any iterable and expand its containing elements into a collection of the containing items. The spread operator will work with any iterable including strings. If using spread with a string or a collection of numbers it will create an array of the characters and elements.   
-			</p><br />
-			<p>
-			  The spread operator allows us to expand all the values in an iterable collection into a new iterable by simply applying the three dots <span class="emphasize-gray-wide">...</span> operator. If we simply copied an array into an existing array we would end up with a multidimensional array(nested array). Using spread on the other hand will expand the items in to another array resulting in one single dimensional array. Basically merging both collections into one single collection. 
+              The spread operator will take an array/object or any iterable and expand its containing elements into a collection of the containing items. The spread operator allows us to expand all the values in an iterable collection into a new iterable by simply applying the three dots <span class="emphasize-gray-wide">...</span> operator. The spread operator will work with any iterable including strings. If using spread with a string or a collection of numbers it will create an array of the characters and elements.   
 			</p>
 			<div class="code-container">
+				<div class="comment-oneline">We use spread on a string</div>
 				<code>
-					const persons = ['John', 'Doe']		<br />
-					console.log(...persons) <span class="comment-outcome">--> John Doe </span><span class="code-comment">// we use the spread operator </span><br />
-				</code>
+					let str = "World"								<br />
+					let strToArr = [...str]							<br />
+					console.log(strToArr) <span class="comment-outcome">--> ['W','o','r','l','d']	</span><br />	
+				</code>	
+			</div>
+			
+			<p>
+			  If we simply copied an array into an existing array we would end up with a multidimensional array(nested array). Using spread on the other hand will expand the items in to another array resulting in one single dimensional array. Basically merging both collections into one single collection. 
+			</p>
+			<div class="code-container">
+				<div class="comment-oneline">We use spread to concatenate two arrays</div>
+				<code>
+					const arr1 = ["Hello"]							<br />
+					const arr2 = ["World"]							<br />
+					const nestedArrays = [arr1, ...arr2]			<br />
+					console.log(nestedArrays) <br />
+					<!--let numbers = [33,44,55]					<br />
+					let moreNumbers = [11,22, ...numbers]			<br />
+					console.log(moreNumbers) [11,22,33,44,55]	<br />-->
+				</code>	
 			</div>
 
 			<p>			  
@@ -2175,18 +2189,7 @@
 				<code>
 				let numbers = [11,22,33,44,55]	<br />
 				Math.max(...numbers) <span class="comment-outcome">--> 55	</span><br />					
-				</code>
-					
-					<div class="comment-oneline">We use spread to concatenate two arrays</div>
-				<code>
-					const arr1 = ["Hello"]							<br />
-					const arr2 = ["World"]							<br />
-					const nestedArrays = [arr1, ...arr2]			<br />
-					console.log(nestedArrays) <br />
-					<!--let numbers = [33,44,55]					<br />
-					let moreNumbers = [11,22, ...numbers]			<br />
-					console.log(moreNumbers) [11,22,33,44,55]	<br />-->
-				</code>	
+				</code>					
 				
 				<div class="comment-oneline">We concat two objects</div>
 				<code>
@@ -2197,14 +2200,7 @@
                 ><br />
                 } <br />                
                 console.log(myFunc(1,2,3,4)) <span class="comment-outcome">--> All arguments 1,2,3,4</span>
-              </code>
-				
-				<div class="comment-oneline">We use spread on a string</div>
-				<code>
-					let str = "World"								<br />
-					let strToArr = [...str]							<br />
-					console.log(strToArr) <span class="comment-outcome">--> ['W','o','r','l','d']	</span><br />		
-				</code>						
+              </code>									
 			    
 			  </div>
 			  
@@ -2548,6 +2544,19 @@
               </div>
           </article>
 
+		<article class="subject-article">
+            <h3 class="subject-title">Compare two arrays</h3>
+              <p>
+                Create a function that compares two arrays and returns <em>true</em> if they are the same and <em>false</em> if not. 
+              </p>
+			  
+			  <!-- JSON.stringify(array1) === JSON.stringify(array2);-->
+			  
+              <div class="code-container">
+                <code> let numbers = [114,22,4,5,11,41]<br /> </code>
+              </div>
+          </article>
+
           <article class="subject-article">
             <h3 class="subject-title">Duplicate an Array</h3>
               <i>Duplicate the array, both in pre ES6 as well as ES6.</i>
@@ -2813,6 +2822,19 @@
 		console.log(...persons)
 		const fooSpread = [...persons]
 		console.log(fooSpread)
+		
+		
+		const testArr1 = [2,3,4,5,6]
+		const testArr2 = [2,3,4,5,6]
+		
+	// arrayCompare :: (a -> a -> Bool) -> [a] -> [a] -> Bool
+	const arrayCompare = f => ([x,...xs]) => ([y,...ys]) =>
+		x === undefined && y === undefined
+			? true : Boolean (f(x)(y)) && arrayCompare (f)(xs)(ys)
+				
+		// can be a slow method for larger sample data
+		console.log( JSON.stringify(testArr1) === JSON.stringify(testArr2));
+				
 		
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
