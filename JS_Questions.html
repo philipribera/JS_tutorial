@@ -521,8 +521,12 @@
 			 Javascript is weakly typed meaning that we do not specify a certain type when declaring a variable (there are exceptions tough). The contrary are languages that are <em>strongly</em> or <em>static</em> typed where a variable has to be given a type when it's declared.
 			 
 			 Javascript being dynamically typed means that variable types will be interpreted and if necessary even change implicitly at runtime. With runtime meaning when the program executes the commands. The type and value can be changed at any time both explicit in the code or implicitly by the Javascript engine. 
-			 			 
-			 This behaviour can be confusing and give unexpected outcomes if not understood fully. Before looking deeper into this tough we need to get a better understanding on different data types and their behaviour in Javascript.      
+						 			 
+			 This behaviour can be confusing if not understood fully and lead to unexpected outcomes. What can lead to <em>logical mistakes</em> where we don't have technical errors but the outcome still is buggy. 
+			
+			Converting a value from one type to another is what in Javascript is known as <em>type coercion</em>, when this is done explicitly we use a process known as <em>type casting</em>. 
+						
+			 Before looking deeper into this tough we need to get a better understanding on different data types and their behaviour in Javascript.      
 			</p>
 			
 			<h4>The Callstack</h4>
@@ -659,7 +663,7 @@
 				<p>
 			   If a Math function can't convert an argument to a number and/or a required type coercion to number fails the return value is <em>NaN</em>, meaning; not a number.
 				To check for NaN do <strong>not</strong> compare; <span class="emphasize-gray">NaN === NaN</span>, this returns false since type of NaN is number. The <em>isNaN</em> function has to be used instead, <span class="emphasize-gray">isNaN(argument) === NaN</span>.
-				 With ES6 we can use <span class="emphasize-gray">Number.isNaN(value)</span> to check if a value is NaN. Be aware that this will only return true if the value already is NaN, unlike isNaN that will return true if the value can't be type coerced to a number.   
+				 With ES6 we can use <span class="emphasize-gray">Number.isNaN(value)</span> to check if a value is NaN. Be aware that this will only return true if the value already is NaN, unlike isNaN that will return true if the value can't be converted to a number.   
 			</p>
 				<div class="link"
               >See more;
@@ -938,38 +942,7 @@
                 >https://stackoverflow.com/questions/16880418/javascript-pas</a
               ></div
             >
-        </article>        
-		
-        <article class="subject-article">
-          <h3 class="subject-title">Type Coercion</h3>
-            <p>
-              Type coercion is an important concept in Javascript not least since it's a dynamic language and weakly typed. 
-				Being weakly typed signifies that a variable can be
-              assigned and reassigned any value of an existing data type. It can
-              be a string to number, object to boolean, and so on. The process
-              of converting a value from one type to another is what is called 'type coercion'.
-            </p>            
-            <h4>Implicit vs. explicit coercion</h4>
-            <p>
-              Type conversion can be done implicit and explicit. An example of
-              implicit(automatic) type conversion is when using the loose
-              equality operator. Since it only compares the values and not the
-              type Javascript will seek to make a type coercion so both values
-              also share the same type. As a developer such code should be
-              avoided since it's often the reason for bugs. Explicit coercion on
-              the other hand is done on purpose, for example by using
-              Number(value) that seeks to convert the value to the type
-              'number'.
-            </p>
-            
-            <div class="link"
-              >See more:
-              <a
-                href="https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/"
-                >https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/</a
-              >
-            </div>
-        </article>
+        </article>            
 		
 		<article class="subject-article">
           <h3 class="subject-title">Hoisting</h3>
@@ -1076,7 +1049,59 @@
 				}	
 				</code>	
 			</div>
-        </article>       
+        </article>     
+
+<article class="subject-article">
+          <h3 class="subject-title">Type Conversion in Javascript</h3>
+            
+			<p>The behaviour of type conversion in Javascript can be confusing and lead to unexpected outcomes and buggy code. Type conversion in Javascript can be both implicit and explicit. When converting a value from one type to another we will most probably get an expect outcome from our code. 
+			Implicit type coercion on the other hand will be the source of unexpected outcomes and problems if not understood fully. 			
+			</p>
+	
+			<h4>Type Coercion</h4>
+			<p>
+              Javascript being weakly typed signifies that a variable can be assigned and reassigned any value of an existing data type. It can be a string to number, object to boolean, and so on. The process of implicitly converting a value from one type to another is what in Javascript is known as 'type coercion'.
+			</p>
+			
+			<h4>Type Casting</h4>
+				<p>
+				When converting values explicitly in Javascript we use a process known as <em>type casting</em>.
+			  </p>
+			  <p>We have three type casts in Javascript</p>
+				<ul>
+					<li>Boolean()</li>
+					<li>Number()</li>
+					<li>String()</li>
+				</ul>				
+			  
+            <h4>Implicit vs. explicit conversion</h4>
+            <p>  
+			  An example of implicit(automatic) type coercion is when using the loose equality operator to compare a string and a number. Since it only compares the values and not the type Javascript will seek to make a type coercion so both values shares the same type. If this wasn't the intention the result will be what is known as a logical error. The javascript engine will not return an error tough signifying that the mistake might be difficult to identify and debug. 
+			</p>
+				<div class="code-container">
+					<code>
+						("5" == 5) --> true	<br />
+					</code>
+				</div>
+			  
+			  <p>
+			  Explicit coercion on the other hand is done on purpose using a process known as <em>type casting</em>. 
+			</p>
+				<div class="code-container">
+					<code>
+						(Number("5") === 5) --> true	<br />
+					</code>
+				</div>				
+            
+            
+            <div class="link"
+              >See more:
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion"
+                >https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion</a
+              >
+            </div>
+        </article>		
 
          <article class="subject-article">
           <h3 class="subject-title">Operators</h3>
@@ -2834,7 +2859,8 @@
 				
 		// can be a slow method for larger sample data
 		console.log( JSON.stringify(testArr1) === JSON.stringify(testArr2));
-				
+		
+		
 		
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
