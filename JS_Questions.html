@@ -849,10 +849,27 @@
 		<h4>Arrays</h4>
 			<p>Arrays are basically a variable consisting of a collection of values.
 			The values are accessed by referring to its index number unlike objects where a value is assigned to a named property. That said it's important to remember that arrays are a special kind of objects with there own properties and methods.   
-			</p>	          
+			</p><br />
+
+			<p>Some common array prototype methods</p>
+			<ul>
+				<li><em>slice</em></li>
+				<li><em>splice</em></li>
+				<li><em>charAt</em></li>
+				<li><em>indexOf</em></li>
+				<li><em>push</em></li>
+				<li><em>pop</em></li>
+				<li><em>unshift</em></li>
+				</ul>			
 
             <div class="code-container">
-			   <div class="comment-oneline">Some common Array methods</div>        
+				<code>
+				var myArr = ['H','E','L','L']		<br />
+				myArr.push('O')			<br />	
+				console.log(myArr)	<span class="comment-outcome">--> ['H'E'L'L'O']			</span><br />	
+				</code>
+				<div class="comment-oneline">We use array methods on a string</div> 
+			
               <code>			  
                 var greet = new String("Hello") <br />
                 greet.charAt(greet.length-1) 	<br /><br />
@@ -1051,58 +1068,6 @@
 			</div>
         </article>     
 
-<article class="subject-article">
-          <h3 class="subject-title">Type Conversion in Javascript</h3>
-            
-			<p>The behaviour of type conversion in Javascript can be confusing and lead to unexpected outcomes and buggy code. Type conversion in Javascript can be both implicit and explicit. When converting a value from one type to another we will most probably get an expect outcome from our code. 
-			Implicit type coercion on the other hand will be the source of unexpected outcomes and problems if not understood fully. 			
-			</p>
-	
-			<h4>Type Coercion</h4>
-			<p>
-              Javascript being weakly typed signifies that a variable can be assigned and reassigned any value of an existing data type. It can be a string to number, object to boolean, and so on. The process of implicitly converting a value from one type to another is what in Javascript is known as 'type coercion'.
-			</p>
-			
-			<h4>Type Casting</h4>
-				<p>
-				When converting values explicitly in Javascript we use a process known as <em>type casting</em>.
-			  </p>
-			  <p>We have three type casts in Javascript</p>
-				<ul>
-					<li>Boolean()</li>
-					<li>Number()</li>
-					<li>String()</li>
-				</ul>				
-			  
-            <h4>Implicit vs. explicit conversion</h4>
-            <p>  
-			  An example of implicit(automatic) type coercion is when using the loose equality operator to compare a string and a number. Since it only compares the values and not the type Javascript will seek to make a type coercion so both values shares the same type. If this wasn't the intention the result will be what is known as a logical error. The javascript engine will not return an error tough signifying that the mistake might be difficult to identify and debug. 
-			</p>
-				<div class="code-container">
-					<code>
-						("5" == 5) --> true	<br />
-					</code>
-				</div>
-			  
-			  <p>
-			  Explicit coercion on the other hand is done on purpose using a process known as <em>type casting</em>. 
-			</p>
-				<div class="code-container">
-					<code>
-						(Number("5") === 5) --> true	<br />
-					</code>
-				</div>				
-            
-            
-            <div class="link"
-              >See more:
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion"
-                >https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion</a
-              >
-            </div>
-        </article>		
-
          <article class="subject-article">
           <h3 class="subject-title">Operators</h3>
 		  <p>
@@ -1122,7 +1087,7 @@
 			  That said there can
               be situations where a non-strict comparison operator can have it's
               benefits. No matter which one is used it's important to understand
-              how they work and the implications of using one over the other.
+              how they work and the implications of using one over the other. We will look deeper into how Javascript behaves when implicitly changing the type of an value in the section about <em><a href="#type-coercion">type coercion</em>.
             </p><br />
 			
 			<p class="log-list-title">All Comparison Operators</p>
@@ -1239,6 +1204,57 @@
 			</code>			
 			</div>			
         </article>
+				
+		<article class="subject-article">
+          <h3 class="subject-title">Type Conversion in Javascript</h3>  
+			<p>The behaviour of type conversion in Javascript can be confusing and lead to unexpected outcomes and buggy code. Type conversion in Javascript can be both implicit and explicit. When converting a value from one type to another we will most probably get an expect outcome from our code. 
+			Implicit type coercion on the other hand will be the source of unexpected outcomes and problems if not understood fully. 			
+			</p>
+	
+			<h4 id="type-coercion">Type Coercion</h4>
+			<p>
+              Javascript being weakly typed signifies that a variable can be assigned and reassigned any value of an existing data type. It can be a string to number, object to boolean, and so on. The process of implicitly converting a value from one type to another is what in Javascript is known as 'type coercion'.
+			</p>
+			
+			<h4>Type Casting</h4>
+				<p>
+				When converting values explicitly in Javascript we use a process known as <em>type casting</em>.
+			  </p>
+			  <p>We have three type casts in Javascript</p>
+				<ul>
+					<li>Boolean()</li>
+					<li>Number()</li>
+					<li>String()</li>
+				</ul>				
+			  
+            <h4>Implicit vs. explicit conversion</h4>
+            <p>  
+			  An example of implicit(automatic) type coercion is when using the loose equality operator to compare a string and a number. Since it only compares the values and not the type Javascript will seek to make a type coercion so both values shares the same type. If this wasn't the intention the result will be what is known as a logical error. The javascript engine will not return an error tough signifying that the mistake might be difficult to identify and debug. 
+			</p>
+				<div class="code-container">
+					<code>
+						("5" == 5) --> true	<br />
+					</code>
+				</div>
+			  
+			  <p>
+			  Explicit coercion on the other hand is done on purpose using a process known as <em>type casting</em>. 
+			</p>
+				<div class="code-container">
+					<code>
+						(Number("5") === 5) --> true	<br />
+					</code>
+				</div>				
+            
+            
+            <div class="link"
+              >See more:
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion"
+                >https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion</a
+              >
+            </div>
+        </article>			
 
         <article class="subject-article">
           <h3 class="subject-title">Functions as Callbacks</h3>
@@ -2102,44 +2118,8 @@
 			<p>...</p>
 	
 			<h5>hasOwnProperty()</h5>
-			<p>...</p>
-			
-		  <!--
-            <i><b>Get the keys and values from the object</b></i
-            ><br />
-            <i>myObj = { str1: "Hello", str2: "World" }</i><br />
-
-            <i>Extra 1; Good, now show an alternative solution.</i>
-            <i
-              >Extra 2; Extend your original answer and get the length(quantity)
-              of the properties.</i
-            >
-            <i
-              >Extra 3; For what can you use the constructor method
-              'hasOwnProperty' and what will it return?</i
-            ><br />
-
-            <span
-              >Notes: The Object.keys/values will return an array.<br />
-              The Object.entries returns an array of arrays.<br />
-              An easy way to check if an object is empty is to check the length
-              of the 'keys' property in the Object constructor<br />
-              You can define how/if a prop can be accessed/changed by using the
-              corresponding Object constructor method. </span
-            ><br />
-
-            <span
-              >Note: 1) Can be done with for/in as well but then it will also
-              show props that are inherited by the prototype.</span
-            ><br />
-            <span
-              >Note: 2) The length property on the Object constructor will
-              return undefined.</span
-            ><br />
-            <span
-              >Note: 3) It will return(true) for all declared properties even
-              those with no value.</span
-            >-->
+			<p>...</p>			
+		
             <div class="link"
               >See more:
               <a
@@ -2639,29 +2619,72 @@
                 </code>
               </div>
           </article>
+		  
+		  <article>
+		  <h3>Array Constructor</h3>
+		  <p>...</p>
+		  </article>
 
           <article class="subject-article">
             <h3 class="subject-title">Objects and Object Constructor</h3>
               <p>Array.from() ...</p>
-              <i
-                >Extra 1: Use the Array.from() callback/mapfunction to
-                manipulate each item.</i>
-              <br />
-              <i>Extra 2: How can you check if a passed value is an array?</i><br />
-              <i
+              <ul>
+                <li>Extra 1: Use the Array.from() callback/mapfunction to
+                manipulate each item.
+				</li>
+				<li>Extra 2: How can you check if a passed value is an array?
+				</li>
+              <li
                 >Extra 3: What does it mean when you do a 'shallow copy' of an
-                existing array or object?</i
-              ><br /><br />
+                existing array or object?
+				</li>
+				</ul>
+
+  		    <!--
+            <i><b>Get the keys and values from the object</b></i
+            ><br />
+            <i>myObj = { str1: "Hello", str2: "World" }</i><br />
+
+            <i>Extra 1; Good, now show an alternative solution.</i>
+            <i
+              >Extra 2; Extend your original answer and get the length(quantity)
+              of the properties.</i
+            >
+            <i
+              >Extra 3; For what can you use the constructor method
+              'hasOwnProperty' and what will it return?</i
+            ><br />
+
+            <span
+              >Notes: The Object.keys/values will return an array.<br />
+              The Object.entries returns an array of arrays.<br />
+              An easy way to check if an object is empty is to check the length
+              of the 'keys' property in the Object constructor<br />
+              You can define how/if a prop can be accessed/changed by using the
+              corresponding Object constructor method. </span
+            ><br />
+
+            <span
+              >Note: 1) Can be done with for/in as well but then it will also
+              show props that are inherited by the prototype.</span
+            ><br />
+            <span
+              >Note: 2) The length property on the Object constructor will
+              return undefined.</span
+            ><br />
+            <span
+              >Note: 3) It will return(true) for all declared properties even
+              those with no value.</span
+            >-->
+
 
               <p>
                 <b
-                  >What could cause a problem when using typeof foo === "object"
-                  to determine if foo is an object?</b
+                  >What could cause a problem when using typeof foo === "object" to determine if foo is an object?</b
                 >
               </p>
               <p>Show how to resolve the problem/s</p>
               <br />
-
               <p>
                 <b>Pass the values of the car object to the showCar function</b>
               </p>
@@ -2848,20 +2871,13 @@
 		const fooSpread = [...persons]
 		console.log(fooSpread)
 		
-		
-		const testArr1 = [2,3,4,5,6]
+		// We compare two arrays 				
+		const testArr1 = [2,3,4,5]
 		const testArr2 = [2,3,4,5,6]
-		
-	// arrayCompare :: (a -> a -> Bool) -> [a] -> [a] -> Bool
-	const arrayCompare = f => ([x,...xs]) => ([y,...ys]) =>
-		x === undefined && y === undefined
-			? true : Boolean (f(x)(y)) && arrayCompare (f)(xs)(ys)
 				
 		// can be a slow method for larger sample data
 		console.log( JSON.stringify(testArr1) === JSON.stringify(testArr2));
-		
-		
-		
+				
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
   </body>
