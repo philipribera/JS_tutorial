@@ -507,8 +507,13 @@
 			Javascript is the language of the web, it is an interpreted language that runs directly on the clients browser meaning that no compiler is needed. This is the core of Javascript; It was designed to be easy to use and easy to learn. It also explains some of its characteristics, strengths and drawbacks, that differentiate it from some of the most common programming languages. But Javascript has evolved a lot since its introduction and with the latest updates it has become a much more versatile language. Now days Javascript isn't limited to the browser either. With the help of <em>Node</em> it can be run on both the browser and on the server side.  
 			</p><br />
 			<p>
-			This tutorial will not focus on basic syntax rules or how to name variables. There are already good tutorials that explains the core basic in detail. This tutorial will focus on the key concepts of the language to get a better understanding on how Javascript works. There is also a chapter dedicated to the ECMAScript 2015 (ES6) update and how to use some of the new features that was introduced. The ES6 update was probably the most important development of Javascript since its introduction making Javascript significantly more powerful and versatile.    
+			Javascript is case-sensitive; meaning that consistent capitalization of characters matters when it comes to keywords, variables- and function names. This tutorial will however not focus on syntax rules or describe basic terminology for a programming language. There are already good tutorials that explains the core basic in detail. This tutorial will focus on the key concepts of the language to get a better understanding on how Javascript works. There is also a chapter dedicated to the ECMAScript 2015 (ES6) update and how to use some of the new features that was introduced. The ES6 update was probably the most important development of Javascript since its introduction making Javascript significantly more powerful and versatile.    
 			</p>
+			
+			<div class="note-comment">
+              <span class="first-word">Note: </span>
+			  The <i>var</i> keyword will be used in code examples until the section 'Variable Scope' where variable declarations are explained more in depth.
+			  </div>	
 		</article>
 
 		<article class="subject-article">
@@ -543,16 +548,18 @@
 			Data types specify what kind of data can be stored and manipulated in the Javascript memory. 			
 			In Javascript types are either objects or primitives. While there is only one <em>object</em> data type there are 7 primitive data types.
 			  The fundamental difference between primitives and objects is that primitives can hold a single value while objects can hold a collection of values. <!--The concept of data types and how they work in a boolean context and Type Coercion is central to understand how Javascript works.-->    
-			</p>
-			
-			<div class="note-comment">
-              <span class="first-word">Note: </span>
-			  Javascript is case-sensitive; meaning that consistent capitalization of characters matters when it comes to keywords, variables- and function names.</div>
-			
-			<div class="note-comment">
-              <span class="first-word">Note: </span>
-			  The <i>var</i> keyword will be used in code examples until the section 'Variable Scope' where variable declarations are explained more in depth.
-			  </div>		
+			</p><br />
+			<p>
+			The <em>typeof</em> operator is used to check the type of an operand. It's used without parenthesis and will return the type as a string.
+			</p>			
+
+			<div class="code-container">
+				<div class="comment-oneline">We check for the datatype</div>
+				<code>
+					var str = "Hello"		<br />
+					console.log(typeof str) <span class="comment-outcome">--> 'string'</span><br />
+				</code>
+			</div>
 		</article>
         
         <article class="subject-article">
@@ -560,7 +567,7 @@
             <p>
 			Almost everything in Javascript is an object, the exception being primitive types. In Javascript we have 7 primitive types: <em>string, number, boolean, null, undefined, bigInt</em> and <em>symbol</em>. 
 			Primitives can only hold a single value unlike objects that can hold a collection of data and values. Neither can't they have properties and methods. But Javascript can treat primitives as objects, making it possible to apply properties and methods on primitive values. Javascript does this by wrapping the primitive value in an object kind of entity. One example is the 'length' property that can be applied on strings. But even if primitives can behave as objects there are some important differences. Apart from only being able to hold a single value they are also non-mutable. Meaning that assigning a value to a variable that already holds a value replaces this value with a new value, it doesn't mutate/change the original value. This is the reason mutator methods - <em>methods that change the original value</em> - can not be applied on primitives. Another important distinction is that primitive values are passed by <em>copying the value</em> unlike objects that <em>pass value by reference</em>. Meaning that if a primitive variable is assigned to a new variable its value is copied to the new variable and can be changed without affecting the value of the original variable.  
-            </p>
+            </p>			
 			  
             <div class="code-container">
                 <button class="btn-change-color">Change Theme</button>                
@@ -619,11 +626,12 @@
 				greet.indexOf("W")<span class="comment-outcome"> --> 6</span><br /><br />
 
                 var str = new String("KYH Frontend") <span class="code-comment">// we use the string object constructor  				</span><br />
-                typeof str <span class="comment-outcome">--> 'object'</span> <span class="code-comment">// we use the typeof operator</span><br />
+
             </code>
-			</div>
+			</div>			
+			
 			<div class="note-comment">
-              <span class="first-word">Note: </span>Strings being primitives means we can't use mutator methods as push() and sort().
+              <span class="first-word">Note: </span>Strings being primitives means we can't use them with mutator methods (methods that changes the original value).
 			</div>
 			
             <h4>number</h4>         
@@ -694,8 +702,7 @@
               'false', the latter being of type Boolean. Javascript will
               automatically assign <em>undefined</em> to a variable that are not
               initialized. In other words a variable that has been declared but not given a value will always return undefined. 
-              A function with no return statement will always return <em>undefined</em> as well. To check for <em>undefined</em> we use the
-              <em>typeof</em> operator.
+              A function that doesn't return a value will always return <em>undefined</em>. To check for <em>undefined</em> we use the <em>typeof</em> operator.
             </p>
 
             <div class="code-container">
@@ -711,13 +718,13 @@
               ><br />
               <div class="comment-oneline">But we can also do this</div>
               <code>
-                var a = undefined; <span class="code-comment">// we assign the value 'undefined'</span><br />
-                typeof a <span class="comment-outcome">--> 'undefined'</span> <br />
-                if ( typeof a === 'undefined') <span class="comment-outcome">--> true</span> <span class="code-comment">// we check for
-                <em>undefined</em>(note; the quotes!)</span></code
+                var a = undefined; <span class="code-comment">// we assign 'a' the value 'undefined'</span><br />
+                </code>
+			  <div class="comment-oneline">We check for <em>undefined</em></div>
+                <code>
+				if ( typeof a === 'undefined') <span class="comment-outcome">--> true</span> <span class="code-comment">// remember to use quotes!</span></code
               >
 			  </div>
-			  
 			<div class="note-comment">
               <span class="first-word">Note: </span><em>undefined</em> is not an error in it self but it's often the cause of bugs in the code.
 			</div>	            
@@ -1225,7 +1232,23 @@
 					<li>Boolean()</li>
 					<li>Number()</li>
 					<li>String()</li>
-				</ul>				
+				</ul>
+				<br />
+			<p>Some methods for casting</p>
+			<p>There are several methods for casting types. If we cast to string or number this is no issue but there are some potential problems if the intention is to cast a value to a boolean.
+			</p>			
+			<br />
+			<p>	
+			<em>toString</em> from the name we can derive this method will cast a value to a string. We simply <span class="emphasize-gray">toString(ourValue)</span>.
+			<br />
+			<p><em>Number</em> and <em>parseInt</em> cast a value to a number but there are a difference. Number will try to convert the entire value to a number while parseInt will  parse the value up to the first non-digit. 
+			</p>
+			<div class="code-container">
+				<code>
+				
+				</code>
+			</div>
+			
 			  
             <h4>Implicit vs. explicit conversion</h4>
             <p>  
@@ -2877,6 +2900,7 @@
 				
 		// can be a slow method for larger sample data
 		console.log( JSON.stringify(testArr1) === JSON.stringify(testArr2));
+		
 				
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
