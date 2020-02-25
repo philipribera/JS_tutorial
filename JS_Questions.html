@@ -30,7 +30,7 @@
         top: 0;		
         background-color: rgb(232, 141, 82);
 		background-color: rgb(189,189,189);
-        box-shadow: 1px 1px 1px 1px rgb(132, 132, 132);
+        box-shadow: 1px 1px 1px 1px rgb(157, 157, 157);
         z-index: 9999;		
       }	  
       .header-container {
@@ -47,28 +47,23 @@
         font-size: 1.4rem;
 		color: rgb(109,109,109);
         color: rgb(254, 254, 254);        
-		text-shadow: 1px 1px rgb(155,155,155);
+		text-shadow: 1px 1px rgb(167,167,167);
       }
 	  .header-menu {
 		display: flex;
 		justify-content: flex-end;
 		flex: 1 0 310px;		
 	  }
-	  .header-menu ul {
-		margin: 0;
-	  }
-      .header-menu li {
-        padding: 14px;
-      }
       .header-menu a {
 		font-family: "Montserrat", roboto, sans-serif;
-        color: rgb(247, 247, 247);
         color: rgb(47, 47, 47);
 		font-weight: 600;
       }
       .header-menu ul li {
         display: inline;
         cursor: pointer;
+		padding: 14px;
+		margin: 0;
       }
       .header-menu ul a:hover {		
         color: rgb(255, 159, 32);
@@ -1284,14 +1279,14 @@
 		  <p>In Javascript functions are first class objects meaning that functions can be passed as arguments into other functions just as any other object. When a function receives another function as an argument that function is called a higher order function. And the function you pass in is called a callback. The callback will execute after that the function from where it's called has finished its execution. The callback can access the containing functions variables meaning that callbacks works as closures. Javascript being <em>event driven</em> is one reason to use callbacks. With the help of callbacks it can be ensured that functions are executed at certain order. Noteworthy; It's good praxis to check if the passed in callback is a function.   
 			  </p>
 			  <div class="note-comment">
-              <span class="first-word">Note: </span>to check if a callback indeed is a function; (typeof callBack === 'function')
+              <span class="first-word">Note: </span>To check if a callback indeed is a function we use the typeof operator; (typeof callBack === 'function'). Remember the <em>quotes</em>.
             </div>
 			
 			  <div class="code-container">
 			  <div class="comment-oneline">We pass a function into another function</div>
 				<code>
-					const greet = ()=> "Hello"								<br />
-																			<br />
+					const greet = ()=> "Hello"								<br /><br />
+					
 					const doSmth = (callback)=> {								<br />
 					<span class="example">if(typeof callback === 'function') {	</span><br />
 					<span class="example2">	console.log(`${callback()} World`)	</span><br />
