@@ -843,6 +843,10 @@
 					</code>
 			</div>
 			
+			 <div class="note-comment"><span class="first-word">Note: </span>We can use console.dir() to get more info about the
+              constructor </div
+            >
+			
 			<div class="note-comment">
         <span class="first-word">Note: </span>With the ES6 update classes was introduced to Javascript that performs basically the same operations as constructor functions. We will look more at classes in the next chapter.
 		</div>	
@@ -872,22 +876,19 @@
 				<div class="comment-oneline">We use array methods on a string</div> 
 			
               <code>			  
-                var greet = new String("Hello") <br />
-                greet.charAt(greet.length-1) 	<br /><br />
+                var greet = new String("Hello") 		<br />
+                greet.charAt(greet.length-1) 			<br /><br />
 
-                var str = "KYH Frontend" 		<br />
-                typeof str 						<br />
-                str.indexOf("F") 				<br /><br />
+                var str = "KYH Frontend" 				<br />
+                console.log(str.indexOf("F")) <span class="comment-outcome">--> 4</span><br /><br />
 
-                var foo = str.split(" ") 		<br />
-                typeof foo 						<br />
-                foo.sort() 						<br /><br />
+                var foo = str.split(" ") 				<br />
+                console.log(typeof foo) <span class="comment-outcome">--> Object </span><br />
+                foo.sort() 								<br /><br />
 
-                var first = foo.slice(0,1)		<br />
-                foo.push(first.join()) 			<br />
-                console.log(foo) 				<br /><br />
-
-                foo.constructor 
+                var first = foo.slice(0,1)				<br />
+                foo.push(first.join()) 					<br />
+                console.log(foo) 		<span class="comment-outcome">--> 'Frontend'</span><br /><br />
 				</code>				
             </div>
 			
@@ -896,9 +897,7 @@
               change the original array. Push for example adds item/s to the end
               of the array while returning the new length of the array. 
             </div>
-            <div class="note-comment"><span class="first-word">Note: </span>We can use console.dir() to get more info about the
-              constructor </div
-            >
+           
             <span class="link"
               >See more:
               <a
@@ -2896,6 +2895,20 @@
 		// can be a slow method for larger sample data
 		console.log( JSON.stringify(testArr1) === JSON.stringify(testArr2));
 		
+		
+		var str2 = "KYH Frontend"
+		console.log(str2.indexOf("F"))
+
+		var foo2 = str2.split(" ")
+		console.log(typeof foo2)
+		console.log(foo2.sort())
+
+		var first = foo2.slice(0,1)
+		foo2.push(first.join())
+		console.log(foo2)
+
+var str3 = "KYH Frontend"
+console.log(str3.indexOf("F"))
 				
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
