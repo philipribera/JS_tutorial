@@ -162,7 +162,7 @@
 	  }
       .info-list {
         display: inline-block;
-        min-width: 72px;
+        min-width: 102px;
         margin-right: 14px;
       }
       .go-top {
@@ -406,6 +406,9 @@
 		    padding: 12px;
 		    margin: 24px 0;
 	    }
+		.info-list {
+			min-width: 70px;
+		}
         h1 {
           font-size: 1.95rem;
         }
@@ -808,7 +811,7 @@
 		</article>
 			
 		<article class="subject-article">
-          <h3 class="subject-title">Objects</h3>
+          <h3 class="subject-title">Objects and <em>Derived Types of Objects</em></h3>
 		  <p>
 		  All values in Javascript, except primitives, are objects. Objects can store collection of values while primitives are restricted to hold a single value. The easiest way to understand objects are to see them as a collection of key value pairs. In Javascript the correct term for keys are properties. Properties being the 'key' in a key value pair can also be seen as variable names inside objects. If the property holds a function expression we would call it a <em>method</em>.		  	  
 		  </p>		  
@@ -853,19 +856,28 @@
 		</div>	
 
 		<h4>Arrays</h4>
-			<p>Arrays are basically a variable consisting of a collection of values.
-			The values are accessed by referring to its index number unlike objects where a value is assigned to a named property. That said it's important to remember that arrays are a special kind of objects with there own properties and methods.   
+			<p>Arrays are basically a variable consisting of a collection of values. The values are accessible by referring to its index number. That said it's important to remember that arrays are technically objects, using the typeof operator on an array will also return <em>object</em>. To check for array we use <span class="emphasize-gray">Array.isArray(array)</span>.    
 			</p><br />
-
-			<p>Some common array prototype methods</p>
-			<ul class="standard-list">
-				<li><em>slice</em></li>
-				<li><em>splice</em></li>
-				<li><em>charAt</em></li>
-				<li><em>indexOf</em></li>
-				<li><em>push</em></li>
-				<li><em>pop</em></li>
-				<li><em>unshift</em></li>
+						
+			<p>When it comes to use methods on arrays it's important to differentiate between mutator- and non-mutable methods. The toString method for example will return a string based on the elements of an array but it will not change the original array. The converted value will have to be stored in a variable that will of type string. In other cases the method might return a completely new array not changing the orignal array as for example with slice. Mutator methods on the other hand will change the orignal array, as with push that will add a new element at the end of the orignal array. 
+			</p>
+  			
+			<ul class="log-list">
+				<li><span class="info-list">Non-mutable</span><span class="info-list">Short description</span></li>
+				<li><span class="info-list"><em>toString</em></span><span class="info-list">Converts elements in an array to a comma separated string</span></li>		
+				<li><span class="info-list"><em>slice</em></span><span class="info-list">Slices a part of an array and returns a new array</span></li>
+				<li><span class="info-list"><em>splice</em></span><span class="info-list">Depending on parameters can both add and remove elements in an array</span></li>
+				<li><span class="info-list"><em>indexOf</em></span><span class="info-list">Returns the index of the searched character</span></li>
+				</ul>
+				
+				<ul class="log-list">
+				<li><span class="info-list">Mutable</span><span class="info-list">Short description</span></li>	
+				<li><span class="info-list"><em>push</em></span><span class="info-list">Adds a new element at the end of an array </span></li>
+				<li><span class="info-list"><em>pop</em></span><span class="info-list">Removes the last element of an array</span></li>
+				<li><span class="info-list"><em>unshift</em></span><span class="info-list">Adds a new element at the start of an array</span></li>
+				<li><span class="info-list"><em>shift</em></span><span class="info-list">Removes the first element of an array</span></li>
+				<li><span class="info-list"><em>sort</em></span><span class="info-list">Sorts an array in alphabetical order</span></li>
+				<li><span class="info-list"><em>reverse</em></span><span class="info-list">Reverse the order of the elements in an array</span></li>
 				</ul>			
 
             <div class="code-container">
@@ -1088,7 +1100,7 @@
 			  That said there can
               be situations where a non-strict comparison operator can have it's
               benefits. No matter which one is used it's important to understand
-              how they work and the implications of using one over the other. We will look deeper into how Javascript behaves when implicitly changing the type of an value in the section about <em><a href="#type-coercion">type coercion</em>.
+              how they work and the implications of using one over the other. We will look deeper into how Javascript behaves when implicitly changing the type of an value in the section about <em><a href="#type-coercion">type coercion</a></em>.
             </p><br />
 			
 			<p class="log-list-title">All Comparison Operators</p>
@@ -2915,8 +2927,13 @@
 		foo2.push(first.join())
 		console.log(foo2)
 
-var str3 = "KYH Frontend"
-console.log(str3.indexOf("F"))
+		var str3 = "KYH Frontend"
+		console.log(str3.indexOf("F"))
+
+		let testArray = [1,2,3,4]
+		let foo33 = testArray.toString()
+		console.log(testArray)
+		console.log(foo33)
 				
     </script>
     <noscript>Your browser does not support JavaScript!</noscript>
