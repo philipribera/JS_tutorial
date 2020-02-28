@@ -140,7 +140,7 @@
 		color: rgb(41, 54, 103);
 	  }
       .tutorial-title {
-        margin: 20px 0;
+        margin: 22px 0 24px 0;
       }
 	  .log-list-title {
 		font-weight: 600;
@@ -149,7 +149,8 @@
 		margin: 22px 0 30px 0;
 	  }
       .log-list li {
-		display: flex;        
+		display: flex;  
+		padding: 3px;
         border-bottom: 1px solid rgb(212, 212, 212);
       }
       .log-list li:first-child {
@@ -1379,31 +1380,9 @@
 				<code>
 				
 				</code>
-			</div>		
+			</div>	
 
-			<h4>Event-handling</h4>
-			
-			<p>
-			The key reason for using the DOM is to handle events. We know how to access different elements in the DOM the next step is to know how to handle an event. But to handle an event we must first know when an event happens. Javascript uses 'listeners' for this. For many years the old HTML event handler attributes was the only way to attach listeners. 
-			This means that listeners are embedded directly in the mark-up (HTML code). Apart from deviating from the principles of <em>separation of concerns</em> this also limits the numbers of listeners to max one for any element.			
-			</p><br />
-			
-			<em>AddEventListener()</em>
-			<p>
-			With the introduction of the <span class="emphasize-gray">AddEventListener</span> method there is no need for inline listeners. As such we can stay true to the principles of; <em>separation of concerns</em>. There isn't either a limit for the numbers of listeners on a single element. The listener is attached/connected to the element using the standard access methods. Not having to use HTML attributes to create listeners also allows for a single listener to be attached to a collection of elements, for example all elements with a certain class.
-			With the introduction of addEventListener we also got a method for removing them; <span class="emphasize-gray">removeAddEventListener()</span> that simply removes the listener.
-			</p><br />
-			
-			<em>Bubbling and Capturing</em>
-			<p>...</p><br />
-				
-			<em>Event Propagation</em>
-			<p>...</p><br />
-			
-			<em>The Event Object</em>	
-			<p>...</p><br />
-			
-			<br />
+			<h4>DOM Manipulation</h4>
 			<p class="log-list-title">Methods for DOM manipulation</p>
 			<ul class="standard-list">
 				<li>setAttribute()</li>
@@ -1412,18 +1391,47 @@
 				<li>appendChild()</li>
 				<li>createElement()</li>				
 			</ul><br />
+			
+		</article>
+
+		<article class="subject-article">
+          <h3 class="subject-title">Event Handling</h3>
+			<p>
+			We know how to access and manipulate different elements in the DOM the next step is to understand how handle an event. The first step in all event handling is to know when an event happens. Javascript uses <em>listeners</em> for this. For many years HTML event-handler attributes was the only way to attach listeners. Meaning that listeners are embedded directly in the mark-up. Apart from deviating from the principles of <em>separation of concerns</em> this also limits the numbers of listeners to max one for any element.			
+			</p><br />
+			
+			<h4>AddEventListener()</h4>
+			<p>
+			With the introduction of the <span class="emphasize-gray">AddEventListener method</span> there is no need for inline listeners. Meaning that we now can stay true to the principle of; <em>separation of concerns</em>,  not bloating our mark-up with javascript. There isn't either any limit for the numbers of listeners on a single element. The listener is attached/connected to the element using one of the standard DOM-access methods. Not having to use HTML attributes to create listeners also allows for a single listener to be attached to a collection of elements, for example all elements with a certain class.
+			With the introduction of addEventListener we also got a method for removing them; <span class="emphasize-gray">removeAddEventListener()</span> that simply removes the listener.
+			</p>
+
+			<div class="code-container">
+				<code>
+					
+				</code>
+			</div>	
+
+			<em>The Event Object</em>	
+			<p>...</p>
+
+			
+			<h4>Bubbling and Capturing</h4>
+			<p>...</p>
+				
+			<h4>Event Propagation</h4>
+			<p>...</p>		
 					
 			<div class="code-container">
 				<code>
 				
 				</code>
-			</div>
-			
+			</div>			
 		</article>
 		
 		 <article class="subject-article">
           <h3 class="subject-title">Promises</h3>
-				<p>
+			<p>
 			Javascript is 'single threaded' meaning that only one thing/task can happen at a time.
 			This leads often to what is known as <i>blocking code</i> where the Javascript engine is processing some task while the main thread is blocked. The solution to blocking code is asynchronous code that can run on multiple threads at the same time. To write asynchronus code is getting easier and modern browsers will allow certain operations to be run asynchronously. One way of writing asynchronous code is to use <i>promises</i> that allow processing of another operation while waiting for the <em>promise</em> to resolve.  
 			</p><br />			
