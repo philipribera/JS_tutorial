@@ -1,592 +1,656 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="description" content="Free Javascript Guide with Questions" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Philip R" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Javascript Questions</title>
-	<!-- GOOGLE FONTS -->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-	<!-- END FONTS -->
-	<style>
-      * {
-        box-sizing: border-box;
-        outline: none;
-		padding: 0;
-		margin: 0;
-      }
-	  body {
-		font-family: helvetica, roboto, sans-serif;
-		background-color: rgb(222,221,221);
-	  } 
-      header {
-		width: 100%;
-        height: 68px;
-        position: fixed;
-        top: 0;		
-        background-color: rgb(232, 141, 82);
-		background-color: rgb(189,189,189);
-        box-shadow: 1px 1px 1px 1px rgb(157, 157, 157);
-        z-index: 9999;		
-      }	  
-      .header-container {
-		display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        padding: 0 5%;
-      }
-      .header-title {		
-        margin-right: auto;
-		flex: 1 0 472px;
-      }
-      .header-title h3 {
-        font-size: 1.4rem;
-		color: rgb(109,109,109);
-        color: rgb(254, 254, 254);        
-		text-shadow: 1px 1px rgb(167,167,167);
-      }
-	  .header-menu {
-		display: flex;
-		justify-content: flex-end;
-		flex: 1 0 310px;		
-	  }
-      .header-menu a {
-		font-family: "Montserrat", roboto, sans-serif;
-        color: rgb(47, 47, 47);
-		font-weight: 600;
-      }
-      .header-menu ul li {
-        display: inline;
-        cursor: pointer;
-		padding: 14px;
-		margin: 0;
-      }
-      .header-menu ul a:hover {		
-        color: rgb(255, 159, 32);
-		color: rgb(255,255,255);
-      }
-      .wrapper {
-		position: relative;
-        display: block;		
-        width: 100%;
-        max-width: 950px;
-        background-color: rgba(255, 255, 255, 1);
-        color: rgb(35, 35, 35);
-        padding: 30px 3.5rem;
-        margin: 42px auto;
-      }
-	  
-      /*** GENERICS ***/
-      p {
-  		font-family: 'Merriweather Sans', roboto, helvetica, sans-serif;
-  		font-family: roboto, helvetica, sans-serif;
-  		font-family: 'Poppins', roboto, helvetica, sans-serif;
-		font-family: "Montserrat", roboto, sans-serif;
-        color: rgb(15,15,15);
-		margin: 2px 0;
-      }
-      h1,
-      h2,
-      h3 {
-		font-family: 'Montserrat', roboto, helvetica, sans-serif;
-        color: rgb(242, 147, 38);
-      }
-      h1 {
-        font-size: 2rem;
-      }
-	  h3 {
-  		font-family: 'Merriweather Sans', 'Montserrat', roboto, helvetica, sans-serif;
-		font-size: 1.5rem;
-	  }
-      h4 {
-		font-family: 'Poppins', 'Merriweather Sans', 'Montserrat', roboto, helvetica, sans-serif;
-        font-size: 1.2rem;
-        color: rgb(27,27,27);
-		margin: 32px 0 12px 0;
-      }
-      ul {
-        padding: 4px;
-        margin-left: 14px;
-      }
-      li {
-        list-style-type: none;
-        padding: 0 4px;
-      }
-      a {
-        color: rgb(133, 133, 133);
-        text-decoration: none;
-      }
-      p,
-      span,
-      b {
-        color: rgb(37, 37, 37);
-        line-height: 1.55rem;
-      }
-      code {
-		font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-			monospace;
-        font-size: 1rem;
-        line-height: 1.72rem;
-        color: rgb(20, 61, 81);
-      }
-
-      /*** CLASSES ***/
-	  .expand-text {
-		font-size: 1.1rem;
-		color: rgb(41, 54, 103);
-	  }
-      .tutorial-title {
-        margin: 22px 0 24px 0;
-      }
-	  .log-list-title {
-		font-weight: 600;
-	  }
-	  .log-list {
-		margin: 22px 0 30px 0;
-	  }
-      .log-list li {
-		display: flex;  
-		padding: 3px;
-        border-bottom: 1px solid rgb(212, 212, 212);
-      }
-      .log-list li:first-child {
-        font-weight: 600;
-		padding-bottom: 6px;
-      }
-	  .log-list li:last-child {
-		flex: 1;
-	  }
-      .info-list {
-        display: inline-block;
-        min-width: 102px;
-        margin-right: 14px;
-      }
-      .go-top {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-        padding: 4px 0;
-      }
-      .go-top a {
-        font-size: 1rem;
-        font-weight: 600;
-        text-decoration: none;
-        cursor: pointer;
-        background: rgb(222, 222, 222);
-        color: rgb(42, 96, 117);
-        padding: 4px 6px;
-        border: 1px solid rgb(190, 190, 190);
-      }
-      .go-top a:hover {
-        opacity: 0.95;
-      }
-      .tutorial-part {
-        padding: 28px 28px 30px 28px;        
-      }
-      .tutorial-part:not(:first-of-type) {
-        margin-top: 24px;
-      }
-      .tutorial-part:not(:nth-last-child(2)) {
-	  	  border-bottom: 4px solid rgb(207, 207, 207);
-	  }
-      .subject-article {
-        display: inline-block;
-		width: 100%;
-        margin: 18px 0 20px 0;
-      }
-      .subject-title {
-        margin-bottom: 18px;
-      }
-      .example {
-        margin-left: 14px;
-      }
-      .example2 {
-        margin-left: 28px;
-      }
-	  .example3 {
-		margin-left: 42px;
-	  }
-      .link {
-		font-family: roboto, helvetica, sans-serif;
-        word-break: break-all;
-        display: inline-block;
-		background-color: rgb(253,247,237);
-        color: rgb(123, 123, 123);
-        font-weight: 600;
-		padding: 2px;
-        margin: 12px 0 10px 0;
-      }
-      .code * {
-        word-break: break-all;
-      }
-      .code-container {
-        position: relative;
-        background-color: rgb(238, 238, 238);
-        padding: 20px 24px 24px 24px;
-        margin: 20px 0 24px 0;
-        overflow: auto;
-      }
-	 
-      .code-container i {
-        color: rgb(37, 63, 110);
-        line-height: 2.15rem;
-      }
-      .code-container .comment-oneline {
-        display: block;
-        color: rgb(41, 54, 103);
-        opacity: 0.95;
-        font-weight: 600;
-        margin: 22px 0 12px 0;
-      }
-	  .subject-article .code-container:first-child {
-		margin-top: 0;
-	  }	  
-	  .emphasize-gray {
-		background-color: rgb(228,228,228);
-		background-color: rgb(241,241,229);
-		font-weight: 500;
-		padding: 0 4px;
-	  }
-	  .emphasize-gray-wide {
-		background-color: rgb(224,224,224);
-		font-weight: 600;
-		letter-spacing: 0.25em;
-		padding: 0 2px;
-	  }
-	  .code-container .code-comment {
-		color: rgb(109,109,112);		
-		padding-left: 18px;
-	  }	  
-      .code-container-mod {
-        background-color: rgb(9, 9, 9);
-      }
-      .code-container-mod code,
-      .code-container-mod code span {
-        color: rgb(74, 249, 105);
-		color: rgb(240, 158, 255);
-		color: rgb(84, 231, 255);
-      }
-      .code-container-mod .comment-oneline, .code-container-mod i, .code-container-mod .expand-text {
-        color: rgb(237, 238, 237);
-		color: rgb(255, 175, 75);
-      }
-	  .code-container-mod .code-comment {
-		color: rgb(228, 199, 63);
-	  }
-	  .code-container-mod span.comment-outcome {
-		color: #62ff2e;
-		color: rgb(212,200,80);
-	  }
-      .question {
-        margin-bottom: 54px;
-      }
-      .btn-change-color {
-        position: absolute;
-        right: 0;
-        top: 0;
-        cursor: pointer;
-        background: rgb(45, 45, 45);
-        color: rgb(222, 222, 222);
-        padding: 6px;
-        border: 1px solid rgb(102, 102, 102);
-      }
-      #fundamentals,
-      #es6,
-      #questions-part {
-        display: block;
-        position: relative;
-        top: -120px;
-        visibility: hidden;
-      }	 
-	  	  
-		code span.comment-outcome {
-			white-space: nowrap;
-			font-weight: 600;
-			color: rgb(82,101,167);
-			padding-left: 6px;
-		}
-	    .note-comment {
-			line-height: 1.3em;
-		    background-color: rgb(255,226,168);
-		    padding: 16px 12px;
-		    margin: 30px 0;
-	    }
-		.note-comment, .code-container {
-			border-radius: 3px;
-		}
-	    .first-word {
-		    color: rgb(37,37,37);
-		    font-weight: 600;
-	    }
-		
-		.standard-list {
-			width: 30%;
-			padding: 12px 4px;
-			margin: 4px 0;
-		}
-		.standard-list li {
-			background-color: rgb(250,250,250);
-			padding: 8px;
-			border-left: 1px solid rgb(222,222,222);
-			border-bottom: 1px solid rgb(241,241,241);
-		}
-		.standard-list li:nth-child(odd), .log-list li:nth-child(even) {
-			background-color: rgb(240,240,240);
-		}
-		.list-comment {
-			padding-left: 12px;
-		}
-
-      /*** MEDIA QUERIES ***/
-      @media only screen and (max-width: 990px) {
-		header {
-			height: auto;
-		}
-		.header-container {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			padding: 12px;
-			margin: 0;
-		}		
-		header .header-menu, header .header-title {
-			flex: 1 0 100%;
-			margin: 0;
-			text-align: center;
-			justify-content: center;
-		}
-		.header-title h3 {
-			margin: 10px 8px;
-		}
-		.wrapper {	  
-			width: inherit;
-			padding: 30px 2.5rem;
-			margin: 92px 0 0 0;
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <!-- END FONTS -->
+    <style>
+        * {
+            box-sizing: border-box;
+            outline: none;
+            padding: 0;
+            margin: 0;
         }
-        .tutorial-part {
-          padding: 20px;
+        
+        body {
+            font-family: helvetica, roboto, sans-serif;
+            background-color: rgb(222, 221, 221);
         }
-        .code-container {
-          padding: 20px;
+        
+        header {
+            width: 100%;
+            height: 68px;
+            position: fixed;
+            top: 0;
+            background-color: rgb(232, 141, 82);
+            background-color: rgb(189, 189, 189);
+            box-shadow: 1px 1px 1px 1px rgb(157, 157, 157);
+            z-index: 9999;
         }
-        h1 {
-          font-size: 2rem;
-        }
-        h3 {
-          font-size: 1.45rem;
-        }
-      }
-      @media only screen and (max-width: 767px) {	
-        .wrapper {
-          padding: 16px;
-        }
-        .tutorial-part {
-          padding: 6px;
-        }
-		.subject-article {
-			margin: 20px 0;
-		}
-        .example {
-			margin-left: 10px;
-		}
-		.example2 {
-			margin-left: 22px;
-		}
-		.example3 {
-			margin-left: 32px;
-		}
-        .code-container {
-          padding: 20px 14px;
-        }
-		.note-comment {
-		    padding: 12px;
-		    margin: 24px 0;
-	    }
-		.info-list {
-			min-width: 70px;
-		}
-        h1 {
-          font-size: 1.95rem;
-        }
-        h3 {
-          font-size: 1.4rem;
-        }
-		h4 {
-			font-size: 1.15rem;
-		}
-        i {
-          line-height: 1.6rem;
-        }
-		.info-list {
-			margin-right: 6px;
-		}
-		.falsy-list {
-			width: 70%;
-			padding: 10px 2px;
-			margin: 0;
-		}
-		.code-container .code-comment {
-			padding-left: 8px;
-		}
-      }
-      @media only screen and (max-width: 600px) {
-		.wrapper {
-          padding: 10px;
-		  margin: 110px 0 0 0;
-		}
+        
         .header-container {
-          display: flex;
-          flex-wrap: wrap;
-          text-align: center;
-          justify-content: center;
-          height: auto;
-          padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 0 5%;
         }
+        
         .header-title {
-          display: block;
-          margin-bottom: 10px;
+            margin-right: auto;
+            flex: 1 0 472px;
         }
+        
         .header-title h3 {
-          font-size: 1.15rem;
-		  margin: 6px;
+            font-size: 1.4rem;
+            color: rgb(109, 109, 109);
+            color: rgb(254, 254, 254);
+            text-shadow: 1px 1px rgb(167, 167, 167);
         }
+        
         .header-menu {
-          justify-content: center;
+            display: flex;
+            justify-content: flex-end;
+            flex: 1 0 310px;
         }
-        .header-menu ul,
-        .header-menu li {
-          padding: 12px 7px 4px 7px;
+        
+        .header-menu a {
+            font-family: "Montserrat", roboto, sans-serif;
+            color: rgb(47, 47, 47);
+            font-weight: 600;
         }
-
-        .collapsed-menu {
-          display: block;
+        
+        .header-menu ul li {
+            display: inline;
+            cursor: pointer;
+            padding: 14px;
+            margin: 0;
         }
+        
+        .header-menu ul a:hover {
+            color: rgb(255, 159, 32);
+            color: rgb(255, 255, 255);
+        }
+        
         .wrapper {
-          width: initial;
+            position: relative;
+            display: block;
+            width: 100%;
+            max-width: 950px;
+            background-color: rgba(255, 255, 255, 1);
+            color: rgb(35, 35, 35);
+            padding: 30px 3.5rem;
+            margin: 42px auto;
         }
-        .code-container {
-          padding: 18px 12px;
+        /*** GENERICS ***/
+        
+        p {
+            font-family: 'Merriweather Sans', roboto, helvetica, sans-serif;
+            font-family: roboto, helvetica, sans-serif;
+            font-family: 'Poppins', roboto, helvetica, sans-serif;
+            font-family: "Montserrat", roboto, sans-serif;
+            color: rgb(15, 15, 15);
+            margin: 2px 0;
         }
+        
+        h1,
+        h2,
+        h3 {
+            font-family: 'Montserrat', roboto, helvetica, sans-serif;
+            color: rgb(242, 147, 38);
+        }
+        
         h1 {
-          font-size: 1.8rem;
-        }        
-        .example {
-          margin-left: 0;
+            font-size: 2rem;
         }
-      } 	  
+        
+        h3 {
+            font-family: 'Merriweather Sans', 'Montserrat', roboto, helvetica, sans-serif;
+            font-size: 1.5rem;
+        }
+        
+        h4 {
+            font-family: 'Poppins', 'Merriweather Sans', 'Montserrat', roboto, helvetica, sans-serif;
+            font-size: 1.2rem;
+            color: rgb(27, 27, 27);
+            margin: 32px 0 12px 0;
+        }
+        
+        ul {
+            padding: 4px;
+            margin-left: 14px;
+        }
+        
+        li {
+            list-style-type: none;
+            padding: 0 4px;
+        }
+        
+        a {
+            color: rgb(133, 133, 133);
+            text-decoration: none;
+        }
+        
+        p,
+        span,
+        b {
+            color: rgb(37, 37, 37);
+            line-height: 1.55rem;
+        }
+        
+        code {
+            font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+            font-size: 1rem;
+            line-height: 1.72rem;
+            color: rgb(20, 61, 81);
+        }
+        /*** CLASSES ***/
+        
+        .expand-text {
+            font-size: 1.1rem;
+            color: rgb(41, 54, 103);
+        }
+        
+        .tutorial-title {
+            margin: 22px 0 24px 0;
+        }
+        
+        .log-list-title {
+            font-weight: 600;
+        }
+        
+        .log-list {
+            margin: 22px 0 30px 0;
+        }
+        
+        .log-list li {
+            display: flex;
+            padding: 3px;
+            border-bottom: 1px solid rgb(212, 212, 212);
+        }
+        
+        .log-list li:first-child {
+            font-weight: 600;
+            padding-bottom: 6px;
+        }
+        
+        .log-list li:last-child {
+            flex: 1;
+        }
+        
+        .info-list {
+            display: inline-block;
+            min-width: 102px;
+            margin-right: 14px;
+        }
+        
+        .go-top {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 4px 0;
+        }
+        
+        .go-top a {
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            background: rgb(222, 222, 222);
+            color: rgb(42, 96, 117);
+            padding: 4px 6px;
+            border: 1px solid rgb(190, 190, 190);
+        }
+        
+        .go-top a:hover {
+            opacity: 0.95;
+        }
+        
+        .tutorial-part {
+            padding: 28px 28px 30px 28px;
+        }
+        
+        .tutorial-part:not(:first-of-type) {
+            margin-top: 24px;
+        }
+        
+        .tutorial-part:not(:nth-last-child(2)) {
+            border-bottom: 4px solid rgb(207, 207, 207);
+        }
+        
+        .subject-article {
+            display: inline-block;
+            width: 100%;
+            margin: 18px 0 20px 0;
+        }
+        
+        .subject-title {
+            margin-bottom: 18px;
+        }
+        
+        .example {
+            margin-left: 14px;
+        }
+        
+        .example2 {
+            margin-left: 28px;
+        }
+        
+        .example3 {
+            margin-left: 42px;
+        }
+        
+        .link {
+            font-family: roboto, helvetica, sans-serif;
+            word-break: break-all;
+            display: inline-block;
+            background-color: rgb(253, 247, 237);
+            color: rgb(123, 123, 123);
+            font-weight: 600;
+            padding: 2px;
+            margin: 12px 0 10px 0;
+        }
+        
+        .code * {
+            word-break: break-all;
+        }
+        
+        .code-container {
+            position: relative;
+            background-color: rgb(238, 238, 238);
+            padding: 20px 24px 24px 24px;
+            margin: 20px 0 24px 0;
+            overflow: auto;
+        }
+        
+        .code-container i {
+            color: rgb(37, 63, 110);
+            line-height: 2.15rem;
+        }
+        
+        .code-container .comment-oneline {
+            display: block;
+            color: rgb(41, 54, 103);
+            opacity: 0.95;
+            font-weight: 600;
+            margin: 22px 0 12px 0;
+        }
+        
+        .subject-article .code-container:first-child {
+            margin-top: 0;
+        }
+        
+        .emphasize-gray {
+            background-color: rgb(228, 228, 228);
+            background-color: rgb(241, 241, 229);
+            font-weight: 500;
+            padding: 0 4px;
+        }
+        
+        .emphasize-gray-wide {
+            background-color: rgb(224, 224, 224);
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            padding: 0 2px;
+        }
+        
+        .code-container .code-comment {
+            color: rgb(109, 109, 112);
+            padding-left: 18px;
+        }
+        
+        .code-container-mod {
+            background-color: rgb(9, 9, 9);
+        }
+        
+        .code-container-mod code,
+        .code-container-mod code span {
+            color: rgb(74, 249, 105);
+            color: rgb(240, 158, 255);
+            color: rgb(84, 231, 255);
+        }
+        
+        .code-container-mod .comment-oneline,
+        .code-container-mod i,
+        .code-container-mod .expand-text {
+            color: rgb(237, 238, 237);
+            color: rgb(255, 175, 75);
+        }
+        
+        .code-container-mod .code-comment {
+            color: rgb(228, 199, 63);
+        }
+        
+        .code-container-mod span.comment-outcome {
+            color: #62ff2e;
+            color: rgb(212, 200, 80);
+        }
+        
+        .question {
+            margin-bottom: 54px;
+        }
+        
+        .btn-change-color {
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+            background: rgb(45, 45, 45);
+            color: rgb(222, 222, 222);
+            padding: 6px;
+            border: 1px solid rgb(102, 102, 102);
+        }
+        
+        #fundamentals,
+        #es6,
+        #questions-part {
+            display: block;
+            position: relative;
+            top: -120px;
+            visibility: hidden;
+        }
+        
+        code span.comment-outcome {
+            white-space: nowrap;
+            font-weight: 600;
+            color: rgb(82, 101, 167);
+            padding-left: 6px;
+        }
+        
+        .note-comment {
+            line-height: 1.3em;
+            background-color: rgb(255, 226, 168);
+            padding: 16px 12px;
+            margin: 30px 0;
+        }
+        
+        .note-comment,
+        .code-container {
+            border-radius: 3px;
+        }
+        
+        .first-word {
+            color: rgb(37, 37, 37);
+            font-weight: 600;
+        }
+        
+        .standard-list {
+            width: 30%;
+            padding: 12px 4px;
+            margin: 4px 0;
+        }
+        
+        .standard-list li {
+            background-color: rgb(250, 250, 250);
+            padding: 8px;
+            border-left: 1px solid rgb(222, 222, 222);
+            border-bottom: 1px solid rgb(241, 241, 241);
+        }
+        
+        .standard-list li:nth-child(odd),
+        .log-list li:nth-child(even) {
+            background-color: rgb(240, 240, 240);
+        }
+        
+        .list-comment {
+            padding-left: 12px;
+        }
+        /*** MEDIA QUERIES ***/
+        
+        @media only screen and (max-width: 990px) {
+            header {
+                height: auto;
+            }
+            .header-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 12px;
+                margin: 0;
+            }
+            header .header-menu,
+            header .header-title {
+                flex: 1 0 100%;
+                margin: 0;
+                text-align: center;
+                justify-content: center;
+            }
+            .header-title h3 {
+                margin: 10px 8px;
+            }
+            .wrapper {
+                width: inherit;
+                padding: 30px 2.5rem;
+                margin: 92px 0 0 0;
+            }
+            .tutorial-part {
+                padding: 20px;
+            }
+            .code-container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h3 {
+                font-size: 1.45rem;
+            }
+        }
+        
+        @media only screen and (max-width: 767px) {
+            .wrapper {
+                padding: 16px;
+            }
+            .tutorial-part {
+                padding: 6px;
+            }
+            .subject-article {
+                margin: 20px 0;
+            }
+            .example {
+                margin-left: 10px;
+            }
+            .example2 {
+                margin-left: 22px;
+            }
+            .example3 {
+                margin-left: 32px;
+            }
+            .code-container {
+                padding: 20px 14px;
+            }
+            .note-comment {
+                padding: 12px;
+                margin: 24px 0;
+            }
+            .info-list {
+                min-width: 70px;
+            }
+            h1 {
+                font-size: 1.95rem;
+            }
+            h3 {
+                font-size: 1.4rem;
+            }
+            h4 {
+                font-size: 1.15rem;
+            }
+            i {
+                line-height: 1.6rem;
+            }
+            .info-list {
+                margin-right: 6px;
+            }
+            .falsy-list {
+                width: 70%;
+                padding: 10px 2px;
+                margin: 0;
+            }
+            .code-container .code-comment {
+                padding-left: 8px;
+            }
+        }
+        
+        @media only screen and (max-width: 600px) {
+            .wrapper {
+                padding: 10px;
+                margin: 110px 0 0 0;
+            }
+            .header-container {
+                display: flex;
+                flex-wrap: wrap;
+                text-align: center;
+                justify-content: center;
+                height: auto;
+                padding: 10px;
+            }
+            .header-title {
+                display: block;
+                margin-bottom: 10px;
+            }
+            .header-title h3 {
+                font-size: 1.15rem;
+                margin: 6px;
+            }
+            .header-menu {
+                justify-content: center;
+            }
+            .header-menu ul,
+            .header-menu li {
+                padding: 12px 7px 4px 7px;
+            }
+            .collapsed-menu {
+                display: block;
+            }
+            .wrapper {
+                width: initial;
+            }
+            .code-container {
+                padding: 18px 12px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .example {
+                margin-left: 0;
+            }
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <header class="header-container">
-      <div class="header-title">
-        <h3>JAVASCRIPT FUNDAMENTALS WITH QUESTIONS(WIP)</h3>
-      </div>
-      <div class="header-menu">
-        <ul>
-          <li><a href="#fundamentals">Fundamentals</a></li>
-          <li><a href="#es6">ES6</a></li>
-          <li><a href="#questions-part">Questions</a></li>
-        </ul>
-      </div>
+        <div class="header-title">
+            <h3>JAVASCRIPT FUNDAMENTALS WITH QUESTIONS(WIP)</h3>
+        </div>
+        <div class="header-menu">
+            <ul>
+                <li><a href="#fundamentals">Fundamentals</a></li>
+                <li><a href="#es6">ES6</a></li>
+                <li><a href="#questions-part">Questions</a></li>
+            </ul>
+        </div>
     </header>
 
     <div class="wrapper">
-      <span id="fundamentals"></span>
-      <div class="tutorial-part">
-        <h1 class="tutorial-title">Javascript Fundamentals</h1>
+        <span id="fundamentals"></span>
+        <div class="tutorial-part">
+            <h1 class="tutorial-title">Javascript Fundamentals</h1>
 
-		<article class="subject-article">
-          <h3 class="subject-title">About this Tutorial</h3>
-			<p>
-			Javascript is the language of the web, it is an interpreted language that runs directly on the clients browser meaning that no compiler is needed. This is the core of Javascript; It was designed to be easy to use and easy to learn. It also explains some of its characteristics, strengths and drawbacks, that differentiate it from some of the most common programming languages. But Javascript has evolved a lot since its introduction and with the latest updates it has become a much more versatile language. Now days Javascript isn't limited to the browser neither. With the help of <em>Node</em> it can be run on both the browser and on the server side.  
-			</p><br />
-			<p>
-			Javascript is case-sensitive; meaning that consistent capitalization of characters matters when it comes to keywords, variables- and function names. This tutorial will however not focus on syntax rules or describe basic terminology for a programming language. There are already good tutorials that explains the core basic in detail. This tutorial will focus on the key concepts of the language to get a better understanding on how Javascript works. There is also a chapter dedicated to the ECMAScript 2015(ES6) update and how to use some of the more important features that was introduced. The ES6 update was probably the most important development of Javascript since its introduction making Javascript significantly more powerful and versatile.    
-			</p>
-			
-			<div class="note-comment">
-              <span class="first-word">Note: </span>
-			  The <i>var</i> keyword will be used in code examples until the section 'Variable Scope' where variable declarations are explained more in depth.
-			  </div>	
-		</article>
+            <article class="subject-article">
+                <h3 class="subject-title">About this Tutorial</h3>
+                <p>
+                    Javascript is the language of the web, it is an interpreted language that runs directly on the clients browser meaning that no compiler is needed. This is the core of Javascript; It was designed to be easy to use and easy to learn. It also explains some
+                    of its characteristics, strengths and drawbacks, that differentiate it from some of the most common programming languages. But Javascript has evolved a lot since its introduction and with the latest updates it has become a much more
+                    versatile language. Now days Javascript isn't limited to the browser neither. With the help of <em>Node</em> it can be run on both the browser and on the server side.
+                </p><br />
+                <p>
+                    Javascript is case-sensitive; meaning that consistent capitalization of characters matters when it comes to keywords, variables- and function names. This tutorial will however not focus on syntax rules or describe basic terminology for a programming language.
+                    There are already good tutorials that explains the core basic in detail. This tutorial will focus on the key concepts of the language to get a better understanding on how Javascript works. There is also a chapter dedicated to the ECMAScript
+                    2015(ES6) update and how to use some of the more important features that was introduced. The ES6 update was probably the most important development of Javascript since its introduction making Javascript significantly more powerful
+                    and versatile.
+                </p>
 
-		<article class="subject-article">
-          <h3 class="subject-title">Introduction</h3>
-	  
-			<h4>Dynamically typed</h4>
-            <p>
-			 Javascript is what we call <em>dynamically typed</em> meaning the type of an variable is interpreted by the compiler. 
-			 
-			 Javascript is weakly typed meaning that we do not specify a certain type when declaring a variable (there are exceptions tough). The contrary are languages that are <em>strongly</em> or <em>static</em> typed where a variable has to be given a type when it's declared.
-			 
-			 Javascript being dynamically typed means that variable types will be interpreted and if necessary even change implicitly at runtime. With runtime meaning when the program executes the commands. The type and value can be changed at any time both explicit in the code or implicitly by the Javascript engine. 
-						 			 
-			 This behaviour can be confusing if not understood fully and lead to unexpected outcomes. What can lead to <em>logical mistakes</em> where we don't have technical errors but the outcome still is buggy. 
-			
-			Converting a value from one type to another is what in Javascript is known as <em>type coercion</em>, when this is done explicitly we use a process known as <em>type casting</em>. 
-						
-			But before looking deeper into these concepts we need to get a better understanding on data types and how they behave in Javascript.       
-			</p>
-			
-			<h4>The Callstack</h4>
-			<p>...event driven...
-			</p>	
-				
-			<h4>Data Types</h4>
-			<p>		
-			Data types specify what kind of data can be stored and manipulated in the Javascript memory. 			
-			In Javascript types are either objects or primitives. 
-			
-			When learning JavaScript you might have heard that everything in Javascript is an object. The truth is that most things in Javascript are objects, the exception being primitive types. Tough they can still be treated as objects, albeit with some restrictions.
-			
-			While there is only one <em>object</em> data type there are 7 primitive data types.
-			  The fundamental difference between primitives and objects is that primitives can hold a single value while objects can hold a collection of values. <!--The concept of data types and how they work in a boolean context and Type Coercion is central to understand how Javascript works.-->    
-			</p><br />
-			<p>
-			The <em>typeof</em> operator is used to check the type of an operand. It's used without parenthesis and will return the type as a string.
-			</p>			
+                <div class="note-comment">
+                    <span class="first-word">Note: </span> The <i>var</i> keyword will be used in code examples until the section 'Variable Scope' where variable declarations are explained more in depth.
+                </div>
+            </article>
 
-			<div class="code-container">
-				<div class="comment-oneline">We check for the datatype</div>
-				<code>
+            <article class="subject-article">
+                <h3 class="subject-title">Introduction</h3>
+
+                <h4>Dynamically typed</h4>
+                <p>
+                    Javascript is what we call <em>dynamically typed</em> meaning the type of an variable is interpreted by the compiler. Javascript is weakly typed meaning that we do not specify a certain type when declaring a variable (there are exceptions
+                    tough). The contrary are languages that are <em>strongly</em> or <em>static</em> typed where a variable has to be given a type when it's declared. Javascript being dynamically typed means that variable types will be interpreted and
+                    if necessary even change implicitly at runtime. With runtime meaning when the program executes the commands. The type and value can be changed at any time both explicit in the code or implicitly by the Javascript engine. This behaviour
+                    can be confusing if not understood fully and lead to unexpected outcomes. What can lead to <em>logical mistakes</em> where we don't have technical errors but the outcome still is buggy. Converting a value from one type to another is
+                    what in Javascript is known as <em>type coercion</em>, when this is done explicitly we use a process known as <em>type casting</em>. But before looking deeper into these concepts we need to get a better understanding on data types
+                    and how they behave in Javascript.
+                </p>
+
+                <h4>The Callstack</h4>
+                <p>...event driven...
+                </p>
+
+                <h4>Data Types</h4>
+                <p>
+                    Data types specify what kind of data can be stored and manipulated in the Javascript memory. In Javascript types are either objects or primitives. When learning JavaScript you might have heard that everything in Javascript is an object. The truth is that
+                    most things in Javascript are objects, the exception being primitive types. Tough they can still be treated as objects, albeit with some restrictions. While there is only one <em>object</em> data type there are
+                    7 primitive data types. The fundamental difference between primitives and objects is that primitives can hold a single value while objects can hold a collection of values.
+                    <!--The concept of data types and how they work in a boolean context and Type Coercion is central to understand how Javascript works.-->
+                </p><br />
+                <p>
+                    The <em>typeof</em> operator is used to check the type of an operand. It's used without parenthesis and will return the type as a string.
+                </p>
+
+                <div class="code-container">
+                    <div class="comment-oneline">We check for the datatype</div>
+                    <code>
 					var str = "Hello"		<br />
 					console.log(typeof str) <span class="comment-outcome">--> 'string'</span><br />
 				</code>
-			</div>
-		</article>
-        
-        <article class="subject-article">
-          <h3 class="subject-title">Primitive Types</h3>
-            <p>
-			In Javascript we have 7 primitive types: <em>string, number, boolean, null, undefined, bigInt</em> and <em>symbol</em>. 
-			Primitives can only hold a single value unlike objects that can hold a collection of data and values. Neither can they have properties and methods. But Javascript can treat primitives as objects, making it possible to apply properties and methods on primitive values. Javascript does this by wrapping the primitive value in an object-kind of entity. One example is the <em>length</em> property that can be applied on strings. But even if primitives can behave as objects there are some important differences. Apart from only being able to hold a single value they are also non-mutable. Meaning that assigning a value to a variable that already holds a value replaces this value with a new value, it doesn't mutate/change the original value. This is the reason mutator methods - <em>methods that change the original value</em> - can not be applied on primitives. Another important distinction is that primitive values are passed by <em>copying the value</em> unlike objects that <em>pass value by reference</em>. Meaning that if a primitive variable is assigned to a new variable the orginal value is copied to the new variable. The copied value can then be changed without affecting the value of the original variable.  
-            </p>			
-			  
-            <div class="code-container">
-                <button class="btn-change-color">Change Theme</button>                
-				<div class="comment-oneline">Values are passed by copying</div>
-			  <code>
+                </div>
+            </article>
+
+            <article class="subject-article">
+                <h3 class="subject-title">Primitive Types</h3>
+                <p>
+                    In Javascript we have 7 primitive types: <em>string, number, boolean, null, undefined, bigInt</em> and <em>symbol</em>. Primitives can only hold a single value unlike objects that can hold a collection of data and values. Neither can
+                    they have properties and methods. But Javascript can treat primitives as objects, making it possible to apply properties and methods on primitive values. Javascript does this by wrapping the primitive value in an object-kind of entity.
+                    One example is the <em>length</em> property that can be applied on strings. But even if primitives can behave as objects there are some important differences. Apart from only being able to hold a single value they are also non-mutable.
+                    Meaning that assigning a value to a variable that already holds a value replaces this value with a new value, it doesn't mutate/change the original value. This is the reason mutator methods - <em>methods that change the original value</em>                    - can not be applied on primitives. Another important distinction is that primitive values are passed by <em>copying the value</em> unlike objects that <em>pass value by reference</em>. Meaning that if a primitive variable is assigned
+                    to a new variable the orginal value is copied to the new variable. The copied value can then be changed without affecting the value of the original variable.
+                </p>
+
+                <div class="code-container">
+                    <button class="btn-change-color">Change Theme</button>
+                    <div class="comment-oneline">Values are passed by copying</div>
+                    <code>
 				var a = "Hello"								<br />
 				var b = a 	<span class="code-comment">// we assign 'a' to 'b'	</span><br />
 				b = "World"	 <span class="code-comment">// we assign a new value to 'b' </span><br />
 				console.log(a) <span class="comment-outcome"> --> Hello </span><span class="code-comment">// the value of 'a' doesn't  change	</span><br />			  
               </code>
-				 <div class="comment-oneline">
-                We use the length property on a primitive
-                </div>
-                <code>
+                    <div class="comment-oneline">
+                        We use the length property on a primitive
+                    </div>
+                    <code>
                 var str = "Hello World"<br />
                 console.log(str.length) <span class="comment-outcome"> --> 11</span> <span class="code-comment">// we get the numbers of characters</span><br />
-                 </code> 
-                <div class="comment-oneline">
-                Primitive values do not mutate
-                </div>
-                <code>
+                 </code>
+                    <div class="comment-oneline">
+                        Primitive values do not mutate
+                    </div>
+                    <code>
                 var foo = "Hello World" <br />
                 console.log(foo.toUpperCase()) <span class="comment-outcome"> --> HELLO WORLD</span> <span class="code-comment">// we use a method on foo</span><br />
                 console.log(foo) <span class="comment-outcome"> --> Hello World</span> <span class="code-comment"> // the original value is
@@ -597,18 +661,15 @@
 				<code>
                foo[0] <span class="comment-outcome"> --> H</span> <span class="code-comment">// we get the 1st character</span><br /> 
 			   </code>
-              <div class="comment-oneline">But not this...</div>
-              <code>
+                    <div class="comment-oneline">But not this...</div>
+                    <code>
                 foo[0] = "T" <span class="code-comment">// we try to assign foo[0] a new value</span><br />
                 console.log(foo) <span class="comment-outcome"> --> Hello World</span><span class="code-comment">// value of 'foo' doesn't change </span><br />
               </code>
-            </div>
-						
-            <div class="link"
-              >See more;
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Glossary/Primitive"
-                >https://developer.mozilla.org/en-US/docs/Glossary/Primitive</a
+                </div>
+
+                <div class="link">See more;
+                    <a href="https://developer.mozilla.org/en-US/docs/Glossary/Primitive">https://developer.mozilla.org/en-US/docs/Glossary/Primitive</a
               ></div><br />
             
             <h4>string</h4>
@@ -1101,186 +1162,185 @@
               be situations where a non-strict comparison operator can have it's
               benefits. No matter which one is used it's important to understand
               how they work and the implications of using one over the other. We will look deeper into how Javascript behaves when implicitly changing the type of an value in the section about <em><a href="#type-coercion">type coercion</a></em>.
-            </p><br />
-			
-			<p class="log-list-title">All Comparison Operators</p>
-			<ul class="log-list">
-				<li>
-					<span class="info-list">Operator</span>
-					<span class="info-list">Description</span>
-				</li>
-				<li>
-					<span class="info-list">==</span>
-					<span class="info-list">Loose Equality</span>
-				</li>
-				<li>
-					<span class="info-list">===</span>
-					<span class="info-list">Strict Equality</span>	
-				</li>
-				<li>
-					<span class="info-list">!=</span>
-					<span class="info-list">Not Equal</span>
-				</li>
-				<li>
-					<span class="info-list">!==</span>
-					<span class="info-list">Strict not Equal</span>
-				</li>
-				<li>
-					<span class="info-list">&gt;</span>
-					<span class="info-list">Greater than</span>
-				</li>
-								<li>
-					<span class="info-list">&lt;</span>
-					<span class="info-list">Less than</span>
-				</li>
+                    </p><br />
 
-				<li>
-					<span class="info-list">&gt;=</span>
-					<span class="info-list">Greater or equal to</span>
-				</li>
-				<li>
-					<span class="info-list">&lt;=</span>
-					<span class="info-list">Less or equal to</span>
-				</li>				
-			</ul>
+                    <p class="log-list-title">All Comparison Operators</p>
+                    <ul class="log-list">
+                        <li>
+                            <span class="info-list">Operator</span>
+                            <span class="info-list">Description</span>
+                        </li>
+                        <li>
+                            <span class="info-list">==</span>
+                            <span class="info-list">Loose Equality</span>
+                        </li>
+                        <li>
+                            <span class="info-list">===</span>
+                            <span class="info-list">Strict Equality</span>
+                        </li>
+                        <li>
+                            <span class="info-list">!=</span>
+                            <span class="info-list">Not Equal</span>
+                        </li>
+                        <li>
+                            <span class="info-list">!==</span>
+                            <span class="info-list">Strict not Equal</span>
+                        </li>
+                        <li>
+                            <span class="info-list">&gt;</span>
+                            <span class="info-list">Greater than</span>
+                        </li>
+                        <li>
+                            <span class="info-list">&lt;</span>
+                            <span class="info-list">Less than</span>
+                        </li>
 
-            <div class="code-container">
-              <code>
+                        <li>
+                            <span class="info-list">&gt;=</span>
+                            <span class="info-list">Greater or equal to</span>
+                        </li>
+                        <li>
+                            <span class="info-list">&lt;=</span>
+                            <span class="info-list">Less or equal to</span>
+                        </li>
+                    </ul>
+
+                    <div class="code-container">
+                        <code>
                 if(1 == "1") <span class="comment-outcome">--> true</span> <span class="code-comment">// will first type coerce from type string to type number and then makes the comparison</span><br />
                 <br />
                 if(1 === "1") <span class="comment-outcome">--> false</span> <span class="code-comment">// strict equality will check for both value and type
                 </span><br />
               </code>
-            </div>
-            
-            <h4>Logical Operators</h4>
-            <p>
-              Logical operators are used to determine the logic between
-              variables or values.
-            </p>
-            <ul class="log-list">
-              <li>
-                <span class="info-list">Operator</span
+                    </div>
+
+                    <h4>Logical Operators</h4>
+                    <p>
+                        Logical operators are used to determine the logic between variables or values.
+                    </p>
+                    <ul class="log-list">
+                        <li>
+                            <span class="info-list">Operator</span
                 ><span class="info-list"> </span>
-				<span class="info-list"> Description</span>
-              </li>
-              <li>
-                <span class="info-list">&&</span
+                            <span class="info-list"> Description</span>
+                        </li>
+                        <li>
+                            <span class="info-list">&&</span
                 ><span class="info-list">and</span>
-				<span class="info-list">Both values has to evaluate to true</span>
-              </li>
-              <li>
-                <span class="info-list">||</span
+                            <span class="info-list">Both values has to evaluate to true</span>
+                        </li>
+                        <li>
+                            <span class="info-list">||</span
                 ><span class="info-list">or</span>
-				<span class="info-list">One value has to evaluate to true</span>
-              </li>
-              <li>
-                <span class="info-list">!</span
+                            <span class="info-list">One value has to evaluate to true</span>
+                        </li>
+                        <li>
+                            <span class="info-list">!</span
                 ><span class="info-list">not</span>
-              </li>
-            </ul>
-			<div class="code-container">			
-			<div class="comment-oneline">The <span class="expand-text">||</span> (or) operator will return true if either operand is true</div>
-			<code>
+                        </li>
+                    </ul>
+                    <div class="code-container">
+                        <div class="comment-oneline">The <span class="expand-text">||</span> (or) operator will return true if either operand is true</div>
+                        <code>
 				let a = true;	<br />
 				let b = false; 	<br />
 				( a || b ) <span class="comment-outcome">--> true</span><br />   
 			</code>
-			<div class="comment-oneline">The <span class="expand-text">&&</span> (and) operator will return true if both operands are true</div>
-			<code>
+                        <div class="comment-oneline">The <span class="expand-text">&&</span> (and) operator will return true if both operands are true</div>
+                        <code>
 				let a = true;	<br />
 				let b = false; 	<br />
 				( a && b ) <span class="comment-outcome">--> false</span><br />   
 			</code>
-			<div class="comment-oneline">Logical (&&) operator will return second operand if both operands are true</div>			
-			<code>
+                        <div class="comment-oneline">Logical (&&) operator will return second operand if both operands are true</div>
+                        <code>
 				let age = 20;	<br />
 				let allowedAge = 15; <br />
 				( (age > allowedAge) && "You can enter")<span class="comment-outcome">--> "You can enter."</span>
 			</code>
-			</div>
-			
-			<h4>Conditional Operator, <em>Ternary</em></h4>			
-			<p>The ternary operator assigns a value to a variable based on some condition. If the condition is true the first value is assigned to the variable else the second one. Ternary operators can be seen as a leaner way to write code than the if/else conditionally approach.</p>
-			<div class="code-container">
-			<code>
+                    </div>
+
+                    <h4>Conditional Operator, <em>Ternary</em></h4>
+                    <p>The ternary operator assigns a value to a variable based on some condition. If the condition is true the first value is assigned to the variable else the second one. Ternary operators can be seen as a leaner way to write code than
+                        the if/else conditionally approach.</p>
+                    <div class="code-container">
+                        <code>
 				let age = 12	<br />
 				let message = age > 15 ? "Horror movie." : "It's Disney for you." <br />
 				message <span class="comment-outcome">--> "It's Disney for you."</span>
-			</code>		
-			<div class="comment-oneline">Ternary operator combined wth logical operator</div>
-			<code>
+			</code>
+                        <div class="comment-oneline">Ternary operator combined wth logical operator</div>
+                        <code>
 			let age = 20;												<br />
 			let allowedAge = 15											<br />
 			let result = allowedAge ? ( age && "Welcome!" ) : null		<br />	
 			result	<span class="comment-outcome">--> "Welcome" 		</span><br />
-			</code>			
-			</div>			
-        </article>
-				
-		<article class="subject-article">
-          <h3 class="subject-title">Type Conversion in Javascript</h3>  
-			<p>The behaviour of type conversion in Javascript can be confusing and lead to unexpected outcomes and buggy code. Type conversion in Javascript can be both implicit and explicit. When converting a value from one type to another we will most probably get an expect outcome from our code. 
-			Implicit type coercion on the other hand will be the source of unexpected outcomes and problems if not understood fully. 			
-			</p>
-	
-			<h4 id="type-coercion">Type Coercion</h4>
-			<p>
-              Javascript being weakly typed signifies that a variable can be assigned and reassigned any value of an existing data type. It can be a string to number, object to boolean, and so on. The process of implicitly converting a value from one type to another is what in Javascript is known as 'type coercion'.
-			</p>
-			
-			<h4>Type Casting</h4>
-				<p>
-				When converting values explicitly in Javascript we use a process known as <em>type casting</em>.
-			  </p>
-			  <p>We have three type casts in Javascript</p>
-				<ul>
-					<li>Boolean()</li>
-					<li>Number()</li>
-					<li>String()</li>
-				</ul>
-				<br />
-			<p>Some methods for casting</p>
-			<p>There are several methods for casting types. If we cast to string or number this is no issue but there are some potential problems if the intention is to cast a value to a boolean.
-			</p>			
-			<br />
-			<p>	
-			<em>toString</em> from the name we can derive this method will cast a value to a string. We simply <span class="emphasize-gray">toString(ourValue)</span>.
-			<br />
-			<p><em>Number</em> and <em>parseInt</em> cast a value to a number but there are a difference. Number will try to convert the entire value to a number while parseInt will  parse the value up to the first non-digit. 
-			</p>
-			<div class="code-container">
-				<code>
+			</code>
+                    </div>
+            </article>
+
+            <article class="subject-article">
+                <h3 class="subject-title">Type Conversion in Javascript</h3>
+                <p>The behaviour of type conversion in Javascript can be confusing and lead to unexpected outcomes and buggy code. Type conversion in Javascript can be both implicit and explicit. When converting a value from one type to another we will most
+                    probably get an expect outcome from our code. Implicit type coercion on the other hand will be the source of unexpected outcomes and problems if not understood fully.
+                </p>
+
+                <h4 id="type-coercion">Type Coercion</h4>
+                <p>
+                    Javascript being weakly typed signifies that a variable can be assigned and reassigned any value of an existing data type. It can be a string to number, object to boolean, and so on. The process of implicitly converting a value from one type to another
+                    is what in Javascript is known as 'type coercion'.
+                </p>
+
+                <h4>Type Casting</h4>
+                <p>
+                    When converting values explicitly in Javascript we use a process known as <em>type casting</em>.
+                </p>
+                <p>We have three type casts in Javascript</p>
+                <ul>
+                    <li>Boolean()</li>
+                    <li>Number()</li>
+                    <li>String()</li>
+                </ul>
+                <br />
+                <p>Some methods for casting</p>
+                <p>There are several methods for casting types. If we cast to string or number this is no issue but there are some potential problems if the intention is to cast a value to a boolean.
+                </p>
+                <br />
+                <p>
+                    <em>toString</em> from the name we can derive this method will cast a value to a string. We simply <span class="emphasize-gray">toString(ourValue)</span>.
+                    <br />
+                    <p><em>Number</em> and <em>parseInt</em> cast a value to a number but there are a difference. Number will try to convert the entire value to a number while parseInt will parse the value up to the first non-digit.
+                    </p>
+                    <div class="code-container">
+                        <code>
 				
 				</code>
-			</div>
-			
-			  
-            <h4>Implicit vs. explicit conversion</h4>
-            <p>  
-			  An example of implicit(automatic) type coercion is when using the loose equality operator to compare a string and a number. Since it only compares the values and not the type Javascript will seek to make a type coercion so both values shares the same type. If this wasn't the intention the result will be what is known as a logical error. The javascript engine will not return an error tough signifying that the mistake might be difficult to identify and debug. 
-			</p>
-				<div class="code-container">
-					<code>
+                    </div>
+
+
+                    <h4>Implicit vs. explicit conversion</h4>
+                    <p>
+                        An example of implicit(automatic) type coercion is when using the loose equality operator to compare a string and a number. Since it only compares the values and not the type Javascript will seek to make a type coercion so both values shares the same
+                        type. If this wasn't the intention the result will be what is known as a logical error. The javascript engine will not return an error tough signifying that the mistake might be difficult to identify and debug.
+                    </p>
+                    <div class="code-container">
+                        <code>
 						("5" == 5) --> true	<br />
 					</code>
-				</div>
-			  
-			  <p>
-			  Explicit coercion on the other hand is done on purpose using a process known as <em>type casting</em>. 
-			</p>
-				<div class="code-container">
-					<code>
+                    </div>
+
+                    <p>
+                        Explicit coercion on the other hand is done on purpose using a process known as <em>type casting</em>.
+                    </p>
+                    <div class="code-container">
+                        <code>
 						(Number("5") === 5) --> true	<br />
 					</code>
-				</div>				
-            
-            
-            <div class="link"
-              >See more:
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion"
-                >https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion</a
+                    </div>
+
+
+                    <div class="link">See more:
+                        <a href="https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion">https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion</a
               >
             </div>
         </article>			
@@ -1338,138 +1398,142 @@
 			
             <div class="link"
               >See more:
-              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures"> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures</a></div
-            ><br />
-        </article>
-				
-		 <article class="subject-article">
-          <h3 class="subject-title">The Document Object Model (DOM)</h3>
-			<p>
-			The DOM is a hierarchic map/model for a HTML document. It's created by the browser when the page is loaded and only exist for as long the page is up. The DOM could also be explained as a programming interface for HTML. The DOM can be used to access and manipulate any part or element in a HTML page. It is important to remember that any changes to the DOM will only exist for as long the page is up and running, there are no persistent changes to the code or markup. If there is the need to make dynamic data persistent there are options as cookies that allows data to be stored on a server. But that's a topic we will not touch in this tutorial.  
-			</p>
-			
-			<div class="note-comment">
-              <span class="first-word">Note: </span>The DOM has evolved from being closely related to Javascript to be programmatically independent and available for any language.
-			</div>	  			
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures"> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures</a></div><br />
+            </article>
 
-			<h4>Why do we need the DOM?</h4>
-			<p>
-			Being able to access any element on a HTML document and manipulate the same is what the DOM makes possible. As such the DOM is essential for creating dynamic content and add interactivity. To acchieve this we have a rich set of methods and properties to our disposal. 
-			</p>
-			
-			<h4>Events</h4>
-			<p>
-			Any interaction with the DOM is related or caused to some kind of <em>event</em>. There are lots of different kind of events, it can for example be a user clicking on a button or submitting a form. Events can be triggered by a number of reasons not only user action but also programmatically or some asynchronous process. We use the DOM to 'listen' for events allowing the handling of some kind of action related to it. To be able to do this we will look at different ways on how to access elements in the DOM hierarchy. 			   
-			</p>
-			
-			<div class="link">
-              See more:
-              <a  href="https://developer.mozilla.org/en-US/docs/Web/Events">
+            <article class="subject-article">
+                <h3 class="subject-title">The Document Object Model (DOM)</h3>
+                <p>
+                    The DOM is a hierarchic map/model for a HTML document. It's created by the browser when the page is loaded and only exist for as long the page is up. The DOM could also be explained as a programming interface for HTML. The DOM can be used to access and
+                    manipulate any part or element in a HTML page. It is important to remember that any changes to the DOM will only exist for as long the page is up and running, there are no persistent changes to the code or markup. If there is the need
+                    to make dynamic data persistent there are options as cookies that allows data to be stored on a server. But that's a topic we will not touch in this tutorial.
+                </p>
+
+                <div class="note-comment">
+                    <span class="first-word">Note: </span>The DOM has evolved from being closely related to Javascript to be programmatically independent and available for any language.
+                </div>
+
+                <h4>Why do we need the DOM?</h4>
+                <p>
+                    Being able to access any element on a HTML document and manipulate the same is what the DOM makes possible. As such the DOM is essential for creating dynamic content and add interactivity. To acchieve this we have a rich set of methods and properties
+                    to our disposal.
+                </p>
+
+                <h4>Events</h4>
+                <p>
+                    Any interaction with the DOM is related or caused to some kind of <em>event</em>. There are lots of different kind of events, it can for example be a user clicking on a button or submitting a form. Events can be triggered by a number
+                    of reasons not only user action but also programmatically or some asynchronous process. We use the DOM to 'listen' for events allowing the handling of some kind of action related to it. To be able to do this we will look at different
+                    ways on how to access elements in the DOM hierarchy.
+                </p>
+
+                <div class="link">
+                    See more:
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/Events">
                 https://developer.mozilla.org/en-US/docs/Web/Events</a>
                 </div>
-			
-			<h4>Accessing the DOM</h4>			
-			<p>
-			All the elements in the DOM are represented as <em>nodes</em>. There are <em>element nodes</em>, <em>text nodes</em> and <em>attribute nodes</em>. There are different methods to access and manipulate an element depending on what kind on node it is.  
-			</p><br />
-			
-			<p class="log-list-title">Methods for acccessing the DOM</p>
-			<ul class="standard-list">
-				<li>getElementById()</li>
-				<li>getElementsByTagName()</li>
-				<li>getElementsByClassName()</li>				
-				<li>querySelector()</li>
-				<li>querySelectorAll()</li>				
-			</ul><br />
-			
-			<ul class="standard-list">
-				<li>parentElement()</li>
-				<li>childElement()<li>
-			</ul>
-			
-			<p>									
-			<div class="code-container">
-				<code>
+
+                <h4>Accessing the DOM</h4>
+                <p>
+                    All the elements in the DOM are represented as <em>nodes</em>. There are <em>element nodes</em>, <em>text nodes</em> and <em>attribute nodes</em>. There are different methods to access and manipulate an element depending on what kind
+                    on node it is.
+                </p><br />
+
+                <p class="log-list-title">Methods for acccessing the DOM</p>
+                <ul class="standard-list">
+                    <li>getElementById()</li>
+                    <li>getElementsByTagName()</li>
+                    <li>getElementsByClassName()</li>
+                    <li>querySelector()</li>
+                    <li>querySelectorAll()</li>
+                </ul><br />
+
+                <ul class="standard-list">
+                    <li>parentElement()</li>
+                    <li>childElement()
+                        <li>
+                </ul>
+
+                <p>
+                    <div class="code-container">
+                        <code>
 				
 				</code>
-			</div>	
+                    </div>
 
-			<h4>DOM Manipulation</h4>
-			<p class="log-list-title">Methods for DOM manipulation</p>
-			<ul class="standard-list">
-				<li>setAttribute()</li>
-				<li>getAttribute()</li>
-				<li>createElement()</li>
-				<li>appendChild()</li>
-				<li>createElement()</li>				
-			</ul><br />
-			
-		</article>
+                    <h4>DOM Manipulation</h4>
+                    <p class="log-list-title">Methods for DOM manipulation</p>
+                    <ul class="standard-list">
+                        <li>setAttribute()</li>
+                        <li>getAttribute()</li>
+                        <li>createElement()</li>
+                        <li>appendChild()</li>
+                        <li>createElement()</li>
+                    </ul><br />
 
-		<article class="subject-article">
-          <h3 class="subject-title">Event Handling</h3>
-			<p>
-			We know how to access and manipulate different elements in the DOM the next step is to understand how handle an event. The first step in all event handling is to know when an event happens. Javascript uses <em>listeners</em> for this. For many years HTML event-handler attributes was the only way to attach listeners. Meaning that listeners are embedded directly in the mark-up. Apart from deviating from the principles of <em>separation of concerns</em> this also limits the numbers of listeners to max one for any element.			
-			</p><br />
-			
-			<h4>AddEventListener()</h4>
-			<p>
-			With the introduction of the <span class="emphasize-gray">AddEventListener method</span> there is no need for inline listeners. Meaning that we now can stay true to the principle of; <em>separation of concerns</em>,  not bloating our mark-up with javascript. There isn't either any limit for the numbers of listeners on a single element. The listener is attached/connected to the element using one of the standard DOM-access methods. Not having to use HTML attributes to create listeners also allows for a single listener to be attached to a collection of elements, for example all elements with a certain class.
-			With the introduction of addEventListener we also got a method for removing them; <span class="emphasize-gray">removeAddEventListener()</span> that simply removes the listener.
-			</p>
+            </article>
 
-			<div class="code-container">
-				<code>
+            <article class="subject-article">
+                <h3 class="subject-title">Event Handling</h3>
+                <p>
+                    We know how to access and manipulate different elements in the DOM the next step is to understand how handle an event. The first step in all event handling is to know when an event happens. Javascript uses <em>listeners</em> for this.
+                    For many years HTML event-handler attributes was the only way to attach listeners. Meaning that listeners are embedded directly in the mark-up. Apart from deviating from the principles of <em>separation of concerns</em> this also limits
+                    the numbers of listeners to max one for any element.
+                </p><br />
+
+                <h4>AddEventListener()</h4>
+                <p>
+                    With the introduction of the <span class="emphasize-gray">AddEventListener method</span> there is no need for inline listeners. Meaning that we now can stay true to the principle of; <em>separation of concerns</em>, not bloating our
+                    mark-up with javascript. There isn't either any limit for the numbers of listeners on a single element. The listener is attached/connected to the element using one of the standard DOM-access methods. Not having to use HTML attributes
+                    to create listeners also allows for a single listener to be attached to a collection of elements, for example all elements with a certain class. With the introduction of addEventListener we also got a method for removing them;
+                    <span
+                        class="emphasize-gray">removeAddEventListener()</span> that simply removes the listener.
+                </p>
+
+                <div class="code-container">
+                    <code>
 					
 				</code>
-			</div>	
+                </div>
 
-			<em>The Event Object</em>	
-			<p>...</p>
+                <em>The Event Object</em>
+                <p>...</p>
 
-			
-			<h4>Bubbling and Capturing</h4>
-			<p>...</p>
-				
-			<h4>Event Propagation</h4>
-			<p>...</p>		
-					
-			<div class="code-container">
-				<code>
+
+                <h4>Bubbling and Capturing</h4>
+                <p>...</p>
+
+                <h4>Event Propagation</h4>
+                <p>...</p>
+
+                <div class="code-container">
+                    <code>
 				
 				</code>
-			</div>			
-		</article>
-		
-		 <article class="subject-article">
-          <h3 class="subject-title">Promises</h3>
-			<p>
-			Javascript is 'single threaded' meaning that only one thing/task can happen at a time.
-			This leads often to what is known as <i>blocking code</i> where the Javascript engine is processing some task while the main thread is blocked. The solution to blocking code is asynchronous code that can run on multiple threads at the same time. To write asynchronus code is getting easier and modern browsers will allow certain operations to be run asynchronously. One way of writing asynchronous code is to use <i>promises</i> that allow processing of another operation while waiting for the <em>promise</em> to resolve.  
-			</p><br />			
-            <p>
-              A <em>promise</em> in Javascript is just as in real life; a promise/commitment to do something at some point in the future. The
-              promise will then be resolved, or rejected. In programming context
-              the <em>promise object</em> represents the eventual completion (or failure)
-              of an asynchronous operation and its resulting value. Promises in
-              Javascript is a way to avoid what often is called 'callback hell'
-              where callbacks are nested in an ever growing code structure.
-            </p><br />
-            <p>
-              A <em>promise</em> consist of an resolved and rejected callback. Depending
-              on if the promise is resolved or not the corresponding callback i
-              executed. The resolve and reject functions, when called, resolve
-              or reject the promise. With <em>promises</em> we can organize our code with
-              chained then() and catch() methods depending on if the promise is
-              resolved or rejected.
-            </p>
+                </div>
+            </article>
 
-            <div class="code-container">
-              <code>
+            <article class="subject-article">
+                <h3 class="subject-title">Promises</h3>
+                <p>
+                    Javascript is 'single threaded' meaning that only one thing/task can happen at a time. This leads often to what is known as <i>blocking code</i> where the Javascript engine is processing some task while the main thread is blocked.
+                    The solution to blocking code is asynchronous code that can run on multiple threads at the same time. To write asynchronus code is getting easier and modern browsers will allow certain operations to be run asynchronously. One way of
+                    writing asynchronous code is to use <i>promises</i> that allow processing of another operation while waiting for the <em>promise</em> to resolve.
+                </p><br />
+                <p>
+                    A <em>promise</em> in Javascript is just as in real life; a promise/commitment to do something at some point in the future. The promise will then be resolved, or rejected. In programming context the <em>promise object</em> represents
+                    the eventual completion (or failure) of an asynchronous operation and its resulting value. Promises in Javascript is a way to avoid what often is called 'callback hell' where callbacks are nested in an ever growing code structure.
+                </p><br />
+                <p>
+                    A <em>promise</em> consist of an resolved and rejected callback. Depending on if the promise is resolved or not the corresponding callback i executed. The resolve and reject functions, when called, resolve or reject the promise. With
+                    <em>promises</em> we can organize our code with chained then() and catch() methods depending on if the promise is resolved or rejected.
+                </p>
+
+                <div class="code-container">
+                    <code>
                 const myPromise = new Promise(function(resolve, reject) { <br />
               </code>
-              <div class="comment-oneline">The promise will be either resolved or rejected</div>
-              <code>
+                    <div class="comment-oneline">The promise will be either resolved or rejected</div>
+                    <code>
                 <span class="example">let studied = true; </span><br />
                 <span class="example">if(studied) { </span><br />
                 <span class="example2">resolve("Success"); </span><br />
@@ -1478,17 +1542,17 @@
                 <span class="example"> } </span><br />
                 }) <br />
               </code>
-              <div class="comment-oneline">If the promise is fullfilled we pass the resolved argument
-                  'value'</div>
-              <code>
+                    <div class="comment-oneline">If the promise is fullfilled we pass the resolved argument 'value'
+                    </div>
+                    <code>
                 myPromise.then(function(value) { <br />
                 <span class="example"
                   >console.log(`It's done: ${value}`); <span class="comment-outcome">--> It's done: Study
                   Javascript</span></span
                 ><br />
               </code>
-              <div class="comment-oneline">If rejected we use a catch </div>
-              <code>
+                    <div class="comment-oneline">If rejected we use a catch </div>
+                    <code>
                 }).catch(function(rejected) { <br />
                 <span class="example"
                   >console.log(`It's not done: ${value}`); <span class="comment-outcome">--> It's not done:
@@ -1496,39 +1560,30 @@
                 ><br />
                 }) <br />
               </code>
-            </div>
-            
-            <div class="link">
-              See more:
-              <a  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">
+                </div>
+
+                <div class="link">
+                    See more:
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">
                 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises</a>
                 </div>
-        </article>
+            </article>
 
-        <article class="subject-article">
-          <h3 class="subject-title">fetch API</h3>
-            <p>
-              The Fetch API is a Javascript built in new standard for making
-              server requests. It provides a JavaScript interface for accessing
-              and manipulating parts of the HTTP pipeline, such as requests and
-              responses. It also provides a global fetch() method that provides
-              an easy, logical way to fetch resources asynchronously across the
-              network.
-            </p><br />
-            <p>
-              The fetch() method takes one mandatory argument, the
-              <em>path(url)</em> to the resource you want to fetch. By default it
-              will make a 'get request' and return a <em>promise</em> containing a
-              response object. We then have to extract the actual body content,
-              can for example be the json() method to extract JSON body content.
-              The fetch() method can optionally accept a second parameter
-              consisting of an init object that gives the possibility to add
-              configuration options for the request object.
-            </p>
+            <article class="subject-article">
+                <h3 class="subject-title">fetch API</h3>
+                <p>
+                    The Fetch API is a Javascript built in new standard for making server requests. It provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses. It also provides a global fetch() method that
+                    provides an easy, logical way to fetch resources asynchronously across the network.
+                </p><br />
+                <p>
+                    The fetch() method takes one mandatory argument, the
+                    <em>path(url)</em> to the resource you want to fetch. By default it will make a 'get request' and return a <em>promise</em> containing a response object. We then have to extract the actual body content, can for example be the json()
+                    method to extract JSON body content. The fetch() method can optionally accept a second parameter consisting of an init object that gives the possibility to add configuration options for the request object.
+                </p>
 
-            <div class="code-container">
-              <div class="comment-oneline">We make a fetch request from API Open Weather Data</div>
-              <code>
+                <div class="code-container">
+                    <div class="comment-oneline">We make a fetch request from API Open Weather Data</div>
+                    <code>
                 const url =
                 <a
                   href="http://api.openweathermap.org/data/2.5/weather?q=London&APPID=8674cbad0da4e9ccd435f2442a4dcda7&units=metric"
@@ -1547,8 +1602,8 @@
                 <span class="example">}); </span><br />
                 }); <br /><br />
               </code>
-              <div class="comment-oneline">We configure the options for a POST request</div>  
-				<code>			  
+                    <div class="comment-oneline">We configure the options for a POST request</div>
+                    <code>			  
 				const urlPost =
                 <a href="https://jsonplaceholder.typicode.com/posts"
                   >JSON PLACEHOLDER</a
@@ -1581,12 +1636,9 @@
                 <span class="example2">console.log(error) </span><br />
                 <span class="example">}); </span><br />
               </code>
-            </div>
-            <div class="link"
-              >See more:
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
-                >https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch</a
+                </div>
+                <div class="link">See more:
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch</a
               >
             </div>
         </article>
@@ -2132,36 +2184,33 @@
             >
 			<div class="link">
 			See more: <a href="https://www.youtube.com/watch?v=rRgD1yVwIvE">JavaScript Higher Order Functions & Arrays (Youtube: Traversy Media)</a>
-			</div>
-        </article>
-		
-		<article class="subject-article">
-          <h3 class="subject-title">Object Constructor Methods</h3>
-		  <p>
-			We already now that to create an instance of an object we have to use an object constructor function. This is done by calling the constructor function with the <em>new</em> keyword. 
-			This will at the same time create a constructor property for the Object. Referencing this property will return the Object constructor that created the instance object. 
-		  <div class="code-container">
-			<code>
+                </div>
+            </article>
+
+            <article class="subject-article">
+                <h3 class="subject-title">Object Constructor Methods</h3>
+                <p>
+                    We already now that to create an instance of an object we have to use an object constructor function. This is done by calling the constructor function with the <em>new</em> keyword. This will at the same time create a constructor property
+                    for the Object. Referencing this property will return the Object constructor that created the instance object.
+                    <div class="code-container">
+                        <code>
 				
 			</code>
-		  </div>
-		  
-		  <h4>Built in Object constructor methods</h4>
+                    </div>
 
-			<p><em>Object.keys()</em> and <em>Object.values()</em></p>
-				<p>....</p>
-				
-			<h5>Object.entries()</h5>
-			<p>...</p>
-	
-			<h5>hasOwnProperty()</h5>
-			<p>...</p>			
-		
-            <div class="link"
-              >See more:
-              <a
-                href="https://stackoverflow.com/questions/7757337/defining-read-only-properties-in-javascript"
-                >https://stackoverflow.com/questions/7757337/defining-read-only-properties-in-javascript</a
+                    <h4>Built in Object constructor methods</h4>
+
+                    <p><em>Object.keys()</em> and <em>Object.values()</em></p>
+                    <p>....</p>
+
+                    <h5>Object.entries()</h5>
+                    <p>...</p>
+
+                    <h5>hasOwnProperty()</h5>
+                    <p>...</p>
+
+                    <div class="link">See more:
+                        <a href="https://stackoverflow.com/questions/7757337/defining-read-only-properties-in-javascript">https://stackoverflow.com/questions/7757337/defining-read-only-properties-in-javascript</a
               ><br />
               See more:
               <a
@@ -2758,184 +2807,238 @@
           </article>
         </div>
       <div class="go-top"><a href="#top">To the Top</a><br /></div>
-    </div>
-    <script>
-	
-		// TOGGLE COLOR THEME
-		const btnChangeColor = document.querySelector(".btn-change-color");
-		const codeContainers = document.querySelectorAll(".code-container");
-		const changeCodeColor = () => {
-			Array.from(codeContainers, container => {
-			container.classList.toggle("code-container-mod");
-			});
-		};
-		btnChangeColor.addEventListener("click", changeCodeColor);
-		// END TOGGLE
-		
-		
-		/*** EXCERCISES ***/
+                    </div>
+                    <script>
+                        // TOGGLE COLOR THEME
+                        const btnChangeColor = document.querySelector(".btn-change-color");
+                        const codeContainers = document.querySelectorAll(".code-container");
+                        const changeCodeColor = () => {
+                            Array.from(codeContainers, container => {
+                                container.classList.toggle("code-container-mod");
+                            });
+                        };
+                        btnChangeColor.addEventListener("click", changeCodeColor);
+                        // END TOGGLE
 
-		// CLASSES		
-		class Area {
-		  constructor(width, height) {
-			this.width = width;
-			this.height = height;
-		  }		  
-		  calcArea() {
-			return this.width * this.height;
-		  }		 
-		  get Area() {
-			return this.calcArea();
-		  }		 
-		}
-				
-		// STANDARD ARRAY/OBJECT
-		const employees = [
-			  {name: "John", role: "Accountant", age: 44, salary: 10000},
-			  {name: "Lisa", role: "Adminstrator", age: 22, salary: 8000},
-			  {name: "Tom", role: "Janitor", age: 53, salary: 7000},
-			  {name: "Patty", role: "Manager", age: 37, salary: 14000},
-			  {name: "Sally", role: "Sale", age: 23, salary: 9000},
-			  {name: "Rex", role: "Guard", age: 3, salary: 'T-bone'}
-			];			
-		
-		// Lets suppose that the data above is returned as an object consisting of objects.
-		// How would we proceed to get the same data and filter as above?
-		// ... we need Object constructor methods.  
-		
-		// OBJECT OF OBJECTS		
-		const objectArray = {
-			john: 	{name: "John", role: "Accountant", age: 44, salary: 10000},
-			lisa: 	{name: "Lisa", role: "Adminstrator", age: 22, salary: 8000},
-			tom:  	{name: "Tom", role: "Janitor", age: 53, salary: 7000},
-			patty:  {name: "Patty", role: "Manager", age: 37, salary: 14000},
-			sally:  {name: "Sally", role: "Sale", age: 23, salary: 9000},
-			rex:	{name: "Rex", role: "Guard", age: 3, salary: 'T-bone Steak'}
-		}
-	
-		//	WE CREATE AN ARRAY WITH ALL SALARIES AND USE REDUCE TO GET TOTAL
-		let allSalaries = employees
-			.map(employee => employee.salary)
-			.reduce( (acc, cv) => !isNaN(cv) ? acc + cv : acc + 0, 0)
-			console.log(allSalaries)
-			
-		let allSalariesMapFilterReduce = employees
-			.map(employee => employee.salary)
-			.filter(salary => !isNaN(salary))
-			.reduce((acc, cv) => acc + cv, 0)
-			console.log(allSalariesMapFilterReduce)	
-	
-		// FILTER
-		let richKids = employees.filter( employee => employee.salary > 9000)	
-		let oldKids = employees.filter(employee => employee.age > 30)
-		
-		// THE OBJECT CONSTRUCTOR
-		// we use object constructor to get values before filter  		
-		let arrValues = Object.values(objectArray).filter(obj => obj.age > 32)	
-		console.log("Test: ", arrValues)
-		
-		// more verbose solutions...
-		for(let prop in objectArray) {
-			if(objectArray[prop].age > 37) {
-				console.log(objectArray[prop])
-			}
-		}
-		
-		const getOld = ()=> {
-			let foo = []
-			for(let prop in objectArray) {
-				if(objectArray[prop].age > 30) {
-					foo.push(objectArray[prop])
-				}			
-			}
-			return foo
-		}
-				
-		// REDUCE
-		let numbers = [10, 11, 22, 33, 44];
-		let accNumbers = numbers.reduce( (accumulator, currentValue) => accumulator + currentValue, 33)
-		console.log(accNumbers)
 
-		// SORT	
-		let sortedEmployees = employees.sort( employee => employee.name )	
-		console.log(sortedEmployees)		
-		let letters = ['f','g','w','t','a']
-		let sortedLetters = letters.sort()
-		console.log(sortedLetters) 
+                        /*** EXCERCISES ***/
 
-		// REST
-		let allNumbers = [11,22,33,44,55]
-		// we dont know how many arguments will be entered
-		function timesTwo(...arguments) {
-			let sum = arguments.reduce( (acc,cv)=> acc + cv, 0)
-			return sum
-		}
-		console.log( timesTwo(...allNumbers) )
+                        // CLASSES		
+                        class Area {
+                            constructor(width, height) {
+                                this.width = width;
+                                this.height = height;
+                            }
+                            calcArea() {
+                                return this.width * this.height;
+                            }
+                            get Area() {
+                                return this.calcArea();
+                            }
+                        }
 
-		// CONSTRUCTOR FUNCTION
-		function Car(model, color, year, doors) {
-			this.model = model
-			this.color = color
-			this.year = year
-			this.doors = doors
-		}
-		//We add a method to the constructor prototype
-		Car.prototype.allData = function() {
-		car_data = "The car model is " + this.model + " and was built " + this.year + " and has the color " + this.color;
-		return car_data
-		}
-		
-		let cool = "Olle"
-		let myLit = doSmth`Here I insert ${cool}`
-		
-		function doSmth(arg) { return arg }
-		console.log(myLit)
-		
-	
-		// REMOVE DUPLICATES IN AN ARRAY 
-		// And display new array with unique values
-		const messyArray = [33,11,22,11,44,33]
-		const setCollection = new Set(messyArray)
-		
-		let foo = Array.from(setCollection)
-		console.log(foo)
-		const fixedArray = [... new Set(messyArray)]
-		console.log(fixedArray)	
-		console.log(fixedArray.size) //--> undefined // fixedArray is not of type Set
-		
-		const persons = ['John', 'Doe']
-		console.log(...persons)
-		const fooSpread = [...persons]
-		console.log(fooSpread)
-		
-		// We compare two arrays 				
-		const testArr1 = [2,3,4,5]
-		const testArr2 = [2,3,4,5,6]
-				
-		// can be a slow method for larger sample data
-		console.log( JSON.stringify(testArr1) === JSON.stringify(testArr2));
-		
-		
-		var str2 = "KYH Frontend"
-		console.log(str2.indexOf("F"))
+                        // STANDARD ARRAY/OBJECT
+                        const employees = [{
+                            name: "John",
+                            role: "Accountant",
+                            age: 44,
+                            salary: 10000
+                        }, {
+                            name: "Lisa",
+                            role: "Adminstrator",
+                            age: 22,
+                            salary: 8000
+                        }, {
+                            name: "Tom",
+                            role: "Janitor",
+                            age: 53,
+                            salary: 7000
+                        }, {
+                            name: "Patty",
+                            role: "Manager",
+                            age: 37,
+                            salary: 14000
+                        }, {
+                            name: "Sally",
+                            role: "Sale",
+                            age: 23,
+                            salary: 9000
+                        }, {
+                            name: "Rex",
+                            role: "Guard",
+                            age: 3,
+                            salary: 'T-bone'
+                        }];
 
-		var foo2 = str2.split(" ")
-		console.log(typeof foo2)
-		console.log(foo2.sort())
+                        // Lets suppose that the data above is returned as an object consisting of objects.
+                        // How would we proceed to get the same data and filter as above?
+                        // ... we need Object constructor methods.  
 
-		var first = foo2.slice(0,1)
-		foo2.push(first.join())
-		console.log(foo2)
+                        // OBJECT OF OBJECTS		
+                        const objectArray = {
+                            john: {
+                                name: "John",
+                                role: "Accountant",
+                                age: 44,
+                                salary: 10000
+                            },
+                            lisa: {
+                                name: "Lisa",
+                                role: "Adminstrator",
+                                age: 22,
+                                salary: 8000
+                            },
+                            tom: {
+                                name: "Tom",
+                                role: "Janitor",
+                                age: 53,
+                                salary: 7000
+                            },
+                            patty: {
+                                name: "Patty",
+                                role: "Manager",
+                                age: 37,
+                                salary: 14000
+                            },
+                            sally: {
+                                name: "Sally",
+                                role: "Sale",
+                                age: 23,
+                                salary: 9000
+                            },
+                            rex: {
+                                name: "Rex",
+                                role: "Guard",
+                                age: 3,
+                                salary: 'T-bone Steak'
+                            }
+                        }
 
-		var str3 = "KYH Frontend"
-		console.log(str3.indexOf("F"))
+                        //	WE CREATE AN ARRAY WITH ALL SALARIES AND USE REDUCE TO GET TOTAL
+                        let allSalaries = employees
+                            .map(employee => employee.salary)
+                            .reduce((acc, cv) => !isNaN(cv) ? acc + cv : acc + 0, 0)
+                        console.log(allSalaries)
 
-		let testArray = [1,2,3,4]
-		let foo33 = testArray.toString()
-		console.log(testArray)
-		console.log(foo33)
-				
-    </script>
-    <noscript>Your browser does not support JavaScript!</noscript>
-  </body>
+                        let allSalariesMapFilterReduce = employees
+                            .map(employee => employee.salary)
+                            .filter(salary => !isNaN(salary))
+                            .reduce((acc, cv) => acc + cv, 0)
+                        console.log(allSalariesMapFilterReduce)
+
+                        // FILTER
+                        let richKids = employees.filter(employee => employee.salary > 9000)
+                        let oldKids = employees.filter(employee => employee.age > 30)
+
+                        // THE OBJECT CONSTRUCTOR
+                        // we use object constructor to get values before filter  		
+                        let arrValues = Object.values(objectArray).filter(obj => obj.age > 32)
+                        console.log("Test: ", arrValues)
+
+                        // more verbose solutions...
+                        for (let prop in objectArray) {
+                            if (objectArray[prop].age > 37) {
+                                console.log(objectArray[prop])
+                            }
+                        }
+
+                        const getOld = () => {
+                            let foo = []
+                            for (let prop in objectArray) {
+                                if (objectArray[prop].age > 30) {
+                                    foo.push(objectArray[prop])
+                                }
+                            }
+                            return foo
+                        }
+
+                        // REDUCE
+                        let numbers = [10, 11, 22, 33, 44];
+                        let accNumbers = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 33)
+                        console.log(accNumbers)
+
+                        // SORT	
+                        let sortedEmployees = employees.sort(employee => employee.name)
+                        console.log(sortedEmployees)
+                        let letters = ['f', 'g', 'w', 't', 'a']
+                        let sortedLetters = letters.sort()
+                        console.log(sortedLetters)
+
+                        // REST
+                        let allNumbers = [11, 22, 33, 44, 55]
+                            // we dont know how many arguments will be entered
+                        function timesTwo(...arguments) {
+                            let sum = arguments.reduce((acc, cv) => acc + cv, 0)
+                            return sum
+                        }
+                        console.log(timesTwo(...allNumbers))
+
+                        // CONSTRUCTOR FUNCTION
+                        function Car(model, color, year, doors) {
+                            this.model = model
+                            this.color = color
+                            this.year = year
+                            this.doors = doors
+                        }
+                        //We add a method to the constructor prototype
+                        Car.prototype.allData = function() {
+                            car_data = "The car model is " + this.model + " and was built " + this.year + " and has the color " + this.color;
+                            return car_data
+                        }
+
+                        let cool = "Olle"
+                        let myLit = doSmth `Here I insert ${cool}`
+
+                        function doSmth(arg) {
+                            return arg
+                        }
+                        console.log(myLit)
+
+
+                        // REMOVE DUPLICATES IN AN ARRAY 
+                        // And display new array with unique values
+                        const messyArray = [33, 11, 22, 11, 44, 33]
+                        const setCollection = new Set(messyArray)
+
+                        let foo = Array.from(setCollection)
+                        console.log(foo)
+                        const fixedArray = [...new Set(messyArray)]
+                        console.log(fixedArray)
+                        console.log(fixedArray.size) //--> undefined // fixedArray is not of type Set
+
+                        const persons = ['John', 'Doe']
+                        console.log(...persons)
+                        const fooSpread = [...persons]
+                        console.log(fooSpread)
+
+                        // We compare two arrays 				
+                        const testArr1 = [2, 3, 4, 5]
+                        const testArr2 = [2, 3, 4, 5, 6]
+
+                        // can be a slow method for larger sample data
+                        console.log(JSON.stringify(testArr1) === JSON.stringify(testArr2));
+
+
+                        var str2 = "KYH Frontend"
+                        console.log(str2.indexOf("F"))
+
+                        var foo2 = str2.split(" ")
+                        console.log(typeof foo2)
+                        console.log(foo2.sort())
+
+                        var first = foo2.slice(0, 1)
+                        foo2.push(first.join())
+                        console.log(foo2)
+
+                        var str3 = "KYH Frontend"
+                        console.log(str3.indexOf("F"))
+
+                        let testArray = [1, 2, 3, 4]
+                        let foo33 = testArray.toString()
+                        console.log(testArray)
+                        console.log(foo33)
+                    </script>
+                    <noscript>Your browser does not support JavaScript!</noscript>
+</body>
+
 </html>
