@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Javascript Questions</title>
     <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <!-- END FONTS -->
@@ -97,7 +97,8 @@
             font-family: roboto, helvetica, sans-serif;
             font-family: 'Poppins', roboto, helvetica, sans-serif;
             font-family: "Montserrat", roboto, sans-serif;
-            color: rgb(15, 15, 15);
+			font-family: 'open-sans', poppins, roboto, helvetica, sans-serif;
+            color: rgb(43,43,43);
             margin: 2px 0;
         }
         
@@ -601,13 +602,16 @@
 				--> 
 				
                 <h4>Dynamically typed</h4>
-                <p>
-                    Javascript is what we call <em>dynamically typed</em> meaning the type of an variable is interpreted by the compiler. Javascript is weakly typed meaning that we do not specify a certain type when declaring a variable (there are exceptions
-                    tough). The contrary are languages that are <em>strongly</em> or <em>static</em> typed where a variable has to be given a type when it's declared. Javascript being dynamically typed means that variable types will be interpreted and
-                    if necessary even change implicitly at runtime. With runtime meaning when the program executes the commands. The type and value can be changed at any time both explicit in the code or implicitly by the Javascript engine. This behaviour
-                    can be confusing if not understood fully and lead to unexpected outcomes. What can lead to <em>logical mistakes</em> where we don't have technical errors but the outcome still is buggy. Converting a value from one type to another is
-                    what in Javascript is known as <em>type coercion</em>, when this is done explicitly we use a process known as <em>type casting</em>. But before looking deeper into these concepts we need to get a better understanding on data types
-                    and how they behave in Javascript.
+                <p>	
+					Javascript is what we call a <em>dynamically typed</em> programming language meaning that the type of a variable will be interpreted by the compiler. The types will be interpreted and if necessary even change implicitly when the program executes the commands, what is known as <em>runtime</em>. The type and value of a variable can be changed at any time in a process known as <em>type conversion</em>. This can be both explicitly in the code or implicitly by the Javascript engine.
+									
+					Programming languages where the type of a variable is not specified when declared is also said to be <em>weakly</em> typed. The contrary being known as <em>strongly</em> or <em>static</em> typed languages where a variable has to be given a type when it's declared. 
+					</p><br />
+					
+					<p>
+					The behaviour of type conversion can be confusing if not understood fully and lead to unexpected outcomes due to what is called <em>logical mistakes</em>. Meaning there are no technical errors but the outcome is still buggy and does not correspond to what was to be expected. But before looking deeper into these concepts we need to get a better understanding on data types and how they behave in Javascript.
+					<!--					
+					Converting a value from one type to another is what in Javascript is known as <em>type coercion</em> when it's done implicitly and <em>type casting</em> when done explicitly. But before looking deeper into these concepts we need to get a better understanding on data types and how they behave in Javascript.-->
                 </p>               
 
                 <h4>Data Types</h4>
@@ -1290,8 +1294,10 @@
 
             <article class="subject-article">
                 <h3 class="subject-title">Type Conversion in Javascript</h3>
-                <p>The behaviour of type conversion in Javascript can be confusing and lead to unexpected outcomes and buggy code. Type conversion in Javascript can be both implicit and explicit. When converting a value from one type to another we will most
-                    probably get an expect outcome from our code. Implicit type coercion on the other hand will be the source of unexpected outcomes and problems if not understood fully.
+                <p>
+				Converting a value from one type to another is what in Javascript is known as <em>type coercion</em> when it's done implicitly and <em>type casting</em> when done explicitly. 
+				
+				When converting a value explicitly we will most probably get the expected outcome from our code. Implicit type coercion on the other hand will be the source of unexpected outcomes and problems if not understood fully.			
                 </p>
 
                 <h4 id="type-coercion">Type Coercion</h4>
@@ -1339,7 +1345,7 @@
                     </div>
 
                     <p>
-                        Explicit coercion on the other hand is done on purpose using a process known as <em>type casting</em>.
+                        Explicit coercion on the other hand is done on purpose as in the example below where we use <em>type casting</em> to convert the string variable to a number before making the comparison.
                     </p>
                     <div class="code-container">
                         <code>
