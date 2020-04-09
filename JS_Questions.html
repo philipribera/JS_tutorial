@@ -568,17 +568,11 @@
 
             <article class="subject-article">
                 <h3 class="subject-title">About this Tutorial</h3>
-                <p>
-                    Javascript is the language of the web, it is an interpreted language that runs directly on the clients browser meaning that no compiler is needed. This is the core of Javascript; It was designed to be easy to use and easy to learn. It also explains some
-                    of its characteristics, strengths and drawbacks, that differentiate it from some of the most common programming languages. But Javascript has evolved a lot since its introduction and with the latest updates it has become a much more
-                    versatile language. Now days Javascript isn't limited to the browser neither. With the help of <em>Node</em>, runtime environment, we can run Javascript on the server side as well. 
-                </p><br />
+                
               	<p>				
-                    This tutorial will not focus on syntax rules or describe basic terminology for a programming language. There are already good tutorials that explains the core basic in detail. If you feel that your knowledge is lacking when it comes to the core basic please make sure to start with learning that before looking in to this tutorial. <!--Javascript is case-sensitive; meaning that consistent capitalization of characters matters when it comes to keywords, variables- and function names.-->  
-					
-					This tutorial will focus on the key concepts of the language to get a better understanding on how Javascript works. There is also a chapter dedicated to the ECMAScript
-                    2015(ES6) update and how to use some of the more important features that was introduced with it. The ES6 update was probably the most important development of Javascript since its introduction making Javascript significantly more powerful
-                    and versatile.
+                    This tutorial will not focus on syntax rules or describe the basic terminology for a programming language. There are already good tutorials that explains the core basic in detail. If you feel that your knowledge is lacking when it comes to the core basic please make sure to start with learning that before looking in to this tutorial. 
+										
+					This tutorial will explain some key concepts to get a better understanding on how Javascript works under the hood. There is also a chapter dedicated to the ECMAScript 2015(ES6) update and the new features that was introduced with it. The ES6 update was probably the most important development of Javascript since its introduction making Javascript significantly more powerful and versatile.
                 </p>
 
                 <div class="note-comment">
@@ -588,7 +582,11 @@
 
             <article class="subject-article">
                 <h3 class="subject-title">Introduction</h3>
-
+				<p>
+                    Javascript is the language of the web, it is an interpreted language that runs directly on the clients browser meaning that no compiler is needed. This is the core of Javascript; It was designed to be easy to use and easy to learn. It also explains some
+                    of its characteristics, strengths and drawbacks, that differentiate it from some of the most common programming languages. But Javascript has evolved a lot since its introduction and with the latest updates it has become a much more
+                    versatile language. Now days Javascript isn't limited to the browser neither. With the help of <em>Node</em>, runtime environment, we can run Javascript on the server side as well. 
+                </p>
 				<!--
 				<h4>The Callstack and the Event Loop</h4>
                 <p>Javascript is a single threaded programming language, meaning it can handle one task at a time. All instructions are stored in a single call stack where everything is placed in a queue. This is what constitutes the Javascript Concurrency Model...  We are not going to dwelve deeper into this here but the important thing to take with you is that Javascript executes one piece of code at a time according to the order in the callstack. If you are interested in reading more on this I have a link to an article that explains it in detail here below.
@@ -609,9 +607,7 @@
 					</p><br />
 					
 					<p>
-					The behaviour of type conversion can be confusing if not understood fully and lead to unexpected outcomes due to what is called <em>logical mistakes</em>. Meaning there are no technical errors but the outcome is still buggy and does not correspond to what was to be expected. But before looking deeper into these concepts we need to get a better understanding on data types and how they behave in Javascript.
-					<!--					
-					Converting a value from one type to another is what in Javascript is known as <em>type coercion</em> when it's done implicitly and <em>type casting</em> when done explicitly. But before looking deeper into these concepts we need to get a better understanding on data types and how they behave in Javascript.-->
+					The behaviour of type conversion can be confusing if not understood fully and lead to unexpected outcomes due to what is called <em>logical mistakes</em>. Meaning there are no technical errors but the outcome is still buggy and does not correspond to what was to be expected. But before looking deeper into these concepts we need to get a better understanding on data types and how they behave in Javascript.					
                 </p>               
 
                 <h4>Data Types</h4>
@@ -620,18 +616,12 @@
                     most things in Javascript are objects, the exception being primitive types. Tough they can still be treated as objects, albeit with some restrictions. While there is only one <em>object</em> data type there are
                     7 primitive data types. The fundamental difference between primitives and objects is that primitives can hold a single value while objects can hold a collection of values.
                     <!--The concept of data types and how they work in a boolean context and Type Coercion is central to understand how Javascript works.-->
-                </p><br />
-                <p>
-                    The <em>typeof</em> operator is used to check the type of an operand. It's used without parenthesis and will return the type as a string.
                 </p>
-
-                <div class="code-container">
-                    <div class="comment-oneline">We check for the datatype</div>
-                    <code>
-					var str = "Hello"		<br />
-					console.log(typeof str) <span class="comment-outcome">--> 'string'</span><br />
-				</code>
-                </div>
+				
+				<div class="note-comment">
+                    <span class="first-word">Note: </span> The <em>typeof</em> operator is used to check the type of an operand. It's used without parenthesis and will return the type as a string.
+                </div>				
+                
             </article>
 
             <article class="subject-article">
@@ -678,7 +668,13 @@
                     <code>
                 foo[0] = "T" <span class="code-comment">// we try to assign foo[0] a new value</span><br />
                 console.log(foo) <span class="comment-outcome"> --> Hello World</span><span class="code-comment">// value of 'foo' doesn't change </span><br />
-              </code>
+				</code>				
+
+                <div class="comment-oneline">We check for the datatype</div>
+                    <code>			
+					var age = 44	<br />
+					console.log(typeof age) <span class="comment-outcome">--> 'number'</span><br />
+				</code>				
                 </div>
 
                 <div class="link">See more;
@@ -698,7 +694,6 @@
 				greet.indexOf("W")<span class="comment-outcome"> --> 6</span><br /><br />
 
                 var str = new String("KYH Frontend") <span class="code-comment">// we use the string object constructor  				</span><br />
-
             </code>
 			</div>			
 			
@@ -737,11 +732,10 @@
                 var rand; <br />
                 Math.random(rand) <span class="comment-outcome">--> ?</span> <span class="code-comment">// returns a floating-point between 0 and 1</span>
               </code>
-			  </div>
+			  </div>			  
 			  
-			  <em>NaN</em>
 				<p>
-			   If a Math function can't convert an argument to a number and/or a required type coercion to number fails the return value is <em>NaN</em>, meaning; not a number.
+			   If a Math function can't convert an argument to a number and/or a required type coercion to number fails the return value is <strong><em>NaN</em></strong>, meaning; not a number.
 				To check for NaN do <strong>not</strong> compare; <span class="emphasize-gray">NaN === NaN</span>, this returns false since type of NaN is number. The <em>isNaN</em> function has to be used instead, <span class="emphasize-gray">isNaN(argument) === NaN</span>.
 				 With ES6 we can use <span class="emphasize-gray">Number.isNaN(value)</span> to check if a value is NaN. Be aware that this will only return true if the value already is NaN, unlike isNaN that will return true if the value can't be converted to a number.   
 			</p>
@@ -882,171 +876,7 @@
 					} <br />
 				</code>
 			</div>			
-		</article>
-			
-		<article class="subject-article">
-          <h3 class="subject-title">Objects and <em>Derived Types of Objects</em></h3>
-		  <p>
-		  All values in Javascript, except primitives, are objects. Objects can store collection of values while primitives are restricted to hold a single value. The easiest way to understand objects are to see them as a collection of key value pairs. In Javascript the correct term for keys are properties. Properties being the 'key' in a key value pair can also be seen as variable names inside objects. If the property holds a function expression we would call it a <em>method</em>.		  	  
-		  </p>		  
-						  
-		  <h4>Constructor functions</h4>
-			<p>
-			Javascript has for a long time used constructor functions to create an object data type, basically a 'blueprint' for creating objects. With constructors we can create an object type that can be the base for creating an unlimited quantity of instances without having to redefine the same object. 	
-			</p>		  
-			<p>In general the properties and values have something in common as for example all car objects can be expected to have the properties color and model. It therefore makes sense to create a function that can be used to create an unlimited quantity of instances of a certain object type. Using the <em>new</em> operator we can create new instances of the base constructor. 	
-			</p>
-			<div class="code-container">
-				<div class="comment-oneline">We create a <em>car</em> constructor</div>
-				<code>
-					function Car(model, color, year, doors) {		<br />	
-						<span class="example">this.model = model	</span><br />
-						<span class="example">this.color = color	</span><br />
-						<span class="example">this.year = year		</span><br />
-						<span class="example">this.doors = doors	</span><br />
-					}	<br />
-					</code>
-					<div class="comment-oneline">We add a method to the constructor prototype</div>
-					<code>
-					Car.prototype.allData = function() {	<br />
-						<span class="example">car_data = "The car model is " + this.model + " and was built " + this.year + " and has the color " + this.color;	</span><br />
-						return car_data		<br />				
-					}						<br />						
-					</code>
-					<div class="comment-oneline">We use the <em>new</em> operator to create a car object</div>
-					<code>
-						var coolCar = new Car('Super', 'black', 2020, 2) 	<br />						
-						console.log(coolCar.allData()) <span class="comment-outcome">--> The car model is Super... 	</span><br />
-					
-					</code>
-			</div>
-			
-			 <div class="note-comment"><span class="first-word">Note: </span>We can use console.dir() to get more info about the
-              constructor </div
-            >
-			
-			<div class="note-comment">
-        <span class="first-word">Note: </span>With the ES6 update classes was introduced to Javascript that performs basically the same operations as constructor functions. We will look more at classes in the next chapter.
-		</div>	
-
-		<h4>Arrays</h4>
-			<p>Arrays are basically a variable consisting of a collection of values. The values are accessible by referring to its index number. That said it's important to remember that arrays are technically objects, using the typeof operator on an array will also return <em>object</em>. To check for array we use <span class="emphasize-gray">Array.isArray(array)</span>.    
-			</p><br />
-						
-			<p>When it comes to use methods on arrays it's important to differentiate between mutator- and non-mutable methods. The toString method for example will return a string based on the elements of an array but it will not change the original array. The converted value will have to be stored in a variable that will of type string. In other cases the method might return a completely new array not changing the orignal array as for example with slice. Mutator methods on the other hand will change the orignal array, as with push that will add a new element at the end of the orignal array. 
-			</p>
-  			
-			<ul class="log-list">
-				<li><span class="info-list">Non-mutable</span><span class="info-list">Short description</span></li>
-				<li><span class="info-list"><em>toString</em></span><span class="info-list">Converts elements in an array to a comma separated string</span></li>		
-				<li><span class="info-list"><em>slice</em></span><span class="info-list">Slices a part of an array and returns a new array</span></li>
-				<li><span class="info-list"><em>splice</em></span><span class="info-list">Assigned parameters can both add and remove elements in an array</span></li>
-				<li><span class="info-list"><em>indexOf</em></span><span class="info-list">Returns the index of the searched character</span></li>
-				</ul>
-				
-				<ul class="log-list">
-				<li><span class="info-list">Mutable</span><span class="info-list">Short description</span></li>	
-				<li><span class="info-list"><em>push</em></span><span class="info-list">Adds a new element at the end of an array </span></li>
-				<li><span class="info-list"><em>pop</em></span><span class="info-list">Removes the last element of an array</span></li>
-				<li><span class="info-list"><em>unshift</em></span><span class="info-list">Adds a new element at the start of an array</span></li>
-				<li><span class="info-list"><em>shift</em></span><span class="info-list">Removes the first element of an array</span></li>
-				<li><span class="info-list"><em>sort</em></span><span class="info-list">Sorts an array in alphabetical order</span></li>
-				<li><span class="info-list"><em>reverse</em></span><span class="info-list">Reverse the order of the elements in an array</span></li>
-				</ul>			
-
-            <div class="code-container">
-				<code>
-				var myArr = ['H','E','L','L']		<br />
-				myArr.push('O')			<br />	
-				console.log(myArr)	<span class="comment-outcome">--> ['H'E'L'L'O']			</span><br />	
-				</code>
-				<div class="comment-oneline">We use array methods on a string</div> 
-			
-              <code>			  
-                var greet = new String("Hello") 		<br />
-                greet.charAt(greet.length-1) 			<br /><br />
-
-                var str = "KYH Frontend" 				<br />
-                console.log(str.indexOf("F")) <span class="comment-outcome">--> 4</span><br /><br />
-
-                var foo = str.split(" ") 				<br />
-                console.log(typeof foo) <span class="comment-outcome">--> Object </span><br />
-                foo.sort() 								<br /><br />
-
-                var first = foo.slice(0,1)				<br />
-                foo.push(first.join()) 					<br />
-                console.log(foo) 		<span class="comment-outcome">--> 'Frontend'</span><br /><br />
-				</code>				
-            </div>
-			
-            <div class="note-comment"
-              ><span class="first-word">Note: </span>push and sort are so called mutator methods since they
-              change the original array. Push for example adds item/s to the end
-              of the array while returning the new length of the array. 
-            </div>
-           
-            <span class="link"
-              >See more:
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2"
-                >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2</a
-              ><br />
-              <a
-                href="https://www.tutorialrepublic.com/javascript-reference/javascript-array-object.php"
-                >https://www.tutorialrepublic.com/javascript-reference/javascript-array-object.php</a
-              ></span
-            >		
-	  </article>
-
-		<article class="subject-article">
-          <h3 class="subject-title">Pass by Value vs. Reference</h3>
-            <p>
-              When we assign an object to new variable we copy the reference to
-              where that object or array is stored in memory. The reference
-              works in other words as a pointer to where the object is stored,
-              it doesn't copy the value as is the case with primitive types.
-              This means that if we change the value of a property/element it
-              will impact all variables with a reference to the same location in memory. In other words an object that is assigned to another variable will have its value changed if the value of the original object is changed. 
-            </p>
-
-            <div class="code-container">
-			<div class="comment-oneline">Primitive types, pass value by copying</div>
-              <code>
-                var a = "KYH" <br />
-                var b = a <br />
-                a = "Hello" <span class="code-comment">// we assign a new value to a </span><br />
-                console.log(b) <span class="comment-outcome">--> "KYH"</span> <span class="code-comment">// we retain the copied value </span><br />
-              </code>           
-			<div class="comment-oneline">Objects, pass value by reference</div>
-              <code>
-                var objectA = {name: "Kal", lastname: "Doe"} <br />
-                var objectB = objectA <br />
-                objectA.name = "Ada" <span class="code-comment">// we change the value of prop name</span><br>
-				</code>				
-				<div class="comment-oneline">objectB points to the location of the original object.
-              It's not a copy of objectA.</div>
-			  <code>
-                objectB.name <span class="comment-outcome">--> "Ada"</span> <span class="code-comment">// prop name has changed </span><br />
-              </code>
-            </div>
-            <div class="note-comment">
-              <span class="first-word">Note: </span>Function arguments are always passed by value and are copied
-              into the function.
-			  </div>
-            
-			<div class="note-comment"><span class="first-word">Note: </span>
-            To make a real copy of an object/array we
-              can use the spread operator(see more under ES6 features).
-            </div>
-
-            <div class="link"
-              >See more:
-              <a
-                href="https://stackoverflow.com/questions/16880418/javascript-pas"
-                >https://stackoverflow.com/questions/16880418/javascript-pas</a
-              ></div
-            >
-        </article>            
+		</article>		 
 		
 		<article class="subject-article">
           <h3 class="subject-title">Hoisting</h3>
@@ -1155,16 +985,24 @@
 			</div>
         </article>     
 
+		<!--
          <article class="subject-article">
           <h3 class="subject-title">Operators</h3>
 		  <p>
               JavaScript has <em>operators</em> that perform some operation on a single or multiple <em>operands</em> (data value). 
               There are at least 10 different kinds of operators in Javascript, one being the assignment operator <span class="emphasize-gray">=</span> which assign a value to a variable, another being arithmetic operators as <span class="emphasize-gray">+</span><span class="emphasize-gray">-</span><span class="emphasize-gray">/</span> that performs arithmetic operations.
               In this tutorial we will look deeper into a few of these, among them <em>Comparison</em> operators due to their importance for understanding how Javascript handles <em>type coercion</em>.     
-            </p>
+            </p>-->
             
-            <h4>Comparison Operators</h4>
+			<article class="subject-article">
+          <h3 class="subject-title">Comparison & Logical Operators</h3>
             <p>
+			JavaScript has <em>operators</em> that perform some operation on a single or multiple <em>operands</em> (data value). 
+              There are at least 10 different kinds of operators in Javascript, In this tutorial we will look deeper into a comparison and logical operators due to their importance for understanding how Javascript handles <em>type coercion</em>.
+			</p>		  
+			
+			<h4>Comparison Operators</h4>
+			<p>			  
               The rules for type conversions in Javascript can be confusing and give unexpected outcomes if not understood fully.               
               It's not least important to understand the difference between the
               double equality operator <span class="emphasize-gray">==</span> and the tripple equality
@@ -1360,6 +1198,173 @@
             </div>
         </article>			
 
+		
+		
+		<article class="subject-article">
+          <h3 class="subject-title">Objects and <em>Derived Types of Objects</em></h3>
+		  <p>
+		  All values in Javascript, except primitives, are objects. Objects can store collection of values while primitives are restricted to hold a single value. The easiest way to understand objects are to see them as a collection of key value pairs. In Javascript the correct term for keys are properties. Properties being the 'key' in a key value pair can also be seen as variable names inside objects. If the property holds a function expression we would call it a <em>method</em>.		  	  
+		  </p>		  
+						  
+		  <h4>Constructor functions</h4>
+			<p>
+			Javascript has for a long time used constructor functions to create an object data type, basically a 'blueprint' for creating objects. With constructors we can create an object type that can be the base for creating an unlimited quantity of instances without having to redefine the same object. 	
+			</p>		  
+			<p>In general the properties and values have something in common as for example all car objects can be expected to have the properties color and model. It therefore makes sense to create a function that can be used to create an unlimited quantity of instances of a certain object type. Using the <em>new</em> operator we can create new instances of the base constructor. 	
+			</p>
+			<div class="code-container">
+				<div class="comment-oneline">We create a <em>car</em> constructor</div>
+				<code>
+					function Car(model, color, year, doors) {		<br />	
+						<span class="example">this.model = model	</span><br />
+						<span class="example">this.color = color	</span><br />
+						<span class="example">this.year = year		</span><br />
+						<span class="example">this.doors = doors	</span><br />
+					}	<br />
+					</code>
+					<div class="comment-oneline">We add a method to the constructor prototype</div>
+					<code>
+					Car.prototype.allData = function() {	<br />
+						<span class="example">car_data = "The car model is " + this.model + " and was built " + this.year + " and has the color " + this.color;	</span><br />
+						return car_data		<br />				
+					}						<br />						
+					</code>
+					<div class="comment-oneline">We use the <em>new</em> operator to create a car object</div>
+					<code>
+						var coolCar = new Car('Super', 'black', 2020, 2) 	<br />						
+						console.log(coolCar.allData()) <span class="comment-outcome">--> The car model is Super... 	</span><br />
+					
+					</code>
+			</div>
+			
+			 <div class="note-comment"><span class="first-word">Note: </span>We can use console.dir() to get more info about the
+              constructor </div
+            >
+			
+			<div class="note-comment">
+        <span class="first-word">Note: </span>With the ES6 update classes was introduced to Javascript that performs basically the same operations as constructor functions. We will look more at classes in the next chapter.
+		</div>	
+
+		<h4>Arrays</h4>
+			<p>Arrays are basically a variable consisting of a collection of values. The values are accessible by referring to its index number. That said it's important to remember that arrays are technically objects, using the typeof operator on an array will also return <em>object</em>. To check for array we use <span class="emphasize-gray">Array.isArray(array)</span>.    
+			</p><br />
+						
+			<p>When it comes to use methods on arrays it's important to differentiate between mutator- and non-mutable methods. The toString method for example will return a string based on the elements of an array but it will not change the original array. The converted value will have to be stored in a variable that will of type string. In other cases the method might return a completely new array not changing the orignal array as for example with slice. Mutator methods on the other hand will change the orignal array, as with push that will add a new element at the end of the orignal array. 
+			</p>
+  			
+			<ul class="log-list">
+				<li><span class="info-list">Non-mutable</span><span class="info-list">Short description</span></li>
+				<li><span class="info-list"><em>toString</em></span><span class="info-list">Converts elements in an array to a comma separated string</span></li>		
+				<li><span class="info-list"><em>slice</em></span><span class="info-list">Slices a part of an array and returns a new array</span></li>
+				<li><span class="info-list"><em>splice</em></span><span class="info-list">Assigned parameters can both add and remove elements in an array</span></li>
+				<li><span class="info-list"><em>indexOf</em></span><span class="info-list">Returns the index of the searched character</span></li>
+				</ul>
+				
+				<ul class="log-list">
+				<li><span class="info-list">Mutable</span><span class="info-list">Short description</span></li>	
+				<li><span class="info-list"><em>push</em></span><span class="info-list">Adds a new element at the end of an array </span></li>
+				<li><span class="info-list"><em>pop</em></span><span class="info-list">Removes the last element of an array</span></li>
+				<li><span class="info-list"><em>unshift</em></span><span class="info-list">Adds a new element at the start of an array</span></li>
+				<li><span class="info-list"><em>shift</em></span><span class="info-list">Removes the first element of an array</span></li>
+				<li><span class="info-list"><em>sort</em></span><span class="info-list">Sorts an array in alphabetical order</span></li>
+				<li><span class="info-list"><em>reverse</em></span><span class="info-list">Reverse the order of the elements in an array</span></li>
+				</ul>			
+
+            <div class="code-container">
+				<code>
+				var myArr = ['H','E','L','L']		<br />
+				myArr.push('O')			<br />	
+				console.log(myArr)	<span class="comment-outcome">--> ['H'E'L'L'O']			</span><br />	
+				</code>
+				<div class="comment-oneline">We use array methods on a string</div> 
+			
+              <code>			  
+                var greet = new String("Hello") 		<br />
+                greet.charAt(greet.length-1) 			<br /><br />
+
+                var str = "KYH Frontend" 				<br />
+                console.log(str.indexOf("F")) <span class="comment-outcome">--> 4</span><br /><br />
+
+                var foo = str.split(" ") 				<br />
+                console.log(typeof foo) <span class="comment-outcome">--> Object </span><br />
+                foo.sort() 								<br /><br />
+
+                var first = foo.slice(0,1)				<br />
+                foo.push(first.join()) 					<br />
+                console.log(foo) 		<span class="comment-outcome">--> 'Frontend'</span><br /><br />
+				</code>				
+            </div>
+			
+            <div class="note-comment"
+              ><span class="first-word">Note: </span>push and sort are so called mutator methods since they
+              change the original array. Push for example adds item/s to the end
+              of the array while returning the new length of the array. 
+            </div>
+           
+            <span class="link"
+              >See more:
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2"
+                >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2</a
+              ><br />
+              <a
+                href="https://www.tutorialrepublic.com/javascript-reference/javascript-array-object.php"
+                >https://www.tutorialrepublic.com/javascript-reference/javascript-array-object.php</a
+              ></span
+            >		
+	  </article>
+
+		<article class="subject-article">
+          <h3 class="subject-title">Pass by Value vs. Reference</h3>
+            <p>
+              When we assign an object to new variable we copy the reference to
+              where that object or array is stored in memory. The reference
+              works in other words as a pointer to where the object is stored,
+              it doesn't copy the value as is the case with primitive types.
+              This means that if we change the value of a property/element it
+              will impact all variables with a reference to the same location in memory. In other words an object that is assigned to another variable will have its value changed if the value of the original object is changed. 
+            </p>
+
+            <div class="code-container">
+			<div class="comment-oneline">Primitive types, pass value by copying</div>
+              <code>
+                var a = "KYH" <br />
+                var b = a <br />
+                a = "Hello" <span class="code-comment">// we assign a new value to a </span><br />
+                console.log(b) <span class="comment-outcome">--> "KYH"</span> <span class="code-comment">// we retain the copied value </span><br />
+              </code>           
+			<div class="comment-oneline">Objects, pass value by reference</div>
+              <code>
+                var objectA = {name: "Kal", lastname: "Doe"} <br />
+                var objectB = objectA <br />
+                objectA.name = "Ada" <span class="code-comment">// we change the value of prop name</span><br>
+				</code>				
+				<div class="comment-oneline">objectB points to the location of the original object.
+              It's not a copy of objectA.</div>
+			  <code>
+                objectB.name <span class="comment-outcome">--> "Ada"</span> <span class="code-comment">// prop name has changed </span><br />
+              </code>
+            </div>
+            <div class="note-comment">
+              <span class="first-word">Note: </span>Function arguments are always passed by value and are copied
+              into the function.
+			  </div>
+            
+			<div class="note-comment"><span class="first-word">Note: </span>
+            To make a real copy of an object/array we
+              can use the spread operator(see more under ES6 features).
+            </div>
+
+            <div class="link"
+              >See more:
+              <a
+                href="https://stackoverflow.com/questions/16880418/javascript-pas"
+                >https://stackoverflow.com/questions/16880418/javascript-pas</a
+              ></div
+            >
+        </article>      		
+		
+		
         <article class="subject-article">
           <h3 class="subject-title">Functions as Callbacks</h3>
 		  <p>In Javascript functions are first class objects meaning that functions can be stored in a variable and passed as arguments into other functions just as any other object. 		  
