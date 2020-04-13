@@ -572,7 +572,7 @@
               	<p>				
                     This tutorial will not focus on syntax rules or describe the basic terminology for a programming language. There are already good tutorials that explains the core basic in detail. If you feel that your knowledge is lacking when it comes to the core basic please make sure to start with learning that before looking in to this tutorial. 
 										
-					This tutorial will explain some key concepts to get a better understanding on how Javascript works under the hood. There is also a chapter dedicated to the ECMAScript 2015(ES6) update and the new features that was introduced with it. The ES6 update was probably the most important development of Javascript since its introduction making Javascript significantly more powerful and versatile.
+					This tutorial will explain some key concepts to get a better understanding on how Javascript works under the hood. There is also a chapter dedicated to the ECMAScript 2015(ES6) update and the new features that was introduced with it. The ES6 update was probably the most important development of Javascript since its introduction making Javascript significantly more powerful and versatile.					
                 </p>
 
                 <div class="note-comment">
@@ -607,8 +607,8 @@
 					</p><br />
 					
 					<p>
-					The behaviour of type conversion can be confusing if not understood fully and lead to unexpected outcomes due to what is called <em>logical mistakes</em>. Meaning there are no technical errors but the outcome is still buggy and does not correspond to what was to be expected. But before looking deeper into these concepts we need to get a better understanding on data types and how they behave in Javascript.					
-                </p>               
+					The behaviour of type conversion can be confusing if not understood fully and lead to unexpected outcomes due to what is called <em>logical mistakes</em>. Meaning there are no technical errors at runtime but the outcome is still buggy and does not correspond to what was to be expected. But before looking deeper into these concepts we need to get a better understanding on data types and how they behave in Javascript.					
+					</p>               
 
                 <h4>Data Types</h4>
                 <p>
@@ -1175,22 +1175,43 @@
                     <p>
                         An example of implicit(automatic) type coercion is when using the loose equality operator to compare a string and a number. Since it only compares the values and not the type Javascript will seek to make a type coercion so both values shares the same
                         type. If this wasn't the intention the result will be what is known as a logical error. The javascript engine will not return an error tough signifying that the mistake might be difficult to identify and debug.
-                    </p>
+						Another example can be a function that is called with arguments of the 'wrong' type. For example a function that will make an arithmetic calculation but instead of numbers is called with a string.
+					</p>					
+					
                     <div class="code-container">
+					<div class="comment-oneline">The operand to the right will be converted to a string before making the comparison</div>
                         <code>
-						("5" == 5) --> true	<br />
+						("5" == 5) <span class="comment-outcome">--> true</span><br /><br />
+						</code>
+						<div class="comment-oneline">Here we call a function with a number and a string</div>
+						<code>
+						let x = 10;		<br />
+						let y = "2"		<br /><br />
+						function addNumbers(num1, num2) {	<br />
+						<span class="example">return num1 + num2</span><br />
+						}	<br />
+						console.log(add(x,y)) <span class="comment-outcome">--> 102</span><br /> 
 					</code>
                     </div>
+					
+					<p>
+						
+						There are mitigation strategies to avoid logical errors as checking the type of the operands. We could also use the superset <em>TypeScript</em> to catch errors before compilation and helping us write better code. But no matter what strategy we use it is crucial to have a solid understanding on how the concept of type conversion works in Javascript. 
+					</p><br />
 
                     <p>
                         Explicit coercion on the other hand is done on purpose as in the example below where we use <em>type casting</em> to convert the string variable to a number before making the comparison.
                     </p>
                     <div class="code-container">
+					<div class="comment-oneline">We <em>type cast</em> the operand before making the comparison </div>
                         <code>
-						(Number("5") === 5) --> true	<br />
+						(Number("5") === 5) <span class="comment-outcome">--> true	</span><br />
+					</code><br />
+					<div class="comment-oneline">We can also <em>type cast</em> to a number by using the + operator</div>
+					<code>
+					(+("5") === 5) <span class="comment-outcome">--> true	</span><br />
 					</code>
                     </div>
-
 
                     <div class="link">See more:
                         <a href="https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion">https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion</a
@@ -3057,6 +3078,8 @@
                         let foo33 = testArray.toString()
                         console.log(testArray)
                         console.log(foo33)
+						
+						console.log(+"5" === 5)
                     </script>
                     <noscript>Your browser does not support JavaScript!</noscript>
 </body>
