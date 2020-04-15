@@ -24,6 +24,7 @@
         body {
             font-family: helvetica, roboto, sans-serif;
             background-color: rgb(222, 221, 221);
+			background-color: rgb(92, 91, 91);
         }
         
         header {
@@ -302,7 +303,13 @@
             letter-spacing: 0.25em;
             padding: 0 2px;
         }
-        
+		
+		.emphasize-question {
+			color: rgb(43,43,43);            
+            font-weight: 600;
+            padding: 0 4px;
+        }
+		        
         .code-container .code-comment {
             color: rgb(109, 109, 112);
             padding-left: 18px;
@@ -576,16 +583,14 @@
                 </p>
 
                 <div class="note-comment">
-                    <span class="first-word">Note: </span> The <i>var</i> keyword will be used in code examples until the section 'Variable Scope' where variable declarations are explained more in depth.
+                    <span class="first-word">Note: </span> The <i>var</i> keyword will be used in code examples until <em>variable scope</em> are explained more in depth.
                 </div>
             </article>
 
             <article class="subject-article">
                 <h3 class="subject-title">Introduction</h3>
 				<p>
-                    Javascript is the language of the web, it is an interpreted language that runs directly on the clients browser meaning that no compiler is needed. This is the core of Javascript; It was designed to be easy to use and easy to learn. It also explains some
-                    of its characteristics, strengths and drawbacks, that differentiate it from some of the most common programming languages. But Javascript has evolved a lot since its introduction and with the latest updates it has become a much more
-                    versatile language. Now days Javascript isn't limited to the browser neither. With the help of <em>Node</em>, runtime environment, we can run Javascript on the server side as well. 
+                    Javascript is the language of the web, it is an interpreted language that runs directly on the clients browser without the need of a compiler. This is the core of Javascript; It was designed to be easy to use and easy to learn. It also explains lots of its characteristics, strengths and drawbacks that differentiate it from some of the most common programming languages. That said Javascript has evolved a lot since its introduction and with the latest updates it has become a much more versatile language. Now days Javascript isn't limited to the browser neither. With the help of <em>Node</em>, runtime environment, we can run Javascript on the server side as well, but that is something we won't touch in this tutorial. 
                 </p>
 				<!--
 				<h4>The Callstack and the Event Loop</h4>
@@ -601,7 +606,7 @@
 				
                 <h4>Dynamically typed</h4>
                 <p>	
-					Javascript is what we call a <em>dynamically typed</em> programming language meaning that the type of a variable will be interpreted by the compiler. The types will be interpreted and if necessary even change implicitly when the program executes the commands, what is known as <em>runtime</em>. The type and value of a variable can be changed at any time in a process known as <em>type conversion</em>. This can be both explicitly in the code or implicitly by the Javascript engine.
+					Javascript is what we call a <em>dynamically typed</em> programming language meaning that the type of a variable will be interpreted and if necessary even change implicitly when the program executes the commands, or in other words at <em>runtime</em>. The type and value of a variable can be changed at any time in a process known as <em>type conversion</em>. This can be both explicitly in the code or implicitly by the Javascript engine at runtime.
 									
 					Programming languages where the type of a variable is not specified when declared is also said to be <em>weakly</em> typed. The contrary being known as <em>strongly</em> or <em>static</em> typed languages where a variable has to be given a type when it's declared. 
 					</p><br />
@@ -612,10 +617,7 @@
 
                 <h4>Data Types</h4>
                 <p>
-                    Data types specify what kind of data can be stored and manipulated in the Javascript memory. In Javascript types are either objects or primitives. When learning JavaScript you might have heard that everything in Javascript is an object. The truth is that
-                    most things in Javascript are objects, the exception being primitive types. Tough they can still be treated as objects, albeit with some restrictions. While there is only one <em>object</em> data type there are
-                    7 primitive data types. The fundamental difference between primitives and objects is that primitives can hold a single value while objects can hold a collection of values.
-                    <!--The concept of data types and how they work in a boolean context and Type Coercion is central to understand how Javascript works.-->
+                    Data types specify what kind of data can be stored and manipulated in the Javascript memory. In Javascript types are either objects or primitives. When learning JavaScript you might have heard that everything in Javascript is an object. The truth is a bit more complex then that but the fact is that most things in Javascript are objects, the exception being primitive types. Tough they can still be treated as objects albeit with some restrictions. The fundamental difference between primitives and objects is that primitives can hold a single value while objects can hold a collection of values.
                 </p>
 				
 				<div class="note-comment">
@@ -821,30 +823,20 @@
 					<span class="example">console.log('This is true')</span> // code block will execute	<br />
 					}	<br />	
 				</code>
-				<div class="comment-oneline">We pass an object with a <em>falsy</em> value</div>
-				<code>					
-					const myObj = new Object(false)	<br />
-					if(myObj) {													<br />
-					<span class="example">console.log("I'm true") <span class="comment-outcome">--> "I'm true"  </span></span><br />
-					}														<br />
-				</code>
-				<div class="comment-oneline">We pass a primitive with a false value</div>
-				<code>
-					const foo = 0	<span class="code-comment">// we assign a <i>falsy</i> value to 'foo'</span><br />
-					if(foo) {						<br />
-					<span class="example">console.log("nothingHappens") 	<span class="code-comment">// will not execute	
-					</span></span><br />
-					} else {													<br />
-						<span class="example">console.log("I'm false")	<span class="comment-outcome">--> "I'm false"</span><span class="code-comment">// will execute</span></span><br />
-					}				
-				</code>				
 			</div>
         </article>
 		
 		<article class="subject-article">
           <h3 class="subject-title"><em>truthy</em> and <em>falsy</em></h3>
 			<p>
-			All values in Javascript can be said to be either <em>truthy</em> or <em>falsy</em> i a Boolean context. This should not be confused with <em>true</em> or <em>false</em> that are of type Boolean. <em>truthy</em> and <em>falsy</em> have no data type in its own, a string for example is of type string no matter its inherent boolean value. To simplify there are six falsy values and all other values are considered to be truthy.
+			All values in Javascript can be said to be either <em>truthy</em> or <em>falsy</em>. A condition where one or more values are set in a boolean context will result in either a true or false outcome. The typical situation being an <em>if statement</em> where a block of code will be excecuted depending on if the condition will be considered true or false. 		
+			
+			<em>truthy</em> and <em>falsy</em> have no data type in its own and should not be confused with <em>true</em> or <em>false</em> that are of type Boolean. A string for example is of type string no matter its inherent boolean value that can be either <em>truthy</em> or <em>falsy</em>.
+			Understanding the concept of truthy and value and how data types work in a boolean context is central to understand how Javascript works under the hood.	
+			<p><br />
+					
+			<p>					
+			In Javascript there are six falsy values and all other values are considered to be truthy.
 			</p><br />
 			
 				<p class="log-list-title">Values considered falsy:</p> 
@@ -858,22 +850,48 @@
 				</ul>
 				
 			<p>
-			So why do we have <em>truthy</em> and <em>falsy</em> in Javascript?  
-			In JavaScript all values, no matter its type, will be considered either true or false when encountered in a Boolean context. In other words; A condition where one or more values are set in a boolean context will result in either a true or false outcome. The typical situation being an if statement where a block of code will be excecuted depending on if the condition will be considered true or false. The boolean context can consist of values of any type but they will always have an inherent boolean value as either <em>truthy</em> or <em>falsy</em> and the condition where they are set will evaluate to either true or false.  
+			<span class="emphasize-question">So why do we have the concept of <em>truthy</em> and <em>falsy</em> in Javascript? </span> 
+			The boolean data type can be either true or false nothing else. So when writing conditional statements based on values of other data types we use the inherent boolean value to get a true or false outcome. 		
 			</p>
 			
 			<div class="code-container">
+				<div class="comment-oneline">We pass a primitive with a <em>truthy</em> value</div>
 				<code>
 					if(1) {		<br />
 							<span class="example">console.log("Hello") <span class="comment-outcome">--> Hello</span> <span class="code-comment">// 1 will be considered <i>truthy</i> </span></span><br />
 					}				<br />	
-					<br />
-					var a;	<span class="code-comment">// 'a' is not initialized and will get the <i>falsy</i> value 'undefined'</span><br />
+				</code>					
+					
+				<div class="comment-oneline">We pass a primitive with a <em>falsy</em> value</div>
+				<code>
+					const foo = 0	<span class="code-comment">// we assign a <i>falsy</i> value to 'foo'</span><br />
+					if(foo) {						<br />
+					<span class="example">console.log("nothingHappens") 	<span class="code-comment">// will not execute	
+					</span></span><br />
+					} else {													<br />
+						<span class="example">console.log("I'm false")	<span class="comment-outcome">--> "I'm false"</span><span class="code-comment">// will execute</span></span><br />
+					}				
+				</code>				
+				
+				<div class="comment-oneline">We pass a variable that is not initialized</div>
+				
+				<code>
+					var a;	<span class="code-comment">// will get the value 'undefined'</span><br /><br />
 					if(a) {		<br />
-					<span class="example">	console.log("I'm true");  </span>	 <br />
+					<span class="example">	console.log("I'm truthy");  </span>	 <br />
 					} else {	<br />
-					<span class="example">console.log("I'm false")</span> <span class="comment-outcome">--> I'm false </span><span class="code-comment">// the condition evaluates to false</span><br />
+					<span class="example">console.log("I'm falsy")</span> <span class="comment-outcome">--> I'm falsy </span><span class="code-comment">// the condition evaluates to false</span><br />
 					} <br />
+				</code>
+				
+				
+				
+				<div class="comment-oneline">We pass an object with a <em>falsy</em> value</div>
+				<code>					
+					const myObj = new Object(false)	<br />
+					if(myObj) {													<br />
+					<span class="example">console.log("I'm true") <span class="comment-outcome">--> "I'm true"  </span></span><br />
+					}														<br />
 				</code>
 			</div>			
 		</article>		 
@@ -1176,7 +1194,10 @@
                         An example of implicit(automatic) type coercion is when using the loose equality operator to compare a string and a number. Since it only compares the values and not the type Javascript will seek to make a type coercion so both values shares the same
                         type. If this wasn't the intention the result will be what is known as a logical error. The javascript engine will not return an error tough signifying that the mistake might be difficult to identify and debug.
 						Another example can be a function that is called with arguments of the 'wrong' type. For example a function that will make an arithmetic calculation but instead of numbers is called with a string.
-					</p>					
+					</p><br />	
+					<p>
+						There are mitigation strategies to avoid logical errors as checking the type of the operands. We could also use the superset <em>TypeScript</em> to catch errors before compilation and helping us write better code. But no matter what strategy we use it is crucial to have a solid understanding on how the concept of type conversion works in Javascript. 
+					</p>		
 					
                     <div class="code-container">
 					<div class="comment-oneline">The operand to the right will be converted to a string before making the comparison</div>
@@ -1192,12 +1213,7 @@
 						}	<br />
 						console.log(add(x,y)) <span class="comment-outcome">--> 102</span><br /> 
 					</code>
-                    </div>
-					
-					<p>
-						
-						There are mitigation strategies to avoid logical errors as checking the type of the operands. We could also use the superset <em>TypeScript</em> to catch errors before compilation and helping us write better code. But no matter what strategy we use it is crucial to have a solid understanding on how the concept of type conversion works in Javascript. 
-					</p><br />
+                    </div>			
 
                     <p>
                         Explicit coercion on the other hand is done on purpose as in the example below where we use <em>type casting</em> to convert the string variable to a number before making the comparison.
