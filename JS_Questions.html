@@ -24,7 +24,7 @@
         body {
             font-family: helvetica, roboto, sans-serif;
             background-color: rgb(222, 221, 221);
-			background-color: rgb(92, 91, 91);
+			background-color: rgb(87, 86, 86);
         }
         
         header {
@@ -90,6 +90,7 @@
             color: rgb(35, 35, 35);
             padding: 30px 3.5rem;
             margin: 42px auto;
+			box-shadow: 2px 2px 0px rgb(254,254,254);
         }
         /*** GENERICS ***/
         
@@ -606,15 +607,19 @@
 				
                 <h4>Dynamically typed</h4>
                 <p>	
-					Javascript is what we call a <em>dynamically typed</em> programming language meaning that the type of a variable will be interpreted and if necessary even change implicitly when the program executes the commands, or in other words at <em>runtime</em>. The type and value of a variable can be changed at any time in a process known as <em>type conversion</em>. This can be both explicitly in the code or implicitly by the Javascript engine at runtime.
-									
-					Programming languages where the type of a variable is not specified when declared is also said to be <em>weakly</em> typed. The contrary being known as <em>strongly</em> or <em>static</em> typed languages where a variable has to be given a type when it's declared. 
-					</p><br />
+					Javascript is what we call a <em>dynamically typed</em> programming language meaning that the type of a variable will be interpreted when the program executes the command, or in other words at <em>runtime</em>. 
 					
-					<p>
-					The behaviour of type conversion can be confusing if not understood fully and lead to unexpected outcomes due to what is called <em>logical mistakes</em>. Meaning there are no technical errors at runtime but the outcome is still buggy and does not correspond to what was to be expected. But before looking deeper into these concepts we need to get a better understanding on data types and how they behave in Javascript.					
-					</p>               
+					The type can also change in a process known as <em>type conversion</em>. This can be both explicitly in the code or implicitly by the Javascript engine at runtime.
+					Programming languages where the type of a variable is not specified when declared is also said to be <em>weakly</em> typed. The contrary being known as <em>strongly</em> or <em>static</em> typed languages where a variable has to be given a type when it's declared.
+					</p><br />
+					<p>					
+					The behaviour of type conversion in Javascript can be confusing if not understood fully and lead to unexpected outcomes due to what is called <em>logical mistakes</em>. Meaning there are no technical errors at runtime but the outcome is still buggy and does not correspond to what was to be expected. But before looking deeper into these concepts we need to get a better understanding on data types and how they behave in Javascript.					
+					</p><br />
 
+					<p>
+					 
+					</p>
+					
                 <h4>Data Types</h4>
                 <p>
                     Data types specify what kind of data can be stored and manipulated in the Javascript memory. In Javascript types are either objects or primitives. When learning JavaScript you might have heard that everything in Javascript is an object. The truth is a bit more complex then that but the fact is that most things in Javascript are objects, the exception being primitive types. Tough they can still be treated as objects albeit with some restrictions. The fundamental difference between primitives and objects is that primitives can hold a single value while objects can hold a collection of values.
@@ -1472,7 +1477,7 @@
 
                 <h4>Why do we need the DOM?</h4>
                 <p>
-                    Being able to access any element on a HTML document and manipulate the same is what the DOM makes possible. As such the DOM is essential for creating dynamic content and add interactivity. To acchieve this we have a rich set of methods and properties
+                    Being able to access any element on a HTML document and manipulate the same is what the DOM makes possible. As such the DOM is essential for creating dynamic content and add interactivity to a website. To achieve this we have a rich set of methods and properties
                     to our disposal.
                 </p>
 
@@ -1784,14 +1789,20 @@
 					</code>
 			</div>
 			<div class="note-comment">
-              <span class="first-word">Note: </span>By convention, <em>const</em> identifiers are capitalized. 
+              <span class="first-word">Note: </span>By convention, <em>const</em> identifiers are often capitalized. 
             </div>
             
             <h4>let vs. var</h4>
             <p>
               The main difference between <i>var</i> and <i>let</i> is that
               <i>var</i> has function scope and <i>let</i> has block scope. 
-			  Meaning that <i>let</i> allows for block level variables to be created, for example inside an if branch or a for loop. Another difference is that <i>let</i> declarations are not hoisted unlike variables declared with <i>var</i>. Therefore a variable declared with <i>let</i> will not be accessible before it has been initialized, trying to will result in a reference error. While doing the same with a variable declared with <i>var</i> will return as <i>undefined</i>. Another difference is that a <i>let</i> declaration will not create a property on the global object as the case with <i>var</i> declarations. 
+			  Meaning that <i>let</i> allows for block level variables to be created, for example inside an if branch or a for loop. 
+			  Declaring a variable with <em>var</em> will also allow you to re-declare a variable in the same scope while doing the same with a <em>let</em> declaration raises a SyntaxError.
+			  </p><br />
+			  <p>
+			  Another difference is that <i>let</i> declarations are not hoisted unlike variables declared with <i>var</i>. Therefore a variable declared with <i>let</i> will not be accessible before it has been initialized, trying to will result in a reference error. While doing the same with a variable declared with <i>var</i> will return as <i>undefined</i>. 
+			
+			  The final difference is that a <i>let</i> declaration will not create a property on the global object as the case with <i>var</i> declarations. 
             </p>
 			
 			<div class="code-container">
@@ -1807,11 +1818,8 @@
 				}	<br />
 				blockScope(5);	<br />
               </code>
-			  </div>
-			
-            <div class="note-comment">
-              <span class="first-word">Note: </span><i>var</i> will allow you to re-declare a variable in the same scope while doing the same with a <em>let</em> declaration raises a SyntaxError.
-            </div>
+			  </div>			
+           
             <p>
               <span class="link"
                 >See more:
